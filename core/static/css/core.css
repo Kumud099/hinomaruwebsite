@@ -1,0 +1,72 @@
+/* Optional: Hide scrollbars */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#header {
+    scrollbar-width: auto;
+    /* For Firefox */
+    scrollbar-color: dark light;
+    /* Optional: Customize colors for Firefox */
+}
+
+#header::-webkit-scrollbar {
+    width: 8px;
+    /* For Chrome, Edge, and Safari */
+}
+
+#header::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+    border-radius: 4px;
+}
+
+/* Hide Y-axis scroll bar */
+.scrollbar-hide-y::-webkit-scrollbar {
+    width: 0;
+    /* For Chrome, Edge, and Safari */
+    display: none;
+    /* Ensures it won't be visible */
+}
+
+.scrollbar-hide-y {
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+    scrollbar-width: none;
+    /* For Firefox */
+    overflow-y: hidden;
+    /* Hides the vertical scroll but keeps the content accessible */
+}
+
+/* Example for a specific element (e.g., #header) */
+#header {
+    overflow-y: hidden;
+    /* Disable vertical scrolling */
+    overflow-x: auto;
+    /* Allows horizontal scrolling if needed */
+}
+
+
+::-moz-selection {
+    color: #ffffff;
+    background: #d41212;
+}
+
+::selection {
+    color: #ffffff;
+    background: #d41212;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}

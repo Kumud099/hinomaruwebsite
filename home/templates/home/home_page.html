@@ -1,0 +1,365 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+
+<!-- hero section -->
+<section class="font-Grotesk" id="hero">
+    <div class="relative flex items-center justify-center min-h-screen">
+        <!-- Text Section -->
+        <p id="header"
+            class="absolute bottom-5 left-5 z-30 text-white text-[64px] flex flex-col justify-start  pl-[166px]">
+            <span class="font-bold reveal" id="first-span">
+                Innovative Solutions <br>using Webscale <br>Technologies
+                <br>
+            </span>
+            <span class="text-[36px] gray-400 reveal">
+                Lorem ipsum dolor sit amet,
+                <br>consectetur adipiscing elit,
+                <br> sed do eiusmod.
+            </span>
+        </p>
+        <!-- video container -->
+        <div class="absolute z-0 object-cover w-auto min-w-full min-h-full max-w-none" id="videoContainer"></div>
+        <video id="videoContainer1" autoplay loop muted
+            class="absolute z-10 object-cover w-auto min-w-full min-h-full max-w-none" id="video">
+            <source src="{% static 'videos/bg.mp4' %}" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- <img src="../assets/images/hero.png" alt="hero" -->
+        <!-- class="absolute z-10 object-cover w-auto min-w-full min-h-full max-w-none" /> -->
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section class="flex flex-col items-center h-screen overflow-hidden about-us font-Grotesk" id="aboutUsContainer">
+    <h2 class="text-[64px] font-bold mt-11 about-us mb-10" id="our-vision">ABOUT US</h2>
+    <div class="flex flex-col items-center gap-8 mx-auto md:flex-row max-w-[1200px] about-us">
+        <!-- Content Section -->
+        <div class="text-left md:w-1/2 about-us">
+            <p class="mb-6 text-[36px] font-bold leading-tight text-gray-900 md:text-4xl">
+                As a Web Development Services We are Committed to Building Custom <br />
+                Web Solutions that Drive Business Success.
+            </p>
+            <p class="mb-8 text-gray-600 text-[18px] md:text-lg">
+                At our web development agency, we specialize in crafting bespoke online solutions tailored to
+                elevate
+                businesses toward their digital objectives. Committed to continuous evolution, we remain abreast of
+                cutting-edge web technologies and trends, ensuring a constant delivery of unparalleled excellence.
+                <br /><br />
+                Our ethos is rooted in equipping clients with the essential tools for triumph in the digital realm.
+                We firmly believe in furnishing every business with a digital presence that authentically embodies
+                their brand essence and effectively resonates with their target demographic.
+            </p>
+            <button
+                class="px-6 py-3 font-medium text-white transition-colors rounded-md shadow-lg bg-hred-950 hover:bg-red-700">
+                Get in Touch
+            </button>
+        </div>
+        <!-- Image Section -->
+        <div class="relative flex items-center justify-center md:w-1/2">
+            <!-- Background Circle -->
+            <div class="absolute w-48 h-48 rounded-full bg-hred-950 md:w-64 md:h-64 -top-6 -right-6">
+            </div>
+            <!-- Main Image -->
+
+            <img src="{% static 'images/about-us-image.png' %}" alt="About Us Visual"
+                class="relative w-full max-w-sm rounded-lg shadow-lg md:max-w-md">
+        </div>
+    </div>
+</section>
+
+<!-- Services Section  -->
+<section id="services" class="flex flex-col items-center justify-start min-h-[835px] bg-[#201D1D] w-full">
+    <div class="container px-4 mx-auto max-w-7xl">
+        <h1 class="text-center pt-11 mb-10 font-bold text-[64px] text-white relative overflow-hidden">
+            <!-- Background Animation Div -->
+            <div id="reveal-box" class="absolute inset-0 w-0 bg-red-900"></div>
+
+            <!-- Text wrapped in span for control -->
+            <span id="service-text" class="relative">OUR SERVICES</span>
+        </h1>
+
+        <!-- Hide scrollbar for this container -->
+        <div class="relative w-full overflow-hidden">
+            <div class="flex justify-center gap-4 pb-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+                <div class="card snap-center">
+                    <div
+                        class="min-w-[400px] flex-shrink-0 bg-red-700 h-[200px] flex flex-col justify-center items-center text-center rounded-md shadow-lg">
+                        <p class="text-lg font-semibold text-white">Web Application Development</p>
+                    </div>
+                    <p class="mt-2 text-center text-white">Hello Darling</p>
+                </div>
+
+                <div class="card snap-center">
+                    <div class="min-w-[400px] flex-shrink-0 bg-red-700 h-[200px] flex flex-col justify-center items-center text-center rounded-md shadow-lg"
+                        style="background-image: url('https://picsum.photos/500/500'); background-size: cover; background-position: center;">
+                        <p class="text-lg font-semibold text-white">Web Application Development</p>
+                    </div>
+                    <p class="mt-2 text-center text-white">Hello Darling</p>
+                </div>
+
+                <div class="card snap-center">
+                    <div
+                        class="min-w-[400px] flex-shrink-0 bg-red-700 h-[200px] flex flex-col justify-center items-center text-center rounded-md shadow-lg">
+                        <p class="text-lg font-semibold text-white">Web Application Development</p>
+                    </div>
+                    <p class="mt-2 text-center text-white">Hello Darling</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrolling Text Section -->
+    <div class="relative w-full overflow-hidden whitespace-nowrap">
+        <div id="scrollingText" class="flex gap-12 text-[128px] text-gray-300 pt-4">
+            <p class="opacity-30">WEB APPLICATION DEVELOPMENT * SOFTWARE DEVELOPMENT * CMS DEVELOPMENT</p>
+            <p class="opacity-30">WEB APPLICATION DEVELOPMENT * SOFTWARE DEVELOPMENT * CMS DEVELOPMENT</p>
+            <!-- Duplicate for seamless effect -->
+        </div>
+    </div>
+</section>
+
+<!-- Blogs Section  -->
+<section class="relative pt-10 overflow-hidden">
+    <div class="flex items-center justify-between">
+        <h2 class="font-bold text-[64px] pl-[166px]">BLOGS
+            <span class="text-xl text-gray-300">Latest Blogs</span>
+
+        </h2>
+        <h2 class=" pr-[30px] flex items-center">
+            <div class="flex self-center justify-between gap-1">
+                <!-- Left Button -->
+                <button class="flex items-center justify-center w-20 h-20 p-2 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-10">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                </button>
+
+                <!-- Right Button -->
+                <button class="flex items-center justify-center w-20 h-20 p-2 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-10">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                </button>
+            </div>
+        </h2>
+    </div>
+    <div class="flex gap-3 pt-3 pl-5 pr-5 overflow-hidden overflow-x-scroll snap-x snap-mandatory scrollbar-hide"
+        id="blog-container">
+
+        {% for blog in blogs  %}
+        {% image blog.blog_cover_image width-400 as blog_cover %}
+
+        <!-- Blog Card 1 -->
+        <div class="min-w-[525px] flex-shrink-0 snap-center h-[320px] flex flex-col justify-center items-center rounded-md shadow-lg overflow-hidden"
+            style="background-image: url('{{blog_cover.url}}'); background-size: cover; background-position: center;">
+
+            <!-- Overlay for content -->
+            <div class="flex flex-col w-full h-full p-4 bg-black bg-opacity-60">
+                <!-- Title and Button Row -->
+                <div class="flex items-center justify-between mb-2">
+                    <span class="px-2 py-1 text-lg font-bold text-white rounded-md">Web App
+                        Development</span>
+                    <a class="px-4 py-1 text-sm font-medium text-black bg-white rounded-md shadow hover:bg-gray-200">
+                        News
+                    </a>
+                </div>
+                <!-- Description -->
+                <span class="text-sm text-white">
+                    Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed do.
+                </span>
+            </div>
+        </div>
+        {% endfor %}
+
+
+
+    </div>
+    </main>
+
+    <div class="flex items-center justify-center pt-10 pb-10">
+        <a href="/blogs"
+            class="flex items-center px-6 py-2 space-x-2 text-white transition-all duration-300 bg-black rounded group hover:bg-opacity-90">
+            <span>Read More</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 transition-transform duration-300 transform group-hover:translate-x-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+        </a>
+
+    </div>
+</section>
+
+<hr class="border-black border-1">
+
+<!-- News Section -->
+<section class="relative pt-10 pb-10 overflow-hidden ">
+    <div class="">
+        <h2 class="font-bold text-[64px] pl-[166px]">NEWS <span class="text-xl text-gray-300">Latest
+                Announcements</span></h2>
+        <div class="hover:cursor-pointer">
+            <!-- News 1 -->
+            <div class="pl-[166px] pr-[166px] pt-6 pb-6 ">
+                <hr class="border-black border-1">
+            </div>
+
+            <div class="flex flex-row pl-[200px] pr-[200px] justify-around items-center">
+                <div>
+                    <div class="w-20 h-10 pt-1 rounded">
+                        <p class="pt-1 pb-1 text-center text-white bg-black">2027-10-10</p>
+                    </div>
+                </div>
+                <div class="flex-grow mx-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore.
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="pl-[166px] pr-[166px] pt-6 pb-6">
+                <hr class="border-black border-1">
+            </div>
+
+
+            <!-- News 1 -->
+            <div class="pl-[166px] pr-[166px] pt-6 pb-6">
+                <hr class="border-black border-1">
+            </div>
+
+            <div class="flex flex-row pl-[200px] pr-[200px] justify-around items-center">
+                <div>
+                    <div class="w-20 h-10 pt-1 rounded">
+                        <p class="pt-1 pb-1 text-center text-white bg-black">2027-10-10</p>
+                    </div>
+                </div>
+                <div class="flex-grow mx-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore.
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="pl-[166px] pr-[166px] pt-6 pb-6">
+                <hr class="border-black border-1">
+            </div>
+
+
+            <!-- News 1 -->
+            <div class="pl-[166px] pr-[166px] pt-6 pb-6">
+                <hr class="border-black border-1">
+            </div>
+
+            <div class="flex flex-row pl-[200px] pr-[200px] justify-around items-center">
+                <div>
+                    <div class="w-20 h-10 pt-1 rounded">
+                        <p class="pt-1 pb-1 text-center text-white bg-black">2027-10-10</p>
+                    </div>
+                </div>
+                <div class="flex-grow mx-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore.
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="pl-[166px] pr-[166px] pt-6 pb-6">
+                <hr class="border-black border-1">
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="flex items-center justify-center pt-10 pb-10">
+        <button
+            class="flex items-center px-6 py-2 space-x-2 text-white transition-all duration-300 bg-black rounded group hover:bg-opacity-90">
+            <span>More Announcements</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 transition-transform duration-300 transform group-hover:translate-x-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+        </button>
+    </div>
+</section>
+
+<!-- Contact Us Section -->
+<section class="flex flex-col items-center justify-center h-screen gap-3 overflow-hidden bg-hred-950">
+    <main class=" pl-[166px]">
+        <div class="flex flex-row gap-8">
+            <!-- Left Content -->
+            <div class="text-white">
+                <h2 class="mb-4 font-bold text-[96px] font-Grotesk">Got a <br>Project? <br> Let's Talk</h2>
+                <p class="text-[36px]">
+                    +977 9898988818 <br>
+                    contact@hinomaru.tech
+                </p>
+            </div>
+            <!-- Right Content -->
+            <div>
+                <div class="grid grid-cols-2 gap-4 ">
+                    <!-- Inputs -->
+                    <div>
+                        <input type="text"
+                            class="w-[465px] h-[62px] placeholder:text-gray-500 pl-[14px] rounded ring-offset-2 ring-2 ring-indigo-400"
+                            placeholder="First Name">
+                    </div>
+                    <div>
+                        <input type="text" class="w-[465px] h-[62px] placeholder:text-gray-500 pl-[14px] rounded"
+                            placeholder="Last Name">
+                    </div>
+                    <div>
+                        <input type="email" class="w-[465px] h-[62px] placeholder:text-gray-500 pl-[14px] rounded"
+                            placeholder="Email">
+                    </div>
+                    <div>
+                        <input type="text" class="w-[465px] h-[62px] placeholder:text-gray-500 pl-[14px] rounded"
+                            placeholder="Phone Number">
+                    </div>
+                    <!-- Textarea -->
+                    <div class="col-span-2">
+                        <textarea class="w-full h-[124px] rounded p-2 placeholder:text-gray-500 pl-[14px]"
+                            placeholder="Your Message"></textarea>
+                    </div>
+
+                    <button
+                        class="col-span-2 p-3 text-white rounded shadow-md bg-hyello-950 hover:bg-yellow-500">Submit</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</section>
+
+
+
+<!-- Javascript -->
+
+
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/animations.js' %}"></script>
+{% endblock extra_js %}

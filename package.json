@@ -1,0 +1,16 @@
+{
+  "name": "c",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^4.0.0",
+    "tailwindcss-image-rendering": "^1.0.2",
+    "tailwindcss-typography": "^3.1.0"
+  }
+}
