@@ -280,6 +280,7 @@ dependencies = [
     { name = "django-cotton" },
     { name = "django-tailwind-cli" },
     { name = "faker" },
+    { name = "requests" },
     { name = "wagtail" },
 ]
 
@@ -288,6 +289,7 @@ requires-dist = [
     { name = "django-cotton", specifier = ">=1.5.2" },
     { name = "django-tailwind-cli", specifier = ">=2.21.1" },
     { name = "faker", specifier = ">=34.0.2" },
+    { name = "requests", specifier = ">=2.32.3" },
     { name = "wagtail", specifier = ">=6.3.2" },
 ]
 

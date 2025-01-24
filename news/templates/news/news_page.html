@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block navbar %}
+<c-components.navbar txtcolor="black" />
+{% endblock navbar %}
+
+{% block content %}
+<div class="pt-20 min-h-[100vh]">
+    <!-- Content Section -->
+    <main class="flex flex-col max-w-6xl gap-2 px-4 py-8 mx-auto">
+
+        <h1 class="mb-8 text-3xl font-bold text-gray-800">
+            News <span class="text-[18px] text-gray-600">Page #1</span>
+        </h1>
+
+        {% for news_item in news %}
+        <div class="p-6 bg-white bg-gray-200 rounded-lg shadow-md">
+            <div class="flex flex-row pl-[200px] pr-[200px] justify-around items-center">
+                <div>
+                    <div class="h-10 pt-1 rounded w-25">
+                        <p class="pt-1 pb-1 pl-2 pr-2 text-center text-white bg-black">{{ news_item.date }}</p>
+                    </div>
+                </div>
+                <div class="flex-grow mx-4">
+                    {{ news_item.title }}
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </main>
+
+    <!-- Pagination -->
+    <div class="max-w-6xl px-4 py-8 mx-auto">
+        <div class="flex items-center justify-center space-x-4">
+            {% if news.has_previous %}
+            <a href="?page={{ news.previous_page_number }}"
+                class="px-4 py-2 text-gray-700 bg-white rounded-lg shadow-md hover:bg-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+            </a>
+            {% endif %}
+            <span class="text-gray-700">Page {{ news.number }} of {{ news.paginator.num_pages }}</span>
+            {% if news.has_next %}
+            <a href="?page={{ news.next_page_number }}"
+                class="px-4 py-2 text-gray-700 bg-white rounded-lg shadow-md hover:bg-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
