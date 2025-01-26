@@ -60,11 +60,12 @@
         </div>
         <!-- Image Section -->
         <div class="relative flex items-center justify-center md:w-1/2">
+
             <!-- Background Circle -->
             <div class="absolute w-48 h-48 rounded-full bg-hred-950 md:w-64 md:h-64 -top-6 -right-6">
             </div>
-            <!-- Main Image -->
 
+            <!-- Main Image -->
             <img src="{% static 'images/about-us-image.png' %}" alt="About Us Visual"
                 class="relative w-full max-w-sm rounded-lg shadow-lg md:max-w-md">
         </div>
@@ -77,7 +78,6 @@
         <h1 class="text-center pt-11 mb-10 font-bold text-[64px] text-white relative overflow-hidden">
             <!-- Background Animation Div -->
             <div id="reveal-box" class="absolute inset-0 w-0 bg-red-900"></div>
-
             <!-- Text wrapped in span for control -->
             <span id="service-text" class="relative">OUR SERVICES</span>
         </h1>
@@ -122,17 +122,16 @@
     </div>
 </section>
 
-<!-- Blogs Section  -->
+<!-- Blogs Section -->
 <section class="relative pt-10 overflow-hidden">
     <div class="flex items-center justify-between">
         <h2 class="font-bold text-[64px] pl-[166px]">BLOGS
             <span class="text-xl text-gray-300">Latest Blogs</span>
-
         </h2>
-        <h2 class=" pr-[30px] flex items-center">
+        <h2 class="pr-[30px] flex items-center">
             <div class="flex self-center justify-between gap-1">
                 <!-- Left Button -->
-                <button class="flex items-center justify-center w-20 h-20 p-2 rounded-full">
+                <button id="scroll-left" class="flex items-center justify-center w-20 h-20 p-2 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-10">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -141,7 +140,7 @@
                 </button>
 
                 <!-- Right Button -->
-                <button class="flex items-center justify-center w-20 h-20 p-2 rounded-full">
+                <button id="scroll-right" class="flex items-center justify-center w-20 h-20 p-2 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-10">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -153,33 +152,39 @@
     </div>
     <div class="flex gap-3 pt-3 pl-5 pr-5 overflow-hidden overflow-x-scroll snap-x snap-mandatory scrollbar-hide"
         id="blog-container">
-
         {% for blog in blogs  %}
-        {% image blog.blog_cover_image width-400 as blog_cover %}
+        <a href="{{blog.url}}">
+            {% image blog.blog_cover_image width-400 as blog_cover %}
+            <!-- Blog Card 1 -->
+            <div class="min-w-[525px] flex-shrink-0 snap-center h-[320px] flex flex-col justify-center items-center rounded-md shadow-lg overflow-hidden"
+                style="background-image: url('{{blog_cover.url}}'); background-size: cover; background-position: center;">
+                <!-- Overlay for content -->
+                <div class="flex flex-col w-full h-full p-4 bg-black bg-opacity-60">
+                    <!-- Title and Button Row -->
+                    {% if blog.categories.all %}
+                    <div class="flex items-center justify-between mb-2">
+                        <span
+                            class="px-2 py-1 text-lg font-bold text-white rounded-md">{{blog.blog_title | truncatewords:5 }}</span>
+                        <div
+                            class="flex gap-2 px-4 py-1 text-sm font-medium text-black bg-white rounded-md shadow flex-rows hover:bg-gray-200">
+                            {% for category in blog.categories.all  %}
+                            <span>
+                                {{category.name}}
+                            </span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
 
-        <!-- Blog Card 1 -->
-        <div class="min-w-[525px] flex-shrink-0 snap-center h-[320px] flex flex-col justify-center items-center rounded-md shadow-lg overflow-hidden"
-            style="background-image: url('{{blog_cover.url}}'); background-size: cover; background-position: center;">
-
-            <!-- Overlay for content -->
-            <div class="flex flex-col w-full h-full p-4 bg-black bg-opacity-60">
-                <!-- Title and Button Row -->
-                <div class="flex items-center justify-between mb-2">
-                    <span
-                        class="px-2 py-1 text-lg font-bold text-white rounded-md">{{blog.blog_title | truncatewords:5 }}</span>
-                    <a class="px-4 py-1 text-sm font-medium text-black bg-white rounded-md shadow hover:bg-gray-200">
-                        News
-                    </a>
+                    <!-- Description -->
+                    <span class="text-sm text-white">
+                        {{blog.blog_description | truncatewords:6 }}
+                    </span>
                 </div>
-                <!-- Description -->
-                <span class="text-sm text-white">
-                    {{blog.blog_description | truncatewords:6 }}
-                </span>
             </div>
-        </div>
+        </a>
         {% endfor %}
     </div>
-    </main>
 
     <div class="flex items-center justify-center pt-10 pb-10">
         <a href="/blogs"
@@ -191,9 +196,9 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
         </a>
-
     </div>
 </section>
+
 
 <hr class="border-black border-1">
 
@@ -202,26 +207,30 @@
     <div class="">
         <h2 class="font-bold text-[64px] pl-[166px]">NEWS <span class="text-xl text-gray-300">Latest
                 Announcements</span></h2>
-        <div class="hover:cursor-pointer">
 
+        <div class="hover:cursor-pointer ">
             {% for news in list_of_news  %}
-
             <a href="{{news.url}}">
-
-                <div class="pl-[166px] pr-[166px] pt-6 pb-6 ">
+                <div class="pl-[166px] pr-[166px] pt-6 pb-6">
                     <hr class="border-black border-1">
                 </div>
 
-                <div class="flex flex-row pl-[200px] pr-[200px] justify-around items-center">
+                <div
+                    class="flex flex-row pl-[200px] pr-[200px] justify-around items-center  transition-shadow duration-300">
+                    <!-- Date -->
                     <div>
                         <p class="pt-1 pb-1 pl-2 pr-2 text-center text-white bg-black">
                             {{news.news_publish_date}}
                         </p>
                     </div>
+
+                    <!-- Title -->
                     <div class="flex-grow mx-4">
                         {{news.news_title}}
                     </div>
-                    <div>
+
+                    <!-- Arrow Icon -->
+                    <div class="transition-transform duration-300 group-hover:translate-x-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -230,20 +239,15 @@
                     </div>
                 </div>
             </a>
-
             <div class="pl-[166px] pr-[166px] pt-6 pb-6">
                 <hr class="border-black border-1">
             </div>
             {% endfor %}
-            <!-- News 1 -->
-
         </div>
-
-
     </div>
 
     <div class="flex items-center justify-center pt-10 pb-10">
-        <button
+        <a href="/announcements"
             class="flex items-center px-6 py-2 space-x-2 text-white transition-all duration-300 bg-black rounded group hover:bg-opacity-90">
             <span>More Announcements</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -251,8 +255,9 @@
                 class="w-6 h-6 transition-transform duration-300 transform group-hover:translate-x-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
-        </button>
+        </a>
     </div>
+
 </section>
 
 <!-- Contact Us Section -->
@@ -302,13 +307,33 @@
     </main>
 </section>
 
-
-
-<!-- Javascript -->
-
-
 {% endblock content %}
 
+<!-- Javascript -->
 {% block extra_js %}
 <script src="{% static 'js/animations.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const blogContainer = document.getElementById('blog-container');
+        const scrollLeftButton = document.getElementById('scroll-left');
+        const scrollRightButton = document.getElementById('scroll-right');
+
+        // Scroll left
+        scrollLeftButton.addEventListener('click', () => {
+            blogContainer.scrollBy({
+                left: -525,
+                behavior: 'smooth'
+            });
+        });
+
+        // Scroll right
+        scrollRightButton.addEventListener('click', () => {
+            blogContainer.scrollBy({
+                left: 525,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
 {% endblock extra_js %}
