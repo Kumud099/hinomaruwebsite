@@ -9,31 +9,34 @@
     <main class="flex flex-col max-w-6xl gap-2 px-4 py-8 mx-auto">
 
         <h1 class="mb-8 text-3xl font-bold text-gray-800">
-            News <span class="text-[18px] text-gray-600">Page #1</span>
+            News <span class="text-[18px] text-gray-600">Page # {{request.GET.page|default:1}}</span>
         </h1>
 
         {% for news_item in news %}
         <div class="p-6 bg-white bg-gray-200 rounded-lg shadow-md">
-            <div class="flex flex-row pl-[200px] pr-[200px] justify-around items-center">
-                <div>
-                    <div class="h-10 pt-1 rounded w-25">
-                        <p class="pt-1 pb-1 pl-2 pr-2 text-center text-white bg-black">{{ news_item.date }}</p>
+            <a href="{{ news_item.url }}"> <!-- Use news_item.url to link to the detail page -->
+                <div class="flex flex-row pl-[200px] pr-[200px] justify-around items-center">
+                    <div>
+                        <div class="h-10 pt-1 rounded w-25">
+                            <p class="pt-1 pb-1 pl-2 pr-2 text-center text-white bg-black">
+                                {{ news_item.news_publish_date }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex-grow mx-4">
+                        {{ news_item.news_title }}
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
                     </div>
                 </div>
-                <div class="flex-grow mx-4">
-                    {{ news_item.title }}
-                </div>
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                    </svg>
-                </div>
-            </div>
+            </a>
         </div>
         {% endfor %}
-
-
     </main>
 
     <!-- Pagination -->

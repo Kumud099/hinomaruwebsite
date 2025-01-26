@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
-{% block content %}
+{% load wagtailimages_tags %}
 
-News Detail Page
+{% block navbar %}
+<c-components.navbar txtcolor="black" />
+{% endblock navbar %}
+
+{% block content %}
+<main class="container mx-auto px-8 py-12 min-h-[100vh] flex flex-col  items-center pt-20">
+    <div class="w-full max-w-2xl">
+        <div class="mb-8">
+            <p class="text-gray-600">{{page.news_publish_date}}</p>
+            <h2 class="mt-2 text-3xl font-bold">{{page.news_title}}</h2>
+        </div>
+
+        <div class="pt-5 space-y-8 prose prose-slate">
+            {{page.news_body | safe}}
+        </div>
+    </div>
+</main>
 
 {% endblock content %}

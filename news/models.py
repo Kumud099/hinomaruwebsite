@@ -6,24 +6,6 @@ from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel
 
 
-class NewsPage(Page):
-
-    def get_context(self, request, *args, **kwargs):
-        context = super().get_context(request, *args, **kwargs)
-        news = NewsDetailPage.objects.live().public().order_by("-first_published_at")
-        paginator = Paginator(news, 6)
-        page = request.GET.get("page")
-        try:
-            news_paginated = paginator.page(page)
-        except PageNotAnInteger:
-            news_paginated = paginator.page(1)
-        except EmptyPage:
-            news_paginated = paginator.page(paginator.num_pages)
-
-        context["news"] = news_paginated
-        return context
-
-
 class NewsDetailPage(Page):
     news_publish_date = models.DateField(auto_created=True, auto_now=True)
     news_title = models.CharField(
@@ -39,3 +21,22 @@ class NewsDetailPage(Page):
         FieldPanel("news_description"),
         FieldPanel("news_body"),
     ]
+
+
+class NewsPage(Page):
+    max_count = 1
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        news = NewsDetailPage.objects.live().public().order_by("-first_published_at")
+        paginator = Paginator(news, 6)
+        page = request.GET.get("page")
+        try:
+            news_paginated = paginator.page(page)
+        except PageNotAnInteger:
+            news_paginated = paginator.page(1)
+        except EmptyPage:
+            news_paginated = paginator.page(paginator.num_pages)
+
+        context["news"] = news_paginated
+        return context

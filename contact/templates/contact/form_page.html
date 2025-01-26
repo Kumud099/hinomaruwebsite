@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="w-full max-w-2xl p-8 bg-white rounded-lg shadow-md">
+    <h1 class="mb-4 text-2xl font-bold text-gray-800">{{ page.title }}</h1>
+    <div class="prose max-w-none">{{ page.intro|richtext }}</div>
+
+    <form action="{% pageurl page %}" method="POST" class="space-y-6">
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div>
+            <label for="{{ field.id_for_label }}" class="block mb-2 font-medium text-gray-700">{{ field.label }}</label>
+            {{ field|add_class:"w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" }}
+            {% if field.errors %}
+            <p class="mt-1 text-sm text-red-500">{{ field.errors }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <button type="submit"
+            class="w-full py-3 text-white transition duration-300 bg-blue-600 rounded-lg hover:bg-blue-700">
+            Submit
+        </button>
+    </form>
+</div>
+
+{% endblock content %}

@@ -13,10 +13,10 @@
             <aside class="w-1/4 mr-4">
                 <h3 class="mb-4 text-2xl font-bold">Categories</h3>
                 <ul>
-                    <li class="mb-2"><a href="#" class="text-gray-600 hover:text-gray-900">Tech</a></li>
-                    <li class="mb-2"><a href="#" class="text-gray-600 hover:text-gray-900">Informative</a></li>
-                    <li class="mb-2"><a href="#" class="text-gray-600 hover:text-gray-900">Design</a></li>
-                    <li class="mb-2"><a href="#" class="text-gray-600 hover:text-gray-900">Test</a></li>
+                    {% for category in categories  %}
+                    <li class="mb-2"><a href="#" class="text-gray-600 hover:text-gray-900">{{category.name}}</a></li>
+                    {% endfor %}
+
                 </ul>
             </aside>
             <div class="grid w-3/4 grid-cols-2 gap-4">
@@ -74,6 +74,7 @@
             </nav>
         </div>
     </div>
+
 </main>
 
 {% endblock content %}

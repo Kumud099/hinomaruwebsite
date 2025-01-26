@@ -203,88 +203,40 @@
         <h2 class="font-bold text-[64px] pl-[166px]">NEWS <span class="text-xl text-gray-300">Latest
                 Announcements</span></h2>
         <div class="hover:cursor-pointer">
-            <!-- News 1 -->
-            <div class="pl-[166px] pr-[166px] pt-6 pb-6 ">
-                <hr class="border-black border-1">
-            </div>
 
-            <div class="flex flex-row pl-[200px] pr-[200px] justify-around items-center">
-                <div>
-                    <div class="h-10 pt-1 rounded w-25">
-                        <p class="pt-1 pb-1 text-center text-white bg-black">2027-10-10</p>
+            {% for news in list_of_news  %}
+
+            <a href="{{news.url}}">
+
+                <div class="pl-[166px] pr-[166px] pt-6 pb-6 ">
+                    <hr class="border-black border-1">
+                </div>
+
+                <div class="flex flex-row pl-[200px] pr-[200px] justify-around items-center">
+                    <div>
+                        <p class="pt-1 pb-1 pl-2 pr-2 text-center text-white bg-black">
+                            {{news.news_publish_date}}
+                        </p>
+                    </div>
+                    <div class="flex-grow mx-4">
+                        {{news.news_title}}
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
                     </div>
                 </div>
-                <div class="flex-grow mx-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore.
-                </div>
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                    </svg>
-                </div>
-            </div>
+            </a>
 
             <div class="pl-[166px] pr-[166px] pt-6 pb-6">
                 <hr class="border-black border-1">
             </div>
-
-
+            {% endfor %}
             <!-- News 1 -->
-            <div class="pl-[166px] pr-[166px] pt-6 pb-6">
-                <hr class="border-black border-1">
-            </div>
 
-            <div class="flex flex-row pl-[200px] pr-[200px] justify-around items-center">
-                <div>
-                    <div class="h-10 pt-1 rounded w-25">
-                        <p class="pt-1 pb-1 text-center text-white bg-black">2027-10-10</p>
-                    </div>
-                </div>
-                <div class="flex-grow mx-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore.
-                </div>
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                    </svg>
-                </div>
-            </div>
-
-            <div class="pl-[166px] pr-[166px] pt-6 pb-6">
-                <hr class="border-black border-1">
-            </div>
-
-
-            <!-- News 1 -->
-            <div class="pl-[166px] pr-[166px] pt-6 pb-6">
-                <hr class="border-black border-1">
-            </div>
-
-            <div class="flex flex-row pl-[200px] pr-[200px] justify-around items-center">
-                <div>
-                    <div class="h-10 pt-1 rounded w-25">
-                        <p class="pt-1 pb-1 text-center text-white bg-black">2027-10-10</p>
-                    </div>
-                </div>
-                <div class="flex-grow mx-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore.
-                </div>
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                    </svg>
-                </div>
-            </div>
-
-            <div class="pl-[166px] pr-[166px] pt-6 pb-6">
-                <hr class="border-black border-1">
-            </div>
         </div>
 
 
