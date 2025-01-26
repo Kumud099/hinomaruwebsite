@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+
 {% block navbar %}
 <c-components.navbar txtcolor="black" />
 {% endblock navbar %}
@@ -8,17 +10,33 @@
 
 <main class="min-h-[100vh]">
     <div class="p-20">
-        <h2 class="text-[64px] font-bold mb-4 underline decoration-red-700">BLOGS</h2>
+        <h2 class="text-[64px] font-bold mb-4">
+            <span class="underline decoration-red-700">BLOGS</span>
+            <span class="text-sm text-gray-500">Page# {{ request.GET.page|default:1 }}</span>
+        </h2>
         <div class="flex">
             <aside class="w-1/4 mr-4">
                 <h3 class="mb-4 text-2xl font-bold">Categories</h3>
                 <ul>
-                    {% for category in categories  %}
-                    <li class="mb-2"><a href="#" class="text-gray-600 hover:text-gray-900">{{category.name}}</a></li>
+                    {% for category in categories %}
+                    <li class="mb-2">
+                        <a href="?category={{ category.slug }}" class="block px-4 py-2 rounded-md transition duration-300
+                                      {% if selected_category == category.slug %}
+                                          text-white font-semibold bg-red-700
+                                      {% else %}
+                                          bg-white text-gray-700 hover:bg-gray-200 hover:text-gray-900
+                                      {% endif %}">
+                            {{ category.name }}
+                        </a>
+                    </li>
                     {% endfor %}
-
                 </ul>
+                <a href="{{ page.url }}"
+                    class="block w-full p-3 mt-4 text-center text-white bg-gray-600 rounded hover:bg-gray-700">
+                    Clear Filters
+                </a>
             </aside>
+
             <div class="grid w-3/4 grid-cols-2 gap-4">
                 {% for blog in blogs %}
                 {% image blog.blog_cover_image width-400 as cover %}
@@ -33,48 +51,19 @@
                         <h3 class="mb-2 text-xl font-bold">{{ blog.title }}</h3>
                         <p class="mb-4 text-gray-600">{{ blog.specific.intro }}</p>
                         <p class="text-sm text-gray-500">{{ blog.blog_publish_date }}</p>
-                        <a href="{{ blog.url }}" class="inline-block mt-2 text-red-700 hover:text-red-900">Read More
-                            →</a>
+                        <a href="{{ blog.url }}" class="inline-block mt-2 text-red-700 hover:text-red-900">Read
+                            More →</a>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-        <div class="flex justify-center mt-8">
-            <nav>
-                <ul class="flex">
-                    {% if blogs.has_previous %}
-                    <li class="mr-2">
-                        <a href="?page=1" class="text-gray-600 hover:text-gray-900">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                            </svg>
-                        </a>
-                    </li>
-                    {% endif %}
-                    <li class="mr-2">
-                        <span class="text-gray-600">
-                            Page {{ blogs.number }} of {{ blogs.paginator.num_pages }}.
-                        </span>
-                    </li>
-                    {% if blogs.has_next %}
-                    <li>
-                        <a href="?page={{ blogs.next_page_number }}" class="text-gray-600 hover:text-gray-900">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                            </svg>
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
-    </div>
 
+        <div class="max-w-6xl px-4 py-8 mx-auto">
+            <c-components.paginator :object="blogs" />
+        </div>
+
+    </div>
 </main>
 
 {% endblock content %}

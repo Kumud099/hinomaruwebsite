@@ -9,6 +9,7 @@ from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel
 from wagtail.images.models import Image
 from wagtail.snippets.models import register_snippet
+from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 
 
 @register_snippet
@@ -37,13 +38,19 @@ class BlogCategory(models.Model):
         return self.name
 
 
-class BlogPage(Page):
+class BlogPage(RoutablePageMixin, Page):
     max_count = 1
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
+
         blogs = BlogDetailPage.objects.live().public().order_by("-first_published_at")
-        paginator = Paginator(blogs, 8)
+        category_slug = request.GET.get("category", None)
+
+        if category_slug:
+            blogs = blogs.filter(categories__slug=category_slug)
+
+        paginator = Paginator(blogs, 6)
         page = request.GET.get("page")
         try:
             blogs_paginated = paginator.page(page)
@@ -54,6 +61,7 @@ class BlogPage(Page):
 
         context["blogs"] = blogs_paginated
         context["categories"] = BlogCategory.objects.all()
+        context["selected_category"] = category_slug
 
         return context
 
@@ -98,5 +106,3 @@ class BlogDetailPage(Page):
             heading="Categories",
         ),
     ]
-
-
