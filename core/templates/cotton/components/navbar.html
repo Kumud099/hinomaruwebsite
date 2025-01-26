@@ -1,7 +1,6 @@
 <!-- Navbar -->
 {% load static %}
 
-
 <nav class="fixed top-0 left-0 z-50 w-full 
 {% if txtcolor %}
 text-{{txtcolor}}
@@ -11,14 +10,14 @@ text-white
     <!-- <nav class="fixed top-0 left-0 z-50 w-full text-white text-[20px] font-Play" id="navbar"> -->
     <div class="flex items-center justify-between px-6 py-4">
         <!-- Logo -->
-        <div class="flex items-center gap-3 text-xl">
+        <a href="/" class="flex items-center gap-3 text-xl">
             <div>
                 <img src="{% static 'images/logo.png' %}" alt="logo" class="w-10 h-10">
             </div>
             <div>
                 <span class="font-Play">HINOMARU TECH</span>
             </div>
-        </div>
+        </a>
         <!-- Navbar Links -->
         <div class="relative">
             <ul class="flex flex-row gap-3">
