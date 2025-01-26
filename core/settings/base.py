@@ -153,3 +153,6 @@ WAGTAILDOCS_EXTENSIONS = [
     "xlsx",
     "zip",
 ]
+
+handler404 = "core.views.bad_request"
+handler500 = "core.views.server_error"
