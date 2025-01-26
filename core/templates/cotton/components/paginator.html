@@ -1,0 +1,21 @@
+<div class="flex items-center justify-center space-x-4 ">
+    {% if object.has_previous %}
+    <a href=" ?page={{ object.previous_page_number }}"
+        class="px-4 py-2 text-gray-700 bg-white rounded-lg hover:bg-gray-100" aria-label="Previous Page">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>
+    </a>
+    {% endif %}
+    <span class="text-gray-700">Page {{ object.number }} of {{ object.paginator.num_pages }}</span>
+    {% if object.has_next %}
+    <a href="?page={{ object.next_page_number }}" class="px-4 py-2 text-gray-700 bg-white rounded-lg hover:bg-gray-100"
+        aria-label="Next Page">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+        </svg>
+    </a>
+    {% endif %}
+</div>
