@@ -153,36 +153,7 @@
     <div class="flex gap-3 pt-3 pl-5 pr-5 overflow-hidden overflow-x-scroll snap-x snap-mandatory scrollbar-hide"
         id="blog-container">
         {% for blog in blogs  %}
-        <a href="{{blog.url}}">
-            {% image blog.blog_cover_image width-400 as blog_cover %}
-            <!-- Blog Card 1 -->
-            <div class="min-w-[525px] flex-shrink-0 snap-center h-[320px] flex flex-col justify-center items-center rounded-md shadow-lg overflow-hidden"
-                style="background-image: url('{{blog_cover.url}}'); background-size: cover; background-position: center;">
-                <!-- Overlay for content -->
-                <div class="flex flex-col w-full h-full p-4 bg-black bg-opacity-60">
-                    <!-- Title and Button Row -->
-                    {% if blog.categories.all %}
-                    <div class="flex items-center justify-between mb-2">
-                        <span
-                            class="px-2 py-1 text-lg font-bold text-white rounded-md">{{blog.blog_title | truncatewords:5 }}</span>
-                        <div
-                            class="flex gap-2 px-4 py-1 text-sm font-medium text-black bg-white rounded-md shadow flex-rows hover:bg-gray-200">
-                            {% for category in blog.categories.all  %}
-                            <span>
-                                {{category.name}}
-                            </span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endif %}
-
-                    <!-- Description -->
-                    <span class="text-sm text-white">
-                        {{blog.blog_description | truncatewords:6 }}
-                    </span>
-                </div>
-            </div>
-        </a>
+        <c-components.home-blog-card :blog="blog" />
         {% endfor %}
     </div>
 
@@ -217,19 +188,14 @@
 
                 <div
                     class="flex flex-row pl-[200px] pr-[200px] justify-around items-center  transition-shadow duration-300">
-                    <!-- Date -->
                     <div>
                         <p class="pt-1 pb-1 pl-2 pr-2 text-center text-white bg-black">
                             {{news.news_publish_date}}
                         </p>
                     </div>
-
-                    <!-- Title -->
                     <div class="flex-grow mx-4">
                         {{news.news_title}}
                     </div>
-
-                    <!-- Arrow Icon -->
                     <div class="transition-transform duration-300 group-hover:translate-x-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
