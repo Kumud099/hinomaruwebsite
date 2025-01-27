@@ -10,6 +10,7 @@ from blog.models import BlogDetailPage, BlogCategory
 from news.models import NewsDetailPage
 
 
+# menus snippets
 @register_snippet
 class MenuSnippets(models.Model):
 
@@ -51,4 +52,16 @@ class HomePage(Page):
 
 
 class AboutUsPage(Page):
+    pass
+
+
+class CarriersPage(Page):
+    pass
+
+
+class TermsAndConditionsPage(Page):
+    pass
+
+
+class PrivacyPolicyPage(Page):
     pass
