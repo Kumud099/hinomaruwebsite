@@ -30,6 +30,7 @@ class Command(BaseCommand):
             image_url = fake.image_url(
                 width=800, height=600
             )  # Generate a placeholder image URL
+            print(f"Generated image URL: {image_url}") 
             response = requests.get(image_url, stream=True)
 
             if response.status_code == 200:

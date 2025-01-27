@@ -1,14 +1,69 @@
+{% load static %}
+
+
+
+
+
 <!-- Footer Section -->
-<footer class="bg-[#1E1E1E] text-white py-12 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-48">
-    <div class="grid grid-cols-1 gap-8 mx-auto md:grid-cols-3 max-w-7xl">
+<footer class="bg-[#1E1E1E] text-white py-8 px-2 md:px-4 lg:px-8 xl:px-16 2xl:px-24">
+
+
+    <article class=" text-center text-white space-y-4">
+        <h2 class="text-2xl md:text-3xl font-bold">Got a Project in Mind? Let’s Make It Happen!</h2>
+        <a href="{% url 'contact_form' %}"
+            class="bg-black hover:bg-orange-400 hover:text-black text-white py-3 px-8 rounded-lg text-lg">
+            Contact us
+        </a>
+    </article>
+
+
+
+    <div class=" grid grid-cols-1 gap-4 mx-auto md:grid-cols-4 ">
+
+        <div class="space-y-4  mr-12">
+            <div class="text-sm ">At Hinomaru Tech, we are dedicated to pioneering cutting-edge
+                technology
+                solutions that
+                empower
+                businesses and individuals to thrive in a fast-evolving digital world. Our team of experts is committed
+                to crafting innovative products and services that simplify complex challenges, drive progress, and shape
+                the future of technology.</div>
+            <div class="flex items-center space-x-1 p-1">
+                <img src="{% static 'images/location.svg' %}" class="w-[30px]">
+                <div class="text-white text-sm"> Budhanilkantha,Kathmandu,Nepal <br /> <span
+                        class="text-gray-400 text-sm">Visit
+                        us
+                        at the
+                        location
+                        above.</span></div>
+
+            </div>
+            <div class="flex items-center space-x-1 p-1">
+                <img src="{% static 'images/phone.svg' %}" class="w-[30px]">
+                <div class="text-white text-sm">9866073358,9851026285 <br />
+                    <p class="text-gray-400 text-sm">Contact us at the numbers above.</p>
+                </div>
+
+
+            </div>
+            <div class="flex items-center space-x-1 p-1">
+                <img src="{% static 'images/email.svg' %}" class="w-[30px]">
+                <div class="text-white text-sm">example@gmail.com <br />
+                    <p class="text-gray-400 text-sm">Email us at the address above.</p>
+                </div>
+
+            </div>
+        </div>
         <!-- Footer Column -->
-        <div class="space-y-4">
+        <div class="space-y-4 ">
             <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">Services</h3>
             <ul class="space-y-2">
-                <li><a href="#" class="transition-colors hover:text-gray-300">Web Development</a></li>
-                <li><a href="#" class="transition-colors hover:text-gray-300">Mobile Apps</a></li>
-                <li><a href="#" class="transition-colors hover:text-gray-300">Cloud Solutions</a></li>
-                <li><a href="#" class="transition-colors hover:text-gray-300">Consulting</a></li>
+
+                <li><a href="#" class="transition-colors hover:text-maroon">Web Development</a></li>
+                <li><a href="#" class="transition-colors hover:text-maroon">Mobile Apps</a></li>
+                <li><a href="#" class="transition-colors hover:text-maroon">Cloud Solutions</a></li>
+                <li><a href="#" class="transition-colors hover:text-maroon">Consulting</a></li>
+
             </ul>
         </div>
 
@@ -16,41 +71,88 @@
         <div class="space-y-4">
             <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">Company</h3>
             <ul class="space-y-2">
-                <li><a href="#" class="transition-colors hover:text-gray-300">About Us</a></li>
-                <li><a href="#" class="transition-colors hover:text-gray-300">Careers</a></li>
-                <li><a href="#" class="transition-colors hover:text-gray-300">Blog</a></li>
-                <li><a href="#" class="transition-colors hover:text-gray-300">Contact</a></li>
+                <li><a href="#" class="transition-colors hover:text-maroon">About Us</a></li>
+                <li><a href="#" class="transition-colors hover:text-maroon">Careers</a></li>
+                <li><a href="#" class="transition-colors hover:text-maroon">Blog</a></li>
+                <li><a href="#" class="transition-colors hover:text-maroon">Contact Us</a></li>
+
+
             </ul>
+            <ul class="flex space-x-4">
+                <li><img src="{% static 'images/facebook.svg' %}" class="w-[30px]"></li>
+                <li><img src="{% static 'images/insta.svg' %}" class="w-[30px]"></li>
+                <li><img src="{% static 'images/x.svg' %}" class="w-[30px]"></li>
+                <li><img src="{% static 'images/youtube.svg' %}" class="w-[30px]"></li>
+            </ul>
+
         </div>
 
         <!-- Footer Column -->
         <div class="space-y-4">
             <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">Legal</h3>
             <ul class="space-y-2">
-                <li><a href="#" class="transition-colors hover:text-gray-300">Privacy Policy</a></li>
-                <li><a href="#" class="transition-colors hover:text-gray-300">Terms of Service</a></li>
-                <li><a href="#" class="transition-colors hover:text-gray-300">Cookie Policy</a></li>
-                <li><a href="#" class="transition-colors hover:text-gray-300">Security</a></li>
+                <li><a href="#" class="transition-colors hover:text-maroon">Privacy Policy</a></li>
+                <li><a href="#" class="transition-colors hover:text-maroon">Terms of Service</a></li>
+                <li><a href="#" class="transition-colors hover:text-maroon">Cookie Policy</a></li>
+                <li><a href="#" class="transition-colors hover:text-maroon">Security</a></li>
+
             </ul>
+        </div>
+
+
+
+
+    </div>
+    <hr class="my-6 ">
+
+
+
+
+    <!-- Branding -->
+
+    <div class="flex justify-center">
+        <div class="m-2 p-2 "> <img src="{% static 'images/logo.svg' %}">
+        </div>
+
+        <div class="text-center  mt-6">
+
+            <p
+                class="text-[100px]  font-bold text-gray-300 transition-colors md:text-5xl font-Grotesk hover:text-white">
+                HINOMARU TECH
+            </p>
+            <p class="mt-4 text-sm text-gray-400">
+                Innovating Tomorrow's Solutions Today
+            </p>
         </div>
     </div>
 
-    <hr class="my-12 border-gray-800">
-
-    <!-- Branding -->
-    <div class="text-center">
-        <p class="text-[128px] font-bold text-gray-300 transition-colors md:text-5xl font-Grotesk hover:text-white">
-            HINOMARU TECH
-        </p>
-        <p class="mt-6 text-sm text-gray-400">
-            Innovating Tomorrow's Solutions Today
-        </p>
-    </div>
-
     <!-- Copyright -->
-    <div class="mt-12 text-center md:text-right">
+    <div class="mt-2 text-center md:text-right">
         <p class="text-sm text-gray-500">
             © 2023 HINOMARU TECH. All rights reserved.
         </p>
     </div>
 </footer>
+
+<style>
+    footer article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 20px 50px 40px;
+        margin: -99px 20px 20px;
+        border-radius: 10px;
+        background: #902D43;
+    }
+
+
+    .hover\:text-maroon:hover {
+        color: #902D43;
+    }
+
+    hr {
+        border: 1px solid red;
+    }
+</style>

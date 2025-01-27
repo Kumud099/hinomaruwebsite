@@ -1,30 +1,126 @@
-{% extends 'base.html' %}
-{% load wagtailcore_tags %}
-{% load widget_tweaks %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
-<div class="w-full max-w-2xl p-8 bg-white rounded-lg shadow-md">
-    <h1 class="mb-4 text-2xl font-bold text-gray-800">{{ page.title }}</h1>
-    <div class="prose max-w-none">{{ page.intro|richtext }}</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-    <form action="{% pageurl page %}" method="POST" class="space-y-6">
-        {% csrf_token %}
-
-        {% for field in form %}
-        <div>
-            <label for="{{ field.id_for_label }}" class="block mb-2 font-medium text-gray-700">{{ field.label }}</label>
-            {{ field|add_class:"w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" }}
-            {% if field.errors %}
-            <p class="mt-1 text-sm text-red-500">{{ field.errors }}</p>
-            {% endif %}
+<!-- Navigation bar -->
+<header class="bg-maroon text-white ">
+    <div class="flex p-4 items-center justify-between mx-auto w-full">
+        <div class="flex space-x-4 items-center">
+            <img src="{% static 'images/logo.svg' %}" width="50">
+            <span class="text-[26px] font-bold">HINOMARU TECH</span>
         </div>
-        {% endfor %}
+        <nav class="flex lg:space-x-[600px] md:space-x-6">
+            <div class="flex space-x-6">
+                <a href="#" class="text-[20px] hover:text-orange-400">HOME</a>
+                <a href="#" class="text-[20px] hover:text-orange-400">SERVICE</a>
+                <a href="#" class="text-[20px] hover:text-orange-400">ABOUT US</a>
+            </div>
+            <a href="#"
+                class="text-[16px]   h-8 bg-black px-4 py-1 rounded hover:bg-orange-400 hover:text-black ">CONTACT</a>
+        </nav>
+    </div>
+</header>
 
-        <button type="submit"
-            class="w-full py-3 text-white transition duration-300 bg-blue-600 rounded-lg hover:bg-blue-700">
-            Submit
-        </button>
-    </form>
-</div>
+<section class="max-w-7xl mx-auto my-8 p-6 bg-white rounded-lg shadow-lg bg-maroon">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+        <!-- left -->
+        <div class="space-y-6">
+            <h2 class="text-2xl font-bold text-white">Get in Touch!</h2>
 
-{% endblock content %}
+            <!-- map -->
+            <div class="w-full h-96 ">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3530.2535068623965!2d85.36674099999999!3d27.77116199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDQ2JzE2LjIiTiA4NcKwMjInMDAuMyJF!5e0!3m2!1sen!2snp!4v1737870677140!5m2!1sen!2snp"
+                    class="w-full h-full" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+
+            <div>
+                <div class="flex items-center space-x-4 p-4">
+                    <img src="{% static 'images/location.svg' %}">
+                    <div class="text-white"> Budhanilkantha,Kathmandu,Nepal <br /> <span class="text-gray-400">Visit us
+                            at the
+                            location
+                            above.</span></div>
+
+                </div>
+                <div class="flex items-center space-x-4 p-4">
+                    <img src="{% static 'images/phone.svg' %}">
+                    <div class="text-white">9866073358,9851026285 <br />
+                        <p class="text-gray-400">Contact us at the numbers above.</p>
+                    </div>
+
+
+                </div>
+                <div class="flex items-center space-x-4 p-4">
+                    <img src="{% static 'images/email.svg' %}">
+                    <div class="text-white">example@gmail.com <br />
+                        <p class="text-gray-400">Email us at the address above.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- right -->
+        <div class=" bg-white rounded-lg">
+
+            <form class="space-y-4">
+                <div class="p-4 mt-10">
+                    <label for="name" class="block text-maroon font-bold">Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name"
+                        class="w-full border-gray-300 p-2 rounded shadow-sm " />
+                </div>
+                <div class="p-4">
+                    <label for="mobile" class="block text-maroon font-bold">Mobile Number</label>
+                    <input type="text" id="name" placeholder="Enter your full name"
+                        class="w-full border-gray-300 p-2 rounded shadow-sm " />
+                </div>
+                <div class="p-4">
+                    <label for="services" class="block text-maroon font-bold">Services</label>
+                    <select id="services" class="w-full border-gray-300 p-2 rounded shadow-sm ">
+                        <option>Choose a Service</option>
+                        <option>Web Development</option>
+                        <option>App Development</option>
+                        <option>UI/UX Design</option>
+                    </select>
+                </div>
+                <div class="p-4">
+                    <label for="description" class=" text-maroon font-bold">Description</label>
+                    <textarea id="description" placeholder="Description of service needed" rows="4"
+                        class="w-full border-gray-300 p-2 rounded shadow-sm "></textarea>
+                </div>
+                <div>
+                    <button
+                        class="bg-black text-white lg:w-[450px] md:w-[400px] p-3 m-16 rounded-lg hover:bg-orange-400 hover:text-black">
+                        Send</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .bg-maroon {
+        background-color: #902D43;
+    }
+
+
+    .text-maroon {
+        color: #902D43;
+    }
+</style>
+
+</html>
