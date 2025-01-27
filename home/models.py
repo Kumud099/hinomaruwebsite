@@ -48,3 +48,7 @@ class HomePage(Page):
         context["categories"] = BlogCategory.objects.all()
 
         return context
+
+
+class AboutUsPage(Page):
+    pass
