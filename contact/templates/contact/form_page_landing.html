@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<c-components.navbar txtcolor="black" />
+{% endblock navbar %}
+
+{% block content %}
+<div class="min-h-screen pt-20 ">
+    <div class="flex items-center justify-center h-screen">
+        <div class="max-w-2xl p-8 mx-auto text-center transition-all transform bg-white rounded-lg hover:scale-105">
+            <h1 class="mb-6 text-5xl font-bold text-gray-800">Thank You!</h1>
+            <p class="pt-4 mb-8 text-xl text-gray-600 border-t-2 border-red-500">{{page.thank_you_text|safe}}</p>
+            <button
+                class="px-6 py-3 font-bold text-white transition-colors duration-300 ease-in-out transform bg-red-800 rounded-lg hover:bg-red-700 hover:scale-105">
+                GO BACK TO HOME
+            </button>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}

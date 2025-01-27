@@ -48,36 +48,33 @@
 
             <!-- right -->
             <div class="bg-white rounded-lg ">
-                <form class="space-y-4">
-                    <div class="p-4 mt-10">
-                        <label for="name" class="block font-bold text-maroon">Name</label>
-                        <input type="text" id="name" placeholder="Enter your full name"
-                            class="w-full p-2 border-gray-300 rounded shadow-sm " />
+                <form method="post" class="space-y-4">
+                    {% csrf_token %}
+                    {{form.non_field_errors}}
+                    {% for hidden_field in form.hidden_fields %}
+                    {{ hidden_field.errors }}
+                    {{ hidden_field }}
+                    {% endfor %}
+
+                    <div class="mt-10">
+
+                        {% for field in form.visible_fields  %}
+                        <div class="p-4">
+                            <label for="name" class="block font-bold text-maroon">{{field.label_tag}}
+                                {% if field.field.required %}<span class="text-red-800">*</span>{% endif %}
+                            </label>
+                            {% render_field field class+="w-full p-2 border-gray-300 rounded shadow-sm" placeholder=field.name %}
+                        </div>
+                        {% endfor %}
+
+
+                        <div>
+                            <button type="submit"
+                                class="bg-red-700 text-white lg:w-[450px] md:w-[400px] p-3 m-16 rounded-lg">
+                                Send</button>
+                        </div>
                     </div>
-                    <div class="p-4">
-                        <label for="mobile" class="block font-bold text-maroon">Mobile Number</label>
-                        <input type="text" id="name" placeholder="Enter your full name"
-                            class="w-full p-2 border-gray-300 rounded shadow-sm " />
-                    </div>
-                    <div class="p-4">
-                        <label for="services" class="block font-bold text-maroon">Services</label>
-                        <select id="services" class="w-full p-2 border-gray-300 rounded shadow-sm ">
-                            <option>Choose a Service</option>
-                            <option>Web Development</option>
-                            <option>App Development</option>
-                            <option>UI/UX Design</option>
-                        </select>
-                    </div>
-                    <div class="p-4">
-                        <label for="description" class="font-bold text-maroon">Description</label>
-                        <textarea id="description" placeholder="Description of service needed" rows="4"
-                            class="w-full p-2 border-gray-300 rounded shadow-sm "></textarea>
-                    </div>
-                    <div>
-                        <button type="submit"
-                            class="bg-red-700 text-white lg:w-[450px] md:w-[400px] p-3 m-16 rounded-lg">
-                            Send</button>
-                    </div>
+
                 </form>
             </div>
         </div>
