@@ -22,37 +22,32 @@
                         class="w-full h-full" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-
+                <!-- contact info -->
                 <div>
                     <div class="flex items-center p-4 space-x-4">
-                        <img src="{% static 'images/contact/location.svg' %}">
+                        <img src="{% static 'images/contact/location.svg' %}" alt="Location Icon">
                         <div class="text-white">
                             <p>Budhanilkanta</p>
                         </div>
                     </div>
                     <div class="flex items-center p-4 space-x-4">
-                        <img src="{% static 'images/contact/phone.svg' %}">
+                        <img src="{% static 'images/contact/phone.svg' %}" alt="Phone Icon">
                         <div class="text-white">
                             <p class="">9866073358,9851026285</p>
                         </div>
-
-
                     </div>
                     <div class="flex items-center p-4 space-x-4">
-                        <img src="{% static 'images/contact/email.svg' %}">
+                        <img src="{% static 'images/contact/email.svg' %}" alt="Email Icon">
                         <div class="text-white">
                             <p class="">example@gmail.com</p>
                         </div>
-
                     </div>
                 </div>
-
             </div>
 
 
             <!-- right -->
             <div class="bg-white rounded-lg ">
-
                 <form class="space-y-4">
                     <div class="p-4 mt-10">
                         <label for="name" class="block font-bold text-maroon">Name</label>
@@ -79,17 +74,13 @@
                             class="w-full p-2 border-gray-300 rounded shadow-sm "></textarea>
                     </div>
                     <div>
-                        <button class="bg-red-700 text-white lg:w-[450px] md:w-[400px] p-3 m-16 rounded-lg">
+                        <button type="submit"
+                            class="bg-red-700 text-white lg:w-[450px] md:w-[400px] p-3 m-16 rounded-lg">
                             Send</button>
                     </div>
                 </form>
-
-
             </div>
         </div>
     </section>
 </div>
-
-
-
 {% endblock content %}
