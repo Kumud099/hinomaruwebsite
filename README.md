@@ -30,3 +30,13 @@ uv run python manage.py generate_blogs
 ```bash
 uv run python manage.py tailwind runserver
 ```
+
+## Create a admin account
+
+```bash
+uv run python manage.py createsuperuser
+```
+
+## Explore the admin page
+
+http://localhost:8000/admin
