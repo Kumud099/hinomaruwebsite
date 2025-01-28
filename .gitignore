@@ -11,4 +11,8 @@ wheels/
 
 
 node_modules
-*.sqlite3
+# ignore database
+db.sqlite3
+
+# ignore generated tailwind file
+core/static/css/tailwind.css
