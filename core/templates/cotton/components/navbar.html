@@ -1,11 +1,12 @@
 <!-- Navbar -->
 {% load static %}
 
-<nav class="fixed top-0 left-0 z-50 w-full 
+<nav class="fixed top-0 left-0 z-50 w-full bg-maroon
 {% if txtcolor %}
 text-{{txtcolor}}
 {% else %}
 text-white
+
 {% endif %}text-[20px] font-Play" id="navbar">
     <!-- <nav class="fixed top-0 left-0 z-50 w-full text-white text-[20px] font-Play" id="navbar"> -->
     <div class="flex items-center justify-between px-6 py-4">
@@ -15,7 +16,7 @@ text-white
                 <img src="{% static 'images/logo.png' %}" alt="logo" class="w-10 h-10">
             </div>
             <div>
-                <span class="font-Play">HINO<br>MARU</span>
+                <span class="font-Play">HINOMARU</span>
             </div>
         </a>
         <!-- Navbar Links -->
@@ -81,7 +82,7 @@ text-white
         </div>
 
         <!-- Navigation Links -->
-        <div class="hidden md:flex {% if txtcolor == "black" %} text-white {% endif %}">
+        <div class="hidden md:flex {% if txtcolor == " black" %} text-white {% endif %}">
             <ul class="flex flex-row gap-3">
                 <a href="/contact-us" class="px-3 py-2 rounded cursor-pointer bg-[#B00008] hover:bg-red-800"
                     id="contact-us-button">
@@ -91,3 +92,8 @@ text-white
         </div>
     </div>
 </nav>
+<style>
+    .bg-maroon {
+        background-color: #902D43;
+    }
+</style>
