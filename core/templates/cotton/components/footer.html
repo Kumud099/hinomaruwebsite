@@ -7,49 +7,50 @@
 <!-- Footer Section -->
 <footer class="bg-[#1E1E1E] text-white py-8 px-2 md:px-4 lg:px-8 xl:px-16 2xl:px-24">
 
-
-    <article class=" text-center text-white space-y-4">
-        <h2 class="text-2xl md:text-3xl font-bold">Got a Project in Mind? Let’s Make It Happen!</h2>
-        <a href="/contact-us"
-            class="bg-black hover:bg-orange-400 hover:text-black text-white py-3 px-8 rounded-lg text-lg">
+    <article
+        class="space-y-4 text-center text-white flex flex-col items-center justify-between gap-4 p-[20px_50px_40px] m-[-99px_20px_20px] rounded-[10px] bg-[#902D43]">
+        <h2 class="text-2xl font-bold md:text-3xl">Got a Project in Mind? Let's Make It Happen!</h2>
+        <a href="/contact-us" class="px-8 py-3 text-lg text-white bg-black rounded-lg hover:bg-red-800">
             Contact us
         </a>
     </article>
 
 
 
-    <div class=" grid grid-cols-1 gap-4 mx-auto md:grid-cols-4 ">
+    <div class="grid grid-cols-1 gap-4 mx-auto md:grid-cols-4">
 
-        <div class="space-y-4  mr-12">
+        <div class="mr-12 space-y-4">
             <div class="text-sm ">At Hinomaru Tech, we are dedicated to pioneering cutting-edge
                 technology
                 solutions that
                 empower
-                businesses and individuals to thrive in a fast-evolving digital world. Our team of experts is committed
-                to crafting innovative products and services that simplify complex challenges, drive progress, and shape
+                businesses and individuals to thrive in a fast-evolving digital world. Our team of experts is
+                committed
+                to crafting innovative products and services that simplify complex challenges, drive progress, and
+                shape
                 the future of technology.</div>
-            <div class="flex items-center space-x-1 p-1">
+            <div class="flex items-center p-1 space-x-1">
                 <img src="{% static 'images/location.svg' %}" class="w-[30px]">
-                <div class="text-white text-sm"> Budhanilkantha,Kathmandu,Nepal <br /> <span
-                        class="text-gray-400 text-sm">Visit
+                <div class="text-sm text-white"> Budhanilkantha,Kathmandu,Nepal <br /> <span
+                        class="text-sm text-gray-400">Visit
                         us
                         at the
                         location
                         above.</span></div>
 
             </div>
-            <div class="flex items-center space-x-1 p-1">
+            <div class="flex items-center p-1 space-x-1">
                 <img src="{% static 'images/phone.svg' %}" class="w-[30px]">
-                <div class="text-white text-sm">9866073358,9851026285 <br />
-                    <p class="text-gray-400 text-sm">Contact us at the numbers above.</p>
+                <div class="text-sm text-white">9866073358,9851026285 <br />
+                    <p class="text-sm text-gray-400">Contact us at the numbers above.</p>
                 </div>
 
 
             </div>
-            <div class="flex items-center space-x-1 p-1">
+            <div class="flex items-center p-1 space-x-1">
                 <img src="{% static 'images/email.svg' %}" class="w-[30px]">
-                <div class="text-white text-sm">example@gmail.com <br />
-                    <p class="text-gray-400 text-sm">Email us at the address above.</p>
+                <div class="text-sm text-white">example@gmail.com <br />
+                    <p class="text-sm text-gray-400">Email us at the address above.</p>
                 </div>
 
             </div>
@@ -103,18 +104,15 @@
 
 
     </div>
-    <hr class="my-6 ">
-
-
+    <hr class="my-6 border-red-500 border-[1px]">
 
 
     <!-- Branding -->
-
     <div class="flex justify-center">
-        <div class="m-2 p-2 "> <img src="{% static 'images/logo.svg' %}">
+        <div class="p-2 m-2 "> <img src="{% static 'images/logo.svg' %}">
         </div>
 
-        <div class="text-center  mt-6">
+        <div class="mt-6 text-center">
 
             <p
                 class="text-[100px]  font-bold text-gray-300 transition-colors md:text-5xl font-Grotesk hover:text-white">
@@ -129,10 +127,17 @@
     <!-- Copyright -->
     <div class="mt-2 text-center md:text-right">
         <p class="text-sm text-gray-500">
-            © 2023 HINOMARU TECH. All rights reserved.
+            © <span id="year">2023</span> HINOMARU TECH. All rights reserved.
         </p>
     </div>
 </footer>
+
+<script>
+    const date = new Date();
+    const year = date.getFullYear();
+    let yearSpan = document.getElementById("year");
+    yearSpan.innerHTML = year;
+</script>
 
 <style>
     footer article {
@@ -152,7 +157,7 @@
         color: #902D43;
     }
 
-    hr {
+    /* hr {
         border: 1px solid red;
-    }
+    } */
 </style>
