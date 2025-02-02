@@ -7,22 +7,25 @@ module.exports = {
     extend: {
       colors: {
         hyello: {
-          950: '#D2A354',
+          950: "#D2A354",
         },
         hred: {
-          950: '#B00008',
+          950: "#B00008",
         },
         hblue: {
-          950: '#C5D8E1',
+          950: "#C5D8E1",
         },
         hgray: {
-          1000: "#252525"
-        }
+          1000: "#252525",
+        },
+      },
+      maxWidth: {
+        "8.5xl": "96rem",
       },
       fontFamily: {
-        Grotesk: ['Schibsted Grotesk', 'sans-serif'],
-        Play: ['Play', 'sans-serif'],
-        Inter: ['Inter', 'sans-serif']
+        Grotesk: ["Schibsted Grotesk", "sans-serif"],
+        Play: ["Play", "sans-serif"],
+        Inter: ["Inter", "sans-serif"],
       },
     },
   },
