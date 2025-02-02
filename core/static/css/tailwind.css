@@ -1431,6 +1431,10 @@ select {
   margin: 0.75rem;
 }
 
+.m-\[-99px_20px_20px\] {
+  margin: -99px 20px 20px;
+}
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -2008,7 +2012,15 @@ select {
   border-radius: 0.375rem;
 }
 
+.rounded-\[10px\] {
+  border-radius: 10px;
+}
+
 .border {
+  border-width: 1px;
+}
+
+.border-\[1px\] {
   border-width: 1px;
 }
 
@@ -2144,6 +2156,11 @@ select {
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#902D43\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(144 45 67 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -2199,6 +2216,10 @@ select {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-\[20px_50px_40px\] {
+  padding: 20px 50px 40px;
 }
 
 .px-10 {
