@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load wagtailimages_tags %}
+{% load static %}
 
 {% block navbar %}
 <c-components.navbar backgroundcolor="red-800" />
@@ -73,7 +74,19 @@
         </div>
     </div>
 </section>
-
+<!-- Fixed Circular Elements on the Right Edge -->
+<div
+    class="fixed right-6 top-[300px] w-16 h-16 bg-red-800 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
+    <img src="{% static 'images/facebook.svg' %}" alt="Facebook Icon">
+</div>
+<div
+    class="fixed right-6 top-[400px] w-16 h-16 bg-red-800 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
+    <img src="{% static 'images/x.svg' %}" alt="Facebook Icon">
+</div>
+<div
+    class="fixed right-6 top-[500px] w-16 h-16 bg-red-800 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
+    <img src="{% static 'images/insta.svg' %}" alt="Facebook Icon">
+</div>
 
 
 {% endblock content %}

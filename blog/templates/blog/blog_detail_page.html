@@ -8,56 +8,32 @@
 {% block content %}
 
 <main class="container mx-auto px-8 py-12 min-h-[100vh] flex flex-col justify-center items-center pt-20 mb-10">
-    <div class="w-full max-w-2xl ">
-        <div class="mb-8 ">
+
+    <div class="w-full max-w-2xl">
+        <div class="mb-8">
             {% if page.categories %}
             <div class="flex justify-center">
                 <div id="categories-links" class="flex flex-wrap items-center gap-2 mt-4">
                     <p class="mt-6 text-gray-600">| {{ page.blog_publish_date }} | </p>
-
                     {% for category in page.categories.all %}
-
-                    <span class="px-4 py-2 mt-6 text-sm bg-red-800 text-white rounded-md shadow-md"> {{ category.name
-                        }}</span>
+                    <span class="px-4 py-2 mt-6 text-sm bg-red-800 text-white rounded-md shadow-md">
+                        {{ category.name }}
+                    </span>
                     {% endfor %}
                 </div>
             </div>
             {% endif %}
 
-
-
             <h2 class="mt-6 text-3xl font-bold text-center">{{ page.blog_title }}</h2>
             <p class="mt-1 text-gray-600">{{ page.blog_description }}</p>
         </div>
+
         <div class="pt-2 pb-2 rounded">
             {% image page.blog_cover_image fill-841x473 %}
         </div>
 
-        <!-- Categories -->
-        <!-- {% if page.categories.all %}
-        <div class="w-full p-4 bg-gray-100 rounded-md">
-            <div class="flex items-center mb-2 space-x-2">
-                <span class="flex gap-2 text-lg font-semibold">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-                    </svg>
-
-                    Categories
-                </span>
-            </div>
-            <div id="categories-links" class="flex flex-wrap gap-2">
-                {% for category in page.categories.all %}
-                <span class="px-4 py-2 text-sm bg-white rounded-md shadow">{{ category.name }}</span>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %} -->
-
-
         <!-- Table of Contents -->
-        <div class="w-full p-4 bg-gray-100 rounded-md ">
+        <div class="w-full p-4 bg-gray-100 rounded-md">
             <div class="flex items-center mb-2 space-x-2">
                 <span class="flex gap-2 text-lg font-semibold">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -81,7 +57,7 @@
 
 <!-- Blogs Section -->
 <div class="relative pt-10 overflow-hidden mb-10 pb-10">
-    <div class="flex justify-between items-center ">
+    <div class="flex justify-between items-center">
         <h2 class="text-3xl lg:pl-[100px] md:pl-[50px] sm:pl-10 font-bold text-red-500">MORE BLOG</h2>
         <a href="/blogs" class="text-red-500 pr-[100px] font-semibold hover:underline">
             View all blogs →
@@ -93,6 +69,22 @@
         {% endfor %}
     </div>
 </div>
+
+<!-- Fixed Circular Elements on the Right Edge -->
+<div
+    class="fixed right-6 top-[300px] w-16 h-16 bg-red-800 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
+    <img src="{% static 'images/facebook.svg' %}" alt="Facebook Icon">
+</div>
+<div
+    class="fixed right-6 top-[400px] w-16 h-16 bg-red-800 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
+    <img src="{% static 'images/x.svg' %}" alt="Facebook Icon">
+</div>
+<div
+    class="fixed right-6 top-[500px] w-16 h-16 bg-red-800 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
+    <img src="{% static 'images/insta.svg' %}" alt="Facebook Icon">
+</div>
+
+
 {% endblock content %}
 
 {% block extra_js %}

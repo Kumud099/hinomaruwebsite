@@ -39,10 +39,10 @@
 </section>
 
 <!-- About Us Section -->
-<section class="flex flex-col mt-8 items-center h-screen overflow-hidden about-us font-Grotesk" id="aboutUsContainer">
+<section class="flex flex-col mt-20 items-center h-screen overflow-hidden about-us font-Grotesk" id="aboutUsContainer">
 
     <h2 class="text-[40px] font-bold mt-12 pt-6 about-us mb-10 text-red-500" id="our-vision">ABOUT US</h2>
-    <div class="flex flex-col items-center gap-8 mx-auto md:flex-row max-w-[1200px] about-us">
+    <div class="flex flex-col items-center gap-8 mx-auto md:flex-row max-w-[1400px] mt-6 about-us">
         <!-- Content Section -->
         <div class="text-left md:w-1/2 about-us">
             <p class="mb-6 text-[30px] text-justify font-bold leading-tight text-gray-900 md:text-4xl">
@@ -61,76 +61,146 @@
                 We firmly believe in furnishing every business with a digital presence that authentically embodies
                 their brand essence and effectively resonates with their target demographic.
             </p>
-            <button
-                class="px-6 py-3 font-medium text-white transition-colors rounded-md shadow-lg bg-hred-950 hover:bg-red-700">
-                Get in Touch
-            </button>
-        </div>
-        <!-- Image Section -->
-        <div class="relative flex items-center justify-center md:w-1/2">
 
-            <!-- Background Circle -->
+            <a href="/contact-us"
+                class="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-red-800 rounded hover:bg-orange-400 group">
+                <span
+                    class="w-48 h-48 rounded rotate-[-40deg]  bg-orange-400 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+                <span
+                    class="relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-black">
+                    Learn More →
+                </span>
+            </a>
+        </div>
+
+        <!-- Image Section -->
+        <!-- <div class="relative flex items-center justify-center md:w-1/2">
             <div class="absolute w-48 h-48 rounded-full bg-hred-950 md:w-64 md:h-64 -top-6 -right-6">
             </div>
-
-            <!-- Main Image -->
             <img src="{% static 'images/about-us-image.png' %}" alt="About Us Visual"
                 class="relative w-full max-w-sm rounded-lg shadow-lg md:max-w-md">
+        </div>  -->
+        <div class="md:w-1/2 flex justify-center items-center relative">
+            <!-- Animated Red Circle Background -->
+            <div
+                class="absolute rounded-full bg-red-900 md:w-[700px] md:h-[600px] -top-[100px] -right-20 opacity-0 animate-circle ">
+            </div>
+            <!-- Main Image -->
+            <img src="{% static 'images/aboutus.webp' %}" alt="About Us Visual"
+                class="relative max-w-lg h-[500px] rounded-lg shadow-lg md:max-w-xl object-cover transition-transform duration-300 hover:scale-105">
         </div>
-    </div>
+
+
+
 </section>
 
 <!-- Services Section  -->
-<section id="services" class="flex flex-col items-center justify-start min-h-[835px] bg-[#201D1D] w-full">
-    <div class="container px-4 mx-auto max-w-7xl">
-        <h1 class="text-center pt-11 mb-10 font-bold text-[64px] text-white relative overflow-hidden">
+<section id="services" class="flex flex-col items-center justify-start min-h-[1005px] bg-[#201D1D] w-full">
+    <div class="container  mx-auto max-w-[1440px]">
+        <h1 class="text-center pt-20 mt-10 mb-10 font-bold text-[40px] text-white relative ">
             <!-- Background Animation Div -->
             <div id="reveal-box" class="absolute inset-0 w-0 bg-red-900"></div>
             <!-- Text wrapped in span for control -->
-            <span id="service-text" class="relative">OUR SERVICES</span>
+            <span id="service-text" class="relative ">OUR SERVICES</span>
         </h1>
 
         <!-- Hide scrollbar for this container -->
-        <div class="relative w-full overflow-hidden">
-            <div class="flex justify-center gap-4 pb-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
-                <div class="card snap-center">
-                    <div
-                        class="min-w-[400px] flex-shrink-0 bg-red-700 h-[200px] flex flex-col justify-center items-center text-center rounded-md shadow-lg">
-                        <p class="text-lg font-semibold text-white">Web Application Development</p>
-                    </div>
-                    <p class="mt-2 text-center text-white">Hello Darling</p>
-                </div>
-
-                <div class="card snap-center">
-                    <div class="min-w-[400px] flex-shrink-0 bg-red-700 h-[200px] flex flex-col justify-center items-center text-center rounded-md shadow-lg"
-                        style="background-image: url('https://picsum.photos/500/500'); background-size: cover; background-position: center;">
-                        <p class="text-lg font-semibold text-white">Web Application Development</p>
-                    </div>
-                    <p class="mt-2 text-center text-white">Hello Darling</p>
-                </div>
+        <div class="relative w-full mt-20">
+            <div class="flex justify-center gap-4 pb-4  scrollbar-hide snap-x snap-mandatory">
 
                 <div class="card snap-center">
                     <div
-                        class="min-w-[400px] flex-shrink-0 bg-red-700 h-[200px] flex flex-col justify-center items-center text-center rounded-md shadow-lg">
-                        <p class="text-lg font-semibold text-white">Web Application Development</p>
+                        class="min-w-[380px] flex-shrink-0  bg-red-800  hover:bg-orange-400 hover:text-black text-white flex flex-col justify-center items-center text-center rounded-lg shadow-md shadow-red-800 group">
+                        <div class=""><img src="{% static '/images/services.avif' %}" alt="Service Image"
+                                class="w-full h-full object-cover rounded-lg" />
+                        </div>
+                        <h1 class="text-2xl p-4 font-semibold text-orange-400 group-hover:text-red-800">
+                            Web Application Development
+                        </h1>
+
+                        <div class="text-justify  m-6 mt-4"> Lorem ipsum dolor
+                            sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit aspernatur,
+                            architecto fugiat esse repudiandae autem laborum eveniet, nisi quisquam eum quibusdam.
+                            Magni, repellat nobis. Maiores.
+                        </div>
                     </div>
-                    <p class="mt-2 text-center text-white">Hello Darling</p>
+
                 </div>
+                <div class="card snap-center">
+                    <div
+                        class="min-w-[380px] flex-shrink-0  bg-red-800  hover:bg-orange-400 hover:text-black text-white flex flex-col justify-center items-center text-center rounded-lg shadow-md shadow-red-800 group">
+                        <div class=""><img src="{% static '/images/services.avif' %}" alt="Service Image"
+                                class="w-full h-full object-cover rounded-lg" />
+                        </div>
+                        <h1 class="text-2xl p-4 font-semibold text-orange-400 group-hover:text-red-800">
+                            Web Application Development
+                        </h1>
+
+                        <div class="text-justify  m-6 mt-4"> Lorem ipsum dolor
+                            sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit aspernatur,
+                            architecto fugiat esse repudiandae autem laborum eveniet, nisi quisquam eum quibusdam.
+                            Magni, repellat nobis. Maiores.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card snap-center">
+                    <div
+                        class="min-w-[380px] flex-shrink-0  bg-red-800  hover:bg-orange-400 hover:text-black text-white flex flex-col justify-center items-center text-center rounded-lg shadow-md shadow-red-800 group">
+                        <div class=""><img src="{% static '/images/services.avif' %}" alt="Service Image"
+                                class="w-full h-full object-cover rounded-lg" />
+                        </div>
+                        <h1 class="text-2xl p-4 font-semibold text-orange-400 group-hover:text-red-800">
+                            Web Application Development
+                        </h1>
+
+                        <div class="text-justify  m-6 mt-4"> Lorem ipsum dolor
+                            sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit aspernatur,
+                            architecto fugiat esse repudiandae autem laborum eveniet, nisi quisquam eum quibusdam.
+                            Magni, repellat nobis. Maiores.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card snap-center">
+                    <div
+                        class="min-w-[380px] flex-shrink-0  bg-red-800  hover:bg-orange-400 hover:text-black text-white flex flex-col justify-center items-center text-center rounded-lg shadow-md shadow-red-800 group">
+                        <div class=""><img src="{% static '/images/services.avif' %}" alt="Service Image"
+                                class="w-full h-full object-cover rounded-lg" />
+                        </div>
+                        <h1 class="text-2xl p-4 font-semibold text-orange-400 group-hover:text-red-800">
+                            Web Application Development
+                        </h1>
+
+                        <div class="text-justify  m-6 mt-4"> Lorem ipsum dolor
+                            sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit aspernatur,
+                            architecto fugiat esse repudiandae autem laborum eveniet, nisi quisquam eum quibusdam.
+                            Magni, repellat nobis. Maiores.
+                        </div>
+                    </div>
+
+                </div>
+
+
             </div>
         </div>
-    </div>
 
-    <!-- Scrolling Text Section -->
-    <div class="relative w-full overflow-hidden whitespace-nowrap">
-        <div id="scrollingText" class="flex gap-12 text-[128px] text-gray-300 pt-4">
-            <p class="opacity-30">WEB APPLICATION DEVELOPMENT * SOFTWARE DEVELOPMENT * CMS DEVELOPMENT</p>
-            <p class="opacity-30">WEB APPLICATION DEVELOPMENT * SOFTWARE DEVELOPMENT * CMS DEVELOPMENT</p>
-            <!-- Duplicate for seamless effect -->
+        <!-- Scrolling Text Section -->
+        <div class=" mt-10 w-full  whitespace-nowrap">
+            <div id="scrollingText" class="flex gap-12 text-[35px]  pt-4 parallax">
+                <span class="text-white ml-4 p-4 font-Coiny">WEB APPLICATION DEVELOPMENT </span>
+                <span class="text-red-500 ml-4 p-4 font-Coiny"> CMS DEVELOPMENT </span>
+                <span class="text-white ml-4 p-4 font-Coiny">SOFTWARE DEVELOPMENT</span>
+                <span class="text-red-500 ml-4 p-4 font-Coiny">WEB APPLICATION DEVELOPMENT </span>
+
+
+            </div>
         </div>
-    </div>
 </section>
 
-
+<!-- why -->
 <section class="py-12 bg-white">
     <div class="max-w-6xl mx-auto px-6 text-center">
         <h2 class="text-3xl font-semibold mb-6">
@@ -247,11 +317,97 @@
 </section>
 
 
+<style>
+    @keyframes reveal {
+        0% {
+            width: 100%;
+        }
+
+        100% {
+            width: 0;
+        }
+    }
+
+    .before\:animate-reveal::before {
+        animation: reveal 1.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fadeIn {
+        animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    @keyframes parallax {
+        from {
+            transform: translateX(100%);
+        }
+
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+    .parallax {
+        animation: parallax 20s linear infinite;
+        overflow: hidden;
+        display: inline-block;
+
+
+    }
+
+
+
+    @keyframes slideInCircle {
+        0% {
+            transform: translate(50%, -50%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+    }
+
+    .animate-circle {
+        animation: slideInCircle 1.5s ease-out forwards;
+    }
+
+    .custom-cursor {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 0, 0, 0.7);
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        color: white;
+        font-weight: bold;
+        font-family: sans-serif;
+    }
+</style>
 {% endblock content %}
 
 <!-- Javascript -->
 {% block extra_js %}
 <script src="{% static 'js/animations.js' %}"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const blogContainer = document.getElementById('blog-container');
@@ -302,6 +458,57 @@
             navbar.classList.remove('absolute', 'bg-transparent');
             navbar.classList.add('fixed', 'bg-red-800');
         }
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const aboutUsSection = document.getElementById("aboutUsContainer");
+        const animatedCircle = document.querySelector(".animate-circle");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        // Remove the class and re-add it to restart the animation
+                        animatedCircle.classList.remove("animate-circle");
+                        void animatedCircle.offsetWidth; // Force reflow
+                        animatedCircle.classList.add("animate-circle");
+                    }
+                });
+            },
+            { threshold: 0.5 } // Adjust threshold if needed
+        );
+
+        observer.observe(aboutUsSection);
+    });
+
+    // Create custom cursor
+    const cursor = document.createElement("div");
+    cursor.classList.add("custom-cursor");
+    document.body.appendChild(cursor);
+
+    // Update cursor position
+    document.addEventListener("mousemove", (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+    });
+
+    // Select all service cards
+    const cards = document.querySelectorAll(".card");
+
+    // Add hover effect
+    cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+            cursor.textContent = "Click Me!";
+            cursor.style.width = "60px";
+            cursor.style.height = "60px";
+            cursor.style.backgroundColor = "rgba(255, 69, 0, 0.8)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+            cursor.textContent = "";
+            cursor.style.width = "40px";
+            cursor.style.height = "40px";
+            cursor.style.backgroundColor = "rgba(255, 0, 0, 0.7)";
+        });
     });
 
 
