@@ -151,6 +151,7 @@ WAGTAILDOCS_EXTENSIONS = [
     "txt",
     "xlsx",
     "zip",
+
 ]
 
 handler404 = "core.views.bad_request"

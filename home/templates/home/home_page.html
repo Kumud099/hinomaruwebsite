@@ -2,6 +2,9 @@
 {% load static %}
 {% load wagtailimages_tags %}
 
+{% block navbar %}
+<c-components.navbar txtcolor="white" :backgroundcolor="currentSection === 'hero' ? 'transparent' : 'red-800'" />
+{% endblock navbar %}
 {% block content %}
 
 <!-- hero section -->
@@ -10,11 +13,13 @@
         <!-- Text Section -->
         <p id="header"
             class="absolute bottom-5 left-5 z-30 text-white text-[64px] flex flex-col justify-start  pl-[166px]">
-            <span class="font-bold reveal" id="first-span">
+            <span class="font-bold reveal" id="first-span"
+                style="text-shadow: 1px 1px 0 #c53030, -1px -1px 0 #c53030, 1px -1px 0 #c53030, -1px 1px 0 #c53030;">
                 Innovative Solutions <br>using Webscale <br>Technologies
                 <br>
             </span>
-            <span class="text-[36px] gray-400 reveal">
+            <span class="text-[36px] gray-400 reveal"
+                style="text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
                 Lorem ipsum dolor sit amet,
                 <br>consectetur adipiscing elit,
                 <br> sed do eiusmod.
@@ -34,16 +39,19 @@
 </section>
 
 <!-- About Us Section -->
-<section class="flex flex-col items-center h-screen overflow-hidden about-us font-Grotesk" id="aboutUsContainer">
-    <h2 class="text-[64px] font-bold mt-11 about-us mb-10" id="our-vision">ABOUT US</h2>
+<section class="flex flex-col mt-8 items-center h-screen overflow-hidden about-us font-Grotesk" id="aboutUsContainer">
+
+    <h2 class="text-[40px] font-bold mt-12 pt-6 about-us mb-10 text-red-500" id="our-vision">ABOUT US</h2>
     <div class="flex flex-col items-center gap-8 mx-auto md:flex-row max-w-[1200px] about-us">
         <!-- Content Section -->
         <div class="text-left md:w-1/2 about-us">
-            <p class="mb-6 text-[36px] font-bold leading-tight text-gray-900 md:text-4xl">
-                As a Web Development Services We are Committed to Building Custom <br />
-                Web Solutions that Drive Business Success.
+            <p class="mb-6 text-[30px] text-justify font-bold leading-tight text-gray-900 md:text-4xl">
+                As a Web Development Services We are Committed to Building Custom <span class="text-red-500">Web
+                    Solutions that Drive
+                    Business
+                    Success.</span>
             </p>
-            <p class="mb-8 text-gray-600 text-[18px] md:text-lg">
+            <p class="mb-8 text-gray-600 text-[18px] text-justify  md:text-lg">
                 At our web development agency, we specialize in crafting bespoke online solutions tailored to
                 elevate
                 businesses toward their digital objectives. Committed to continuous evolution, we remain abreast of
@@ -170,21 +178,19 @@
 <!-- Blogs Section -->
 <section class="relative pt-10 overflow-hidden">
     <div class="flex justify-between items-center ">
-        <h2 class="text-3xl pl-[150px] font-bold text-red-500">Blogs</h2>
+        <h2 class="text-3xl lg:pl-[100px] md:pl-[50px] sm:pl-10 font-bold text-red-500">BLOGS</h2>
         <a href="/blogs" class="text-red-500 pr-[100px] font-semibold hover:underline">
             View all blogs →
         </a>
-
     </div>
 
-    </div>
-    <div class="flex ml-[100px] overflow-hidden  " id="blog-container">
+    <div class="flex ml-0 md:ml-10 overflow-hidden" id="blog-container">
         {% for blog in blogs %}
         <c-components.home-blog-card :blog="blog" />
         {% endfor %}
     </div>
-
 </section>
+
 
 
 <!-- News Section -->
@@ -198,7 +204,6 @@
             </a>
 
         </div>
-
 
 
         <div class="hover:cursor-pointer px-4 lg:px-12">
@@ -222,7 +227,15 @@
                             </div>
 
                         </div>
+                        <div
+                            class="transition-transform duration-300 group-hover:translate-x-2 absolute top-1/2 right-4 transform -translate-y-1/2">
+                            <!-- Default image arrow -->
+                            <img src="/static/images/arrow.svg" alt="Arrow" class="w-6 h-6 group-hover:hidden" />
 
+                            <!-- Hovered "→" symbol -->
+                            <span
+                                class="text-gray-800 group-hover:text-red-500 w-8 h-8 text-xl group-hover:block hidden">→</span>
+                        </div>
                         <!-- Bottom separator line -->
                         <hr class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500">
                     </div>
@@ -230,11 +243,7 @@
                 {% endfor %}
             </div>
         </div>
-
     </div>
-
-
-
 </section>
 
 
@@ -265,6 +274,38 @@
             });
         });
     });
+
+
+    const sections = document.querySelectorAll('section'); // All sections on the page
+    const navbar = document.querySelector('nav');          // Navbar element
+
+    window.addEventListener('scroll', () => {
+        let inHeroSection = false; // This will track if the user is currently in the Hero section
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;      // Distance from top of the section to the top of the page
+            const sectionHeight = section.clientHeight; // Height of the section
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                if (section.id === 'hero') {
+                    inHeroSection = true;  // User is currently within the Hero section
+                }
+            }
+        });
+
+        if (inHeroSection) {
+            // If in Hero section, set the navbar to absolute and transparent
+            navbar.classList.remove('fixed', 'bg-red-800');
+            navbar.classList.add('absolute', 'bg-transparent');
+        } else {
+            // If outside the Hero section, set the navbar to fixed and a solid background (red-800)
+            navbar.classList.remove('absolute', 'bg-transparent');
+            navbar.classList.add('fixed', 'bg-red-800');
+        }
+    });
+
+
+
 </script>
 
 {% endblock extra_js %}

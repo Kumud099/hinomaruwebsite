@@ -1,17 +1,32 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
 {% load wagtailimages_tags %}
 
 {% block navbar %}
-<c-components.navbar txtcolor="black" />
+<c-components.navbar backgroundcolor="red-800" />
 {% endblock navbar %}
-
 {% block content %}
 
-<main class="container mx-auto px-8 py-12 min-h-[100vh] flex flex-col justify-center items-center pt-20">
-    <div class="w-full max-w-2xl">
-        <div class="mb-8">
-            <p class="text-gray-600">{{ page.blog_publish_date }}</p>
-            <h2 class="mt-2 text-3xl font-bold">{{ page.blog_title }}</h2>
+<main class="container mx-auto px-8 py-12 min-h-[100vh] flex flex-col justify-center items-center pt-20 mb-10">
+    <div class="w-full max-w-2xl ">
+        <div class="mb-8 ">
+            {% if page.categories %}
+            <div class="flex justify-center">
+                <div id="categories-links" class="flex flex-wrap items-center gap-2 mt-4">
+                    <p class="mt-6 text-gray-600">| {{ page.blog_publish_date }} | </p>
+
+                    {% for category in page.categories.all %}
+
+                    <span class="px-4 py-2 mt-6 text-sm bg-red-800 text-white rounded-md shadow-md"> {{ category.name
+                        }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+
+
+            <h2 class="mt-6 text-3xl font-bold text-center">{{ page.blog_title }}</h2>
             <p class="mt-1 text-gray-600">{{ page.blog_description }}</p>
         </div>
         <div class="pt-2 pb-2 rounded">
@@ -19,7 +34,7 @@
         </div>
 
         <!-- Categories -->
-        {% if page.categories.all %}
+        <!-- {% if page.categories.all %}
         <div class="w-full p-4 bg-gray-100 rounded-md">
             <div class="flex items-center mb-2 space-x-2">
                 <span class="flex gap-2 text-lg font-semibold">
@@ -38,7 +53,7 @@
                 {% endfor %}
             </div>
         </div>
-        {% endif %}
+        {% endif %} -->
 
 
         <!-- Table of Contents -->
@@ -58,23 +73,53 @@
             </div>
         </div>
 
-        <div class="pt-5 space-y-8 prose prose-slate">
+        <div class="pt-5 space-y-8 text-justify prose prose-slate">
             {{ page.blog_body | safe }}
         </div>
     </div>
-
-    <div class="pt-20">
-        <a class="flex gap-2 pt-1 pb-1 pl-2 pr-2 text-white bg-black rounded text-1xl flex-rows" href="">
-            <span>See All Blogs</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-        </a>
-    </div>
 </main>
 
+<!-- Blogs Section -->
+<div class="relative pt-10 overflow-hidden mb-10 pb-10">
+    <div class="flex justify-between items-center ">
+        <h2 class="text-3xl lg:pl-[100px] md:pl-[50px] sm:pl-10 font-bold text-red-500">MORE BLOG</h2>
+        <a href="/blogs" class="text-red-500 pr-[100px] font-semibold hover:underline">
+            View all blogs →
+        </a>
+    </div>
+    <div class="flex ml-0 md:ml-10 overflow-hidden" id="blog-container">
+        {% for blog in blogs %}
+        <c-components.blog_card :blog="blog" />
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
 <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const blogContainer = document.getElementById('blog-container');
+        const scrollLeftButton = document.getElementById('scroll-left');
+        const scrollRightButton = document.getElementById('scroll-right');
+
+        // Scroll left
+        scrollLeftButton.addEventListener('click', () => {
+            blogContainer.scrollBy({
+                left: -525,
+                behavior: 'smooth'
+            });
+        });
+
+        // Scroll right
+        scrollRightButton.addEventListener('click', () => {
+            blogContainer.scrollBy({
+                left: 525,
+                behavior: 'smooth'
+            });
+        });
+    });
+
     const h2Elements = document.querySelectorAll('h2');
     const tocLinksContainer = document.getElementById('toc-links');
 
@@ -88,5 +133,6 @@
 
         h2.id = `section-${index + 1}`;
     });
+
 </script>
-{% endblock content %}
+{% endblock extra_js %}

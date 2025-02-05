@@ -22,6 +22,20 @@ class NewsDetailPage(Page):
         FieldPanel("news_body"),
     ]
 
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+    
+        news = (
+            NewsDetailPage.objects.live()
+            .public()
+            .order_by(
+                "-first_published_at",
+            )[0:3]
+        )
+   
+        context["list_of_news"] = news
+
+        return context
 
 class NewsPage(Page):
     max_count = 1

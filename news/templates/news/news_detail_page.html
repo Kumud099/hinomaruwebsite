@@ -2,21 +2,78 @@
 {% load wagtailimages_tags %}
 
 {% block navbar %}
-<c-components.navbar txtcolor="black" />
+<c-components.navbar backgroundcolor="red-800" />
 {% endblock navbar %}
 
 {% block content %}
 <main class="container mx-auto px-8 py-12 min-h-[100vh] flex flex-col  items-center pt-20">
     <div class="w-full max-w-2xl">
         <div class="mb-8">
-            <p class="text-gray-600">{{page.news_publish_date}}</p>
-            <h2 class="mt-2 text-3xl font-bold">{{page.news_title}}</h2>
+            <p class="text-gray-600 text-center mt-6">{{page.news_publish_date}}</p>
+            <h2 class="mt-2 text-3xl font-bold text-center">{{page.news_title}}</h2>
         </div>
 
-        <div class="pt-5 space-y-8 prose prose-slate">
+        <div class="pt-2 space-y-8 text-justify prose prose-slate">
             {{page.news_body | safe}}
         </div>
     </div>
+
+
+
 </main>
+<!-- News Section -->
+<section class=" pb-10 overflow-hidden ">
+    <div class="pb-16">
+
+        <div class="flex justify-between items-center ">
+            <h2 class="text-3xl pl-[50px] font-bold pb-4 text-red-500">MORE NEWS</h2>
+            <a href="/announcements" class="text-red-500 pr-[50px] font-semibold hover:underline">
+                View all news →
+            </a>
+
+        </div>
+
+
+        <div class="hover:cursor-pointer px-4 lg:px-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+                {% for news in list_of_news %}
+                <a href="{{news.url}}">
+                    <div
+                        class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 transform hover:scale-105 group">
+                        <!-- Top separator line -->
+                        <hr class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500">
+
+                        <div class="p-4 space-y-3">
+                            <!-- Date Section -->
+                            <div class="text-xs font-semibold text-red-500">
+                                {{news.news_publish_date}}
+                            </div>
+
+                            <!-- News Title Section -->
+                            <div class="text-lg font-bold text-gray-800 leading-tight truncate">
+                                {{news.news_title}}
+                            </div>
+
+                        </div>
+                        <div
+                            class="transition-transform duration-300 group-hover:translate-x-2 absolute top-1/2 right-4 transform -translate-y-1/2">
+                            <!-- Default image arrow -->
+                            <img src="/static/images/arrow.svg" alt="Arrow" class="w-6 h-6 group-hover:hidden" />
+
+                            <!-- Hovered "→" symbol -->
+                            <span
+                                class="text-gray-800 group-hover:text-red-500 w-8 h-8 text-xl group-hover:block hidden">→</span>
+                        </div>
+                        <!-- Bottom separator line -->
+                        <hr class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500">
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 {% endblock content %}

@@ -83,14 +83,14 @@
 
 <body class="bg-gray-100">
     <div class="max-w-8.5xl mx-auto px-10 py-12">
+
         <!-- Swiper Container with animation -->
         <div class="relative swiper-container-animation" id="swiper-container">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper px-4 sm:px-2 md:px-3">
                     {% for blog in blogs %}
-                    <a href="{{ blog.url }}"
+                    <a href="{{blog.url}}"
                         class="swiper-slide bg-white rounded-lg custom-shadow m-3 p-3 space-y-4 max-w-[380px] sm:max-w-full md:max-w-[400px]">
-
                         <!-- Blog card width increased -->
                         {% image blog.blog_cover_image width-400 as blog_cover %}
                         <img src="{{ blog_cover.url }}" alt="Blog Image" class="w-full h-48 rounded-lg object-cover">
@@ -103,12 +103,12 @@
                             {% endfor %}
                         </div>
                         {% endif %}
-
-                        {% endfor %}
-
                     </a>
+                    {% endfor %}
                 </div>
+
                 <!-- Navigation Arrows -->
+
                 <div
                     class="swiper-button-prev absolute top-1/2 left-2 sm:left-4 md:left-6 transform -translate-y-1/2 z-10">
                 </div>
@@ -118,12 +118,14 @@
 
             </div>
         </div>
-
         <!-- Pagination -->
         <div class="swiper-pagination m-4 p-4"></div>
+
+
     </div>
 
     <script>
+
         const swiper = new Swiper('.mySwiper', {
             slidesPerView: 4,
             spaceBetween: 30,

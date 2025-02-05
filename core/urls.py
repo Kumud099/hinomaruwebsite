@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.urls import include, path
 from django.contrib import admin
-from contact.views import contact_form 
+
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail import urls as wagtail_urls
@@ -17,7 +17,7 @@ urlpatterns = [
     path("search/", search_views.search, name="search"),
     path("404/", views.bad_request, name="bad_request"),
     path("500/", views.server_error, name="server_error"),
-    path('form_page/', contact_form, name='contact_form'),
+ 
    
 ]
 
@@ -33,4 +33,5 @@ if settings.DEBUG:
 
 urlpatterns = urlpatterns + [
     path("", include(wagtail_urls)),
+    path('', include('home.urls')), 
 ]

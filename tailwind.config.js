@@ -26,6 +26,7 @@ module.exports = {
         Grotesk: ["Schibsted Grotesk", "sans-serif"],
         Play: ["Play", "sans-serif"],
         Inter: ["Inter", "sans-serif"],
+        Coiny: ["Coiny", "cursive"],
       },
     },
   },

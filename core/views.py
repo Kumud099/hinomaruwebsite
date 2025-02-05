@@ -7,3 +7,4 @@ def bad_request(request):
 
 def server_error(request):
     return render(request, "500.html", status=500)
+

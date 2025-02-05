@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block navbar %}
-<c-components.navbar txtcolor="black" />
+<c-components.navbar backgroundcolor="red-800" />
 {% endblock navbar %}
-
 {% block content %}
 <main class="min-h-[100vh]">
     <div class="p-20">
-        <h1 class="mb-8 text-[64px] font-bold text-gray-800">
-            <span class="underline decoration-red-700">NEWS</span>
-            <span class="text-[18px] text-gray-600">Page #{{ request.GET.page|default:1 }}</span>
+        <h1 class=" text-[40px] text-center mt-4 mb-4 font-bold text-red-800">
+            <span class="underline decoration-red-800">NEWS</span>
+
         </h1>
+        <p class="text-[18px] text-center text-gray-600">Page {{ request.GET.page|default:1 }}</p>
 
         {% for news_item in news %}
         <c-components.news_card :news_item="news_item" />

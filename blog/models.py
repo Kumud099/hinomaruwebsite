@@ -66,12 +66,18 @@ class BlogPage(RoutablePageMixin, Page):
         return context
 
 
+from django.db import models
+from wagtail.models import Page
+from wagtail.fields import RichTextField
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel
+from modelcluster.fields import ParentalManyToManyField
+from django import forms
+
 class BlogDetailPage(Page):
     blog_publish_date = models.DateField(
         auto_created=True,
         auto_now=True,
     )
-
     blog_title = models.CharField(
         verbose_name="Blog Title",
         max_length=255,
@@ -83,9 +89,7 @@ class BlogDetailPage(Page):
         null=True,
         blank=False,
     )
-
     blog_body = RichTextField()
-
     blog_cover_image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
@@ -93,7 +97,6 @@ class BlogDetailPage(Page):
         on_delete=models.SET_NULL,
         related_name="+",
     )
-
     categories = ParentalManyToManyField("blog.BlogCategory", blank=True)
 
     content_panels = Page.content_panels + [
@@ -106,3 +109,16 @@ class BlogDetailPage(Page):
             heading="Categories",
         ),
     ]
+
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        blogs = BlogDetailPage.objects.live().public().order_by("-first_published_at")[:5]
+   
+        context["blogs"] = blogs
+        context["categories"] = BlogCategory.objects.all()
+
+        return context
+
+
