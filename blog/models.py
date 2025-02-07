@@ -66,12 +66,7 @@ class BlogPage(RoutablePageMixin, Page):
         return context
 
 
-from django.db import models
-from wagtail.models import Page
-from wagtail.fields import RichTextField
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel
-from modelcluster.fields import ParentalManyToManyField
-from django import forms
+
 
 class BlogDetailPage(Page):
     blog_publish_date = models.DateField(

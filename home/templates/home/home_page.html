@@ -39,9 +39,9 @@
 </section>
 
 <!-- About Us Section -->
-<section class="flex flex-col mt-20 items-center h-screen overflow-hidden about-us font-Grotesk" id="aboutUsContainer">
+<section class="flex flex-col  items-center h-screen overflow-hidden about-us font-Grotesk" id="aboutUsContainer">
 
-    <h2 class="text-[40px] font-bold mt-12 pt-6 about-us mb-10 text-red-500" id="our-vision">ABOUT US</h2>
+    <h2 class="text-[40px] font-bold mt-28 pt-6 about-us mb-10 text-red-500" id="our-vision">ABOUT US</h2>
     <div class="flex flex-col items-center gap-8 mx-auto md:flex-row max-w-[1400px] mt-6 about-us">
         <!-- Content Section -->
         <div class="text-left md:w-1/2 about-us">
@@ -68,18 +68,11 @@
                     class="w-48 h-48 rounded rotate-[-40deg]  bg-orange-400 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
                 <span
                     class="relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-black">
-                    Learn More →
+                    Contact us
                 </span>
             </a>
         </div>
 
-        <!-- Image Section -->
-        <!-- <div class="relative flex items-center justify-center md:w-1/2">
-            <div class="absolute w-48 h-48 rounded-full bg-hred-950 md:w-64 md:h-64 -top-6 -right-6">
-            </div>
-            <img src="{% static 'images/about-us-image.png' %}" alt="About Us Visual"
-                class="relative w-full max-w-sm rounded-lg shadow-lg md:max-w-md">
-        </div>  -->
         <div class="md:w-1/2 flex justify-center items-center relative">
             <!-- Animated Red Circle Background -->
             <div
@@ -95,9 +88,9 @@
 </section>
 
 <!-- Services Section  -->
-<section id="services" class="flex flex-col items-center justify-start min-h-[1005px] bg-[#201D1D] w-full">
+<section id="services" class="flex cursor-none flex-col items-center justify-start min-h-[1005px] bg-[#201D1D] w-full">
     <div class="container  mx-auto max-w-[1440px]">
-        <h1 class="text-center pt-20 mt-10 mb-10 font-bold text-[40px] text-white relative ">
+        <h1 class="text-center m-40 mb-0 font-bold text-[40px] text-white relative ">
             <!-- Background Animation Div -->
             <div id="reveal-box" class="absolute inset-0 w-0 bg-red-900"></div>
             <!-- Text wrapped in span for control -->
@@ -106,82 +99,118 @@
 
         <!-- Hide scrollbar for this container -->
         <div class="relative w-full mt-20">
-            <div class="flex justify-center gap-4 pb-4  scrollbar-hide snap-x snap-mandatory">
+            <div class="flex justify-center gap-6 pb-4  scrollbar-hide snap-x snap-mandatory">
 
                 <div class="card snap-center">
                     <div
-                        class="min-w-[380px] flex-shrink-0  bg-red-800  hover:bg-orange-400 hover:text-black text-white flex flex-col justify-center items-center text-center rounded-lg shadow-md shadow-red-800 group">
-                        <div class=""><img src="{% static '/images/services.avif' %}" alt="Service Image"
-                                class="w-full h-full object-cover rounded-lg" />
-                        </div>
-                        <h1 class="text-2xl p-4 font-semibold text-orange-400 group-hover:text-red-800">
-                            Web Application Development
-                        </h1>
+                        class="min-w-[380px] flex-shrink-0 bg-[#F5F4EB] hover:bg-gray-300 text-black flex flex-col justify-center items-center text-center rounded-lg group transition-transform duration-300 shadow-[0_10px_15px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_20px_rgba(255,255,255,0.5)] hover:-translate-y-2 hover:scale-105 transform ease-out">
 
-                        <div class="text-justify  m-6 mt-4"> Lorem ipsum dolor
-                            sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit aspernatur,
+                        <!-- Image container without individual hover -->
+                        <div class="w-full h-auto rounded-lg overflow-hidden">
+                            <img src="{% static '/images/services.avif' %}" alt="Service Image"
+                                class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105" />
+                        </div>
+
+                        <!-- Title Section -->
+                        <div class="m-4 mb-0">
+                            <h1 class="text-2xl text-[#D32F2F] font-play font-bold">
+                                Web Application Development
+                            </h1>
+                        </div>
+
+                        <!-- Description Section -->
+                        <div class="text-justify p-8 pt-4">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit
+                            aspernatur,
                             architecto fugiat esse repudiandae autem laborum eveniet, nisi quisquam eum quibusdam.
-                            Magni, repellat nobis. Maiores.
+                            Magni, repellat nobis.
+                            Maiores.
                         </div>
                     </div>
-
                 </div>
                 <div class="card snap-center">
                     <div
-                        class="min-w-[380px] flex-shrink-0  bg-red-800  hover:bg-orange-400 hover:text-black text-white flex flex-col justify-center items-center text-center rounded-lg shadow-md shadow-red-800 group">
-                        <div class=""><img src="{% static '/images/services.avif' %}" alt="Service Image"
-                                class="w-full h-full object-cover rounded-lg" />
-                        </div>
-                        <h1 class="text-2xl p-4 font-semibold text-orange-400 group-hover:text-red-800">
-                            Web Application Development
-                        </h1>
+                        class="min-w-[380px] flex-shrink-0 bg-[#F5F4EB] hover:bg-gray-300 text-black flex flex-col justify-center items-center text-center rounded-lg group transition-transform duration-300 shadow-[0_10px_15px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_20px_rgba(255,255,255,0.5)] hover:-translate-y-2 hover:scale-105 transform ease-out">
 
-                        <div class="text-justify  m-6 mt-4"> Lorem ipsum dolor
-                            sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit aspernatur,
+                        <!-- Image container without individual hover -->
+                        <div class="w-full h-auto rounded-lg overflow-hidden">
+                            <img src="{% static '/images/services.avif' %}" alt="Service Image"
+                                class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105" />
+                        </div>
+
+                        <!-- Title Section -->
+                        <div class="m-4 mb-0">
+                            <h1 class="text-2xl text-[#D32F2F] font-play font-bold">
+                                Web Application Development
+                            </h1>
+                        </div>
+
+                        <!-- Description Section -->
+                        <div class="text-justify p-8 pt-4">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit
+                            aspernatur,
                             architecto fugiat esse repudiandae autem laborum eveniet, nisi quisquam eum quibusdam.
-                            Magni, repellat nobis. Maiores.
+                            Magni, repellat nobis.
+                            Maiores.
                         </div>
                     </div>
-
                 </div>
-
                 <div class="card snap-center">
                     <div
-                        class="min-w-[380px] flex-shrink-0  bg-red-800  hover:bg-orange-400 hover:text-black text-white flex flex-col justify-center items-center text-center rounded-lg shadow-md shadow-red-800 group">
-                        <div class=""><img src="{% static '/images/services.avif' %}" alt="Service Image"
-                                class="w-full h-full object-cover rounded-lg" />
-                        </div>
-                        <h1 class="text-2xl p-4 font-semibold text-orange-400 group-hover:text-red-800">
-                            Web Application Development
-                        </h1>
+                        class="min-w-[380px] flex-shrink-0 bg-[#F5F4EB] hover:bg-gray-300 text-black flex flex-col justify-center items-center text-center rounded-lg group transition-transform duration-300 shadow-[0_10px_15px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_20px_rgba(255,255,255,0.5)] hover:-translate-y-2 hover:scale-105 transform ease-out">
 
-                        <div class="text-justify  m-6 mt-4"> Lorem ipsum dolor
-                            sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit aspernatur,
+                        <!-- Image container without individual hover -->
+                        <div class="w-full h-auto rounded-lg overflow-hidden">
+                            <img src="{% static '/images/services.avif' %}" alt="Service Image"
+                                class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105" />
+                        </div>
+
+                        <!-- Title Section -->
+                        <div class="m-4 mb-0">
+                            <h1 class="text-2xl text-[#D32F2F] font-play font-bold">
+                                Web Application Development
+                            </h1>
+                        </div>
+
+                        <!-- Description Section -->
+                        <div class="text-justify p-8 pt-4">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit
+                            aspernatur,
                             architecto fugiat esse repudiandae autem laborum eveniet, nisi quisquam eum quibusdam.
-                            Magni, repellat nobis. Maiores.
+                            Magni, repellat nobis.
+                            Maiores.
                         </div>
                     </div>
-
                 </div>
-
                 <div class="card snap-center">
                     <div
-                        class="min-w-[380px] flex-shrink-0  bg-red-800  hover:bg-orange-400 hover:text-black text-white flex flex-col justify-center items-center text-center rounded-lg shadow-md shadow-red-800 group">
-                        <div class=""><img src="{% static '/images/services.avif' %}" alt="Service Image"
-                                class="w-full h-full object-cover rounded-lg" />
-                        </div>
-                        <h1 class="text-2xl p-4 font-semibold text-orange-400 group-hover:text-red-800">
-                            Web Application Development
-                        </h1>
+                        class="min-w-[380px] flex-shrink-0 bg-[#F5F4EB] hover:bg-gray-300 text-black flex flex-col justify-center items-center text-center rounded-lg group transition-transform duration-300 shadow-[0_10px_15px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_20px_rgba(255,255,255,0.5)] hover:-translate-y-2 hover:scale-105 transform ease-out">
 
-                        <div class="text-justify  m-6 mt-4"> Lorem ipsum dolor
-                            sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit aspernatur,
+                        <!-- Image container without individual hover -->
+                        <div class="w-full h-auto rounded-lg overflow-hidden">
+                            <img src="{% static '/images/services.avif' %}" alt="Service Image"
+                                class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105" />
+                        </div>
+
+                        <!-- Title Section -->
+                        <div class="m-4 mb-0">
+                            <h1 class="text-2xl text-[#D32F2F] font-play font-bold">
+                                Web Application Development
+                            </h1>
+                        </div>
+
+                        <!-- Description Section -->
+                        <div class="text-justify p-8 pt-4">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, ea. Magni sequi distinctio sit
+                            aspernatur,
                             architecto fugiat esse repudiandae autem laborum eveniet, nisi quisquam eum quibusdam.
-                            Magni, repellat nobis. Maiores.
+                            Magni, repellat nobis.
+                            Maiores.
                         </div>
                     </div>
-
                 </div>
+
+
 
 
             </div>
@@ -190,10 +219,10 @@
         <!-- Scrolling Text Section -->
         <div class=" mt-10 w-full  whitespace-nowrap">
             <div id="scrollingText" class="flex gap-12 text-[35px]  pt-4 parallax">
-                <span class="text-white ml-4 p-4 font-Coiny">WEB APPLICATION DEVELOPMENT </span>
-                <span class="text-red-500 ml-4 p-4 font-Coiny"> CMS DEVELOPMENT </span>
-                <span class="text-white ml-4 p-4 font-Coiny">SOFTWARE DEVELOPMENT</span>
-                <span class="text-red-500 ml-4 p-4 font-Coiny">WEB APPLICATION DEVELOPMENT </span>
+                <span class="text-white ml-4 p-4 font-play">WEB APPLICATION DEVELOPMENT </span>
+                <span class="text-red-500 ml-4 p-4 font-play"> CMS DEVELOPMENT </span>
+                <span class="text-white ml-4 p-4 font-play">SOFTWARE DEVELOPMENT</span>
+                <span class="text-red-500 ml-4 p-4 font-play">WEB APPLICATION DEVELOPMENT </span>
 
 
             </div>
@@ -386,20 +415,16 @@
 
     .custom-cursor {
         position: fixed;
-        width: 40px;
-        height: 40px;
-        background-color: rgba(255, 0, 0, 0.7);
+        width: 20px;
+        height: 20px;
+        background-color: red;
         border-radius: 50%;
         pointer-events: none;
         transform: translate(-50%, -50%);
         transition: transform 0.1s ease-out;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-        color: white;
-        font-weight: bold;
-        font-family: sans-serif;
+        z-index: 9999;
+        display: none;
+
     }
 </style>
 {% endblock content %}
@@ -479,38 +504,51 @@
 
         observer.observe(aboutUsSection);
     });
-
     // Create custom cursor
     const cursor = document.createElement("div");
     cursor.classList.add("custom-cursor");
     document.body.appendChild(cursor);
 
-    // Update cursor position
-    document.addEventListener("mousemove", (e) => {
+    const servicesSection = document.querySelector("#services");
+
+    // Show cursor only inside #services
+    servicesSection.addEventListener("mouseenter", () => {
+        cursor.style.display = "block";
+    });
+
+    servicesSection.addEventListener("mouseleave", () => {
+        cursor.style.display = "none";
+    });
+
+    // Update cursor position only inside #services
+    servicesSection.addEventListener("mousemove", (e) => {
         cursor.style.left = `${e.clientX}px`;
         cursor.style.top = `${e.clientY}px`;
     });
-
-    // Select all service cards
-    const cards = document.querySelectorAll(".card");
-
-    // Add hover effect
-    cards.forEach((card) => {
+    document.querySelectorAll("#services .card").forEach((card) => {
         card.addEventListener("mouseenter", () => {
-            cursor.textContent = "Click Me!";
-            cursor.style.width = "60px";
-            cursor.style.height = "60px";
-            cursor.style.backgroundColor = "rgba(255, 69, 0, 0.8)";
+            cursor.textContent = "Click";
+            cursor.style.width = "50px";
+            cursor.style.height = "50px";
+            cursor.style.backgroundColor = "#d32f2f";
+            cursor.style.fontSize = "15px";
+            cursor.style.display = "flex";
+            cursor.style.alignItems = "center";
+            cursor.style.justifyContent = "center";
+            cursor.style.color = "white";
+            cursor.style.fontWeight = "600";
+            cursor.style.borderRadius = "50%";
+            cursor.style.boxShadow = "0px 0px 5px rgba(0,0,0,0.3)";
         });
 
         card.addEventListener("mouseleave", () => {
             cursor.textContent = "";
-            cursor.style.width = "40px";
-            cursor.style.height = "40px";
-            cursor.style.backgroundColor = "rgba(255, 0, 0, 0.7)";
+            cursor.style.width = "15px";
+            cursor.style.height = "15px";
+            cursor.style.backgroundColor = "#d32f2f";
+            cursor.style.boxShadow = "none";
         });
     });
-
 
 
 </script>

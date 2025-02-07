@@ -17,8 +17,6 @@
     {% endif %}
   ">
 
-
-    <!-- <nav class="fixed top-0 left-0 z-50 w-full text-white text-[20px] font-Play" id="navbar"> -->
     <div class="flex items-center justify-between px-6 py-4">
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3 text-xl">
@@ -26,7 +24,7 @@
                 <img src="{% static 'images/logo.png' %}" alt="logo" class="w-10 h-10">
             </div>
             <div>
-                <span class="font-Coiny text-[40px] text-white"
+                <span class="font-Play font-bold text-[40px] text-white"
                     style="text-shadow: 1px 1px 0 #c53030, -1px -1px 0 #c53030, 1px -1px 0 #c53030, -1px 1px 0 #c53030;">
                     HINOMARU TECH
                 </span>
@@ -45,50 +43,34 @@
                     </a>
 
                 </li>
-                <li class="px-3 py-2 cursor-pointer hover:text-white hover:bg-black"
-                    style="text-shadow: 1px 1px 0 #c53030, -1px -1px 0 #c53030, 1px -1px 0 #c53030, -1px 1px 0 #c53030;">
-                    SERVICES
-                    <!-- Dropdown Menu -->
-                    <div id="dropdown"
-                        class="absolute left-1/2 -translate-x-1/2 hidden flex-col gap-4 w-[600px] bg-white text-black shadow-md rounded-md p-4 mt-2 opacity-0 pointer-events-none">
-                        <div class="flex items-center justify-between gap-4">
-                            <!-- Card 1 -->
-                            <div
-                                class="flex flex-col items-center justify-center w-[140px] h-[120px] bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                                <img src="https://via.placeholder.com/80" alt="service-1" class="rounded">
-                                <p class="text-sm font-medium">Homepage Production</p>
-                            </div>
-                            <!-- Card 2 -->
-                            <div
-                                class="flex flex-col items-center justify-center w-[140px] h-[120px] bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                                <img src="https://via.placeholder.com/80" alt="service-2" class="rounded">
-                                <p class="text-sm font-medium">Advertising</p>
-                            </div>
-                            <!-- Card 3 -->
-                            <div
-                                class="flex flex-col items-center justify-center w-[140px] h-[120px] bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                                <img src="https://via.placeholder.com/80" alt="service-3" class="rounded">
-                                <p class="text-sm font-medium">Video Production</p>
-                            </div>
-                            <!-- Card 4 -->
-                            <div
-                                class="flex flex-col items-center justify-center w-[140px] h-[120px] bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                                <img src="https://via.placeholder.com/80" alt="service-4" class="rounded">
-                                <p class="text-sm font-medium">Illustration</p>
-                            </div>
-                        </div>
-                        <!-- Additional Links -->
-                        <div class="flex items-center gap-4 mt-4">
-                            <a href="#" class="text-sm text-gray-500 hover:text-black">OTHERS</a>
-                            <a href="#" class="text-sm text-gray-500 hover:text-black">SEO Measures</a>
-                            <a href="#" class="text-sm text-gray-500 hover:text-black">Design Services</a>
+
+                <ul class="relative">
+                    <div class="px-3 py-2 cursor-pointer hover:text-white hover:bg-black group relative">
+                        <div
+                            style="text-shadow: 1px 1px 0 #c53030, -1px -1px 0 #c53030, 1px -1px 0 #c53030, -1px 1px 0 #c53030;">
+                            SERVICES</div>
+                        <div id="dropdown"
+                            class="absolute left-1/2 -translate-x-1/2 hidden group-hover:flex flex-col gap-3  w-[250px] bg-white shadow-lg rounded-md border border-gray-200">
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Homepage
+                                Production</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Advertising</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Video
+                                Production</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Illustration</a>
                         </div>
                     </div>
-                </li>
-                <li class="px-3 py-2 cursor-pointer hover:text-white hover:bg-black"
-                    style="text-shadow: 1px 1px 0 #c53030, -1px -1px 0 #c53030, 1px -1px 0 #c53030, -1px 1px 0 #c53030;">
-                    ABOUT US
-                </li>
+                </ul>
+
+
+
+                <a href="{% url 'home' %}#aboutUsContainer">
+                    <li class="px-3 py-2 cursor-pointer hover:text-white hover:bg-black"
+                        style="text-shadow: 1px 1px 0 #c53030, -1px -1px 0 #c53030, 1px -1px 0 #c53030, -1px 1px 0 #c53030;">
+                        ABOUT US
+                    </li>
+                </a>
             </ul>
         </div>
 
