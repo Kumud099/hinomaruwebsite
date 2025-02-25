@@ -11,9 +11,9 @@
     <div class="container mx-auto max-w-[1440px] px-6 py-20">
 
         <!-- Page Header -->
-        <div class="text-center mb-10">
+        <div class="text-center mt-20 mb-10">
 
-            <h1 class=" text-[40px] text-center mt-4 mb-4 font-bold text-red-800">
+            <h1 class=" text-[40px] text-center mb-4 font-bold text-red-800">
                 <span class="underline decoration-red-800">BLOGS</span>
 
             </h1>
@@ -35,6 +35,13 @@
                         {{ category.name }}
                     </a>
                     {% endfor %}
+                    <!-- Clear Filter Button -->
+                    {% if selected_category %}
+                    <a href="?clear"
+                        class="px-4 py-2 rounded-lg text-lg font-semibold bg-gray-200 hover:bg-red-600 hover:text-white transition-all duration-300">
+                        Clear Filter
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -57,7 +64,7 @@
                             <p class="text-sm text-gray-500 mt-3">{{ blog.blog_publish_date }}</p>
 
                             <a href="{{ blog.url }}" class="inline-block mt-4 ml-auto font-semibold hover:underline"
-                                style="color: #e11d48; hover: color:#9b1d20;">
+                                style="color: #e11d48; ">
                                 Read More →
                             </a>
 
