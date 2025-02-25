@@ -54,15 +54,33 @@
         </div>
     </div>
 </main>
+<!-- Circular Elements on Mobile (Horizontal) -->
+<div class="sm:hidden flex mb-40 justify-center items-center  space-x-6 mt-6">
+    <div class="w-16 h-16 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
+        <img src="{% static 'images/facebook.svg' %}" alt="Facebook Icon">
+    </div>
+    <div class="w-16 h-16 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
+        <img src="{% static 'images/x.svg' %}" alt="X Icon">
+    </div>
+    <div class="w-16 h-16  rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
+        <img src="{% static 'images/insta.svg' %}" alt="Instagram Icon">
+    </div>
+</div>
+
 
 <!-- Blogs Section -->
 <div class="relative pt-10 overflow-hidden mb-10 pb-10">
     <div class="flex justify-between items-center">
-        <h2 class="text-3xl lg:pl-[100px] md:pl-[50px] sm:pl-10 font-bold text-red-500">MORE BLOG</h2>
-        <a href="/blogs" class="text-red-500 pr-[100px] font-semibold hover:underline">
+        <h2
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl pl-4 sm:pl-10 md:pl-16 lg:pl-[100px] font-bold text-red-500">
+            MORE BLOG
+        </h2>
+        <a href="/blogs"
+            class="text-red-500 pr-4 sm:pr-8 md:pr-12 lg:pr-[100px] font-semibold hover:underline text-sm sm:text-base md:text-lg lg:text-xl">
             View all blogs →
         </a>
     </div>
+
     <div class="flex ml-0 md:ml-10 overflow-hidden" id="blog-container">
         {% for blog in blogs %}
         <c-components.blogs_card :blog="blog" />
@@ -70,18 +88,20 @@
     </div>
 </div>
 
-<!-- Fixed Circular Elements on the Right Edge -->
+<!-- Fixed Circular Elements on Larger Screens -->
 <div
-    class="fixed right-6 top-[300px] w-16 h-16 bg-red-800 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
-    <img src="{% static 'images/facebook.svg' %}" alt="Facebook Icon">
+    class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full  items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block">
+    <img src="{% static 'images/facebook.svg' %}" alt="Facebook Icon" class="w-full h-full object-contain">
 </div>
+
 <div
-    class="fixed right-6 top-[400px] w-16 h-16 bg-red-800 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
-    <img src="{% static 'images/x.svg' %}" alt="Facebook Icon">
+    class="fixed right-6 top-[400px] sm:top-[450px] md:top-[500px] w-16 h-16 rounded-full  items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block">
+    <img src="{% static 'images/x.svg' %}" alt="X Icon" class="w-full h-full object-contain">
 </div>
+
 <div
-    class="fixed right-6 top-[500px] w-16 h-16 bg-red-800 rounded-full flex items-center justify-center text-white text-lg font-bold shadow-lg">
-    <img src="{% static 'images/insta.svg' %}" alt="Facebook Icon">
+    class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full  items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block">
+    <img src="{% static 'images/insta.svg' %}" alt="Instagram Icon" class="w-full h-full object-contain">
 </div>
 
 
