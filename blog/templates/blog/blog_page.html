@@ -12,16 +12,14 @@
 
         <!-- Page Header -->
         <div class="text-center mt-20 mb-10">
-
-            <h1 class=" text-[40px] text-center mb-4 font-bold text-red-800">
+            <h1 class="text-[40px] text-center mb-4 font-bold text-red-800">
                 <span class="underline decoration-red-800">BLOGS</span>
-
             </h1>
             <p class="text-gray-500 text-lg mt-2">Page {{ request.GET.page|default:1 }}</p>
         </div>
 
-        <!-- Mobile Category Section (Top) -->
-        <div class="md:hidden mb-6">
+        <!-- Category Section (For Both Desktop and Mobile) -->
+        <div class="mb-6">
             <div class="bg-white shadow-md rounded-lg p-4">
                 <h3 class="text-xl font-bold text-red-800 mb-3">Categories</h3>
                 <div class="flex gap-2 overflow-x-auto whitespace-nowrap pb-2">
@@ -34,6 +32,8 @@
                             {% endif %}">
                         {{ category.name }}
                     </a>
+                    {% empty %}
+                    <p>No categories found</p>
                     {% endfor %}
                     <!-- Clear Filter Button -->
                     {% if selected_category %}
@@ -46,8 +46,8 @@
             </div>
         </div>
 
+        <!-- Blog Content Section -->
         <div class="flex flex-col md:flex-row gap-8">
-
 
             <!-- Blog Posts Section -->
             <div class="flex-1">
@@ -64,19 +64,18 @@
                             <p class="text-sm text-gray-500 mt-3">{{ blog.blog_publish_date }}</p>
 
                             <a href="{{ blog.url }}" class="inline-block mt-4 ml-auto font-semibold hover:underline"
-                                style="color: #e11d48; ">
+                                style="color: #e11d48;">
                                 Read More →
                             </a>
-
                         </div>
                     </div>
+                    {% empty %}
+                    <p>No blog posts available</p>
                     {% endfor %}
                 </div>
             </div>
 
         </div>
-
-
 
         <!-- Pagination -->
         <div class="flex justify-center mt-12">
