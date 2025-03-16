@@ -3,8 +3,9 @@
 {% load wagtailimages_tags %}
 
 {% block navbar %}
-<c-components.navbar txtcolor="white" :backgroundcolor="currentSection === 'hero' ? 'transparent' : 'red-800'" />
+<c-components.navbar txtcolor="red-900" backgroundcolor="currentSection === 'hero' ? 'transparent' : 'white'" />
 {% endblock navbar %}
+
 {% block content %}
 
 <!-- hero section -->
@@ -22,7 +23,7 @@
                 style="text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
                 Lorem ipsum dolor sit amet,
                 <br>consectetur adipiscing elit,
-                <br> sed do eiusmod.
+                <br> sed do eiusmod. 
             </span>
         </div>
 
@@ -92,11 +93,11 @@
 
 
 <!-- Services Section -->
-<section id="services" class="flex flex-col items-center justify-start min-h-auto bg-[#201D1D] w-full pt-16 pb-28">
+<section id="services" class="flex flex-col items-center justify-start min-h-auto bg-[#20252F] w-full pt-16 pb-28">
     <div class="container mx-auto max-w-[1440px] px-6">
         <!-- Section Title -->
         <h1
-            class="text-center mt-12 md:mt-20 lg:mt-28 mb-8 md:mb-10 lg:mb-12 font-bold text-[28px] sm:text-[32px] md:text-[36px] lg:text-[36px] text-white relative">
+            class="text-center md:mt-20 lg:mt-28 mb-8 md:mb-10 lg:mb-12 font-bold text-[28px] sm:text-[32px] md:text-[36px] lg:text-[36px] text-red-500 relative">
             <div id="reveal-box" class="absolute inset-0 w-0 bg-red-900 transition-all duration-500"></div>
             <span id="service-text" class="relative">OUR SERVICES</span>
         </h1>
@@ -264,6 +265,29 @@
     </div>
 </section>
 
+<style>
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+</style>
+
+  
+  <style>
+  @keyframes scroll {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+  
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+  }
+  </style>
+  
+
 
 
 
@@ -314,7 +338,7 @@
 
 
 <!-- Blogs Section -->
-<section class="relative pt-10  overflow-hidden">
+<section id="blogsSection" class="relative pt-10  overflow-hidden">
     <div class="flex flex-wrap justify-between items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <h2
             class="text-3xl font-bold text-red-500 md:pl-[50px] pl-[20px] text-xl sm:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl">
@@ -530,30 +554,58 @@
     const sections = document.querySelectorAll('section'); // All sections on the page
 
 
-    window.addEventListener('scroll', () => {
-        let inHeroSection = false; // This will track if the user is currently in the Hero section
+    const hamburgerButton = document.getElementById("hamburger");
+const hamburgerIcon = document.getElementById("hamburger-icon");
+const menu = document.getElementById("mobile-menu");
+const navbar = document.getElementById("navbar");
+const hinomaruText = document.getElementById("hinomaru-text");
+const servicesBtn = document.getElementById("services-btn");
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;      // Distance from top of the section to the top of the page
-            const sectionHeight = section.clientHeight; // Height of the section
+// Hamburger menu toggle
+hamburgerButton.addEventListener("click", function () {
+    // Toggle the visibility of the menu
+    menu.classList.toggle("hidden");
+    menu.classList.toggle("flex");
 
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                if (section.id === 'hero') {
-                    inHeroSection = true;  // User is currently within the Hero section
-                }
-            }
-        });
+    // Toggle between hamburger and cross icon
+    if (menu.classList.contains("flex")) {
+        navbar.classList.remove("bg-white");
+    } else {
+        hamburgerIcon.innerHTML = "&#9776;";
+        navbar.classList.add("bg-white");
+    }
+});
 
-        if (inHeroSection) {
-            // If in Hero section, set the navbar to absolute and transparent
-            navbar.classList.remove('fixed', 'bg-red-800');
-            navbar.classList.add('absolute', 'bg-transparent');
-        } else {
-            // If outside the Hero section, set the navbar to fixed and a solid background (red-800)
-            navbar.classList.remove('absolute', 'bg-transparent');
-            navbar.classList.add('fixed', 'bg-red-800');
-        }
-    });
+// Make navbar white when hovering over "Services"
+servicesBtn.addEventListener("mouseover", function () {
+    navbar.classList.add("bg-white");
+});
+
+// Revert navbar to transparent when leaving "Services"
+servicesBtn.addEventListener("mouseout", function () {
+    navbar.classList.remove("bg-white");
+});
+
+// Ensure navbar stays transparent when not hovered, and remain transparent when scrolling
+window.addEventListener("scroll", function () {
+    // Check if the "Services" button is not hovered
+    if (!servicesBtn.matches(':hover')) {
+        navbar.classList.remove("bg-white");  // Make navbar transparent
+    }
+});
+
+// Ensure navbar stays transparent when the screen is resized to large view (no menu)
+window.addEventListener("resize", function () {
+    if (window.innerWidth >= 1024) {
+        menu.classList.add("hidden");
+        hamburgerIcon.innerHTML = "&#9776;";
+        navbar.classList.remove("bg-white");  // Ensure transparency
+    }
+});
+
+
+
+
     document.addEventListener("DOMContentLoaded", function () {
         const aboutUsSection = document.getElementById("aboutUsContainer");
         const animatedCircle = document.querySelector(".animate-circle");
@@ -586,6 +638,8 @@
         cursor.style.display = "block";
     });
 
+    
+
     servicesSection.addEventListener("mouseleave", () => {
         cursor.style.display = "none";
     });
@@ -598,7 +652,7 @@
     document.querySelectorAll("#services .card").forEach((card) => {
         card.addEventListener("mouseenter", () => {
             cursor.textContent = "Click";
-            cursor.style.width = "50px";
+            cursor.style.width = "60px";
             cursor.style.height = "50px";
             cursor.style.backgroundColor = "#d32f2f";
             cursor.style.fontSize = "15px";

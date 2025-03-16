@@ -1,37 +1,36 @@
 <!-- Navbar -->
 {% load static %}
-<nav id="navbar" class="fixed top-0 left-0 z-50 w-full 
-    {% if txtcolor %} text-{{ txtcolor }} {% else %} text-white {% endif %}
-    {% if backgroundcolor == 'red-800' %} bg-red-800 
-    {% elif backgroundcolor == 'blue-500' %} bg-blue-500 
-    {% else %} bg-transparent {% endif %}">
+<nav id="navbar" class="fixed top-0 left-0 z-50 w-full -mb-10
+    ">
 
     <div class="flex items-center justify-between px-6">
         <!-- Logo -->
         <div class="flex items-center gap-3 pt-4 text-3xl pb-2">
-            <img src="{% static 'images/logo.png' %}" alt="logo" />
+            <img src="{% static 'images/logo.png' %}" alt="logo" class="max-w-full h-auto w-3 sm:w-4 md:w-6 lg:w-7" />
             <span id="hinomaru-text"
-                class="font-Play font-bold text-[36px] md:text-[36px] lg:text-[48px] 2xl:text-[56px] text-white"
-                style="text-shadow:1px 1px 0 #FF5722, -1px -1px 0 #FF5722, 1px -1px 0 #FF5722, -1px 1px 0 #FF5722">
-                HINOMARU TECH
+            class="font-Play font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-red-500 to-red-800"
+                >
+                Hinomaru Tech
             </span>
         </div>
 
         <!-- Menu Button (Hamburger) for mobile screens -->
         <button id="hamburger"
-            class="lg:hidden text-white border-2 border-white bg-black rounded-full w-11 h-11 flex items-center justify-center">
-            <span id="hamburger-icon" class="text-3xl pb-1">&#9776;</span>
+            class="lg:hidden text-red-700 border-2 border-red-700 bg-red-2 rounded-full w-9 h-9 flex items-center justify-center">
+            <span id="hamburger-icon" class="text-2xl pb-1">&#9776;</span>
         </button>
 
+
         <!-- Desktop Navigation (Visible only on 2xl and xl screens) -->
-        <div class="hidden xl:flex 2xl:flex flex-1 justify-center space-x-6 text-2xl 2xl:text-3xl">
-            <a href="{% url 'home' %}" class="px-3 py-8 hover:text-white hover:bg-black"
-                style="text-shadow:1px 1px 0 #FF5722, -1px -1px 0 #FF5722, 1px -1px 0 #FF5722, -1px 1px 0 #FF5722">HOME</a>
+        <div class="hidden xl:flex 2xl:flex flex-1 justify-center space-x-6 text-xs sm:text-xs md:text-xs lg:text-sm xl:text-md 2xl:text-lg text-red-700">
+
+            <a href="{% url 'home' %}" class="px-3 py-8 hover:text-red-800 font-semibold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out">
+                HOME
+              </a>
 
             <!-- Services Button (Keep Inside the Relative Wrapper) -->
             <div class="group" id="services-btn">
-                <button class="px-3 py-8 hover:text-white hover:bg-black"
-                    style="text-shadow:1px 1px 0 #FF5722, -1px -1px 0 #FF5722, 1px -1px 0 #FF5722, -1px 1px 0 #FF5722">
+                <button class="px-3 py-8 hover:text-red-800 font-semibold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out">
                     SERVICES
                 </button>
 
@@ -57,22 +56,22 @@
                 </div>
             </div>
 
-            <a href="{% url 'home' %}#aboutUsContainer" class="px-6 py-8 hover:text-white hover:bg-black"
-                style="text-shadow:1px 1px 0 #FF5722, -1px -1px 0 #FF5722, 1px -1px 0 #FF5722, -1px 1px 0 #FF5722">
+            <a href="{% url 'home' %}#aboutUsContainer" class="px-3 py-8 hover:text-red-800 font-semibold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out">
                 ABOUT US
             </a>
         </div>
 
         <!-- Contact Us Button (Right Aligned, Hidden on screens < 1200px) -->
-        <a href="/contact-us"
-            class="relative inline-flex items-center justify-start px-4 py-2 overflow-hidden font-medium transition-all bg-black rounded hover:bg-orange-400 group xl:flex 2xl:flex hidden">
-            <span
-                class="w-48 h-48 rounded rotate-[-40deg] bg-orange-400 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
-            <span
-                class="relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-black">
-                Contact
-            </span>
-        </a>
+        <a  href="/contact-us"
+        class="relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-medium transition-all bg-orange-700 rounded-full group text-xs sm:text-sm hidden xl:flex 2xl:flex">
+         <span class="w-full h-full absolute left-0 top-0 bg-orange-400 transition-all duration-500 ease-out transform scale-x-0 origin-left group-hover:scale-x-100">
+         </span>
+         <span class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white">
+             <i class="fas fa-envelope text-sm sm:text-base"></i>
+             Contact us
+         </span>
+     </a>
+     
     </div>
 
     <!-- Mobile Menu (Improved Layout) -->
@@ -84,47 +83,50 @@
         <div class="flex w-full justify-between gap-2">
             <!-- Home -->
             <a href="{% url 'home' %}"
-                class="flex-1 min-w-[100px] px-3 py-2 flex items-center justify-center space-x-1 text-sm font-semibold rounded-lg bg-gray-100 hover:bg-orange-400 hover:text-white transition-all">
-                <i class="fas fa-home text-lg sm:text-xl"></i>
-                <span>HOME</span>
-            </a>
+    class="flex-1 min-w-[100px] px-3 py-2 flex items-center justify-center space-x-1 text-sm font-semibold rounded-lg bg-gray-100 hover:bg-orange-400 group transition-all">
+    <i class="fas fa-home text-lg sm:text-xl text-red-500 group-hover:text-white"></i>
+    <span class="text-black group-hover:text-white">HOME</span>
+</a>
+
 
             <!-- Services Button -->
             <div class="relative group flex-1 min-w-[100px]">
                 <button id="mobile-services"
-                    class="w-full px-3 py-2 flex items-center justify-center space-x-1 text-sm font-semibold rounded-lg bg-gray-100 hover:bg-orange-400 hover:text-white transition-all">
-                    <i class="fas fa-cogs text-lg sm:text-xl"></i>
-                    <span>SERVICES</span>
-                </button>
+    class="w-full px-3 py-2 flex items-center justify-center space-x-1 text-sm font-semibold rounded-lg bg-gray-100 hover:bg-orange-400 group transition-all">
+    <i class="fas fa-cogs text-lg sm:text-xl text-red-500 group-hover:text-white"></i>
+    <span class="text-black group-hover:text-white">SERVICES</span>
+</button>
+
 
                 <!-- Dropdown Menu -->
                 <div id="mobile-dropdown"
                     class="absolute left-1/2 transform -translate-x-1/2 w-max bg-white text-black rounded-lg shadow-md mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out z-10">
                     <a href="#" class="px-4 py-2 flex items-center space-x-2 rounded-lg hover:bg-gray-100">
                         <i class="fas fa-laptop text-sm sm:text-base text-red-500"></i>
-                        <span class="text-xs sm:text-sm text-red-500">Web Development</span>
+                        <span class="text-xs sm:text-sm text-black">Web Development</span>
                     </a>
                     <a href="#" class="px-4 py-2 flex items-center space-x-2 rounded-lg hover:bg-gray-100">
                         <i class="fas fa-code text-sm sm:text-base text-red-500"></i>
-                        <span class="text-xs sm:text-sm text-red-500">Software Development</span>
+                        <span class="text-xs sm:text-sm text-black">Software Development</span>
                     </a>
                     <a href="#" class="px-4 py-2 flex items-center space-x-2 rounded-lg hover:bg-gray-100">
                         <i class="fas fa-digital-tachograph text-sm sm:text-base text-red-500"></i>
-                        <span class="text-xs sm:text-sm text-red-500">App Development</span>
+                        <span class="text-xs sm:text-sm text-black">App Development</span>
                     </a>
                     <a href="#" class="px-4 py-2 flex items-center space-x-2 rounded-lg hover:bg-gray-100">
                         <i class="fas fa-cogs text-sm sm:text-base text-red-500"></i>
-                        <span class="text-xs sm:text-sm text-red-500">System Integration</span>
+                        <span class="text-xs sm:text-sm text-black">System Integration</span>
                     </a>
                 </div>
             </div>
 
             <!-- About Us -->
             <a href="{% url 'home' %}#aboutUsContainer"
-                class="flex-1 min-w-[100px] px-3 py-2 flex items-center justify-center space-x-1 text-sm font-semibold rounded-lg bg-gray-100 hover:bg-orange-400 hover:text-white transition-all">
-                <i class="fas fa-info-circle text-lg sm:text-xl"></i>
-                <span>ABOUT US</span>
-            </a>
+    class="flex-1 min-w-[100px] px-3 py-2 flex items-center justify-center space-x-1 text-sm font-semibold rounded-lg bg-gray-100 transition-all hover:bg-orange-400 group">
+    <i class="fas fa-info-circle text-lg sm:text-xl text-red-500 group-hover:text-white"></i>
+    <span class="text-black group-hover:text-white">ABOUT US</span>
+</a>
+
         </div>
 
         <hr class="border-t border-gray-300 w-full">
@@ -132,74 +134,75 @@
         <!-- Contact Us - Second Row (Centered) -->
         <div class="w-full flex justify-center">
             <a href="/contact-us"
-                class="relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium transition-all bg-black rounded-full hover:bg-orange-400 group">
-                <span
-                    class="w-48 h-48 rounded-full rotate-[-40deg] bg-orange-400 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
-                <span
-                    class="relative w-full text-center text-white text-sm sm:text-lg transition-colors duration-300 ease-in-out group-hover:text-black">
-                    <i class="fas fa-envelope text-lg sm:text-xl"></i>
-                    Contact us
-                </span>
-            </a>
+    class="relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-medium transition-all bg-black rounded-full hover:bg-orange-400 group">
+    <span
+        class="w-40 h-40 rounded-full rotate-[-40deg] bg-orange-400 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-7 ml-7 group-hover:ml-0 group-hover:mb-28 group-hover:translate-x-0"></span>
+    <span
+        class="relative w-full text-center text-white text-xs sm:text-sm transition-colors duration-300 ease-in-out group-hover:text-black">
+        <i class="fas fa-envelope text-base sm:text-lg"></i>
+        Contact us
+    </span>
+</a>
+
         </div>
     </div>
 </nav>
 <!-- JavaScript for Mobile Menu Toggle and Services Hover Effect -->
 <script>
-    const hamburgerButton = document.getElementById("hamburger");
-    const hamburgerIcon = document.getElementById("hamburger-icon");
-    const menu = document.getElementById("mobile-menu");
-    const navbar = document.getElementById("navbar");
-    const hinomaruText = document.getElementById("hinomaru-text");
-    const servicesBtn = document.getElementById("services-btn");
+const hamburgerButton = document.getElementById("hamburger");
+const hamburgerIcon = document.getElementById("hamburger-icon");
+const menu = document.getElementById("mobile-menu");
+const navbar = document.getElementById("navbar");
+const hinomaruText = document.getElementById("hinomaru-text");
+const servicesBtn = document.getElementById("services-btn");
 
-    hamburgerButton.addEventListener("click", function () {
-        // Toggle the visibility of the menu
-        menu.classList.toggle("hidden");
-        menu.classList.toggle("flex");
+// Hamburger menu toggle
+hamburgerButton.addEventListener("click", function () {
+    // Toggle the visibility of the menu
+    menu.classList.toggle("hidden");
+    menu.classList.toggle("flex");
 
-        // Toggle between hamburger and cross icon
-        if (menu.classList.contains("flex")) {
-            navbar.classList.remove("bg-white");
-            hinomaruText.classList.remove("text-red-500");
-            hinomaruText.style.textShadow = "1px 1px 0 #FF5722, -1px -1px 0 #FF5722, 1px -1px 0 #FF5722, -1px 1px 0 #FF5722"; // Reapply text shadow
-        } else {
-            hamburgerIcon.innerHTML = "&#9776;"; // Hamburger icon
-            navbar.classList.add("bg-white");
-
-            // Change text color to red when navbar is white
-            hinomaruText.classList.add("text-red-500");
-            hinomaruText.classList.remove("text-white");
-            hinomaruText.style.textShadow = "none";  // Remove text shadow when text is red
-        }
-    });
-
-    // Change navbar background and text color on hover of the services button
-    servicesBtn.addEventListener("mouseover", function () {
-        navbar.classList.add("bg-white");
-        hinomaruText.classList.add("text-red-500");
-        hinomaruText.classList.remove("text-white");
-        hinomaruText.style.textShadow = "none";  // Remove text shadow when text is red
-    });
-
-    servicesBtn.addEventListener("mouseout", function () {
+    // Toggle between hamburger and cross icon
+    if (menu.classList.contains("flex")) {
         navbar.classList.remove("bg-white");
-        hinomaruText.classList.remove("text-red-500");
-        hinomaruText.classList.add("text-white");
-        hinomaruText.style.textShadow = "1px 1px 0 #FF5722, -1px -1px 0 #FF5722, 1px -1px 0 #FF5722, -1px 1px 0 #FF5722";  // Reapply text shadow when text is white
-    });
+    } else {
+        hamburgerIcon.innerHTML = "&#9776;";
+        navbar.classList.add("bg-white");
+    }
+});
 
-    // Close the menu if the screen is large
-    window.addEventListener("resize", function () {
-        if (window.innerWidth >= 1024) {
-            menu.classList.add("hidden");
-            hamburgerIcon.innerHTML = "&#9776;";
-            navbar.classList.remove("bg-white");
-            hinomaruText.classList.remove("text-red-500");  // Reset text color on large screens
-            hinomaruText.classList.add("text-white");  // Set back to white text
-            hinomaruText.style.textShadow = "1px 1px 0 #FF5722, -1px -1px 0 #FF5722, 1px -1px 0 #FF5722, -1px 1px 0 #FF5722";  // Reapply text shadow when text is white
-        }
-    });
+// Make navbar white when hovering over "Services"
+servicesBtn.addEventListener("mouseover", function () {
+    navbar.classList.add("bg-white");
+});
+
+// Revert navbar to transparent when leaving "Services"
+servicesBtn.addEventListener("mouseout", function () {
+    navbar.classList.remove("bg-white");
+});
+
+// Ensure navbar is transparent when the screen is resized to large view (no menu)
+window.addEventListener("resize", function () {
+    if (window.innerWidth >= 1024) {
+        menu.classList.add("hidden");
+        hamburgerIcon.innerHTML = "&#9776;";
+        navbar.classList.remove("bg-white");  // Make navbar transparent
+    }
+});
+
+// Ensure navbar stays transparent on scroll (even after leaving the hero section)
+window.addEventListener("scroll", function () {
+    if (window.scrollY === 0) {
+        navbar.classList.remove("bg-white");
+    }
+});
+
+hamburgerMenu.addEventListener('click', () => {
+    // Toggle the class that hides the contact link when the hamburger menu is active
+    contactLink.classList.toggle('hidden');
+});
+
+
 
 </script>
 
@@ -207,4 +210,8 @@
     .w-screen {
         width: 100vw !important;
     }
+
+
+
+
 </style>

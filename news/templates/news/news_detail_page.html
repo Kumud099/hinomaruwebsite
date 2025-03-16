@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block navbar %}
-<c-components.navbar backgroundcolor="red-800" />
+<c-components.navbar backgroundcolor="white" />
 {% endblock navbar %}
 
 {% block content %}
@@ -44,8 +44,6 @@
                 View all news →
             </a>
         </div>
-
-
 
         <div class="hover:cursor-pointer px-4 lg:px-12">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
@@ -93,7 +91,5 @@
     class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full  items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block">
     <img src="{% static 'images/insta.svg' %}" alt="Instagram Icon" class="w-full h-full object-contain">
 </div>
-
-
 
 {% endblock content %}

@@ -32,8 +32,9 @@
 </head>
 
 {% block navbar %}
-<c-components.navbar txtcolor="" backgroundcolor="" />
+  <c-components.navbar txtcolor="red-900" :backgroundcolor="navbarBackground" />
 {% endblock navbar %}
+
 
 
 <body class="{% block body_class %}{% endblock body_class %} transition-fade font-Inter">
