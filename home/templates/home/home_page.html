@@ -32,8 +32,8 @@
 
         <video id="videoContainer1" autoplay loop muted playsinline webkit-playsinline preload="auto"
             style="width: 100%; height: auto;"
-            class=" absolute z-10 object-cover w-auto min-w-full min-h-full max-w-none" id="video">
-            <source src="{% static 'videos/bg_h264.mp4' %}" type="video/mp4" />
+            class=" absolute z-10 object-cover w-auto min-w-full min-h-full max-w-none opacity-90" id="video">
+            <source src="{% static 'videos/bg_h264.mp4' %}" type="video/mp4"  />
             Your browser does not support the video tag.
         </video>
 
@@ -43,7 +43,7 @@
 
 <!-- About -->
 <section
-    class="flex flex-col items-center h-auto min-h-screen mb-12 sm:mr-0 lg:mr-12 mb- sm:mb-60 lg:mb-0 md:mb-0 about-us font-Grotesk"
+    class="flex flex-col items-center h-auto min-h-screen mb-12 sm:mr-0 lg:mr-12 mb- sm:mb-60 lg:mb-0 md:mb-0 about-us font-Grotesk bg-[#eeeeee]"
     id="aboutUsContainer">
     <h2 class="text-[30px] md:text-[40px] font-bold mt-20 md:mt-28 pt-6 about-us mb-10 text-red-500" id="our-vision">
         ABOUT US
@@ -88,181 +88,107 @@
     </div>
 </section>
 
-
-
-
-
 <!-- Services Section -->
-<section id="services" class="flex flex-col items-center justify-start min-h-auto bg-[#20252F] w-full pt-16 pb-28">
+<section id="services" class="flex flex-col items-center justify-start min-h-auto bg-[#20252F] w-full  pb-16">
     <div class="container mx-auto max-w-[1440px] px-6">
         <!-- Section Title -->
-        <h1
-            class="text-center md:mt-20 lg:mt-28 mb-8 md:mb-10 lg:mb-12 font-bold text-[28px] sm:text-[32px] md:text-[36px] lg:text-[36px] text-red-500 relative">
-            <div id="reveal-box" class="absolute inset-0 w-0 bg-red-900 transition-all duration-500"></div>
-            <span id="service-text" class="relative">OUR SERVICES</span>
+        <h1 class="text-center md:mt-20 lg:mt-28 mb-8 md:mb-10 lg:mb-12 font-bold  text-white relative flex items-center justify-center">
+            <div class="border-t border-white w-24"></div>
+            <span id="service-text" class="relative mx-4 text-[#991B1B] text-[17px] sm:text-[25px] md:text-[28px] lg:text-[28px]">OUR SERVICES</span>
+            <div class="border-t border-white w-24"></div>
         </h1>
+        <p class="text-center text-lg text-[25px] sm:text-[30px] md:text-[35px] lg:text-[35px] text-white mt-4 mb-10">Outstanding Services to Accelerate Your <span class="font-bold text-[#991B1B]">Business Growth</span></p>
 
         <!-- Cards Grid -->
-        <div class="scrollbar-hide snap-x snap-mandatory grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+        <div class="scrollbar-hide snap-x snap-mandatory grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full mt-[90px]">
             <!-- Service Card -->
-
-            <div
-                class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]">
-
-
-                <div
-                    class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]">
-                </div>
-
-
-                <div
-                    class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
-                    <img src="{% static '/images/services.avif' %}" alt="Service Image"
-                        class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125" />
-
-                    <div
-                        class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500">
+            <a href="#" class="card snap-center flex flex-col justify-center group relative items-center overflow-hidden transition duration-500 rounded-lg cursor-pointer hover:cursor-pointer">
+                <!-- Image Container with Shadow on Hover and Rounded Corners -->
+                <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
+                  <img 
+                    class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-80 group-hover:opacity-30 hover:border-2 hover:border-red-100 hover:rounded-lg"
+                    src="{% static '/images/1st.jpg' %}" 
+                    alt="Service Image"
+                  />
+                  <!-- Centered Text Container with Radius -->
+                  <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg">
+                    <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt-[-30px]">
+                      <h1 class="text-2xl font-bold text-white group-hover:text-red-500">Web Development</h1>
+                      <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
+                      </p>
                     </div>
+                  </div>
                 </div>
-
-
-                <h1 class="text-3xl font-bold mt-6 z-10 group-hover:text-black transition-colors duration-500">Web
-                    Application Development</h1>
-
-                <p
-                    class="text-justify px-6 pt-4 text-gray-300 z-10 group-hover:text-gray-100 transition-colors duration-500">
-                    Build premium web applications with seamless performance, scalability, and user-centric designs. We
-                    bring your
-                    ideas to life with precision.
-                </p>
-
-                <div
-                    class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500">
-                </div>
-            </div>
-
-
-
+            </a>
+            
 
             <!-- Other Cards -->
-            <div
-                class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]">
-
-
-                <div
-                    class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]">
-                </div>
-
-
-                <div
-                    class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
-                    <img src="{% static '/images/services.avif' %}" alt="Service Image"
-                        class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125" />
-
-                    <div
-                        class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500">
+            <a href="#" class="card sanp-center flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg ">
+                <!-- Image Container with Shadow on Hover and Rounded Corners -->
+                <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
+                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-80  group-hover:opacity-30" src="{% static '/images/2nd.jpg' %}" alt="Service Image"/>
+                      <!-- Centered Text Container with Radius -->
+                <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg  ">
+                    <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
+                        <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
+                        <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
+                        </p>
                     </div>
                 </div>
-
-
-                <h1 class="text-3xl font-bold mt-6 z-10 group-hover:text-black transition-colors duration-500">Web
-                    Application Development</h1>
-
-                <p
-                    class="text-justify px-6 pt-4 text-gray-300 z-10 group-hover:text-gray-100 transition-colors duration-500">
-                    Build premium web applications with seamless performance, scalability, and user-centric designs. We
-                    bring your
-                    ideas to life with precision.
-                </p>
-
-                <div
-                    class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500">
                 </div>
-            </div>
+            </a>
 
 
-            <div
-                class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]">
-
-
-                <div
-                    class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]">
-                </div>
-
-
-                <div
-                    class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
-                    <img src="{% static '/images/services.avif' %}" alt="Service Image"
-                        class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125" />
-
-                    <div
-                        class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500">
+            <a href="#" class="card sanp-center flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg ">
+                <!-- Image Container with Shadow on Hover and Rounded Corners -->
+                <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
+                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-90  group-hover:opacity-30" src="{% static '/images/3rd.jpg' %}" alt="Service Image"/>
+                      <!-- Centered Text Container with Radius -->
+                <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg  ">
+                    <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
+                        <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
+                        <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
+                        </p>
                     </div>
                 </div>
-
-
-                <h1 class="text-3xl font-bold mt-6 z-10 group-hover:text-black transition-colors duration-500">Web
-                    Application Development</h1>
-
-                <p
-                    class="text-justify px-6 pt-4 text-gray-300 z-10 group-hover:text-gray-100 transition-colors duration-500">
-                    Build premium web applications with seamless performance, scalability, and user-centric designs. We
-                    bring your
-                    ideas to life with precision.
-                </p>
-
-                <div
-                    class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500">
                 </div>
-            </div>
+            </a>
 
-            <div
-                class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]">
-
-
-                <div
-                    class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]">
-                </div>
-
-
-                <div
-                    class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
-                    <img src="{% static '/images/services.avif' %}" alt="Service Image"
-                        class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125" />
-
-                    <div
-                        class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500">
+            <a href="#" class="card sanp-center flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg ">
+                <!-- Image Container with Shadow on Hover and Rounded Corners -->
+                <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
+                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-90  group-hover:opacity-30" src="{% static '/images/2nd.jpg' %}" alt="Service Image"/>
+                      <!-- Centered Text Container with Radius -->
+                <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg  ">
+                    <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
+                        <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
+                        <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4 mb-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
+                        </p>
                     </div>
                 </div>
-
-
-                <h1 class="text-3xl font-bold mt-6 z-10 group-hover:text-black transition-colors duration-500">Web
-                    Application Development</h1>
-
-                <p
-                    class="text-justify px-6 pt-4 text-gray-300 z-10 group-hover:text-gray-100 transition-colors duration-500">
-                    Build premium web applications with seamless performance, scalability, and user-centric designs. We
-                    bring your
-                    ideas to life with precision.
-                </p>
-
-                <div
-                    class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500">
                 </div>
-            </div>
+            </a>
 
         </div>
+        
 
+
+        </div>
+        
         <!-- Scrolling Text Section -->
-        <div class="mt-12 w-full overflow-hidden whitespace-nowrap">
-            <div id="scrollingText" class="flex gap-12 text-[35px] pt-4 parallax">
-                <span class="text-white ml-4 p-4 font-play">WEB APPLICATION DEVELOPMENT</span>
-                <span class="text-red-500 ml-4 p-4 font-play">CMS DEVELOPMENT</span>
-                <span class="text-white ml-4 p-4 font-play">SOFTWARE DEVELOPMENT</span>
-                <span class="text-red-500 ml-4 p-4 font-play">WEB APPLICATION DEVELOPMENT</span>
+        <div class="mt-10 w-full overflow-hidden whitespace-nowrap">
+            <div id="scrollingText" class="flex gap-12 text-[60px] text-gray-600 pt-4 parallax ">
+                <span class="ml-4 p-4 font-play">WEB APPLICATION DEVELOPMENT</span>
+                <span class="ml-4 p-4 font-play">UI UX</span>
+                <span class="ml-4 p-4 font-play">SEO</span>
+                <span class="ml-4 p-4 font-play">Software Development</span>
             </div>
         </div>
-    </div>
+        
 </section>
 
 <style>
@@ -497,9 +423,9 @@
 
     .custom-cursor {
         position: fixed;
-        width: 20px;
-        height: 20px;
-        background-color: red;
+        width: 30px;
+        height: 30px;
+        background-color: rgb(85, 34, 34);
         border-radius: 50%;
         pointer-events: none;
         transform: translate(-50%, -50%);
@@ -554,58 +480,22 @@
     const sections = document.querySelectorAll('section'); // All sections on the page
 
 
-    const hamburgerButton = document.getElementById("hamburger");
-const hamburgerIcon = document.getElementById("hamburger-icon");
-const menu = document.getElementById("mobile-menu");
-const navbar = document.getElementById("navbar");
-const hinomaruText = document.getElementById("hinomaru-text");
-const servicesBtn = document.getElementById("services-btn");
+    window.addEventListener('scroll', () => {
+        let inHeroSection = false; // This will track if the user is currently in the Hero section
 
-// Hamburger menu toggle
-hamburgerButton.addEventListener("click", function () {
-    // Toggle the visibility of the menu
-    menu.classList.toggle("hidden");
-    menu.classList.toggle("flex");
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;      // Distance from top of the section to the top of the page
+            const sectionHeight = section.clientHeight; // Height of the section
 
-    // Toggle between hamburger and cross icon
-    if (menu.classList.contains("flex")) {
-        navbar.classList.remove("bg-white");
-    } else {
-        hamburgerIcon.innerHTML = "&#9776;";
-        navbar.classList.add("bg-white");
-    }
-});
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                if (section.id === 'hero') {
+                    inHeroSection = true;  // User is currently within the Hero section
+                }
+            }
+        });
 
-// Make navbar white when hovering over "Services"
-servicesBtn.addEventListener("mouseover", function () {
-    navbar.classList.add("bg-white");
-});
-
-// Revert navbar to transparent when leaving "Services"
-servicesBtn.addEventListener("mouseout", function () {
-    navbar.classList.remove("bg-white");
-});
-
-// Ensure navbar stays transparent when not hovered, and remain transparent when scrolling
-window.addEventListener("scroll", function () {
-    // Check if the "Services" button is not hovered
-    if (!servicesBtn.matches(':hover')) {
-        navbar.classList.remove("bg-white");  // Make navbar transparent
-    }
-});
-
-// Ensure navbar stays transparent when the screen is resized to large view (no menu)
-window.addEventListener("resize", function () {
-    if (window.innerWidth >= 1024) {
-        menu.classList.add("hidden");
-        hamburgerIcon.innerHTML = "&#9776;";
-        navbar.classList.remove("bg-white");  // Ensure transparency
-    }
-});
-
-
-
-
+     
+    });
     document.addEventListener("DOMContentLoaded", function () {
         const aboutUsSection = document.getElementById("aboutUsContainer");
         const animatedCircle = document.querySelector(".animate-circle");
@@ -638,8 +528,6 @@ window.addEventListener("resize", function () {
         cursor.style.display = "block";
     });
 
-    
-
     servicesSection.addEventListener("mouseleave", () => {
         cursor.style.display = "none";
     });
@@ -651,11 +539,11 @@ window.addEventListener("resize", function () {
     });
     document.querySelectorAll("#services .card").forEach((card) => {
         card.addEventListener("mouseenter", () => {
-            cursor.textContent = "Click";
-            cursor.style.width = "60px";
+            cursor.textContent = "Click Me";
+            cursor.style.width = "50px";
             cursor.style.height = "50px";
-            cursor.style.backgroundColor = "#d32f2f";
-            cursor.style.fontSize = "15px";
+            cursor.style.backgroundColor = "red";
+            cursor.style.fontSize = "10px";
             cursor.style.display = "flex";
             cursor.style.alignItems = "center";
             cursor.style.justifyContent = "center";
@@ -667,8 +555,8 @@ window.addEventListener("resize", function () {
 
         card.addEventListener("mouseleave", () => {
             cursor.textContent = "";
-            cursor.style.width = "15px";
-            cursor.style.height = "15px";
+            cursor.style.width = "5px";
+            cursor.style.height = "5px";
             cursor.style.backgroundColor = "#d32f2f";
             cursor.style.boxShadow = "none";
         });

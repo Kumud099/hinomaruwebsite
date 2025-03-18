@@ -8,49 +8,45 @@
         <div class="flex items-center gap-3 pt-4 text-3xl pb-2">
             <img src="{% static 'images/logo.png' %}" alt="logo" class="max-w-full h-auto w-3 sm:w-4 md:w-6 lg:w-7" />
             <span id="hinomaru-text"
-            class="font-Play font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-red-500 to-red-800"
-                >
+                class="font-Play font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-red-500 to-red-800">
                 Hinomaru Tech
             </span>
         </div>
-
         <!-- Menu Button (Hamburger) for mobile screens -->
         <button id="hamburger"
             class="lg:hidden text-red-700 border-2 border-red-700 bg-red-2 rounded-full w-9 h-9 flex items-center justify-center">
             <span id="hamburger-icon" class="text-2xl pb-1">&#9776;</span>
         </button>
 
-
         <!-- Desktop Navigation (Visible only on 2xl and xl screens) -->
         <div class="hidden xl:flex 2xl:flex flex-1 justify-center space-x-6 text-xs sm:text-xs md:text-xs lg:text-sm xl:text-md 2xl:text-lg text-red-700">
-
             <a href="{% url 'home' %}" class="px-3 py-8 hover:text-red-800 font-semibold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out">
                 HOME
               </a>
-
             <!-- Services Button (Keep Inside the Relative Wrapper) -->
             <div class="group" id="services-btn">
                 <button class="px-3 py-8 hover:text-red-800 font-semibold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out">
                     SERVICES
                 </button>
-
                 <!-- Dropdown Menu (Move Outside) -->
                 <div
                     class="absolute left-0 top-full w-screen hidden group-hover:flex justify-center p-6 flex-wrap grid grid-cols-2 gap-4 bg-white shadow-lg border border-gray-200 text-center transition-opacity duration-300 ease-in-out">
                     <a href="#"
-                        class="block px-4 py-2 text-gray-700 hover:bg-orange-400 flex items-center justify-center gap-2">
-                        <i class="fa fa-laptop text-red-500"></i> Web Development
-                    </a>
+    class="block px-4 py-2 text-gray-700 hover:text-black flex items-center justify-center gap-2 transition-transform duration-300 transform hover:scale-105">
+    <i class="fa fa-laptop text-red-500"></i> Web Development
+</a>
+
+<a href="#"
+class="block px-4 py-2 text-gray-700 hover:text-black flex items-center justify-center gap-2 transition-transform duration-300 transform hover:scale-105">
+<i class="fa fa-code text-red-500"></i> Software Development
+</a>
+
                     <a href="#"
-                        class="block px-4 py-2 text-gray-700 hover:bg-orange-400 flex items-center justify-center gap-2">
-                        <i class="fa fa-code text-red-500"></i> Software Development
-                    </a>
-                    <a href="#"
-                        class="block px-4 py-2 text-gray-700 hover:bg-orange-400 flex items-center justify-center gap-2">
+                    class="block px-4 py-2 text-gray-700 hover:text-black flex items-center justify-center gap-2 transition-transform duration-300 transform hover:scale-105">
                         <i class="fa fa-digital-tachograph text-red-500"></i> App Development
                     </a>
                     <a href="#"
-                        class="block px-4 py-2 text-gray-700 hover:bg-orange-400 flex items-center justify-center gap-2">
+                    class="block px-4 py-2 text-gray-700 hover:text-black flex items-center justify-center gap-2 transition-transform duration-300 transform hover:scale-105">
                         <i class="fa fa-cogs text-red-500"></i> System Integration
                     </a>
                 </div>
@@ -202,7 +198,10 @@ hamburgerMenu.addEventListener('click', () => {
     contactLink.classList.toggle('hidden');
 });
 
-
+if (window.location.pathname === '/services') {
+    // Change the text color to white
+    document.getElementById('hinomaru-text').style.color = 'white';
+}
 
 </script>
 
