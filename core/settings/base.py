@@ -36,8 +36,6 @@ INSTALLED_APPS = [
     "django_cotton",
     "django_tailwind_cli",
     "widget_tweaks",
-    "django_browser_reload",
-
 ]
 
 MIDDLEWARE = [
@@ -46,7 +44,6 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-        "django_browser_reload.middleware.BrowserReloadMiddleware", # browser reload middleware
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
