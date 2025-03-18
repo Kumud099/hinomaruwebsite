@@ -1,178 +1,193 @@
 {% load wagtailimages_tags %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Swiper CSS & JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        .swiper-pagination-bullet {
-            background-color: #d1d5db;
-        }
+      /* Image hover effect */
+      .image-container {
+        position: relative;
+        overflow: hidden;
+        height: 250px;
+      }
 
-        .swiper-pagination-bullet-active {
-            background-color: #ef4444;
-        }
+      .image-container img {
+        transition: transform 0.5s ease;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
 
-        .swiper-button-prev,
-        .swiper-button-next {
-            background-color: transparent;
-            color: #ef4444;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            z-index: 1000;
-            /* Increased z-index for visibility */
-        }
+      .image-container:hover img {
+        transform: scale(1.1);
+      }
 
-        .swiper-button-prev:hover,
-        .swiper-button-next:hover {
-            background-color: #ef4444;
-            width: 55px;
-            height: 55px;
-            color: white !important;
-        }
+      .image-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(107, 114, 128, 0.3);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        border-radius: 10px;
+      }
 
-        .swiper-button-prev svg,
-        .swiper-button-next svg {
-            width: 20px;
-            height: 20px;
-        }
+      .image-container:hover .image-overlay {
+        /* opacity: 0.5; */
+        border-radius: 10px;
+      }
 
-        .swiper-slide {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+      /* Custom Swiper Styles */
+      .swiper-pagination-bullet {
+        background-color: #d1d5db;
+      }
 
-        .swiper-slide:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
+      .swiper-pagination-bullet-active {
+        background-color: #991b1b;
+      }
 
-        .swiper-container-animation {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
+      /* Fixed Slide Width and Space Between */
+      .swiper-slide {
+        width: 300px;
+        margin-right: 20px;
+      }
 
-        .swiper-container-animate-in {
-            opacity: 1;
-            transform: translateX(0);
-        }
+      .swiper-wrapper {
+        display: flex;
+        gap: 20px;
+      }
 
-        .custom-shadow {
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
-        }
+      /* Swiper Navigation Buttons */
+      .swiper-button-next,
+      .swiper-button-prev {
+        background-color: transparent;
+        color: #991b1b;
+        font-size: 35px;
+        border: 2px solid #991b1b;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
 
-        .custom-shadow:hover {
-            box-shadow: 0px 4px 10px rgba(153, 27, 27, 0.3);
-            border: 3px solid rgba(153, 27, 27, 0.6);
-        }
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        background-color: rgba(178, 182, 185, 0.1);
+        color: black;
+        border: 2px solid black;
+        /* background-color: rgba(197, 48, 48, 0.1); */
+      }
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 18px;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        transition: all 0.3s ease;
+      }
     </style>
-</head>
+  </head>
 
-<body class="bg-gray-100">
-    <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 py-12">
-
-        <!-- Swiper Container with animation -->
-        <div class="relative swiper-container-animation" id="swiper-container">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    {% for blog in blogs %}
-                    <a href="{{ blog.url }}"
-                        class="swiper-slide bg-white rounded-lg custom-shadow m-3 p-3 space-y-4 max-w-[380px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px]">
-
-                        <!-- Blog card width increased -->
-                        {% image blog.blog_cover_image width-400 as blog_cover %}
-                        <img src="{{ blog_cover.url }}" alt="Blog Image" class="w-full h-48 rounded-lg object-cover">
-                        <h3 class="text-xl font-bold">{{ blog.blog_title | truncatewords:5 }}</h3>
-                        <p class="text-gray-500">{{ blog.blog_description | truncatewords:6 }}</p>
-                        {% if blog.categories.all %}
-                        <div class="flex gap-4 mt-2">
-                            {% for category in blog.categories.all %}
-                            <span class="px-2 py-1 bg-red-100 text-red-500 rounded">{{ category.name }}</span>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </a>
-                    {% endfor %}
-                </div>
-
-                <div class="mt-16"> <!-- Pagination -->
-                    <div class="swiper-pagination"></div>
-                </div>
-
+  <body>
+    <div class="container px-4 py-12 mx-auto sm:px-6 md:px-8 lg:px-10 xl:px-16">
+      <!-- Swiper Container (Fixed Width, Single Row) -->
+      <div class="relative swiper mySwiper">
+        <!-- Swiper Wrapper -->
+        <div class="swiper-wrapper border-1 rounded-xl">
+          {% for blog in blogs %}
+          <a
+            href="{{ blog.url }}"
+            class="space-y-4 bg-white border-2 border-gray-300 rounded-md shadow-md hover:border-red-700 swiper-slide"
+          >
+            <!-- Blog Image with Hover Effect -->
+            <div class="relative p-4">
+              <div class="image-container">
+                <!-- image -->
+                {% image blog.blog_cover_image width-400 as blog_cover %}
+                <img
+                  src="{{ blog_cover.url }}"
+                  alt="Blog Image"
+                  class="object-cover h-64 rounded-md"
+                />
+                <div class="image-overlay"></div>
+              </div>
             </div>
 
-            <!-- Navigation Arrows -->
-            <div class="swiper-button-prev absolute top-1/2 left-2 sm:left-4 md:left-6 transform -translate-y-1/2 z-10">
+            <div class="px-4">
+              <h3 class="-mt-5 text-xl font-bold">
+                {% with blog.blog_title.split as words %}
+                <span class="text-[#991b1b]">{{ words.0 }}</span>
+                <span class="text-black"
+                  >{{ words|slice:"1:"|join:" "|truncatewords:5 }}</span
+                >
+                {% endwith %}
+              </h3>
+
+              <p class="mb-5 text-gray-500">
+                {{ blog.blog_description | truncatewords:9 }}
+              </p>
+
+              <!-- for tags if any nlog have -->
+              {% if blog.categories.all %}
+              <div class="flex gap-2 mb-3 -mt-4">
+                {% for category in blog.categories.all %}
+                <span class="px-2 py-1 text-red-500 bg-red-100 rounded"
+                  >{{ category.name }}</span
+                >
+                {% endfor %}
+              </div>
+              {% endif %}
             </div>
-            <div
-                class="swiper-button-next absolute top-1/2 right-4 sm:right-[100px] md:right-4 transform -translate-y-1/2 z-10 block">
-            </div>
+          </a>
+          {% endfor %}
         </div>
 
+        <div class="mt-16">
+          <!-- Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div
+          class="absolute z-10 transform -translate-y-1/2 swiper-button-prev top-1/2 left-2"
+        ></div>
+        <div
+          class="absolute z-10 transform -translate-y-1/2 swiper-button-next top-1/2 right-4"
+        ></div>
+      </div>
     </div>
 
+    <!-- Swiper Initialization -->
     <script>
-        let mySwiperInstance;
-
-        // Initialize swiper once the DOM is loaded
-        window.addEventListener('load', function () {
-            if (!mySwiperInstance) {
-                console.log("Initializing Swiper..."); // Log initialization
-                mySwiperInstance = new Swiper('.mySwiper', {
-                    slidesPerView: 1, // Show 1 slide on mobile
-                    spaceBetween: 30,
-                    loop: true,
-                    simulateTouch: true,
-                    touchRatio: 1,
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    breakpoints: {
-                        1280: {
-                            slidesPerView: 4,
-                            spaceBetween: 30,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 25,
-                        },
-                        768: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        640: {
-                            slidesPerView: 1, // 1 slide, but larger than before
-                            spaceBetween: 20,
-                        },
-                    },
-                });
-                console.log("Swiper Initialized:", mySwiperInstance); // Log for debugging
-            }
-
-            // Add the animation class once Swiper has been initialized
-            const swiperContainer = document.getElementById('swiper-container');
-            swiperContainer.classList.add('swiper-container-animate-in');
+      document.addEventListener("DOMContentLoaded", function () {
+        new Swiper(".mySwiper", {
+          slidesPerView: "auto", // Ensure slides fit their defined width
+          spaceBetween: 30, // Adjust space between slides
+          loop: true, // Enable infinite loop
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>

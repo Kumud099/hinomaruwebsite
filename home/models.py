@@ -42,7 +42,7 @@ class HomePage(Page):
             .public()
             .order_by(
                 "-first_published_at",
-            )[0:3]
+            )[0:4]
         )
         context["blogs"] = blogs
         context["list_of_news"] = news
