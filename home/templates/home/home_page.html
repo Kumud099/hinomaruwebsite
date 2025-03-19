@@ -1,41 +1,35 @@
-{% extends "base.html" %} {% load static %} {% load wagtailimages_tags %} {%
+{% extends 'base.html' %} {% load wagtailimages_tags %} {% load static %} {%
 block navbar %}
-<c-components.navbar />
-<!-- txtcolor="white"
-:backgroundcolor="currentSection === 'hero' ? 'transparent' : 'red-800'" -->
+<c-components.navbar
+  txtcolor="white"
+  :backgroundcolor="currentSection === 'hero' ? 'transparent' : 'red-800'"
+/>
 {% endblock navbar %} {% block content %}
 
 <!-- hero section -->
-<section class="font-Grotesk scrollbar-hide" id="hero">
-  <div class="relative flex items-center justify-center min-h-screen">
+<section
+  class="-mt-7 xl:-mt-0 lg:-mt-0 sm:-mt-0 font-Grotesk scrollbar-hide"
+  id="hero"
+>
+  <div class="flex items-center justify-center min-h-screen">
     <div
       id="header space-y-4"
-      class="absolute right-5 z-30 mr-4 sm:mr-6 lg:mr-10 text-[#991b1b] text-[32px] sm:text-[40px] md:text-[48px] lg:text-[58px] xl:text-[64px] flex flex-col justify-start pl-4 sm:pl-6 md:pl-12 sm:ml-10 lg:pl-[100px] sm:text-left max-w-full"
+      class="absolute right-5 z-30 mr-4 sm:mr-6 lg:mr-10 text-[#991b1b] text-[40px] sm:text-[48px] md:text-[48px] lg:text-[58px] xl:text-[64px] flex flex-col justify-start pl-4 sm:pl-6 md:pl-12 sm:ml-10 lg:pl-[100px] sm:text-left max-w-full"
     >
       <div class="mt-52">
         <span
           class="font-bold leading-tight text-red-700 text-left cursor-pointer reveal hover-effect max-w-[100%] md:max-w-[700px]"
           id="first-span"
           style="text-shadow: 1px 1px 0"
-          >Innovative Solutions using Webscale ManyTechnologies
-        </span>
-        <!-- Innovative Solutions using Webscale<br />
-          Technologies -->
-        <!-- <div
-          class="hover-effect"
-          id="first-span"
-          style="text-shadow: 1px 1px 0"
+          >Innovative Webscale Technology Solution Platform</span
         >
-          Innovative Solutions using Webscale ManyTechnologies
-        </div> -->
         <p
-          class="text-[12px] sm:text-[16px] md:text-[16px] cursor-pointer lg:text-[20px] font-bold reveal text-white max-w-[90%] md:max-w-[800px]"
+          class="text-[14px] hidden sm:block md:text-[20px] cursor-pointer lg:text-[20px] [text-shadow:1px_2px_2px_black] font-bold reveal text-white max-w-[90%] md:max-w-[800px]"
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
           do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit,
-          sed do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing
-          elit, sed do eiusmod.
+          sed do eiusmod.
         </p>
       </div>
     </div>
@@ -64,30 +58,31 @@ block navbar %}
 
 <!-- About yo ma view halni -->
 <section
-  class="flex flex-col items-center h-auto min-h-screen -mt-16 sm:mr-0 lg:mr-12 sm:mb-60 lg:mb-0 md:mb-0 about-us font-Grotesk"
+  class="flex flex-col items-center h-auto min-h-screen -mt-16 sm:mr-0 lg:mr-12 xl:-mb-40 md:-mb-40 lg:-mb-2 sm:-mb-40 about-us xs:-mb-40 base:-mb-40 font-Grotesk"
   id="aboutUsContainer"
 >
   <h2
-    class="text-[30px] md:text-[40px] font-bold mt-20 md:mt-28 pt-6 mb-10 about-us text-red-700"
+    class="font-bold mt-20 md:mt-28 pt-6 lg:mb-10 md:mb-10 mb-4 about-us text-red-700 text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
     id="our-vision"
   >
     ABOUT US
   </h2>
   <div
-    class="flex flex-col items-center gap-8 mx-auto lg:mb-56 md:mb-56 md:flex-row max-w-[1400px] about-us"
+    class="flex flex-col items-center gap-2 mx-auto md:flex-row max-w-[1400px] about-us"
   >
     <!-- Content Section -->
     <div class="w-full px-4 text-left md:w-1/2 about-us">
       <p
-        class="mb-6 text-[22px] md:text-[30px] text-justify font-bold leading-tight text-gray-900 md:text-4xl"
+        class="mb-6 font-bold leading-tight text-justify text-gray-900 text-[16px] sm:text-[18px] md:text-[18px] lg:text-[18px] gray-600 text md:text-lg"
       >
         As a Web Development Services We are Committed to Building Custom
-        <span class="text-red-700"
+        <span
+          class="text-red-700 hover:text-gray-950 hover:lg:text-[20px] transition-all duration-500 ease-in-out"
           >Web Solutions that Drive Business Success.</span
         >
       </p>
       <p
-        class="mb-8 text-gray-600 text-[16px] md:text-[18px] text-justify md:text-lg"
+        class="lg:mb-28 mb-0 text-justify text-[16px] sm:text-[17px] md:text-[17px] lg:text-[17px] gray-600"
       >
         At our web development agency, we specialize in crafting bespoke online
         solutions tailored to elevate businesses toward their digital
@@ -102,18 +97,19 @@ block navbar %}
       </p>
     </div>
 
+    <!-- mt-10 -->
     <div
-      class="relative flex items-center justify-center w-full px-4 mx-auto md:w-1/2 sm:ml-2 md:ml-4"
+      class="relative flex items-center justify-center w-full px-4 mx-auto lg:mt-5 md:w-1/2 sm:ml-2 md:ml-4"
     >
       <!-- Animated Red Circle Background -->
       <div
-        class="absolute rounded-full bg-red-900 w-[250px] h-[250px] sm:w-[500px] sm:h-[400px] md:w-[500px] md:h-[500px] -top-[50px] sm:-top-[40px] md:-top-[100px] right-0 sm:right-[-20px] md:-right-10 opacity-0 animate-circle mx-auto"
+        class="absolute rounded-full sm:block hidden bg-red-900 w-[250px] h-[250px] sm:w-[500px] sm:h-[400px] md:w-[500px] md:h-[500px] -top-[50px] sm:-top-[40px] md:-top-[100px] right-0 sm:right-[-20px] md:-right-10 opacity-0 animate-circle mx-auto"
       ></div>
       <!-- Main Image -->
       <img
         src="{% static 'images/aboutus.webp' %}"
         alt="About Us Visual"
-        class="relative max-w-[80%] sm:max-w-[400px] h-auto sm:h-[300px] md:h-[400px] md:max-w-[500px] lg:max-w-[500px] object-cover transition-transform duration-300 hover:scale-105 mx-auto"
+        class="relative max-w-[80%] mb-10 sm:max-w-[400px] h-auto sm:h-[300px] md:h-[400px] md:max-w-[500px] lg:max-w-[500px] object-cover transition-transform duration-300 hover:scale-105 mx-auto"
       />
     </div>
   </div>
@@ -122,232 +118,251 @@ block navbar %}
 <!-- Services Section -->
 <section
   id="services"
-  class="flex flex-col items-center justify-start sm:-mt-40 min-h-auto bg-[#201D1D] w-full pt-16 pb-28"
+  class="flex flex-col items-center justify-start min-h-auto bg-[#20252F] w-full"
 >
   <div class="container mx-auto max-w-[1440px] px-6">
     <!-- Section Title -->
     <h1
-      class="text-center mt-6 md:mt-5 lg:mt-5 mb-8 md:mb-8 lg:mb-9 font-bold text-[28px] sm:text-[32px] md:text-[36px] lg:text-[36px] text-white relative"
+      class="relative flex items-center justify-center mb-8 font-bold text-center text-white md:mt-20 lg:mt-28 md:mb-10 lg:mb-12"
     >
-      <div
-        id="reveal-box"
-        class="absolute inset-0 w-0 transition-all duration-500 bg-red-900"
-      ></div>
-      <span id="service-text" class="relative">OUR SERVICES</span>
-
-      <div>
-        <span class="relative text-base"
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-          recusandae laudantium aliquam cum temporibus reiciendis sunt? Fugit
-          id.</span
-        >
-      </div>
+      <div class="w-24 border-t border-white"></div>
+      <span
+        id="service-text"
+        class="relative mx-4 text-[#991B1B] text-[17px] sm:text-[25px] md:text-[28px] lg:text-[28px]"
+        >OUR SERVICES</span
+      >
+      <div class="w-24 border-t border-white"></div>
     </h1>
+    <p
+      class="text-center text-lg text-[25px] sm:text-[30px] md:text-[35px] lg:text-[35px] text-white mt-4 mb-10"
+    >
+      Outstanding Services to Accelerate Your
+      <span class="font-bold text-[#991B1B]">Business Growth</span>
+    </p>
 
     <!-- Cards Grid -->
     <div
-      class="grid w-full grid-cols-1 gap-8 scrollbar-hide snap-x snap-mandatory sm:grid-cols-2 lg:grid-cols-4"
+      class="scrollbar-hide snap-x snap-mandatory grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full mt-[90px]"
     >
       <!-- Service Card -->
-
-      <div
-        class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]"
+      <a
+        href="#"
+        class="relative flex flex-col items-center justify-center overflow-hidden transition duration-500 rounded-lg cursor-pointer card snap-center group hover:cursor-pointer"
       >
-        <!-- <div
-        class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#991b1b] via-[#b92f2f] to-[#d94d4d] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]"
-      > -->
+        <!-- Image Container with Shadow on Hover and Rounded Corners -->
         <div
-          class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]"
-        ></div>
-
-        <div
-          class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500"
+          class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
         >
           <img
-            src="{% static '/images/services.avif' %}"
+            class="object-cover w-full h-full transition-transform duration-500 ease-out rounded-lg group-hover:scale-110 opacity-80 group-hover:opacity-30 hover:border-2 hover:border-red-100 hover:rounded-lg"
+            src="{% static '/images/1st.jpg' %}"
             alt="Service Image"
-            class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125"
           />
-
+          <!-- Centered Text Container with Radius -->
           <div
-            class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500"
-          ></div>
+            class="absolute inset-0 z-10 flex items-center justify-center px-6 py-4 text-center rounded-lg"
+          >
+            <div
+              class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt-[-30px]"
+            >
+              <h1
+                class="text-2xl font-bold text-white group-hover:text-red-500"
+              >
+                Web Development
+              </h1>
+              <p
+                class="mt-4 mb-3 text-sm text-white transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                debitis pariatur unde possimus nisi mollitia sit labore. Maxime
+                illum reprehenderit enim, mollitia debitis eveniet.
+              </p>
+            </div>
+          </div>
         </div>
-
-        <h1
-          class="z-10 mt-6 text-3xl font-bold transition-colors duration-500 group-hover:text-black"
-        >
-          Web Application Development
-        </h1>
-
-        <p
-          class="z-10 px-6 pt-4 text-justify text-gray-300 transition-colors duration-500 group-hover:text-gray-100"
-        >
-          Build premium web applications with seamless performance, scalability,
-          and user-centric designs. We bring your ideas to life with precision.
-        </p>
-
-        <div
-          class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500"
-        ></div>
-      </div>
+      </a>
 
       <!-- Other Cards -->
-      <div
-        class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]"
+      <a
+        href="#"
+        class="relative flex flex-col items-center justify-center overflow-hidden transition duration-500 rounded-lg cursor-pointer card sanp-center group"
       >
+        <!-- Image Container with Shadow on Hover and Rounded Corners -->
         <div
-          class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]"
-        ></div>
-
-        <div
-          class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500"
+          class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
         >
           <img
-            src="{% static '/images/services.avif' %}"
+            class="object-cover w-full h-full transition-transform duration-500 ease-out rounded-lg group-hover:scale-110 opacity-80 group-hover:opacity-30"
+            src="{% static '/images/2nd.jpg' %}"
             alt="Service Image"
-            class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125"
           />
-
+          <!-- Centered Text Container with Radius -->
           <div
-            class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500"
-          ></div>
+            class="absolute inset-0 z-10 flex items-center justify-center px-6 py-4 text-center rounded-lg"
+          >
+            <div
+              class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]"
+            >
+              <h1
+                class="text-2xl font-bold text-white group-hover:text-red-500"
+              >
+                Web Development
+              </h1>
+              <p
+                class="mt-4 mb-3 text-sm text-white transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                debitis pariatur unde possimus nisi mollitia sit labore. Maxime
+                illum reprehenderit enim, mollitia debitis eveniet.
+              </p>
+            </div>
+          </div>
         </div>
+      </a>
 
-        <h1
-          class="z-10 mt-6 text-3xl font-bold transition-colors duration-500 group-hover:text-black"
-        >
-          Web Application Development
-        </h1>
-
-        <p
-          class="z-10 px-6 pt-4 text-justify text-gray-300 transition-colors duration-500 group-hover:text-gray-100"
-        >
-          Build premium web applications with seamless performance, scalability,
-          and user-centric designs. We bring your ideas to life with precision.
-        </p>
-
-        <div
-          class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500"
-        ></div>
-      </div>
-
-      <div
-        class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]"
+      <a
+        href="#"
+        class="relative flex flex-col items-center justify-center overflow-hidden transition duration-500 rounded-lg cursor-pointer card sanp-center group"
       >
+        <!-- Image Container with Shadow on Hover and Rounded Corners -->
         <div
-          class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]"
-        ></div>
-
-        <div
-          class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500"
+          class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
         >
           <img
-            src="{% static '/images/services.avif' %}"
+            class="object-cover w-full h-full transition-transform duration-500 ease-out rounded-lg group-hover:scale-110 opacity-90 group-hover:opacity-30"
+            src="{% static '/images/3rd.jpg' %}"
             alt="Service Image"
-            class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125"
           />
-
+          <!-- Centered Text Container with Radius -->
           <div
-            class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500"
-          ></div>
+            class="absolute inset-0 z-10 flex items-center justify-center px-6 py-4 text-center rounded-lg"
+          >
+            <div
+              class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]"
+            >
+              <h1
+                class="text-2xl font-bold text-white group-hover:text-red-500"
+              >
+                Web Development
+              </h1>
+              <p
+                class="mt-4 mb-3 text-sm text-white transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                debitis pariatur unde possimus nisi mollitia sit labore. Maxime
+                illum reprehenderit enim, mollitia debitis eveniet.
+              </p>
+            </div>
+          </div>
         </div>
+      </a>
 
-        <h1
-          class="z-10 mt-6 text-3xl font-bold transition-colors duration-500 group-hover:text-black"
-        >
-          Web Application Development
-        </h1>
-
-        <p
-          class="z-10 px-6 pt-4 text-justify text-gray-300 transition-colors duration-500 group-hover:text-gray-100"
-        >
-          Build premium web applications with seamless performance, scalability,
-          and user-centric designs. We bring your ideas to life with precision.
-        </p>
-
-        <div
-          class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500"
-        ></div>
-      </div>
-
-      <div
-        class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]"
+      <a
+        href="#"
+        class="relative flex flex-col items-center justify-center overflow-hidden transition duration-500 rounded-lg cursor-pointer card sanp-center group"
       >
+        <!-- Image Container with Shadow on Hover and Rounded Corners -->
         <div
-          class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]"
-        ></div>
-
-        <div
-          class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500"
+          class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
         >
           <img
-            src="{% static '/images/services.avif' %}"
+            class="object-cover w-full h-full transition-transform duration-500 ease-out rounded-lg group-hover:scale-110 opacity-90 group-hover:opacity-30"
+            src="{% static '/images/2nd.jpg' %}"
             alt="Service Image"
-            class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125"
           />
-
+          <!-- Centered Text Container with Radius -->
           <div
-            class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500"
-          ></div>
+            class="absolute inset-0 z-10 flex items-center justify-center px-6 py-4 text-center rounded-lg"
+          >
+            <div
+              class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]"
+            >
+              <h1
+                class="text-2xl font-bold text-white group-hover:text-red-500"
+              >
+                Web Development
+              </h1>
+              <p
+                class="mt-4 mb-3 mb-4 text-sm text-white transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                debitis pariatur unde possimus nisi mollitia sit labore. Maxime
+                illum reprehenderit enim, mollitia debitis eveniet.
+              </p>
+            </div>
+          </div>
         </div>
-
-        <h1
-          class="z-10 mt-6 text-3xl font-bold transition-colors duration-500 group-hover:text-black"
-        >
-          Web Application Development
-        </h1>
-
-        <p
-          class="z-10 px-6 pt-4 text-justify text-gray-300 transition-colors duration-500 group-hover:text-gray-100"
-        >
-          Build premium web applications with seamless performance, scalability,
-          and user-centric designs. We bring your ideas to life with precision.
-        </p>
-
-        <div
-          class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500"
-        ></div>
-      </div>
+      </a>
     </div>
+  </div>
 
-    <!-- Scrolling Text Section -->
-    <div class="w-full mt-12 overflow-hidden whitespace-nowrap">
-      <div id="scrollingText" class="flex gap-12 text-[35px] pt-4 parallax">
-        <span class="p-4 ml-4 text-white font-play"
-          >WEB APPLICATION DEVELOPMENT</span
-        >
-        <span class="p-4 ml-4 text-red-500 font-play">CMS DEVELOPMENT</span>
-        <span class="p-4 ml-4 text-white font-play">SOFTWARE DEVELOPMENT</span>
-        <span class="p-4 ml-4 text-red-500 font-play"
-          >WEB APPLICATION DEVELOPMENT</span
-        >
-      </div>
+  <!-- Scrolling Text Section -->
+  <div class="w-full mt-10 overflow-hidden whitespace-nowrap">
+    <div
+      id="scrollingText"
+      class="flex gap-12 text-[60px] text-gray-600 pt-4 parallax"
+    >
+      <span class="p-4 ml-4 font-play">WEB APPLICATION DEVELOPMENT</span>
+      <span class="p-4 ml-4 font-play">UI UX</span>
+      <span class="p-4 ml-4 font-play">SEO</span>
+      <span class="p-4 ml-4 font-play">Software Development</span>
     </div>
   </div>
 </section>
 
+<style>
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+</style>
+
+<style>
+  @keyframes scroll {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+  }
+</style>
+
 <!-- Why Us 1 -->
-<section class="py-12 bg-white">
+<section class="py-12 mt-2 bg-white">
   <div class="max-w-8.5xl mx-auto px-6 text-center">
-    <h2 class="mb-6 text-3xl font-semibold">
+    <h2
+      class="font-semibold mb-9 text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
+    >
       Why Choose <span class="text-red-700">Hinomaru</span> Tech?
     </h2>
 
     <div class="justify-center gap-5 lg:flex">
       <!-- CARD 1 -->
       <div
-        class="relative sm:mt-4 mt-4 card-border group inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] w-[400px]"
+        class="relative sm:mt-4 mt-4 card-border group inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px]"
       >
         <span class="left-border"></span>
         <span class="right-border"></span>
         <!-- Number Behind the Image -->
         <span
-          class="absolute z-0 ml-10 font-bold text-white text-8xl left-1 top-5"
+          class="absolute z-0 ml-10 font-bold text-white transition-transform duration-300 ease-in-out text-8xl left-1 top-5 group-hover:scale-110"
           style="-webkit-text-stroke: 2px #d3d3d3; text-stroke: 2px #d3d3d3"
         >
           01
         </span>
+
         <!-- Image Section -->
         <div class="relative z-10 mt-6">
           <img
@@ -368,13 +383,13 @@ block navbar %}
 
       <!-- CARD 2 -->
       <div
-        class="relative card-border sm:mt-4 mt-4 group inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] w-[400px]"
+        class="relative card-border sm:mt-4 mt-4 group inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px]"
       >
         <span class="left-border"></span>
         <span class="right-border"></span>
         <!-- Number Behind the Image -->
         <span
-          class="absolute z-0 ml-10 font-bold text-white text-8xl left-1 top-5"
+          class="absolute z-0 ml-10 font-bold text-white transition-transform duration-300 ease-in-out text-8xl left-1 top-5 group-hover:scale-110"
           style="-webkit-text-stroke: 2px #e8e8e8; text-stroke: 2px #e8e8e8"
         >
           02
@@ -399,13 +414,13 @@ block navbar %}
 
       <!-- CARD 3 -->
       <div
-        class="relative card-border group sm:mt-4 mt-4 inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] w-[400px]"
+        class="relative card-border group sm:mt-4 mt-4 inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px]"
       >
         <span class="left-border"></span>
         <span class="right-border"></span>
         <!-- Number Behind the Image -->
         <span
-          class="absolute z-0 ml-10 font-bold text-white text-8xl left-1 top-5"
+          class="absolute z-0 ml-10 font-bold text-white transition-transform duration-300 ease-in-out text-8xl left-1 top-5 group-hover:scale-110"
           style="-webkit-text-stroke: 2px #e8e8e8; text-stroke: 2px #e8e8e8"
         >
           03
@@ -430,13 +445,13 @@ block navbar %}
 
       <!-- CARD 4 -->
       <div
-        class="relative card-border group sm:mt-4 mt-4 inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] w-[400px]"
+        class="relative card-border group sm:mt-4 mt-4 inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px]"
       >
         <span class="left-border"></span>
         <span class="right-border"></span>
         <!-- Number Behind the Image -->
         <span
-          class="absolute z-0 ml-10 font-bold text-white text-8xl left-1 top-5"
+          class="absolute z-0 ml-10 font-bold text-white transition-transform duration-300 ease-in-out group-hover:scale-110 text-8xl left-1 top-5"
           style="
             text-stroke: 2px #e8e8e8;
             -webkit-text-stroke: 2px #e8e8e8;
@@ -468,26 +483,26 @@ block navbar %}
 </section>
 
 <!-- Blogs Section -->
-<section class="relative pt-10 overflow-hidden">
+<section class="relative mt-2">
   <div
     class="flex flex-wrap items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
   >
     <h2
-      class="text-3xl font-bold text-red-700 md:pl-[50px] pl-[20px] text-xl sm:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl"
+      class="font-semibold text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
     >
       BLOGS
     </h2>
 
     <a
       href="/blogs"
-      class="relative inline-flex items-center justify-end py-3 overflow-hidden font-medium transition-all bg-black hover:bg-[#991b1b] group rounded-md"
+      class="relative inline-flex items-center justify-center px-4 py-2 mr-6 overflow-hidden text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm xl:flex 2xl:flex"
     >
       <span
-        class="w-48 h-48 rounded rotate-[-40deg] bg-red-700 border-black b-2 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"
-      ></span>
+        class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"
+      >
+      </span>
       <span
-        id="viewMoreText"
-        class="relative w-full px-2 text-left text-white transition-colors duration-300 ease-in-out group-hover:text-white"
+        class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
       >
         View All Blogs <i class="fa fa-angle-right"></i>
       </span>
@@ -495,11 +510,11 @@ block navbar %}
   </div>
 
   <div
-    class="flex justify-center flex-wrap h-[540px] overflow-hidden w-full"
+    class="flex justify-center flex-wrap h-[540px] w-full"
     id="blog-container"
   >
     {% if blogs %} {% for blog in blogs %}
-    <c-components.home-blog-card :blog="blog" class="border border-blue-500" />
+    <c-components.home-blog-card :blog="blog" class="border" />
     {% endfor %} {% else %}
     <p>No blogs available</p>
     {% endif %}
@@ -507,28 +522,31 @@ block navbar %}
 </section>
 
 <!-- News Section -->
-<section class="relative pt-10 pb-10 mb-10 overflow-hidden">
+<section class="relative pb-10 mb-10">
   <div class="pb-16">
     <div class="flex items-center justify-between">
-      <h2 class="text-3xl pl-[50px] font-bold pb-4 text-red-700">NEWS</h2>
-
+      <h2
+        class="font-semibold text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
+      >
+        NEWS
+      </h2>
       <a
         href="/announcements"
-        class="relative inline-flex items-center -mt-12 mr-[50px] justify-end py-3 overflow-hidden font-medium transition-all bg-black hover:bg-[#991b1b] group rounded-md"
+        class="relative inline-flex items-center justify-center px-4 py-2 mr-6 text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm xl:flex 2xl:flex"
       >
         <span
-          class="w-48 h-48 rounded rotate-[-40deg] bg-[#991b1b] border-black b-2 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"
-        ></span>
+          class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"
+        >
+        </span>
         <span
-          id="viewMoreText"
-          class="relative w-full px-2 text-left text-white transition-colors duration-300 ease-in-out group-hover:text-white"
+          class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
         >
           View All News <i class="fa fa-angle-right"></i>
         </span>
       </a>
     </div>
 
-    <div class="px-4 hover:cursor-pointer lg:px-12">
+    <div class="px-4 mt-6 hover:cursor-pointer lg:px-12">
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
         {% for news in list_of_news %}
         <a href="{{news.url}}">
@@ -572,6 +590,41 @@ block navbar %}
 </section>
 
 <style>
+  section {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  @keyframes reveal {
+    0% {
+      width: 100%;
+    }
+
+    100% {
+      width: 0;
+    }
+  }
+
+  .before\:animate-reveal::before {
+    animation: reveal 1.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 1.5s ease-out forwards;
+  }
+
   /* Hovering Hero Letters */
   .hover-effect {
     display: inline-block;
@@ -782,16 +835,6 @@ block navbar %}
         }
       }
     });
-
-    if (inHeroSection) {
-      // If in Hero section, set the navbar to absolute and transparent
-      navbar.classList.remove("fixed", "bg-red-800");
-      navbar.classList.add("absolute", "bg-transparent");
-    } else {
-      // If outside the Hero section, set the navbar to fixed and a solid background (red-800)
-      navbar.classList.remove("absolute", "bg-transparent");
-      navbar.classList.add("fixed", "bg-[#991b1b]");
-    }
   });
   document.addEventListener("DOMContentLoaded", function () {
     const aboutUsSection = document.getElementById("aboutUsContainer");

@@ -1,21 +1,27 @@
 {% extends 'base.html' %} {% load wagtailimages_tags %} {% load static %} {%
 block navbar %}
-<c-components.navbar backgroundcolor="red-800" />
+<c-components.navbar backgroundcolor="white" />
 {% endblock navbar %} {% block content %}
 <main class="container flex flex-col items-center px-8 py-12 pt-20 mx-auto">
   <div class="w-full max-w-2xl">
-    <div class="mb-8">
+    <div class="mb-6">
       <p class="mt-6 text-center text-gray-600">{{page.news_publish_date}}</p>
-      <h2 class="mt-2 text-3xl font-bold text-center">{{page.news_title}}</h2>
+      <h2
+        class="mt-4 text-3xl font-bold text-center hover:text-[#991b1b] transition-colors duration-700"
+      >
+        {{page.news_title}}
+      </h2>
     </div>
 
-    <div class="pt-2 space-y-8 prose text-justify prose-slate">
+    <div
+      class="mt-4 lg:space-y-8 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px] prose prose-slate"
+    >
       {{page.news_body | safe}}
     </div>
   </div>
 </main>
 <!-- Circular Elements on Mobile (Horizontal) -->
-<div class="flex items-center justify-center mt-6 mb-40 space-x-6 sm:hidden">
+<div class="sm:hidden -mt-5 flex justify-center items-center space-x-6">
   <div
     class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
   >
@@ -34,28 +40,26 @@ block navbar %}
 </div>
 
 <!-- News Section -->
-<section class="pb-10 overflow-hidden">
+<section class="relative mt-10 mb-20 lg:-mt-6 overflow-hidden">
   <div class="pb-16">
     <div class="flex items-center justify-between">
       <h2
-        class="pb-4 pl-4 text-2xl font-bold text-red-500 sm:text-3xl md:text-4xl sm:pl-8 md:pl-12"
+        class="font-semibold mb-6 text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
       >
         MORE NEWS
       </h2>
-      <!-- <a href="/announcements"
-                class="pr-4 text-sm font-semibold text-red-500 sm:pr-8 md:pr-12 hover:underline sm:text-base md:text-lg">
-                View all news →
-            </a> -->
+
+      <!-- news -->
       <a
         href="/announcements"
-        class="relative inline-flex items-center mb-8 mr-[50px] justify-end py-3 overflow-hidden font-medium transition-all bg-black hover:bg-[#991b1b] group rounded-md"
+        class="relative inline-flex items-center mr-4 justify-center px-4 py-2 overflow-hidden text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm xl:flex 2xl:flex"
       >
         <span
-          class="w-48 h-48 rounded rotate-[-40deg] bg-[#991b1b] border-black b-2 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"
-        ></span>
+          class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"
+        >
+        </span>
         <span
-          id="viewMoreText"
-          class="relative w-full px-2 text-left text-white transition-colors duration-300 ease-in-out group-hover:text-white"
+          class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
         >
           View All News <i class="fa fa-angle-right"></i>
         </span>
@@ -87,11 +91,15 @@ block navbar %}
             <div
               class="absolute transition-transform duration-300 transform -translate-y-1/2 group-hover:translate-x-2 top-1/2 right-4"
             >
-              <span class="relative group">
-                <i
-                  class="w-8 h-8 text-base text-gray-800 transition-all duration-300 fa fa-arrow-right group-hover:text-red-500"
-                ></i>
-              </span>
+              <img
+                src="/static/images/arrow.svg"
+                alt="Arrow"
+                class="w-6 h-6 group-hover:hidden"
+              />
+              <span
+                class="hidden w-8 h-8 text-xl text-gray-800 group-hover:text-red-500 group-hover:block"
+                >→</span
+              >
             </div>
 
             <hr
