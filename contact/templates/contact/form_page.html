@@ -1,94 +1,115 @@
-{% extends "base.html" %}
-{% load static %}
-{% load widget_tweaks %}
-{% load wagtailimages_tags %}
-
-{% block navbar %}
-<c-components.navbar backgroundcolor="red-800" />
-{% endblock navbar %}
-
-{% block content %}
-<div class="bg-gray-200 radius-20px">
-<div class="pt-20  min-h-[100vh]  m-4">
-    <section class="p-6 sm:p-8 mx-auto pb-28 sm:pb-32 mb-28 sm:mb-32 my-8 bg-red-800 rounded-lg shadow-lg max-w-7xl">
+{% extends "base.html" %} {% load static %} {% load widget_tweaks %} {% load
+  wagtailimages_tags %} {% block navbar %}
+  <c-components.navbar backgroundcolor="red-800" />
+  {% endblock navbar %} {% block content %}
+  <div class="radius-20px overflow-hidden">
+    <div class="pt-20 min-h-[100vh] m-4">
+      <section
+        class="p-6 sm:p-8 mx-auto pb-28 sm:pb-32 mb-28 sm:mb-32 my-8 bg-red-800 rounded-lg shadow-lg max-w-7xl"
+      >
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <!-- left -->
-            <div class="space-y-6">
-                <h2 class="text-2xl font-bold text-white">Get in Touch!</h2>
-                <!-- map -->
-                <div class="w-full h-96">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3530.2535068623965!2d85.36674099999999!3d27.77116199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDQ2JzE2LjIiTiA4NcKwMjInMDAuMyJF!5e0!3m2!1sen!2snp!4v1737870677140!5m2!1sen!2snp"
-                        class="w-full h-full" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <!-- contact info -->
-                <div>
-                    <div class="flex items-center p-4 space-x-4">
-                        <img src="{% static 'images/contact/location.svg' %}" alt="Location Icon">
-                        <div class="text-white">
-                            <div class="text-white">Budhanilkantha, Kathmandu, Nepal <br /> <span
-                                    class="text-gray-400">Visit us at the location above.</span></div>
-                        </div>
-                    </div>
-                    <div class="flex items-center p-4 space-x-4">
-                        <img src="{% static 'images/contact/phone.svg' %}" alt="Phone Icon">
-                        <div class="text-white">
-                            <div class="text-white">9866073358, 9851026285 <br />
-                                <p class="text-gray-400">Contact us at the numbers above.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex items-center p-4 space-x-4">
-                        <img src="{% static 'images/contact/email.svg' %}" alt="Email Icon">
-                        <div class="text-white">example@gmail.com <br />
-                            <p class="text-gray-400">Email us at the address above.</p>
-                        </div>
-                    </div>
-                </div>
+          <!-- Left Column -->
+          <div class="space-y-6">
+            <h2 class="text-2xl font-bold text-white">Get in Touch!</h2>
+  
+            <!-- Map -->
+            <div class="w-full h-96 mb-8 sm:mb-0">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3530.2535068623965!2d85.36674099999999!3d27.77116199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDQ2JzE2LjIiTiA4NcKwMjInMDAuMyJF!5e0!3m2!1sen!2snp!4v1737870677140!5m2!1sen!2snp"
+                class="w-full h-full"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
-
-            <!-- right -->
-            <div class="bg-white rounded-lg">
-                <form method="post" class="space-y-4">
-                    {% csrf_token %}
-                    {{form.non_field_errors}}
-                    {% for hidden_field in form.hidden_fields %}
-                    {{ hidden_field.errors }}
-                    {{ hidden_field }}
-                    {% endfor %}
-
-                    <div class="mt-10">
-                        {% for field in form.visible_fields %}
-                        <div class="p-4">
-                            <label for="name" class="block font-bold text-maroon">{{field.label_tag}}
-                                {% if field.field.required %}<span class="text-red-800">*</span>{% endif %}
-                            </label>
-                            {% render_field field class+="w-full p-2 border-gray-300 rounded shadow-sm"
-                            placeholder=field.name %}
-                        </div>
-                        {% endfor %}
-
-                        <a href="/submiited">
-                            <button type="submit"
-                                class="bg-red-700 text-white lg:w-[450px] md:w-[400px] sm:w-full p-3 m-16 rounded-lg">
-                                Send</button>
-                        </a>
-                    </div>
-                </form>
+  
+            <!-- Contact Info -->
+            <div>
+              <div class="flex items-center p-8 space-x-4">
+                <img
+                  src="{% static 'images/contact/location.svg' %}"
+                  alt="Location Icon"
+                />
+                <div class="text-white">
+                  <div>
+                    Budhanilkantha, Kathmandu, Nepal <br />
+                    <span class="text-gray-400"
+                      >Visit us at the location above.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center p-4 space-x-4">
+                <img
+                  src="{% static 'images/contact/phone.svg' %}"
+                  alt="Phone Icon"
+                />
+                <div class="text-white">
+                  <div>
+                    9866073358, 9851026285 <br />
+                    <p class="text-gray-400">Contact us at the numbers above.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center p-4 space-x-4">
+                <img
+                  src="{% static 'images/contact/email.svg' %}"
+                  alt="Email Icon"
+                />
+                <div class="text-white">
+                  example@gmail.com <br />
+                  <p class="text-gray-400">Email us at the address above.</p>
+                </div>
+              </div>
             </div>
+          </div>
+  
+          <!-- Right Column (Contact Form) -->
+          <div class="bg-white rounded-lg">
+            <form method="post" class="space-y-4">
+              {% csrf_token %} {{ form.non_field_errors }} {% for hidden_field in
+              form.hidden_fields %} {{ hidden_field.errors }} {{ hidden_field }}
+              {% endfor %}
+  
+              <div class="mt-10">
+                {% for field in form.visible_fields %}
+                <div class="p-4">
+                  <label for="name" class="block font-bold text-maroon">
+                    {{ field.label_tag }} {% if field.field.required %}
+                    <span class="text-red-800">*</span> {% endif %}
+                  </label>
+                  {% render_field field class+="w-full p-2 border-gray-300 rounded
+                  shadow-sm" placeholder=field.name %}
+                </div>
+                {% endfor %}
+  
+                <!-- Submit Button -->
+                <div class="lg:px-8 md:px-8 lg:mx-8 px-6 mx-4 my-4 mb-8 lg:mb-0">
+                  <a href="/submitted">
+                    <button
+                      type="submit"
+                      class="bg-red-700 text-white w-full sm:w-[300px] py-2 lg:w-[450px] md:w-[400px] rounded-lg"
+                    >
+                      Send
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-    </section>
-</div>
-</div>
-<style>
+      </section>
+    </div>
+  </div>
+  
+  <style>
     .bg-maroon {
-        background-color: #902D43;
+      background-color: #902d43;
     }
-
+  
     .text-maroon {
-        color: #902D43;
+      color: #902d43;
     }
-</style>
-
-{% endblock content %}
+  </style>
+  
+  {% endblock content %}

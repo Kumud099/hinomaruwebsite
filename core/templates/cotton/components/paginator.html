@@ -1,38 +1,91 @@
-<div class="flex items-center justify-center space-x-4 bg-[#1e1e1e] p-4 rounded-lg max-w-fit mx-auto">
-    <!-- Previous Button -->
-    <a href="{% if object.has_previous %}?page={{ object.previous_page_number }}{% endif %}"
-        class="px-4 py-2 text-white bg-gray-700 rounded-lg hover:bg-red-800 transition-all {% if not object.has_previous %}opacity-50 cursor-not-allowed{% endif %}"
-        aria-label="Previous Page" {% if not object.has_previous %}tabindex="-1" aria-disabled="true" {% endif %}>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-        </svg>
-    </a>
+<div
+  class="flex items-center justify-center space-x-4 bg-[#1e1e1e] p-4 rounded-lg max-w-fit mx-auto"
+>
+  <!-- Previous Button -->
+  <a
+    href="{% if object.has_previous %}?page={{ object.previous_page_number }}{% endif %}"
+    class="px-4 py-2 text-white bg-gray-700 rounded-lg hover:bg-red-800 transition-all {% if not object.has_previous %}opacity-50 cursor-not-allowed{% endif %}"
+    aria-label="Previous Page"
+    {%
+    if
+    not
+    object.has_previous
+    %}tabindex="-1"
+    aria-disabled="true"
+    {%
+    endif
+    %}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+      />
+    </svg>
+  </a>
 
-    <!-- Page Numbers -->
-    {% for num in object.paginator.page_range %}
-    <a href="?page={{ num }}"
-        class="px-4 py-2 rounded-lg {% if object.number == num %}bg-red-800 text-white{% else %}text-white hover:bg-red-800{% endif %}">
-        {{ num }}
-    </a>
-    {% endfor %}
+  <!-- Page Numbers -->
+  {% for num in object.paginator.page_range %}
+  <a
+    href="?page={{ num }}"
+    class="px-4 py-2 rounded-lg {% if object.number == num %}bg-red-800 text-white{% else %}text-white hover:bg-red-800{% endif %}"
+  >
+    {{ num }}
+  </a>
+  {% endfor %}
 
-    <!-- Next Button -->
-    {% if object.has_next %}
-    <a href="?page={{ object.next_page_number }}"
-        class="px-4 py-2 text-white bg-gray-700 rounded-lg hover:bg-red-800 transition-all" aria-label="Next Page">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-        </svg>
-    </a>
-    {% else %}
-    <button disabled class="px-4 py-2 text-white bg-gray-700 rounded-lg opacity-50 cursor-not-allowed"
-        aria-label="Next Page" tabindex="-1" aria-disabled="true">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-        </svg>
-    </button>
-    {% endif %}
+  <!-- Next Button -->
+  {% if object.has_next %}
+  <a
+    href="?page={{ object.next_page_number }}"
+    class="px-4 py-2 text-white bg-gray-700 rounded-lg hover:bg-red-800 transition-all"
+    aria-label="Next Page"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+      />
+    </svg>
+  </a>
+  {% else %}
+  <button
+    disabled
+    class="px-4 py-2 text-white bg-gray-700 rounded-lg opacity-50 cursor-not-allowed"
+    aria-label="Next Page"
+    tabindex="-1"
+    aria-disabled="true"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+      />
+    </svg>
+  </button>
+  {% endif %}
 </div>
