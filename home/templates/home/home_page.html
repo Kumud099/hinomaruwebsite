@@ -1,17 +1,49 @@
-{% extends "base.html" %}
-{% load static %}
-{% load wagtailimages_tags %}
-
-{% block navbar %}
-<c-components.navbar backgroundcolor="red-800" />
-{% endblock navbar %}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% load wagtailimages_tags %} {%
+block navbar %}
+<c-components.navbar />
+<!-- txtcolor="white"
+:backgroundcolor="currentSection === 'hero' ? 'transparent' : 'red-800'" -->
+{% endblock navbar %} {% block content %}
 
 <!-- hero section -->
 <section class="font-Grotesk scrollbar-hide" id="hero">
   <div class="relative flex items-center justify-center min-h-screen">
-    <!-- Video Background -->
+    <div
+      id="header space-y-4"
+      class="absolute right-5 z-30 mr-4 sm:mr-6 lg:mr-10 text-[#991b1b] text-[32px] sm:text-[40px] md:text-[48px] lg:text-[58px] xl:text-[64px] flex flex-col justify-start pl-4 sm:pl-6 md:pl-12 sm:ml-10 lg:pl-[100px] sm:text-left max-w-full"
+    >
+      <div class="mt-52">
+        <span
+          class="font-bold leading-tight text-red-700 text-left cursor-pointer reveal hover-effect max-w-[100%] md:max-w-[700px]"
+          id="first-span"
+          style="text-shadow: 1px 1px 0"
+          >Innovative Solutions using Webscale ManyTechnologies
+        </span>
+        <!-- Innovative Solutions using Webscale<br />
+          Technologies -->
+        <!-- <div
+          class="hover-effect"
+          id="first-span"
+          style="text-shadow: 1px 1px 0"
+        >
+          Innovative Solutions using Webscale ManyTechnologies
+        </div> -->
+        <p
+          class="text-[12px] sm:text-[16px] md:text-[16px] cursor-pointer lg:text-[20px] font-bold reveal text-white max-w-[90%] md:max-w-[800px]"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
+          do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit,
+          sed do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing
+          elit, sed do eiusmod.
+        </p>
+      </div>
+    </div>
+    <div
+      class="absolute z-0 object-cover w-full h-full max-w-none"
+      id="videoContainer"
+    ></div>
+
     <video
       id="videoContainer1"
       autoplay
@@ -21,39 +53,14 @@
       webkit-playsinline
       preload="auto"
       style="width: 100%; height: auto"
-      class="absolute z-0 object-cover w-auto min-w-full min-h-full max-w-none"
+      class="absolute z-10 object-cover w-auto min-w-full min-h-full max-w-none"
+      id="video"
     >
       <source src="{% static 'videos/bg_h264.mp4' %}" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-
-    <!-- Text Content -->
-    <div
-      id="header"
-      class="absolute z-30 text-center text-white space-y-6 sm:space-y-8 md:space-y-10 px-6 sm:px-8 lg:px-16"
-    >
-      <div class="mt-24 sm:mt-32 md:mt-40">
-        <span
-          class="font-bold mb-6 leading-tight text-transparent bg-gradient-to-r from-red-500 to-orange-200 bg-clip-text hover-effect text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl cursor-pointer reveal hover-effect w-[85%]"
-          style="text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3)"
-          id="first-span"
-          >Innovative Webscale Technology Solution Platform</span
-        >
-
-        <p
-          class="text-[14px] hidden sm:block md:text-[20px] cursor-pointer lg:text-[20px] [text-shadow:1px_2px_2px_black] font-bold reveal text-white ml-20 max-w-[90%]"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
-          do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit,
-          sed do eiusmod.
-        </p>
-      </div>
-    </div>
   </div>
 </section>
-
-  
 
 <!-- About yo ma view halni -->
 <section
@@ -108,127 +115,219 @@
         alt="About Us Visual"
         class="relative max-w-[80%] sm:max-w-[400px] h-auto sm:h-[300px] md:h-[400px] md:max-w-[500px] lg:max-w-[500px] object-cover transition-transform duration-300 hover:scale-105 mx-auto"
       />
-     
     </div>
-    
-   
-    
-  </div>
-  <div class="text-md font-bold text-blue">
-    <a href="/contact-us">
-      <p>GET IN TOUCH <i class="fas fa-arrow-right"></i></p>
-    </a>
   </div>
 </section>
 
 <!-- Services Section -->
-<section id="services" class="flex flex-col items-center justify-start bg-[#20252F] w-full pt-10 pb-16">
-    <div class="container mx-auto max-w-[1440px] px-6">
-        <!-- Section Title -->
-        <h1 class="text-center md:mt-20 lg:mt-28 mb-8 md:mb-10 lg:mb-12 font-bold text-white relative flex items-center justify-center">
-            <div class="border-t border-white w-24"></div>
-            <span id="service-text" class="relative mx-4 text-[#991B1B] text-3xl sm:text-[25px] md:text-[28px] lg:text-text-3xl">OUR SERVICES</span>
-            <div class="border-t border-white w-24"></div>
+<section
+  id="services"
+  class="flex flex-col items-center justify-start sm:-mt-40 min-h-auto bg-[#201D1D] w-full pt-16 pb-28"
+>
+  <div class="container mx-auto max-w-[1440px] px-6">
+    <!-- Section Title -->
+    <h1
+      class="text-center mt-6 md:mt-5 lg:mt-5 mb-8 md:mb-8 lg:mb-9 font-bold text-[28px] sm:text-[32px] md:text-[36px] lg:text-[36px] text-white relative"
+    >
+      <div
+        id="reveal-box"
+        class="absolute inset-0 w-0 transition-all duration-500 bg-red-900"
+      ></div>
+      <span id="service-text" class="relative">OUR SERVICES</span>
+
+      <div>
+        <span class="relative text-base"
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+          recusandae laudantium aliquam cum temporibus reiciendis sunt? Fugit
+          id.</span
+        >
+      </div>
+    </h1>
+
+    <!-- Cards Grid -->
+    <div
+      class="grid w-full grid-cols-1 gap-8 scrollbar-hide snap-x snap-mandatory sm:grid-cols-2 lg:grid-cols-4"
+    >
+      <!-- Service Card -->
+
+      <div
+        class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]"
+      >
+        <!-- <div
+        class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#991b1b] via-[#b92f2f] to-[#d94d4d] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]"
+      > -->
+        <div
+          class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]"
+        ></div>
+
+        <div
+          class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="{% static '/images/services.avif' %}"
+            alt="Service Image"
+            class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125"
+          />
+
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500"
+          ></div>
+        </div>
+
+        <h1
+          class="z-10 mt-6 text-3xl font-bold transition-colors duration-500 group-hover:text-black"
+        >
+          Web Application Development
         </h1>
-        <p class="text-center text-lg text-[25px] sm:text-[30px] md:text-[35px] lg:text-[35px] text-white mt-4 mb-10">
-            Outstanding Services to Accelerate Your <span class="font-bold text-[#991B1B]">Business Growth</span>
+
+        <p
+          class="z-10 px-6 pt-4 text-justify text-gray-300 transition-colors duration-500 group-hover:text-gray-100"
+        >
+          Build premium web applications with seamless performance, scalability,
+          and user-centric designs. We bring your ideas to life with precision.
         </p>
 
-        <!-- Cards Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
-            <!-- Service Card 1 -->
-            <a href="#" class="card flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg">
-                <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
-                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-80 group-hover:opacity-30" src="{% static '/images/1st.jpg' %}" alt="Service Image"/>
-                    <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg">
-                        <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
-                            <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
-                            <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </a>
+        <div
+          class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500"
+        ></div>
+      </div>
 
-            <!-- Service Card 2 -->
-            <a href="#" class="card flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg">
-                <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
-                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-80 group-hover:opacity-30" src="{% static '/images/2nd.jpg' %}" alt="Service Image"/>
-                    <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg">
-                        <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
-                          <h1 class="text-2xl font-bold text-white group-hover:text-red-500" style="text-shadow: 2px 2px 4px rgba(5, 5, 5, 0.5);">Web Development</h1>
+      <!-- Other Cards -->
+      <div
+        class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]"
+      >
+        <div
+          class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]"
+        ></div>
 
-                            <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        
-            <!-- Service Card 3 -->
-            <a href="#" class="card flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg">
-                <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
-                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-90 group-hover:opacity-30" src="{% static '/images/3rd.jpg' %}" alt="Service Image"/>
-                    <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg">
-                        <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
-                            <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
-                            <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        
-            <!-- Service Card 4 -->
-            <a href="#" class="card flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg">
-                <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
-                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-90 group-hover:opacity-30" src="{% static '/images/4th.jpg' %}" alt="Service Image"/>
-                    <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg">
-                        <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
-                            <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
-                            <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4 mb-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </a>
+        <div
+          class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="{% static '/images/services.avif' %}"
+            alt="Service Image"
+            class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125"
+          />
+
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500"
+          ></div>
         </div>
+
+        <h1
+          class="z-10 mt-6 text-3xl font-bold transition-colors duration-500 group-hover:text-black"
+        >
+          Web Application Development
+        </h1>
+
+        <p
+          class="z-10 px-6 pt-4 text-justify text-gray-300 transition-colors duration-500 group-hover:text-gray-100"
+        >
+          Build premium web applications with seamless performance, scalability,
+          and user-centric designs. We bring your ideas to life with precision.
+        </p>
+
+        <div
+          class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500"
+        ></div>
+      </div>
+
+      <div
+        class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]"
+      >
+        <div
+          class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]"
+        ></div>
+
+        <div
+          class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="{% static '/images/services.avif' %}"
+            alt="Service Image"
+            class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125"
+          />
+
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500"
+          ></div>
+        </div>
+
+        <h1
+          class="z-10 mt-6 text-3xl font-bold transition-colors duration-500 group-hover:text-black"
+        >
+          Web Application Development
+        </h1>
+
+        <p
+          class="z-10 px-6 pt-4 text-justify text-gray-300 transition-colors duration-500 group-hover:text-gray-100"
+        >
+          Build premium web applications with seamless performance, scalability,
+          and user-centric designs. We bring your ideas to life with precision.
+        </p>
+
+        <div
+          class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500"
+        ></div>
+      </div>
+
+      <div
+        class="card snap-center flex flex-col justify-between bg-gradient-to-br from-[#0D1B2A] via-[#1B263B] to-[#415A77] text-white text-center rounded-[2.5rem] group transition duration-500 shadow-2xl hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform hover:-translate-y-4 hover:scale-110 p-8 min-h-[500px] max-h-[500px] relative border border-gray-600 hover:border-[#C0C0C0]"
+      >
+        <div
+          class="absolute inset-0 opacity-0 group-hover:opacity-40 rounded-[2.5rem] transition duration-500 ease-in-out blur-2xl bg-gradient-to-br from-[#C0C0C0] to-[#A9A9A9]"
+        ></div>
+
+        <div
+          class="w-full h-[240px] rounded-2xl overflow-hidden relative z-10 shadow-lg group-hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="{% static '/images/services.avif' %}"
+            alt="Service Image"
+            class="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-125"
+          />
+
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-transparent to-[#00000090] opacity-30 group-hover:opacity-50 transition-opacity duration-500"
+          ></div>
+        </div>
+
+        <h1
+          class="z-10 mt-6 text-3xl font-bold transition-colors duration-500 group-hover:text-black"
+        >
+          Web Application Development
+        </h1>
+
+        <p
+          class="z-10 px-6 pt-4 text-justify text-gray-300 transition-colors duration-500 group-hover:text-gray-100"
+        >
+          Build premium web applications with seamless performance, scalability,
+          and user-centric designs. We bring your ideas to life with precision.
+        </p>
+
+        <div
+          class="absolute top-0 left-0 w-full h-full border border-transparent rounded-[2.5rem] group-hover:border-[#C0C0C0] group-hover:shadow-[0_0_25px_#C0C0C0] transition-all duration-500"
+        ></div>
+      </div>
     </div>
 
-
-        
-
-        
-        <!-- Scrolling Text Section -->
-        <div class="mt-10 w-full overflow-hidden whitespace-nowrap">
-            <div id="scrollingText" class="flex gap-12 text-[40px] sm:text-[30px] md:text-[40px] lg:text-[60px] text-gray-600 pt-4 parallax ">
-                <span class="ml-4 p-4 font-play ">WEB APPLICATION DEVELOPMENT</span>
-                <span class="ml-4 p-4 font-play">UI UX</span>
-                <span class="ml-4 p-4 font-play">SEO</span>
-                <span class="ml-4 p-4 font-play">Software Development</span>
-            </div>
-        </div>
-        
+    <!-- Scrolling Text Section -->
+    <div class="w-full mt-12 overflow-hidden whitespace-nowrap">
+      <div id="scrollingText" class="flex gap-12 text-[35px] pt-4 parallax">
+        <span class="p-4 ml-4 text-white font-play"
+          >WEB APPLICATION DEVELOPMENT</span
+        >
+        <span class="p-4 ml-4 text-red-500 font-play">CMS DEVELOPMENT</span>
+        <span class="p-4 ml-4 text-white font-play">SOFTWARE DEVELOPMENT</span>
+        <span class="p-4 ml-4 text-red-500 font-play"
+          >WEB APPLICATION DEVELOPMENT</span
+        >
+      </div>
+    </div>
+  </div>
 </section>
 
-<style>
-@keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-.animate-marquee {
-  animation: marquee 20s linear infinite;
-}
-</style>
-
-
-
-
-<!-- why -->
+<!-- Why Us 1 -->
 <section class="py-12 bg-white">
   <div class="max-w-8.5xl mx-auto px-6 text-center">
     <h2 class="mb-6 text-3xl font-semibold">
@@ -370,407 +469,413 @@
 
 <!-- Blogs Section -->
 <section class="relative pt-10 overflow-hidden">
-    <div
-      class="flex flex-wrap items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
+  <div
+    class="flex flex-wrap items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
+  >
+    <h2
+      class="text-3xl font-bold text-red-700 md:pl-[50px] pl-[20px] text-xl sm:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl"
     >
-      <h2
-        class="text-3xl font-bold text-red-700 md:pl-[50px] pl-[20px] text-xl sm:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl"
+      BLOGS
+    </h2>
+
+    <a
+      href="/blogs"
+      class="relative inline-flex items-center justify-end py-3 overflow-hidden font-medium transition-all bg-black hover:bg-[#991b1b] group rounded-md"
+    >
+      <span
+        class="w-48 h-48 rounded rotate-[-40deg] bg-red-700 border-black b-2 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"
+      ></span>
+      <span
+        id="viewMoreText"
+        class="relative w-full px-2 text-left text-white transition-colors duration-300 ease-in-out group-hover:text-white"
       >
-        BLOGS
-      </h2>
-  
+        View All Blogs <i class="fa fa-angle-right"></i>
+      </span>
+    </a>
+  </div>
+
+  <div
+    class="flex justify-center flex-wrap h-[540px] overflow-hidden w-full"
+    id="blog-container"
+  >
+    {% if blogs %} {% for blog in blogs %}
+    <c-components.home-blog-card :blog="blog" class="border border-blue-500" />
+    {% endfor %} {% else %}
+    <p>No blogs available</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- News Section -->
+<section class="relative pt-10 pb-10 mb-10 overflow-hidden">
+  <div class="pb-16">
+    <div class="flex items-center justify-between">
+      <h2 class="text-3xl pl-[50px] font-bold pb-4 text-red-700">NEWS</h2>
+
       <a
-        href="/blogs"
-        class="relative inline-flex items-center justify-end py-3 overflow-hidden font-medium transition-all bg-black hover:bg-[#991b1b] group rounded-md"
+        href="/announcements"
+        class="relative inline-flex items-center -mt-12 mr-[50px] justify-end py-3 overflow-hidden font-medium transition-all bg-black hover:bg-[#991b1b] group rounded-md"
       >
         <span
-          class="w-48 h-48 rounded rotate-[-40deg] bg-red-700 border-black b-2 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"
+          class="w-48 h-48 rounded rotate-[-40deg] bg-[#991b1b] border-black b-2 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"
         ></span>
         <span
           id="viewMoreText"
           class="relative w-full px-2 text-left text-white transition-colors duration-300 ease-in-out group-hover:text-white"
         >
-          View All Blogs <i class="fa fa-angle-right"></i>
+          View All News <i class="fa fa-angle-right"></i>
         </span>
       </a>
     </div>
-  
-    <div
-      class="flex justify-center flex-wrap h-[540px] overflow-hidden w-full"
-      id="blog-container"
-    >
-      {% if blogs %} {% for blog in blogs %}
-      <c-components.home-blog-card :blog="blog" class="border border-blue-500" />
-      {% endfor %} {% else %}
-      <p>No blogs available</p>
-      {% endif %}
-    </div>
-  </section>
-  
-  <!-- News Section -->
-  <section class="relative pt-10 pb-10 mb-10 overflow-hidden">
-    <div class="pb-16">
-      <div class="flex items-center justify-between">
-        <h2 class="text-3xl pl-[50px] font-bold pb-4 text-red-700">NEWS</h2>
-  
-        <a
-          href="/announcements"
-          class="relative inline-flex items-center -mt-12 mr-[50px] justify-end py-3 overflow-hidden font-medium transition-all bg-black hover:bg-[#991b1b] group rounded-md"
-        >
-          <span
-            class="w-48 h-48 rounded rotate-[-40deg] bg-[#991b1b] border-black b-2 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"
-          ></span>
-          <span
-            id="viewMoreText"
-            class="relative w-full px-2 text-left text-white transition-colors duration-300 ease-in-out group-hover:text-white"
-          >
-            View All News <i class="fa fa-angle-right"></i>
-          </span>
-        </a>
-      </div>
-  
-      <div class="px-4 hover:cursor-pointer lg:px-12">
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-          {% for news in list_of_news %}
-          <a href="{{news.url}}">
-            <div
-              class="overflow-hidden transition-all duration-300 transform bg-white rounded-lg shadow-md hover:scale-105 group"
-            >
-              <hr
-                class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500"
-              />
-  
-              <div class="p-4 space-y-3">
-                <div class="text-xs font-semibold text-red-500">
-                  {{news.news_publish_date}}
-                </div>
-                <div
-                  class="text-lg font-bold leading-tight text-gray-800 truncate"
-                >
-                  {{news.news_title}}
-                </div>
-              </div>
-  
-              <div
-                class="absolute transition-transform duration-300 transform -translate-y-1/2 group-hover:translate-x-2 top-1/2 right-4"
-              >
-                <span class="relative group">
-                  <i
-                    class="w-8 h-8 text-base text-gray-800 transition-all duration-300 fa fa-arrow-right group-hover:text-red-500"
-                  ></i>
-                </span>
-              </div>
-  
-              <hr
-                class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500"
-              />
-            </div>
-          </a>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <style>
-    /* Hovering Hero Letters */
-    .hover-effect {
-      display: inline-block;
-    }
-  
-    .hover-effect span {
-      display: inline-block;
-      transition: transform 0.4s ease, text-shadow 0.4s ease, color 0.4s ease;
-    }
-  
-    .hover-effect:hover span {
-      transform: translateY(-20px);
-      text-shadow: 0 15px 25px rgba(255, 255, 255, 0.5);
-      color: white;
-      filter: brightness(1.5);
-    }
-  
-    .space {
-      display: inline-block;
-      width: 0.3em; /* if u change here change the width in span at the hero section */
-    }
-  
-    /* end of hero animation */
-  
-    .parallax {
-      animation: parallax 20s linear infinite;
-      overflow: hidden;
-      display: inline-block;
-    }
-    @keyframes slideInCircle {
-      0% {
-        transform: translate(50%, -50%);
-        opacity: 0;
-      }
-  
-      100% {
-        transform: translate(0, 0);
-        opacity: 1;
-      }
-    }
-  
-    /* About US animated circle */
-    .animate-circle {
-      animation: slideInCircle 1.5s ease-out forwards;
-    }
-  
-    .custom-cursor {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background-color: red;
-      border-radius: 50%;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s ease-out;
-      z-index: 9999;
-      display: none;
-    }
-  
-    /* Synccard border animation why us  */
-    .card-border {
-      font-size: 2rem;
-      position: relative;
-      border: 1px;
-      display: inline-block;
-      padding: 1rem;
-      border: 1px solid #d3d3d3;
-    }
-  
-    .card-border::after,
-    .card-border::before,
-    .card-border .left-border,
-    .card-border .right-border {
-      content: "";
-      position: absolute;
-      background: #991b1b;
-      transition: transform 0.4s ease-out;
-    }
-  
-    /* Top and Bottom Borders */
-    .card-border::after,
-    .card-border::before {
-      width: 100%;
-      height: 2px;
-      left: 0;
-      transform: scaleX(0);
-    }
-  
-    .card-border::before {
-      top: 0;
-      transform-origin: right;
-    }
-  
-    .card-border::after {
-      bottom: 0;
-      transform-origin: left;
-    }
-  
-    /* Left and Right Borders */
-    .card-border .left-border,
-    .card-border .right-border {
-      width: 2px;
-      height: 100%;
-      top: 0;
-      transform: scaleY(0);
-    }
-  
-    .card-border .left-border {
-      left: 0;
-      /* transform-origin: top; */
-      transform-origin: bottom;
-    }
-  
-    .card-border .right-border {
-      right: 0;
-      /* transform-origin: bottom; */
-      transform-origin: top;
-    }
-  
-    /* Hover Effect - Expand Borders */
-    .card-border:hover::after,
-    .card-border:hover::before {
-      transform: scaleX(1);
-    }
-  
-    .card-border:hover .left-border,
-    .card-border:hover .right-border {
-      transform: scaleY(1);
-    }
-    /* End of why Choose Us */
-  </style>
-  {% endblock content %}
-  
-  <!-- Javascript -->
-  {% block extra_js %}
-  <script src="{% static 'js/animations.js' %}"></script>
-  
-  <script>
-    // Split text into individual letters and wrap in <span>
-    const text = document.getElementById("first-span");
-    const letters = text.textContent.split(""); // Split the text by characters (including spaces)
-    text.innerHTML = letters
-      .map((letter) => {
-        // Wrap spaces in a span with a specific class for styling if needed
-        if (letter === " ") {
-          return `<span class="space"></span>`;
-        }
-        return `<span>${letter}</span>`;
-      })
-      .join("");
-  
-    // Apply transition delay dynamically based on the index
-    const spans = document.querySelectorAll("#first-span span");
-    spans.forEach((span, index) => {
-      span.style.transitionDelay = `${index * 0.05}s`; // Apply staggered delay
-    });
-  
-    // About us and after about us click me section
-    // Ensure the DOM is fully loaded
-    document.addEventListener("DOMContentLoaded", function () {
-      var textElement = document.getElementById("header");
-  
-      // Set timeout to show text after 3 seconds
-      setTimeout(function () {
-        // Remove opacity-0 to show text after 3 seconds
-        textElement.classList.remove("opacity-0");
-        textElement.classList.add("opacity-100");
-      }, 100);
-    });
-  
-    // document.addEventListener("DOMContentLoaded", function () {
-    //   const blogContainer = document.getElementById("blog-container");
-    //   const scrollLeftButton = document.getElementById("scroll-left");
-    //   const scrollRightButton = document.getElementById("scroll-right");
-  
-    //   // Scroll left
-    //   scrollLeftButton.addEventListener("click", () => {
-    //     blogContainer.scrollBy({
-    //       left: 525,
-    //       behavior: "smooth",
-    //     });
-    //   });
-  
-    //   // Scroll right
-    //   scrollRightButton.addEventListener("click", () => {
-    //     blogContainer.scrollBy({
-    //       left: 525,
-    //       behavior: "smooth",
-    //     });
-    //   });
-    // });
-  
-    const sections = document.querySelectorAll("section"); // All sections on the page
-  
-    window.addEventListener("scroll", () => {
-      let inHeroSection = false; // This will track if the user is currently in the Hero section
-  
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop; // Distance from top of the section to the top of the page
-        const sectionHeight = section.clientHeight; // Height of the section
-  
-        if (
-          window.scrollY >= sectionTop &&
-          window.scrollY < sectionTop + sectionHeight
-        ) {
-          if (section.id === "hero") {
-            inHeroSection = true; // User is currently within the Hero section
-          }
-        }
-      });
-  
-      
-    });
-    if (window.innerWidth >= 1024) {  document.addEventListener("DOMContentLoaded", function () {
-      const aboutUsSection = document.getElementById("aboutUsContainer");
-      const animatedCircle = document.querySelector(".animate-circle");
-  
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Remove the class and re-add it to restart the animation
-              animatedCircle.classList.remove("animate-circle");
-              void animatedCircle.offsetWidth; // Force reflow
-              animatedCircle.classList.add("animate-circle");
-            }
-          });
-        },
-        { threshold: 0.5 } // Adjust threshold if needed
-      );
-  
-      observer.observe(aboutUsSection);
-    });
+    <div class="px-4 hover:cursor-pointer lg:px-12">
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+        {% for news in list_of_news %}
+        <a href="{{news.url}}">
+          <div
+            class="overflow-hidden transition-all duration-300 transform bg-white rounded-lg shadow-md hover:scale-105 group"
+          >
+            <hr
+              class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500"
+            />
+
+            <div class="p-4 space-y-3">
+              <div class="text-xs font-semibold text-red-500">
+                {{news.news_publish_date}}
+              </div>
+              <div
+                class="text-lg font-bold leading-tight text-gray-800 truncate"
+              >
+                {{news.news_title}}
+              </div>
+            </div>
+
+            <div
+              class="absolute transition-transform duration-300 transform -translate-y-1/2 group-hover:translate-x-2 top-1/2 right-4"
+            >
+              <span class="relative group">
+                <i
+                  class="w-8 h-8 text-base text-gray-800 transition-all duration-300 fa fa-arrow-right group-hover:text-red-500"
+                ></i>
+              </span>
+            </div>
+
+            <hr
+              class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500"
+            />
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hovering Hero Letters */
+  .hover-effect {
+    display: inline-block;
   }
-    // Create custom cursor
-    if (window.innerWidth >= 1024) {const cursor = document.createElement("div");
-    cursor.classList.add("custom-cursor");
-    document.body.appendChild(cursor);
-  
-    const servicesSection = document.querySelector("#services");
-  
-    // Show cursor only inside #services
-    servicesSection.addEventListener("mouseenter", () => {
-      cursor.style.display = "block";
-    });
-  
-    servicesSection.addEventListener("mouseleave", () => {
-      cursor.style.display = "none";
-    });
-  
-    // Update cursor position only inside #services
-    servicesSection.addEventListener("mousemove", (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    });
-    document.querySelectorAll("#services .card").forEach((card) => {
-      card.addEventListener("mouseenter", () => {
-        cursor.textContent = "Click";
-        cursor.style.width = "50px";
-        cursor.style.height = "50px";
-        cursor.style.backgroundColor = "#d32f2f";
-        cursor.style.fontSize = "15px";
-        cursor.style.display = "flex";
-        cursor.style.alignItems = "center";
-        cursor.style.justifyContent = "center";
-        cursor.style.color = "white";
-        cursor.style.fontWeight = "600";
-        cursor.style.borderRadius = "50%";
-        cursor.style.boxShadow = "0px 0px 5px rgba(0,0,0,0.3)";
-      });
-  
-      card.addEventListener("mouseleave", () => {
-        cursor.textContent = "";
-        cursor.style.width = "15px";
-        cursor.style.height = "15px";
-        cursor.style.backgroundColor = "#d32f2f";
-        cursor.style.boxShadow = "none";
-      });
-    });
+
+  .hover-effect span {
+    display: inline-block;
+    transition: transform 0.4s ease, text-shadow 0.4s ease, color 0.4s ease;
+  }
+
+  .hover-effect:hover span {
+    transform: translateY(-20px);
+    text-shadow: 0 15px 25px rgba(255, 255, 255, 0.5);
+    color: white;
+    filter: brightness(1.5);
+  }
+
+  .space {
+    display: inline-block;
+    width: 0.3em; /* if u change here change the width in span at the hero section */
+  }
+
+  /* end of hero animation */
+
+  .parallax {
+    animation: parallax 20s linear infinite;
+    overflow: hidden;
+    display: inline-block;
+  }
+  @keyframes slideInCircle {
+    0% {
+      transform: translate(50%, -50%);
+      opacity: 0;
     }
-    // for viewing more content in ABOUTUS
-    document.getElementById("viewMoreBtn").addEventListener("click", function () {
-      var extraContent = document.getElementById("extra-content");
-      var textSpan = document.getElementById("viewMoreText");
-  
-      //Toggle visibility
-      if (extraContent.classList.contains("hidden")) {
-        extraContent.classList.remove("hidden");
-        textSpan.textContent = "View Less";
-        this.classList.add("mb-52");
-      } else {
-        extraContent.classList.add("hidden");
-        textSpan.textContent = "View More";
-        this.classList.remove("mb-52");
-        // this.classList.add("-mt-20");
+
+    100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+
+  /* About US animated circle */
+  .animate-circle {
+    animation: slideInCircle 1.5s ease-out forwards;
+  }
+
+  .custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+    z-index: 9999;
+    display: none;
+  }
+
+  /* Synccard border animation why us  */
+  .card-border {
+    font-size: 2rem;
+    position: relative;
+    border: 1px;
+    display: inline-block;
+    padding: 1rem;
+    border: 1px solid #d3d3d3;
+  }
+
+  .card-border::after,
+  .card-border::before,
+  .card-border .left-border,
+  .card-border .right-border {
+    content: "";
+    position: absolute;
+    background: #991b1b;
+    transition: transform 0.4s ease-out;
+  }
+
+  /* Top and Bottom Borders */
+  .card-border::after,
+  .card-border::before {
+    width: 100%;
+    height: 2px;
+    left: 0;
+    transform: scaleX(0);
+  }
+
+  .card-border::before {
+    top: 0;
+    transform-origin: right;
+  }
+
+  .card-border::after {
+    bottom: 0;
+    transform-origin: left;
+  }
+
+  /* Left and Right Borders */
+  .card-border .left-border,
+  .card-border .right-border {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    transform: scaleY(0);
+  }
+
+  .card-border .left-border {
+    left: 0;
+    /* transform-origin: top; */
+    transform-origin: bottom;
+  }
+
+  .card-border .right-border {
+    right: 0;
+    /* transform-origin: bottom; */
+    transform-origin: top;
+  }
+
+  /* Hover Effect - Expand Borders */
+  .card-border:hover::after,
+  .card-border:hover::before {
+    transform: scaleX(1);
+  }
+
+  .card-border:hover .left-border,
+  .card-border:hover .right-border {
+    transform: scaleY(1);
+  }
+  /* End of why Choose Us */
+</style>
+{% endblock content %}
+
+<!-- Javascript -->
+{% block extra_js %}
+<script src="{% static 'js/animations.js' %}"></script>
+
+<script>
+  // Split text into individual letters and wrap in <span>
+  const text = document.getElementById("first-span");
+  const letters = text.textContent.split(""); // Split the text by characters (including spaces)
+  text.innerHTML = letters
+    .map((letter) => {
+      // Wrap spaces in a span with a specific class for styling if needed
+      if (letter === " ") {
+        return `<span class="space"></span>`;
+      }
+      return `<span>${letter}</span>`;
+    })
+    .join("");
+
+  // Apply transition delay dynamically based on the index
+  const spans = document.querySelectorAll("#first-span span");
+  spans.forEach((span, index) => {
+    span.style.transitionDelay = `${index * 0.05}s`; // Apply staggered delay
+  });
+
+  // About us and after about us click me section
+  // Ensure the DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    var textElement = document.getElementById("header");
+
+    // Set timeout to show text after 3 seconds
+    setTimeout(function () {
+      // Remove opacity-0 to show text after 3 seconds
+      textElement.classList.remove("opacity-0");
+      textElement.classList.add("opacity-100");
+    }, 100);
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const blogContainer = document.getElementById("blog-container");
+    const scrollLeftButton = document.getElementById("scroll-left");
+    const scrollRightButton = document.getElementById("scroll-right");
+
+    // Scroll left
+    scrollLeftButton.addEventListener("click", () => {
+      blogContainer.scrollBy({
+        left: 525,
+        behavior: "smooth",
+      });
+    });
+
+    // Scroll right
+    scrollRightButton.addEventListener("click", () => {
+      blogContainer.scrollBy({
+        left: 525,
+        behavior: "smooth",
+      });
+    });
+  });
+
+  const sections = document.querySelectorAll("section"); // All sections on the page
+
+  window.addEventListener("scroll", () => {
+    let inHeroSection = false; // This will track if the user is currently in the Hero section
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop; // Distance from top of the section to the top of the page
+      const sectionHeight = section.clientHeight; // Height of the section
+
+      if (
+        window.scrollY >= sectionTop &&
+        window.scrollY < sectionTop + sectionHeight
+      ) {
+        if (section.id === "hero") {
+          inHeroSection = true; // User is currently within the Hero section
+        }
       }
     });
-  </script>
-  
+
+    if (inHeroSection) {
+      // If in Hero section, set the navbar to absolute and transparent
+      navbar.classList.remove("fixed", "bg-red-800");
+      navbar.classList.add("absolute", "bg-transparent");
+    } else {
+      // If outside the Hero section, set the navbar to fixed and a solid background (red-800)
+      navbar.classList.remove("absolute", "bg-transparent");
+      navbar.classList.add("fixed", "bg-[#991b1b]");
+    }
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    const aboutUsSection = document.getElementById("aboutUsContainer");
+    const animatedCircle = document.querySelector(".animate-circle");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Remove the class and re-add it to restart the animation
+            animatedCircle.classList.remove("animate-circle");
+            void animatedCircle.offsetWidth; // Force reflow
+            animatedCircle.classList.add("animate-circle");
+          }
+        });
+      },
+      { threshold: 0.5 } // Adjust threshold if needed
+    );
+
+    observer.observe(aboutUsSection);
+  });
+  // Create custom cursor
+  const cursor = document.createElement("div");
+  cursor.classList.add("custom-cursor");
+  document.body.appendChild(cursor);
+
+  const servicesSection = document.querySelector("#services");
+
+  // Show cursor only inside #services
+  servicesSection.addEventListener("mouseenter", () => {
+    cursor.style.display = "block";
+  });
+
+  servicesSection.addEventListener("mouseleave", () => {
+    cursor.style.display = "none";
+  });
+
+  // Update cursor position only inside #services
+  servicesSection.addEventListener("mousemove", (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  });
+  document.querySelectorAll("#services .card").forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      cursor.textContent = "Click";
+      cursor.style.width = "50px";
+      cursor.style.height = "50px";
+      cursor.style.backgroundColor = "#d32f2f";
+      cursor.style.fontSize = "15px";
+      cursor.style.display = "flex";
+      cursor.style.alignItems = "center";
+      cursor.style.justifyContent = "center";
+      cursor.style.color = "white";
+      cursor.style.fontWeight = "600";
+      cursor.style.borderRadius = "50%";
+      cursor.style.boxShadow = "0px 0px 5px rgba(0,0,0,0.3)";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      cursor.textContent = "";
+      cursor.style.width = "15px";
+      cursor.style.height = "15px";
+      cursor.style.backgroundColor = "#d32f2f";
+      cursor.style.boxShadow = "none";
+    });
+  });
+
+  // for viewing more content in ABOUTUS
+  document.getElementById("viewMoreBtn").addEventListener("click", function () {
+    var extraContent = document.getElementById("extra-content");
+    var textSpan = document.getElementById("viewMoreText");
+
+    //Toggle visibility
+    if (extraContent.classList.contains("hidden")) {
+      extraContent.classList.remove("hidden");
+      textSpan.textContent = "View Less";
+      this.classList.add("mb-52");
+    } else {
+      extraContent.classList.add("hidden");
+      textSpan.textContent = "View More";
+      this.classList.remove("mb-52");
+      // this.classList.add("-mt-20");
+    }
+  });
+</script>
 
 {% endblock extra_js %}
