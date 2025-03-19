@@ -3,186 +3,205 @@
 {% load wagtailimages_tags %}
 
 {% block navbar %}
-<c-components.navbar txtcolor="red-900" backgroundcolor="currentSection === 'hero' ? 'transparent' : 'white'" />
+<c-components.navbar backgroundcolor="red-800" />
 {% endblock navbar %}
 
 {% block content %}
 
 <!-- hero section -->
-<section class="font-Grotesk" id="hero">
-    <div class="relative flex items-center justify-center min-h-screen">
-        <!-- Text Section (Initially hidden) -->
-        <div id="header"
-            class="absolute bottom-5 left-5 z-30 text-white text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[80px] flex flex-col justify-start pl-[32px] sm:pl-4 md:pl-8 lg:pl-[166px] text-center sm:text-left   ">
-            <span class="font-bold reveal" id="first-span"
-                style="text-shadow: 1px 1px 0 #c53030, -1px -1px 0 #c53030, 1px -1px 0 #c53030, -1px 1px 0 #c53030;">
-                Innovative Solutions <br>using Webscale <br>Technologies
-                <br>
-            </span>
-            <span class="text-[24px] sm:text-[28px] gray-400 reveal"
-                style="text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;">
-                Lorem ipsum dolor sit amet,
-                <br>consectetur adipiscing elit,
-                <br> sed do eiusmod. 
-            </span>
-        </div>
+<section class="font-Grotesk scrollbar-hide" id="hero">
+  <div class="relative flex items-center justify-center min-h-screen">
+    <!-- Dark Overlay -->
+    <div class="absolute z-0 w-full h-full bg-black opacity-70"></div> <!-- Dark overlay -->
+    
+    <!-- Video Background -->
+    <video
+      id="videoContainer1"
+      autoplay
+      loop
+      muted
+      playsinline
+      webkit-playsinline
+      preload="auto"
+      style="width: 100%; height: auto"
+      class="absolute z-10 object-cover w-auto min-w-full min-h-full max-w-none opacity-50"
+    >
+      <source src="{% static 'videos/bg_h264.mp4' %}" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-        <!-- Video container -->
-        <div class="absolute z-0 object-cover w-full h-full max-w-none" id="videoContainer"></div>
+    <!-- Content Above Video -->
+    <div id="header" class="absolute z-20 text-center text-white space-y-6 sm:space-y-8 md:space-y-10 px-6 sm:px-8 lg:px-16">
+      <div class="mt-24 sm:mt-32 md:mt-40">
+        <span
+          class="font-bold leading-tight text-transparent bg-gradient-to-r from-red-500 to-orange-200 bg-clip-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl cursor-pointer reveal hover-effect"
+          style="text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3)"
+        >
+          Innovative Solutions using Webscale Many Technologies
+        </span>
 
-        <video id="videoContainer1" autoplay loop muted playsinline webkit-playsinline preload="auto"
-            style="width: 100%; height: auto;"
-            class=" absolute z-10 object-cover w-auto min-w-full min-h-full max-w-none opacity-90" id="video">
-            <source src="{% static 'videos/bg_h264.mp4' %}" type="video/mp4"  />
-            Your browser does not support the video tag.
-        </video>
-
+        <p class="text-sm sm:text-base md:text-lg lg:text-xl font-medium mt-4 sm:mt-6">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod.
+        </p>
+      </div>
     </div>
+  </div>
 </section>
 
+  
 
-<!-- About -->
+<!-- About yo ma view halni -->
 <section
-    class="flex flex-col items-center h-auto min-h-screen mb-12 sm:mr-0 lg:mr-12 mb- sm:mb-60 lg:mb-0 md:mb-0 about-us font-Grotesk bg-[#eeeeee]"
-    id="aboutUsContainer">
-    <h2 class="text-[30px] md:text-[40px] font-bold mt-20 md:mt-28 pt-6 about-us mb-10 text-red-500" id="our-vision">
-        ABOUT US
-    </h2>
-    <div class="flex flex-col items-center gap-8 mx-auto md:flex-row max-w-[1400px] mt-6 about-us">
-        <!-- Content Section -->
-        <div class="text-left w-full md:w-1/2 about-us px-4">
-            <p class="mb-6 text-[22px] md:text-[30px] text-justify font-bold leading-tight text-gray-900 md:text-4xl">
-                As a Web Development Services We are Committed to Building Custom <span class="text-red-500">Web
-                    Solutions that Drive Business Success.</span>
-            </p>
-            <p class="mb-8 text-gray-600 text-[16px] md:text-[18px] text-justify md:text-lg">
-                At our web development agency, we specialize in crafting bespoke online solutions tailored to
-                elevate businesses toward their digital objectives. Committed to continuous evolution, we remain abreast
-                of
-                cutting-edge web technologies and trends, ensuring a constant delivery of unparalleled excellence.
-                <br /><br />
-                Our ethos is rooted in equipping clients with the essential tools for triumph in the digital realm.
-                We firmly believe in furnishing every business with a digital presence that authentically embodies
-                their brand essence and effectively resonates with their target demographic.
-            </p>
-
-            <a href="/contact-us"
-                class="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-red-800 rounded hover:bg-orange-400 group">
-                <span
-                    class="w-48 h-48 rounded rotate-[-40deg] bg-orange-400 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
-                <span
-                    class="relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-black">
-                    Contact us
-                </span>
-            </a>
-        </div>
-        <div class="w-full md:w-1/2 sm:ml-2 md:ml-4 flex justify-center items-center relative px-4 mx-auto">
-            <!-- Animated Red Circle Background -->
-            <div
-                class="absolute rounded-full bg-red-900 w-[250px] h-[250px] sm:w-[500px] sm:h-[400px] md:w-[500px] md:h-[500px] -top-[50px] sm:-top-[40px] md:-top-[100px] right-0 sm:right-[-20px] md:-right-10 opacity-0 animate-circle mx-auto">
-            </div>
-            <!-- Main Image -->
-            <img src="{% static 'images/aboutus.webp' %}" alt="About Us Visual"
-                class="relative max-w-[80%] sm:max-w-[400px] h-auto sm:h-[300px] md:h-[400px] md:max-w-[500px] lg:max-w-[500px] object-cover transition-transform duration-300 hover:scale-105 mx-auto ">
-        </div>
+  class="flex flex-col items-center h-auto min-h-screen -mt-16 sm:mr-0 lg:mr-12 sm:mb-60 lg:mb-0 md:mb-0 about-us font-Grotesk"
+  id="aboutUsContainer"
+>
+  <h2
+    class="text-[30px] md:text-[40px] font-bold mt-20 md:mt-28 pt-6 mb-10 about-us text-red-700"
+    id="our-vision"
+  >
+    ABOUT US
+  </h2>
+  <div
+    class="flex flex-col items-center gap-8 mx-auto lg:mb-56 md:mb-56 md:flex-row max-w-[1400px] about-us"
+  >
+    <!-- Content Section -->
+    <div class="w-full px-4 text-left md:w-1/2 about-us">
+      <p
+        class="mb-6 text-[22px] md:text-[30px] text-justify font-bold leading-tight text-gray-900 md:text-4xl"
+      >
+        As a Web Development Services We are Committed to Building Custom
+        <span class="text-red-700"
+          >Web Solutions that Drive Business Success.</span
+        >
+      </p>
+      <p
+        class="mb-8 text-gray-600 text-[16px] md:text-[18px] text-justify md:text-lg"
+      >
+        At our web development agency, we specialize in crafting bespoke online
+        solutions tailored to elevate businesses toward their digital
+        objectives. Committed to continuous evolution, we remain abreast of
+        cutting-edge web technologies and trends, ensuring a constant delivery
+        of unparalleled excellence.
+        <br /><br />
+        Our ethos is rooted in equipping clients with the essential tools for
+        triumph in the digital realm. We firmly believe in furnishing every
+        business with a digital presence that authentically embodies their brand
+        essence and effectively resonates with their target demographic.
+      </p>
     </div>
+
+    <div
+      class="relative flex items-center justify-center w-full px-4 mx-auto md:w-1/2 sm:ml-2 md:ml-4"
+    >
+      <!-- Animated Red Circle Background -->
+      <div
+        class="absolute rounded-full bg-red-900 w-[250px] h-[250px] sm:w-[500px] sm:h-[400px] md:w-[500px] md:h-[500px] -top-[50px] sm:-top-[40px] md:-top-[100px] right-0 sm:right-[-20px] md:-right-10 opacity-0 animate-circle mx-auto"
+      ></div>
+      <!-- Main Image -->
+      <img
+        src="{% static 'images/aboutus.webp' %}"
+        alt="About Us Visual"
+        class="relative max-w-[80%] sm:max-w-[400px] h-auto sm:h-[300px] md:h-[400px] md:max-w-[500px] lg:max-w-[500px] object-cover transition-transform duration-300 hover:scale-105 mx-auto"
+      />
+     
+    </div>
+    
+   
+    
+  </div>
+  <div class="text-md font-bold text-blue">
+    <a href="/contact-us">
+      <p>GET IN TOUCH <i class="fas fa-arrow-right"></i></p>
+    </a>
+  </div>
 </section>
 
 <!-- Services Section -->
-<section id="services" class="flex flex-col items-center justify-start min-h-auto bg-[#20252F] w-full  pb-16">
+<section id="services" class="flex flex-col items-center justify-start bg-[#20252F] w-full pt-10 pb-16">
     <div class="container mx-auto max-w-[1440px] px-6">
         <!-- Section Title -->
-        <h1 class="text-center md:mt-20 lg:mt-28 mb-8 md:mb-10 lg:mb-12 font-bold  text-white relative flex items-center justify-center">
+        <h1 class="text-center md:mt-20 lg:mt-28 mb-8 md:mb-10 lg:mb-12 font-bold text-white relative flex items-center justify-center">
             <div class="border-t border-white w-24"></div>
-            <span id="service-text" class="relative mx-4 text-[#991B1B] text-[17px] sm:text-[25px] md:text-[28px] lg:text-[28px]">OUR SERVICES</span>
+            <span id="service-text" class="relative mx-4 text-[#991B1B] text-3xl sm:text-[25px] md:text-[28px] lg:text-text-3xl">OUR SERVICES</span>
             <div class="border-t border-white w-24"></div>
         </h1>
-        <p class="text-center text-lg text-[25px] sm:text-[30px] md:text-[35px] lg:text-[35px] text-white mt-4 mb-10">Outstanding Services to Accelerate Your <span class="font-bold text-[#991B1B]">Business Growth</span></p>
+        <p class="text-center text-lg text-[25px] sm:text-[30px] md:text-[35px] lg:text-[35px] text-white mt-4 mb-10">
+            Outstanding Services to Accelerate Your <span class="font-bold text-[#991B1B]">Business Growth</span>
+        </p>
 
         <!-- Cards Grid -->
-        <div class="scrollbar-hide snap-x snap-mandatory grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full mt-[90px]">
-            <!-- Service Card -->
-            <a href="#" class="card snap-center flex flex-col justify-center group relative items-center overflow-hidden transition duration-500 rounded-lg cursor-pointer hover:cursor-pointer">
-                <!-- Image Container with Shadow on Hover and Rounded Corners -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+            <!-- Service Card 1 -->
+            <a href="#" class="card flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg">
                 <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
-                  <img 
-                    class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-80 group-hover:opacity-30 hover:border-2 hover:border-red-100 hover:rounded-lg"
-                    src="{% static '/images/1st.jpg' %}" 
-                    alt="Service Image"
-                  />
-                  <!-- Centered Text Container with Radius -->
-                  <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg">
-                    <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt-[-30px]">
-                      <h1 class="text-2xl font-bold text-white group-hover:text-red-500">Web Development</h1>
-                      <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
-                      </p>
+                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-80 group-hover:opacity-30" src="{% static '/images/1st.jpg' %}" alt="Service Image"/>
+                    <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg">
+                        <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
+                            <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
+                            <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
+                            </p>
+                        </div>
                     </div>
-                  </div>
-                </div>
-            </a>
-            
-
-            <!-- Other Cards -->
-            <a href="#" class="card sanp-center flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg ">
-                <!-- Image Container with Shadow on Hover and Rounded Corners -->
-                <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
-                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-80  group-hover:opacity-30" src="{% static '/images/2nd.jpg' %}" alt="Service Image"/>
-                      <!-- Centered Text Container with Radius -->
-                <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg  ">
-                    <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
-                        <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
-                        <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
-                        </p>
-                    </div>
-                </div>
                 </div>
             </a>
 
-
-            <a href="#" class="card sanp-center flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg ">
-                <!-- Image Container with Shadow on Hover and Rounded Corners -->
+            <!-- Service Card 2 -->
+            <a href="#" class="card flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg">
                 <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
-                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-90  group-hover:opacity-30" src="{% static '/images/3rd.jpg' %}" alt="Service Image"/>
-                      <!-- Centered Text Container with Radius -->
-                <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg  ">
-                    <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
-                        <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
-                        <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
-                        </p>
+                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-80 group-hover:opacity-30" src="{% static '/images/2nd.jpg' %}" alt="Service Image"/>
+                    <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg">
+                        <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
+                          <h1 class="text-2xl font-bold text-white group-hover:text-red-500" style="text-shadow: 2px 2px 4px rgba(5, 5, 5, 0.5);">Web Development</h1>
+
+                            <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                </div>
             </a>
-
-            <a href="#" class="card sanp-center flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg ">
-                <!-- Image Container with Shadow on Hover and Rounded Corners -->
+        
+            <!-- Service Card 3 -->
+            <a href="#" class="card flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg">
                 <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
-                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-90  group-hover:opacity-30" src="{% static '/images/2nd.jpg' %}" alt="Service Image"/>
-                      <!-- Centered Text Container with Radius -->
-                <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg  ">
-                    <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
-                        <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
-                        <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4 mb-4">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
-                        </p>
+                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-90 group-hover:opacity-30" src="{% static '/images/3rd.jpg' %}" alt="Service Image"/>
+                    <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg">
+                        <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
+                            <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
+                            <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
+                            </p>
+                        </div>
                     </div>
                 </div>
+            </a>
+        
+            <!-- Service Card 4 -->
+            <a href="#" class="card flex flex-col justify-center group relative items-center overflow-hidden cursor-pointer transition duration-500 rounded-lg">
+                <div class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500">
+                    <img class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out rounded-lg opacity-90 group-hover:opacity-30" src="{% static '/images/4th.jpg' %}" alt="Service Image"/>
+                    <div class="absolute inset-0 flex items-center justify-center text-center z-10 px-6 py-4 rounded-lg">
+                        <div class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]">
+                            <h1 class="text-2xl font-bold text-white group-hover:text-red-500 ">Web Development</h1>
+                            <p class="text-sm text-white mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mt-4 mb-4">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis pariatur unde possimus nisi mollitia sit labore. Maxime illum reprehenderit enim, mollitia debitis eveniet.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </a>
-
         </div>
+    </div>
+
+
         
 
-
-        </div>
         
         <!-- Scrolling Text Section -->
         <div class="mt-10 w-full overflow-hidden whitespace-nowrap">
-            <div id="scrollingText" class="flex gap-12 text-[60px] text-gray-600 pt-4 parallax ">
-                <span class="ml-4 p-4 font-play">WEB APPLICATION DEVELOPMENT</span>
+            <div id="scrollingText" class="flex gap-12 text-[40px] sm:text-[30px] md:text-[40px] lg:text-[60px] text-gray-600 pt-4 parallax ">
+                <span class="ml-4 p-4 font-play ">WEB APPLICATION DEVELOPMENT</span>
                 <span class="ml-4 p-4 font-play">UI UX</span>
                 <span class="ml-4 p-4 font-play">SEO</span>
                 <span class="ml-4 p-4 font-play">Software Development</span>
@@ -201,368 +220,552 @@
 }
 </style>
 
-  
-  <style>
-  @keyframes scroll {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
-  }
-  
-  .animate-scroll {
-    animation: scroll 20s linear infinite;
-  }
-  </style>
-  
-
-
 
 
 
 <!-- why -->
 <section class="py-12 bg-white">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-        <h2 class="text-3xl font-semibold mb-6">
-            Why Choose <span class="text-red-500">Hinomaru</span> Tech?
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="flex flex-col items-center text-center">
-                <div class="w-14 h-14 flex items-center justify-center bg-red-100 rounded-full">
-                    <img src="{% static 'images/app.png'%}" alt="Experts" class="w-8 h-8">
-                </div>
-                <h3 class="mt-4 text-lg font-semibold">More than 100 Experts</h3>
-                <p class="text-gray-600 mt-2">We have a team of skilled professionals to meet your business needs.
-                </p>
-            </div>
-            <div class="flex flex-col items-center text-center">
-                <div class="w-14 h-14 flex items-center justify-center bg-red-100 rounded-full">
-                    <img src="{% static 'images/app.png'%}" alt="Satisfaction" class="w-8 h-8">
-                </div>
-                <h3 class="mt-4 text-lg font-semibold">Guaranteed Satisfaction</h3>
-                <p class="text-gray-600 mt-2">We ensure high-quality services with complete customer satisfaction.
-                </p>
-            </div>
-            <div class="flex flex-col items-center text-center">
-                <div class="w-14 h-14 flex items-center justify-center bg-red-100 rounded-full">
-                    <img src="{% static 'images/app.png'%}" alt="Quality" class="w-8 h-8">
-                </div>
-                <h3 class="mt-4 text-lg font-semibold">Premium Quality</h3>
-                <p class="text-gray-600 mt-2">Our solutions are built with cutting-edge technology and precision.
-                </p>
-            </div>
-            <div class="flex flex-col items-center text-center">
-                <div class="w-14 h-14 flex items-center justify-center bg-red-100 rounded-full">
-                    <img src="{% static 'images/app.png'%}" alt="Budget Friendly" class="w-8 h-8">
-                </div>
-                <h3 class="mt-4 text-lg font-semibold">Budget Friendly</h3>
-                <p class="text-gray-600 mt-2">We offer cost-effective solutions without compromising quality.</p>
-            </div>
+  <div class="max-w-8.5xl mx-auto px-6 text-center">
+    <h2 class="mb-6 text-3xl font-semibold">
+      Why Choose <span class="text-red-700">Hinomaru</span> Tech?
+    </h2>
+
+    <div class="justify-center gap-5 lg:flex">
+      <!-- CARD 1 -->
+      <div
+        class="relative sm:mt-4 mt-4 card-border group inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] w-[400px]"
+      >
+        <span class="left-border"></span>
+        <span class="right-border"></span>
+        <!-- Number Behind the Image -->
+        <span
+          class="absolute z-0 ml-10 font-bold text-white text-8xl left-1 top-5"
+          style="-webkit-text-stroke: 2px #d3d3d3; text-stroke: 2px #d3d3d3"
+        >
+          01
+        </span>
+        <!-- Image Section -->
+        <div class="relative z-10 mt-6">
+          <img
+            src="{% static 'images/app.png'%}"
+            alt="Experts"
+            class="w-16 h-16"
+          />
         </div>
+        <!-- Content -->
+        <div class="mt-4">
+          <p class="text-xl font-semibold text-left">100+ Experts</p>
+          <p class="p-2 mt-2 text-base text-left text-gray-600">
+            We deliver top-notch solutions across various industries.
+          </p>
+        </div>
+      </div>
+      <!-- end card1 -->
+
+      <!-- CARD 2 -->
+      <div
+        class="relative card-border sm:mt-4 mt-4 group inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] w-[400px]"
+      >
+        <span class="left-border"></span>
+        <span class="right-border"></span>
+        <!-- Number Behind the Image -->
+        <span
+          class="absolute z-0 ml-10 font-bold text-white text-8xl left-1 top-5"
+          style="-webkit-text-stroke: 2px #e8e8e8; text-stroke: 2px #e8e8e8"
+        >
+          02
+        </span>
+        <!-- Image Section -->
+        <div class="relative z-10 mt-6">
+          <img
+            src="{% static 'images/app.png'%}"
+            alt="Experts"
+            class="w-16 h-16"
+          />
+        </div>
+        <!-- Content -->
+        <div class="mt-4">
+          <p class="text-xl font-semibold text-left">Guaranteed Satisfaction</p>
+          <p class="p-2 mt-2 text-base text-left text-gray-600">
+            We ensure high-quality services with complete customer satisfaction.
+          </p>
+        </div>
+      </div>
+      <!-- end card2 -->
+
+      <!-- CARD 3 -->
+      <div
+        class="relative card-border group sm:mt-4 mt-4 inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] w-[400px]"
+      >
+        <span class="left-border"></span>
+        <span class="right-border"></span>
+        <!-- Number Behind the Image -->
+        <span
+          class="absolute z-0 ml-10 font-bold text-white text-8xl left-1 top-5"
+          style="-webkit-text-stroke: 2px #e8e8e8; text-stroke: 2px #e8e8e8"
+        >
+          03
+        </span>
+        <!-- Image Section -->
+        <div class="relative z-10 mt-6">
+          <img
+            src="{% static 'images/app.png'%}"
+            alt="Experts"
+            class="w-16 h-16"
+          />
+        </div>
+        <!-- Content -->
+        <div class="mt-4">
+          <p class="text-xl font-semibold text-left">Premium Quality</p>
+          <p class="p-2 mt-2 text-base text-left text-gray-600">
+            Our solutions are built with cutting-edge technology and precision.
+          </p>
+        </div>
+      </div>
+      <!-- end card3 -->
+
+      <!-- CARD 4 -->
+      <div
+        class="relative card-border group sm:mt-4 mt-4 inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] w-[400px]"
+      >
+        <span class="left-border"></span>
+        <span class="right-border"></span>
+        <!-- Number Behind the Image -->
+        <span
+          class="absolute z-0 ml-10 font-bold text-white text-8xl left-1 top-5"
+          style="
+            text-stroke: 2px #e8e8e8;
+            -webkit-text-stroke: 2px #e8e8e8;
+            letter-spacing: -2px;
+          "
+        >
+          04
+        </span>
+
+        <!-- Image Section -->
+        <div class="relative z-10 mt-6">
+          <img
+            src="{% static 'images/app.png'%}"
+            alt="Experts"
+            class="w-16 h-16"
+          />
+        </div>
+        <!-- Content -->
+        <div class="mt-4">
+          <p class="text-xl font-semibold text-left">Budget Friendly</p>
+          <p class="p-2 mt-2 text-base text-left text-gray-600">
+            We offer cost-effective solutions without compromising quality.
+          </p>
+        </div>
+      </div>
+      <!-- end card4 -->
     </div>
+  </div>
 </section>
-
-
-
 
 <!-- Blogs Section -->
-<section id="blogsSection" class="relative pt-10  overflow-hidden">
-    <div class="flex flex-wrap justify-between items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
-        <h2
-            class="text-3xl font-bold text-red-500 md:pl-[50px] pl-[20px] text-xl sm:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl">
-            BLOGS
-        </h2>
-        <a href="/blogs"
-            class="text-red-500 md:pr-[50px] sm:pr-[30px] font-semibold hover:underline mt-2 md:mt-0 text-base sm:text-lg md:text-xl lg:text-xl xl:text-xl 2xl:text-2xl">
-            View all blogs →
-        </a>
+<section class="relative pt-10 overflow-hidden">
+    <div
+      class="flex flex-wrap items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
+    >
+      <h2
+        class="text-3xl font-bold text-red-700 md:pl-[50px] pl-[20px] text-xl sm:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl"
+      >
+        BLOGS
+      </h2>
+  
+      <a
+        href="/blogs"
+        class="relative inline-flex items-center justify-end py-3 overflow-hidden font-medium transition-all bg-black hover:bg-[#991b1b] group rounded-md"
+      >
+        <span
+          class="w-48 h-48 rounded rotate-[-40deg] bg-red-700 border-black b-2 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"
+        ></span>
+        <span
+          id="viewMoreText"
+          class="relative w-full px-2 text-left text-white transition-colors duration-300 ease-in-out group-hover:text-white"
+        >
+          View All Blogs <i class="fa fa-angle-right"></i>
+        </span>
+      </a>
     </div>
-
-
-    <div class="flex justify-center flex-wrap h-[600px] overflow-hidden w-full " id="blog-container">
-        {% if blogs %}
-        {% for blog in blogs %}
-        <c-components.home-blog-card :blog="blog" class="border border-blue-500 p-4" />
-        {% endfor %}
-        {% else %}
-        <p>No blogs available</p>
-        {% endif %}
+  
+    <div
+      class="flex justify-center flex-wrap h-[540px] overflow-hidden w-full"
+      id="blog-container"
+    >
+      {% if blogs %} {% for blog in blogs %}
+      <c-components.home-blog-card :blog="blog" class="border border-blue-500" />
+      {% endfor %} {% else %}
+      <p>No blogs available</p>
+      {% endif %}
     </div>
-
-
-
-
-
-</section>
-
-
-
-<!-- News Section -->
-<section class="relative pt-10 pb-10 overflow-hidden ">
+  </section>
+  
+  <!-- News Section -->
+  <section class="relative pt-10 pb-10 mb-10 overflow-hidden">
     <div class="pb-16">
-
-        <div class="flex justify-between items-center ">
-            <h2 class="text-3xl pl-[50px] font-bold pb-4 text-red-500">NEWS</h2>
-            <a href="/announcements" class="text-red-500 pr-[50px] font-semibold hover:underline">
-                View all news →
-            </a>
-
-        </div>
-
-
-        <div class="hover:cursor-pointer px-4 lg:px-12">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-                {% for news in list_of_news %}
-                <a href="{{news.url}}">
-                    <div
-                        class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 transform hover:scale-105 group">
-                        <!-- Top separator line -->
-                        <hr class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500">
-
-                        <div class="p-4 space-y-3">
-                            <!-- Date Section -->
-                            <div class="text-xs font-semibold text-red-500">
-                                {{news.news_publish_date}}
-                            </div>
-
-                            <!-- News Title Section -->
-                            <div class="text-lg font-bold text-gray-800 leading-tight truncate">
-                                {{news.news_title}}
-                            </div>
-
-                        </div>
-                        <div
-                            class="transition-transform duration-300 group-hover:translate-x-2 absolute top-1/2 right-4 transform -translate-y-1/2">
-                            <!-- Default image arrow -->
-                            <img src="/static/images/arrow.svg" alt="Arrow" class="w-6 h-6 group-hover:hidden" />
-
-                            <!-- Hovered "→" symbol -->
-                            <span
-                                class="text-gray-800 group-hover:text-red-500 w-8 h-8 text-xl group-hover:block hidden">→</span>
-                        </div>
-                        <!-- Bottom separator line -->
-                        <hr class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500">
-                    </div>
-                </a>
-                {% endfor %}
+      <div class="flex items-center justify-between">
+        <h2 class="text-3xl pl-[50px] font-bold pb-4 text-red-700">NEWS</h2>
+  
+        <a
+          href="/announcements"
+          class="relative inline-flex items-center -mt-12 mr-[50px] justify-end py-3 overflow-hidden font-medium transition-all bg-black hover:bg-[#991b1b] group rounded-md"
+        >
+          <span
+            class="w-48 h-48 rounded rotate-[-40deg] bg-[#991b1b] border-black b-2 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"
+          ></span>
+          <span
+            id="viewMoreText"
+            class="relative w-full px-2 text-left text-white transition-colors duration-300 ease-in-out group-hover:text-white"
+          >
+            View All News <i class="fa fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+  
+      <div class="px-4 hover:cursor-pointer lg:px-12">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+          {% for news in list_of_news %}
+          <a href="{{news.url}}">
+            <div
+              class="overflow-hidden transition-all duration-300 transform bg-white rounded-lg shadow-md hover:scale-105 group"
+            >
+              <hr
+                class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500"
+              />
+  
+              <div class="p-4 space-y-3">
+                <div class="text-xs font-semibold text-red-500">
+                  {{news.news_publish_date}}
+                </div>
+                <div
+                  class="text-lg font-bold leading-tight text-gray-800 truncate"
+                >
+                  {{news.news_title}}
+                </div>
+              </div>
+  
+              <div
+                class="absolute transition-transform duration-300 transform -translate-y-1/2 group-hover:translate-x-2 top-1/2 right-4"
+              >
+                <span class="relative group">
+                  <i
+                    class="w-8 h-8 text-base text-gray-800 transition-all duration-300 fa fa-arrow-right group-hover:text-red-500"
+                  ></i>
+                </span>
+              </div>
+  
+              <hr
+                class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500"
+              />
             </div>
+          </a>
+          {% endfor %}
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
-
-<style>
-    section {
-        overflow-x: hidden;
-        width: 100%;
+  <style>
+    /* Hovering Hero Letters */
+    .hover-effect {
+      display: inline-block;
     }
-
-    @keyframes reveal {
-        0% {
-            width: 100%;
-        }
-
-        100% {
-            width: 0;
-        }
+  
+    .hover-effect span {
+      display: inline-block;
+      transition: transform 0.4s ease, text-shadow 0.4s ease, color 0.4s ease;
     }
-
-    .before\:animate-reveal::before {
-        animation: reveal 1.5s ease-out forwards;
+  
+    .hover-effect:hover span {
+      transform: translateY(-20px);
+      text-shadow: 0 15px 25px rgba(255, 255, 255, 0.5);
+      color: white;
+      filter: brightness(1.5);
     }
-
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-            transform: translateY(12px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
+  
+    .space {
+      display: inline-block;
+      width: 0.3em; /* if u change here change the width in span at the hero section */
     }
-
-    .animate-fadeIn {
-        animation: fadeIn 1.5s ease-out forwards;
-    }
-
-    @keyframes parallax {
-        from {
-            transform: translateX(100%);
-        }
-
-        to {
-            transform: translateX(-100%);
-        }
-    }
-
+  
+    /* end of hero animation */
+  
     .parallax {
-        animation: parallax 20s linear infinite;
-        overflow: hidden;
-        display: inline-block;
-
-
+      animation: parallax 20s linear infinite;
+      overflow: hidden;
+      display: inline-block;
     }
-
-
-
     @keyframes slideInCircle {
-        0% {
-            transform: translate(50%, -50%);
-            opacity: 0;
-        }
-
-        100% {
-            transform: translate(0, 0);
-            opacity: 1;
-        }
+      0% {
+        transform: translate(50%, -50%);
+        opacity: 0;
+      }
+  
+      100% {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
     }
-
+  
+    /* About US animated circle */
     .animate-circle {
-        animation: slideInCircle 1.5s ease-out forwards;
+      animation: slideInCircle 1.5s ease-out forwards;
     }
-
+  
     .custom-cursor {
-        position: fixed;
-        width: 30px;
-        height: 30px;
-        background-color: rgb(85, 34, 34);
-        border-radius: 50%;
-        pointer-events: none;
-        transform: translate(-50%, -50%);
-        transition: transform 0.1s ease-out;
-        z-index: 9999;
-        display: none;
-
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
+      z-index: 9999;
+      display: none;
     }
-</style>
-{% endblock content %}
-
-<!-- Javascript -->
-{% block extra_js %}
-<script src="{% static 'js/animations.js' %}"></script>
-
-<script>
+  
+    /* Synccard border animation why us  */
+    .card-border {
+      font-size: 2rem;
+      position: relative;
+      border: 1px;
+      display: inline-block;
+      padding: 1rem;
+      border: 1px solid #d3d3d3;
+    }
+  
+    .card-border::after,
+    .card-border::before,
+    .card-border .left-border,
+    .card-border .right-border {
+      content: "";
+      position: absolute;
+      background: #991b1b;
+      transition: transform 0.4s ease-out;
+    }
+  
+    /* Top and Bottom Borders */
+    .card-border::after,
+    .card-border::before {
+      width: 100%;
+      height: 2px;
+      left: 0;
+      transform: scaleX(0);
+    }
+  
+    .card-border::before {
+      top: 0;
+      transform-origin: right;
+    }
+  
+    .card-border::after {
+      bottom: 0;
+      transform-origin: left;
+    }
+  
+    /* Left and Right Borders */
+    .card-border .left-border,
+    .card-border .right-border {
+      width: 2px;
+      height: 100%;
+      top: 0;
+      transform: scaleY(0);
+    }
+  
+    .card-border .left-border {
+      left: 0;
+      /* transform-origin: top; */
+      transform-origin: bottom;
+    }
+  
+    .card-border .right-border {
+      right: 0;
+      /* transform-origin: bottom; */
+      transform-origin: top;
+    }
+  
+    /* Hover Effect - Expand Borders */
+    .card-border:hover::after,
+    .card-border:hover::before {
+      transform: scaleX(1);
+    }
+  
+    .card-border:hover .left-border,
+    .card-border:hover .right-border {
+      transform: scaleY(1);
+    }
+    /* End of why Choose Us */
+  </style>
+  {% endblock content %}
+  
+  <!-- Javascript -->
+  {% block extra_js %}
+  <script src="{% static 'js/animations.js' %}"></script>
+  
+  <script>
+    // Split text into individual letters and wrap in <span>
+    const text = document.getElementById("first-span");
+    const letters = text.textContent.split(""); // Split the text by characters (including spaces)
+    text.innerHTML = letters
+      .map((letter) => {
+        // Wrap spaces in a span with a specific class for styling if needed
+        if (letter === " ") {
+          return `<span class="space"></span>`;
+        }
+        return `<span>${letter}</span>`;
+      })
+      .join("");
+  
+    // Apply transition delay dynamically based on the index
+    const spans = document.querySelectorAll("#first-span span");
+    spans.forEach((span, index) => {
+      span.style.transitionDelay = `${index * 0.05}s`; // Apply staggered delay
+    });
+  
+    // About us and after about us click me section
     // Ensure the DOM is fully loaded
     document.addEventListener("DOMContentLoaded", function () {
-        var textElement = document.getElementById("header");
-
-        // Set timeout to show text after 3 seconds
-        setTimeout(function () {
-            // Remove opacity-0 to show text after 3 seconds
-            textElement.classList.remove("opacity-0");
-            textElement.classList.add("opacity-100");
-        }, 100);
+      var textElement = document.getElementById("header");
+  
+      // Set timeout to show text after 3 seconds
+      setTimeout(function () {
+        // Remove opacity-0 to show text after 3 seconds
+        textElement.classList.remove("opacity-0");
+        textElement.classList.add("opacity-100");
+      }, 100);
     });
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const blogContainer = document.getElementById('blog-container');
-        const scrollLeftButton = document.getElementById('scroll-left');
-        const scrollRightButton = document.getElementById('scroll-right');
-
-        // Scroll left
-        scrollLeftButton.addEventListener('click', () => {
-            blogContainer.scrollBy({
-                left: -525,
-                behavior: 'smooth'
-            });
-        });
-
-        // Scroll right
-        scrollRightButton.addEventListener('click', () => {
-            blogContainer.scrollBy({
-                left: 525,
-                behavior: 'smooth'
-            });
-        });
+  
+    // document.addEventListener("DOMContentLoaded", function () {
+    //   const blogContainer = document.getElementById("blog-container");
+    //   const scrollLeftButton = document.getElementById("scroll-left");
+    //   const scrollRightButton = document.getElementById("scroll-right");
+  
+    //   // Scroll left
+    //   scrollLeftButton.addEventListener("click", () => {
+    //     blogContainer.scrollBy({
+    //       left: 525,
+    //       behavior: "smooth",
+    //     });
+    //   });
+  
+    //   // Scroll right
+    //   scrollRightButton.addEventListener("click", () => {
+    //     blogContainer.scrollBy({
+    //       left: 525,
+    //       behavior: "smooth",
+    //     });
+    //   });
+    // });
+  
+    const sections = document.querySelectorAll("section"); // All sections on the page
+  
+    window.addEventListener("scroll", () => {
+      let inHeroSection = false; // This will track if the user is currently in the Hero section
+  
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop; // Distance from top of the section to the top of the page
+        const sectionHeight = section.clientHeight; // Height of the section
+  
+        if (
+          window.scrollY >= sectionTop &&
+          window.scrollY < sectionTop + sectionHeight
+        ) {
+          if (section.id === "hero") {
+            inHeroSection = true; // User is currently within the Hero section
+          }
+        }
+      });
+  
+      
     });
-
-
-    const sections = document.querySelectorAll('section'); // All sections on the page
-
-
-    window.addEventListener('scroll', () => {
-        let inHeroSection = false; // This will track if the user is currently in the Hero section
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;      // Distance from top of the section to the top of the page
-            const sectionHeight = section.clientHeight; // Height of the section
-
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                if (section.id === 'hero') {
-                    inHeroSection = true;  // User is currently within the Hero section
-                }
+    if (window.innerWidth >= 1024) {  document.addEventListener("DOMContentLoaded", function () {
+      const aboutUsSection = document.getElementById("aboutUsContainer");
+      const animatedCircle = document.querySelector(".animate-circle");
+  
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Remove the class and re-add it to restart the animation
+              animatedCircle.classList.remove("animate-circle");
+              void animatedCircle.offsetWidth; // Force reflow
+              animatedCircle.classList.add("animate-circle");
             }
-        });
-
-     
+          });
+        },
+        { threshold: 0.5 } // Adjust threshold if needed
+      );
+  
+      observer.observe(aboutUsSection);
     });
-    document.addEventListener("DOMContentLoaded", function () {
-        const aboutUsSection = document.getElementById("aboutUsContainer");
-        const animatedCircle = document.querySelector(".animate-circle");
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        // Remove the class and re-add it to restart the animation
-                        animatedCircle.classList.remove("animate-circle");
-                        void animatedCircle.offsetWidth; // Force reflow
-                        animatedCircle.classList.add("animate-circle");
-                    }
-                });
-            },
-            { threshold: 0.5 } // Adjust threshold if needed
-        );
-
-        observer.observe(aboutUsSection);
-    });
+  }
     // Create custom cursor
-    const cursor = document.createElement("div");
+    if (window.innerWidth >= 1024) {const cursor = document.createElement("div");
     cursor.classList.add("custom-cursor");
     document.body.appendChild(cursor);
-
+  
     const servicesSection = document.querySelector("#services");
-
+  
     // Show cursor only inside #services
     servicesSection.addEventListener("mouseenter", () => {
-        cursor.style.display = "block";
+      cursor.style.display = "block";
     });
-
+  
     servicesSection.addEventListener("mouseleave", () => {
-        cursor.style.display = "none";
+      cursor.style.display = "none";
     });
-
+  
     // Update cursor position only inside #services
     servicesSection.addEventListener("mousemove", (e) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
     });
     document.querySelectorAll("#services .card").forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-            cursor.textContent = "Click Me";
-            cursor.style.width = "50px";
-            cursor.style.height = "50px";
-            cursor.style.backgroundColor = "red";
-            cursor.style.fontSize = "10px";
-            cursor.style.display = "flex";
-            cursor.style.alignItems = "center";
-            cursor.style.justifyContent = "center";
-            cursor.style.color = "white";
-            cursor.style.fontWeight = "600";
-            cursor.style.borderRadius = "50%";
-            cursor.style.boxShadow = "0px 0px 5px rgba(0,0,0,0.3)";
-        });
-
-        card.addEventListener("mouseleave", () => {
-            cursor.textContent = "";
-            cursor.style.width = "5px";
-            cursor.style.height = "5px";
-            cursor.style.backgroundColor = "#d32f2f";
-            cursor.style.boxShadow = "none";
-        });
+      card.addEventListener("mouseenter", () => {
+        cursor.textContent = "Click";
+        cursor.style.width = "50px";
+        cursor.style.height = "50px";
+        cursor.style.backgroundColor = "#d32f2f";
+        cursor.style.fontSize = "15px";
+        cursor.style.display = "flex";
+        cursor.style.alignItems = "center";
+        cursor.style.justifyContent = "center";
+        cursor.style.color = "white";
+        cursor.style.fontWeight = "600";
+        cursor.style.borderRadius = "50%";
+        cursor.style.boxShadow = "0px 0px 5px rgba(0,0,0,0.3)";
+      });
+  
+      card.addEventListener("mouseleave", () => {
+        cursor.textContent = "";
+        cursor.style.width = "15px";
+        cursor.style.height = "15px";
+        cursor.style.backgroundColor = "#d32f2f";
+        cursor.style.boxShadow = "none";
+      });
     });
-
-
-</script>
+    }
+    // for viewing more content in ABOUTUS
+    document.getElementById("viewMoreBtn").addEventListener("click", function () {
+      var extraContent = document.getElementById("extra-content");
+      var textSpan = document.getElementById("viewMoreText");
+  
+      //Toggle visibility
+      if (extraContent.classList.contains("hidden")) {
+        extraContent.classList.remove("hidden");
+        textSpan.textContent = "View Less";
+        this.classList.add("mb-52");
+      } else {
+        extraContent.classList.add("hidden");
+        textSpan.textContent = "View More";
+        this.classList.remove("mb-52");
+        // this.classList.add("-mt-20");
+      }
+    });
+  </script>
+  
 
 {% endblock extra_js %}
