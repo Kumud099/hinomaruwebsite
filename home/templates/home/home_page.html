@@ -11,9 +11,6 @@
 <!-- hero section -->
 <section class="font-Grotesk scrollbar-hide" id="hero">
   <div class="relative flex items-center justify-center min-h-screen">
-    <!-- Dark Overlay -->
-    <div class="absolute z-0 w-full h-full bg-black opacity-70"></div> <!-- Dark overlay -->
-    
     <!-- Video Background -->
     <video
       id="videoContainer1"
@@ -24,24 +21,32 @@
       webkit-playsinline
       preload="auto"
       style="width: 100%; height: auto"
-      class="absolute z-10 object-cover w-auto min-w-full min-h-full max-w-none opacity-50"
+      class="absolute z-0 object-cover w-auto min-w-full min-h-full max-w-none"
     >
       <source src="{% static 'videos/bg_h264.mp4' %}" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
-    <!-- Content Above Video -->
-    <div id="header" class="absolute z-20 text-center text-white space-y-6 sm:space-y-8 md:space-y-10 px-6 sm:px-8 lg:px-16">
+    <!-- Text Content -->
+    <div
+      id="header"
+      class="absolute z-30 text-center text-white space-y-6 sm:space-y-8 md:space-y-10 px-6 sm:px-8 lg:px-16"
+    >
       <div class="mt-24 sm:mt-32 md:mt-40">
         <span
-          class="font-bold leading-tight text-transparent bg-gradient-to-r from-red-500 to-orange-200 bg-clip-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl cursor-pointer reveal hover-effect"
+          class="font-bold mb-6 leading-tight text-transparent bg-gradient-to-r from-red-500 to-orange-200 bg-clip-text hover-effect text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl cursor-pointer reveal hover-effect w-[85%]"
           style="text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3)"
+          id="first-span"
+          >Innovative Webscale Technology Solution Platform</span
         >
-          Innovative Solutions using Webscale Many Technologies
-        </span>
 
-        <p class="text-sm sm:text-base md:text-lg lg:text-xl font-medium mt-4 sm:mt-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod.
+        <p
+          class="text-[14px] hidden sm:block md:text-[20px] cursor-pointer lg:text-[20px] [text-shadow:1px_2px_2px_black] font-bold reveal text-white ml-20 max-w-[90%]"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
+          do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit,
+          sed do eiusmod.
         </p>
       </div>
     </div>

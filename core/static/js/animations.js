@@ -31,26 +31,29 @@ var navbarItems = document.querySelector("nav")
 var aboutUsContainer = document.querySelector("#aboutUsContainer")
 
 // our services section animation
-gsap.registerPlugin(ScrollTrigger);
+if (window.matchMedia("(min-width: 1024px)").matches) { // Runs only on large screens
+    gsap.registerPlugin(ScrollTrigger);
 
-const timeline = gsap.timeline({
-    scrollTrigger: {
-        trigger: "#services",
-        start: "top top",
-        end: "+=1000",
-        scrub: true,
-        pin: true,
-    },
-});
-
-gsap.utils.toArray(".card").forEach((card, index) => {
-    timeline.from(card, {
-        x: 200,
-        opacity: 0,
-        duration: 1,
-        delay: index * 0.5,
+    const timeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#services",
+            start: "top top",
+            end: "+=1000",
+            scrub: true,
+            pin: true,
+        },
     });
-});
+
+    gsap.utils.toArray(".card").forEach((card, index) => {
+        timeline.from(card, {
+            x: 200,
+            opacity: 0,
+            duration: 1,
+            delay: index * 0.5,
+        });
+    });
+}
+
 
 
 // 
