@@ -4,10 +4,9 @@ block navbar %}
   txtcolor="white"
   :backgroundcolor="currentSection === 'hero' ? 'transparent' : 'red-800'"
 />
-{% endblock navbar %} {% block content %}
+{% endblock navbar %} {% block content %} {% load static %}
 
-<!-- hero section -->
-<section class="font-Grotesk scrollbar-hide" id="hero">
+<section class="font-Grotesk scrollbar-hide hide-until-loaded" id="hero">
   <div class="relative flex items-center justify-center min-h-screen">
     <!-- Video Background -->
     <video
@@ -28,18 +27,18 @@ block navbar %}
     <!-- Text Content -->
     <div
       id="header"
-      class="absolute z-30 text-center text-white space-y-6 sm:space-y-8 md:space-y-10 px-6 sm:px-8 lg:px-16"
+      class="absolute inset-0 z-30 flex items-center justify-center px-6 text-center text-white mt-28 sm:px-8 lg:px-16"
     >
-      <div class="mt-24 sm:mt-32 md:mt-40">
+      <div class="space-y-8 lg:max-w-[70%] max-w-[90%]">
         <span
-          class="font-bold mb-6 leading-tight text-transparent bg-gradient-to-r from-red-500 to-orange-200 bg-clip-text hover-effect text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl cursor-pointer reveal hover-effect w-[85%]"
+          class="text-3xl font-bold leading-tight text-center text-transparent cursor-pointer bg-gradient-to-r from-red-500 to-orange-200 bg-clip-text hover-effect sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl reveal"
           style="text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3)"
           id="first-span"
-          >Innovative Webscale Technology Solution Platform</span
+          >Innovative Solutions In Webscale Technology</span
         >
 
         <p
-          class="text-[14px] hidden sm:block md:text-[20px] cursor-pointer lg:text-[20px] [text-shadow:1px_2px_2px_black] font-bold reveal text-white ml-20 max-w-[90%]"
+          class="text-[14px] hidden sm:block md:text-[20px] cursor-pointer lg:text-[20px] [text-shadow:1px_2px_2px_black] max-w-[70%] font-bold reveal text-center mx-auto"
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
@@ -113,7 +112,7 @@ block navbar %}
 <!-- Services Section -->
 <section
   id="services"
-  class="flex flex-col items-center justify-start min-h-auto bg-[#20252F] w-full"
+  class="flex flex-col items-center justify-start min-h-auto bg-[#20252F] w-full pb-16 pt-10"
 >
   <div class="container mx-auto max-w-[1440px] px-6">
     <!-- Section Title -->
@@ -304,20 +303,6 @@ block navbar %}
     </div>
   </div>
 </section>
-
-<style>
-  @keyframes marquee {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  .animate-marquee {
-    animation: marquee 20s linear infinite;
-  }
-</style>
 
 <style>
   @keyframes scroll {
@@ -525,7 +510,7 @@ block navbar %}
       >
         NEWS
       </h2>
-      <a
+      <!-- <a
         href="/announcements"
         class="relative inline-flex items-center justify-center px-4 py-2 mr-6 text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm xl:flex 2xl:flex"
       >
@@ -537,6 +522,21 @@ block navbar %}
           class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
         >
           View All News <i class="fa fa-angle-right"></i>
+        </span>
+      </a> -->
+
+      <a
+        href="/announcements"
+        class="relative inline-flex items-center justify-center px-4 py-2 mr-6 overflow-hidden text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm xl:flex 2xl:flex"
+      >
+        <span
+          class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"
+        >
+        </span>
+        <span
+          class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
+        >
+          View All Blogs <i class="fa fa-angle-right"></i>
         </span>
       </a>
     </div>
@@ -583,174 +583,13 @@ block navbar %}
     </div>
   </div>
 </section>
-
+<link rel="stylesheet" href="{% static 'css/services.css' %}" />
+<link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
 <style>
   section {
     overflow-x: hidden;
     width: 100%;
   }
-
-  @keyframes reveal {
-    0% {
-      width: 100%;
-    }
-
-    100% {
-      width: 0;
-    }
-  }
-
-  .before\:animate-reveal::before {
-    animation: reveal 1.5s ease-out forwards;
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fadeIn {
-    animation: fadeIn 1.5s ease-out forwards;
-  }
-
-  /* Hovering Hero Letters */
-  .hover-effect {
-    display: inline-block;
-  }
-
-  .hover-effect span {
-    display: inline-block;
-    transition: transform 0.4s ease, text-shadow 0.4s ease, color 0.4s ease;
-  }
-
-  .hover-effect:hover span {
-    transform: translateY(-20px);
-    color: white;
-    text-shadow: 12px 14px 14px solid black,
-      0 15px 25px rgba(255, 255, 255, 0.5);
-    filter: brightness(1.5);
-  }
-
-  .space {
-    display: inline-block;
-    width: 0.3em; /* if u change here change the width in span at the hero section */
-  }
-
-  /* end of hero animation */
-
-  .parallax {
-    animation: parallax 20s linear infinite;
-    overflow: hidden;
-    display: inline-block;
-  }
-  @keyframes slideInCircle {
-    0% {
-      transform: translate(50%, -50%);
-      opacity: 0;
-    }
-
-    100% {
-      transform: translate(0, 0);
-      opacity: 1;
-    }
-  }
-
-  /* About US animated circle */
-  .animate-circle {
-    animation: slideInCircle 1.5s ease-out forwards;
-  }
-
-  .custom-cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out;
-    z-index: 9999;
-    display: none;
-  }
-
-  /* Synccard border animation why us  */
-  .card-border {
-    font-size: 2rem;
-    position: relative;
-    border: 1px;
-    display: inline-block;
-    padding: 1rem;
-    border: 1px solid #d3d3d3;
-  }
-
-  .card-border::after,
-  .card-border::before,
-  .card-border .left-border,
-  .card-border .right-border {
-    content: "";
-    position: absolute;
-    background: #991b1b;
-    transition: transform 0.4s ease-out;
-  }
-
-  /* Top and Bottom Borders */
-  .card-border::after,
-  .card-border::before {
-    width: 100%;
-    height: 2px;
-    left: 0;
-    transform: scaleX(0);
-  }
-
-  .card-border::before {
-    top: 0;
-    transform-origin: right;
-  }
-
-  .card-border::after {
-    bottom: 0;
-    transform-origin: left;
-  }
-
-  /* Left and Right Borders */
-  .card-border .left-border,
-  .card-border .right-border {
-    width: 2px;
-    height: 100%;
-    top: 0;
-    transform: scaleY(0);
-  }
-
-  .card-border .left-border {
-    left: 0;
-    /* transform-origin: top; */
-    transform-origin: bottom;
-  }
-
-  .card-border .right-border {
-    right: 0;
-    /* transform-origin: bottom; */
-    transform-origin: top;
-  }
-
-  /* Hover Effect - Expand Borders */
-  .card-border:hover::after,
-  .card-border:hover::before {
-    transform: scaleX(1);
-  }
-
-  .card-border:hover .left-border,
-  .card-border:hover .right-border {
-    transform: scaleY(1);
-  }
-  /* End of why Choose Us */
 </style>
 {% endblock content %}
 
@@ -776,144 +615,6 @@ block navbar %}
   const spans = document.querySelectorAll("#first-span span");
   spans.forEach((span, index) => {
     span.style.transitionDelay = `${index * 0.05}s`; // Apply staggered delay
-  });
-
-  // About us and after about us click me section
-  // Ensure the DOM is fully loaded
-  document.addEventListener("DOMContentLoaded", function () {
-    var textElement = document.getElementById("header");
-
-    // Set timeout to show text after 3 seconds
-    setTimeout(function () {
-      // Remove opacity-0 to show text after 3 seconds
-      textElement.classList.remove("opacity-0");
-      textElement.classList.add("opacity-100");
-    }, 100);
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const blogContainer = document.getElementById("blog-container");
-    const scrollLeftButton = document.getElementById("scroll-left");
-    const scrollRightButton = document.getElementById("scroll-right");
-
-    // Scroll left
-    scrollLeftButton.addEventListener("click", () => {
-      blogContainer.scrollBy({
-        left: 525,
-        behavior: "smooth",
-      });
-    });
-
-    // Scroll right
-    scrollRightButton.addEventListener("click", () => {
-      blogContainer.scrollBy({
-        left: 525,
-        behavior: "smooth",
-      });
-    });
-  });
-
-  const sections = document.querySelectorAll("section"); // All sections on the page
-
-  window.addEventListener("scroll", () => {
-    let inHeroSection = false; // This will track if the user is currently in the Hero section
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop; // Distance from top of the section to the top of the page
-      const sectionHeight = section.clientHeight; // Height of the section
-
-      if (
-        window.scrollY >= sectionTop &&
-        window.scrollY < sectionTop + sectionHeight
-      ) {
-        if (section.id === "hero") {
-          inHeroSection = true; // User is currently within the Hero section
-        }
-      }
-    });
-  });
-  document.addEventListener("DOMContentLoaded", function () {
-    const aboutUsSection = document.getElementById("aboutUsContainer");
-    const animatedCircle = document.querySelector(".animate-circle");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Remove the class and re-add it to restart the animation
-            animatedCircle.classList.remove("animate-circle");
-            void animatedCircle.offsetWidth; // Force reflow
-            animatedCircle.classList.add("animate-circle");
-          }
-        });
-      },
-      { threshold: 0.5 } // Adjust threshold if needed
-    );
-
-    observer.observe(aboutUsSection);
-  });
-  // Create custom cursor
-  const cursor = document.createElement("div");
-  cursor.classList.add("custom-cursor");
-  document.body.appendChild(cursor);
-
-  const servicesSection = document.querySelector("#services");
-
-  // Show cursor only inside #services
-  servicesSection.addEventListener("mouseenter", () => {
-    cursor.style.display = "block";
-  });
-
-  servicesSection.addEventListener("mouseleave", () => {
-    cursor.style.display = "none";
-  });
-
-  // Update cursor position only inside #services
-  servicesSection.addEventListener("mousemove", (e) => {
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
-  });
-  document.querySelectorAll("#services .card").forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      cursor.textContent = "Click";
-      cursor.style.width = "50px";
-      cursor.style.height = "50px";
-      cursor.style.backgroundColor = "#d32f2f";
-      cursor.style.fontSize = "15px";
-      cursor.style.display = "flex";
-      cursor.style.alignItems = "center";
-      cursor.style.justifyContent = "center";
-      cursor.style.color = "white";
-      cursor.style.fontWeight = "600";
-      cursor.style.borderRadius = "50%";
-      cursor.style.boxShadow = "0px 0px 5px rgba(0,0,0,0.3)";
-    });
-
-    card.addEventListener("mouseleave", () => {
-      cursor.textContent = "";
-      cursor.style.width = "15px";
-      cursor.style.height = "15px";
-      cursor.style.backgroundColor = "#d32f2f";
-      cursor.style.boxShadow = "none";
-    });
-  });
-
-  // for viewing more content in ABOUTUS
-  document.getElementById("viewMoreBtn").addEventListener("click", function () {
-    var extraContent = document.getElementById("extra-content");
-    var textSpan = document.getElementById("viewMoreText");
-
-    //Toggle visibility
-    if (extraContent.classList.contains("hidden")) {
-      extraContent.classList.remove("hidden");
-      textSpan.textContent = "View Less";
-      this.classList.add("mb-52");
-    } else {
-      extraContent.classList.add("hidden");
-      textSpan.textContent = "View More";
-      this.classList.remove("mb-52");
-      // this.classList.add("-mt-20");
-    }
   });
 </script>
 
