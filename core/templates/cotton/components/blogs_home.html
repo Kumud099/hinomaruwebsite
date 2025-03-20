@@ -1,0 +1,45 @@
+<!-- BLOG SECTION IN HOME some error -->
+{% load static %}
+<!-- Blogs Section -->
+<section class="relative mt-2">
+  <div
+    class="flex flex-wrap items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
+  >
+    <h2
+      class="font-semibold text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
+    >
+      BLOGS
+    </h2>
+
+    <a
+      href="/blogs"
+      class="relative inline-flex items-center justify-center px-4 py-2 mr-6 overflow-hidden text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm xl:flex 2xl:flex"
+    >
+      <span
+        class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"
+      >
+      </span>
+      <span
+        class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
+      >
+        View All Blogs <i class="fa fa-angle-right"></i>
+      </span>
+    </a>
+  </div>
+
+  <div
+    class="flex justify-center flex-wrap h-[540px] w-full"
+    id="blog-container"
+  >
+    {% if blogs %} {% for blog in blogs %}
+    <c-components.home-blog-card :blog="blog" class="border" />
+    {% endfor %} {% else %}
+    <p>No blogs available</p>
+    {% endif %}
+  </div>
+</section>
+<style>
+  section {
+overflow: hidden;
+  }
+</style>

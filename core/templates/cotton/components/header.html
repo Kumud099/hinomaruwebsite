@@ -1,0 +1,46 @@
+<!-- HEADER -->
+{% load static %}
+<section class="font-Grotesk scrollbar-hide hide-until-loaded" id="hero">
+  <div class="relative flex items-center justify-center min-h-screen">
+    <!-- Video Background -->
+    <video
+      id="videoContainer1"
+      autoplay
+      loop
+      muted
+      playsinline
+      webkit-playsinline
+      preload="auto"
+      style="width: 100%; height: auto"
+      class="absolute z-0 object-cover w-auto min-w-full min-h-full max-w-none"
+    >
+      <source src="{% static 'videos/bg_h264.mp4' %}" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Text Content -->
+    <div
+      id="header"
+      class="absolute inset-0 z-30 flex items-center justify-center px-6 text-center text-white mt-28 sm:px-8 lg:px-16"
+    >
+      <div class="space-y-8 lg:max-w-[70%] max-w-[90%]">
+        <span
+          class="text-3xl font-bold leading-tight text-center text-transparent cursor-pointer bg-gradient-to-r from-red-500 to-orange-200 bg-clip-text hover-effect sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl reveal"
+          style="text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3)"
+          id="first-span"
+          >Innovative Solutions In Webscale Technology</span
+        >
+
+        <p
+          class="text-[14px] hidden sm:block md:text-[20px] cursor-pointer lg:text-[20px] [text-shadow:1px_2px_2px_black] max-w-[70%] font-bold reveal text-center mx-auto"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed
+          do eiusmod. Lorem ipsum dolor sit amet consectetur adipiscing elit,
+          sed do eiusmod.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+

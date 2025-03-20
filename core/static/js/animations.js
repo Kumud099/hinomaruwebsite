@@ -163,7 +163,7 @@ gsap.ticker.add((time) => {
 gsap.ticker.lagSmoothing(0);
 ScrollTrigger.refresh();
 
-// FORM HOME_PAGE
+//==============================FORM HOME_PAGE==========================================
 
 // About us and after about us click me section
 // Ensure the DOM is fully loaded
