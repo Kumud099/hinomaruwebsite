@@ -31,18 +31,17 @@ var navbarItems = document.querySelector("nav")
 var aboutUsContainer = document.querySelector("#aboutUsContainer")
 
 // our services section animation
-if (window.matchMedia("(min-width: 1024px)").matches) { // Runs only on large screens
+if (window.matchMedia("(min-width: 1024px)").matches) { // Only on large screens
     gsap.registerPlugin(ScrollTrigger);
 
-    const timeline = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#services",
-            start: "top top",
-            end: "+=1000",
-            scrub: true,
-            pin: true,
-        },
+    // Continuous scrolling animation
+    gsap.to("#scrollContainer", {
+      x: "-100%", // Move left continuously
+      duration: 10, // Adjust speed
+      repeat: -1, // Infinite loop
+      ease: "linear"
     });
+  }
 
     gsap.utils.toArray(".card").forEach((card, index) => {
         timeline.from(card, {
@@ -52,7 +51,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) { // Runs only on large sc
             delay: index * 0.5,
         });
     });
-}
+
 
 
 
@@ -87,27 +86,7 @@ gsap.from(".about-us", {
 });
 
 
-let scrollingText = document.getElementById("scrollingText");
-let textWidth = scrollingText.offsetWidth;
 
-gsap.to(scrollingText, {
-    x: -textWidth, // Moves text to the left by its full width
-    duration: 10, // Adjust the speed of the scrolling (larger = slower)
-    ease: "linear", // Ensures constant speed
-    repeat: -1, // Infinite loop
-    onRepeat: () => {
-        // On each repeat, reset position for seamless scroll
-        scrollingText.style.transition = "none";
-        scrollingText.style.transform = "translateX(0)";
-        // Re-enable GSAP animation after reset
-        gsap.to(scrollingText, {
-            x: -textWidth, // Move again
-            duration: 10,
-            ease: "linear",
-            repeat: -1
-        });
-    }
-});
 
 
 
