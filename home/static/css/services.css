@@ -1,5 +1,5 @@
 /* Home-page Services */
-@keyframes marquee {
+@keyframes scrollText {
   0% {
     transform: translateX(100%);
   }
@@ -7,6 +7,44 @@
     transform: translateX(-100%);
   }
 }
-.animate-marquee {
-  animation: marquee 20s linear infinite;
+
+/* Container to hide overflow */
+.scrolling-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Style for scrolling text */
+#scrollingText {
+  display: inline-block;
+  animation: scrollText 15s linear infinite;
+}
+
+/* Adjust speed and font size for smaller screens */
+@media (max-width: 600px) {
+  #scrollingText {
+    animation-duration: 15s; /* Increase speed on small screens */
+    font-size: 14px; /* Adjust text size */
+  }
+}
+
+/* Media query for screen sizes Surface Pro 7 */
+@media (min-width: 912px) and (max-width: 915px) {
+  #services {
+    margin-top: -70% !important;
+  }
+}
+
+/* Media query for 414  */
+@media (min-width: 414px) and (max-width: 416px) {
+  #services {
+    margin-top: -15% !important;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 400px) {
+  #services {
+    margin-top: -5% !important;
+  }
 }

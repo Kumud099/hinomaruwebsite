@@ -50,8 +50,6 @@
 #header {
   overflow-y: hidden;
   /* Disable vertical scrolling */
-  overflow-x: auto;
-  /* Allows horizontal scrolling if needed */
 }
 
 ::-moz-selection {

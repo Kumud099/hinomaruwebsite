@@ -1,56 +1,107 @@
 {% extends 'base.html' %} {% load wagtailimages_tags %} {% load static %} {%
-block navbar %}
-<c-components.navbar
-  txtcolor="white"
-  :backgroundcolor="currentSection === 'hero' ? 'transparent' : 'red-800'"
-/>
-{% endblock navbar %} {% block content %} {% load static %}
-
-<c-components.header />
-
-<c-components.about_us />
-
-<c-components.services />
-
-<c-components.why />
-
-<c-components.blogs_home />
-
-<c-components.news />
-
-<link rel="stylesheet" href="{% static 'css/services.css' %}" />
-<link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
-<style>
-  section {
-    overflow-x: hidden;
-    width: 100%;
-  }
-</style>
-{% endblock content %}
-
-<!-- Javascript -->
-{% block extra_js %}
-<script src="{% static 'js/animations.js' %}"></script>
-
-<script>
-  // Split text into individual letters and wrap in <span>
-  const text = document.getElementById("first-span");
-  const letters = text.textContent.split(""); // Split the text by characters (including spaces)
-  text.innerHTML = letters
-    .map((letter) => {
-      // Wrap spaces in a span with a specific class for styling if needed
-      if (letter === " ") {
-        return `<span class="space"></span>`;
+  block navbar %}
+  
+  <c-components.navbar/>
+  {% endblock navbar %} {% block content %}
+  <!-- {% load static %} -->
+  <div
+    id="loading-screen"
+    style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgb(34, 34, 34);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      pointer-events: none; 
+    "
+  >
+    <span
+      id="loading-text"
+      style="animation: fadeIn 1s ease-in-out, pulse 1.5s infinite ease-in-out"
+    >
+      Loading...
+    </span>
+  </div>
+  
+  <!-- The content wrapper, which will be shown only after the page is fully loaded -->
+  <div id="content-wrapper">
+    <c-components.header />
+  
+    <c-components.about_us />
+  
+    <c-components.services />
+  
+    <c-components.why />
+  
+    <c-components.blogs_home />
+  
+    <c-components.news />
+    </div>
+  
+    <link rel="stylesheet" href="{% static 'css/services.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/loader.css' %}" />
+    <style>
+      section {
+        overflow-x: hidden;
+        width: 100%;
       }
-      return `<span>${letter}</span>`;
-    })
-    .join("");
 
-  // Apply transition delay dynamically based on the index
-  const spans = document.querySelectorAll("#first-span span");
-  spans.forEach((span, index) => {
-    span.style.transitionDelay = `${index * 0.05}s`; // Apply staggered delay
-  });
-</script>
 
-{% endblock extra_js %}
+    </style>
+    {% endblock content %}
+  
+    <!-- Javascript -->
+    {% block extra_js %}
+    <script src="{% static 'js/animations.js' %}"></script>
+  
+    <script>
+  
+    // Wait for everything to load before showing the content
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        // Hide the loading screen
+        document.getElementById("loading-screen").style.display = "none";
+  
+        // Show navbar and content
+        document.getElementById("navbar").style.display = "block";
+        document.getElementById("content-wrapper").style.display = "block";
+  
+        // 🔥 RESTART GSAP ANIMATION AFTER LOADING SCREEN
+        startGSAPAnimation();
+      }, 1000); // 1 second delay
+    });
+    
+ 
+  
+      // Split text into individual letters and wrap in <span>
+      const text = document.getElementById("first-span");
+      const letters = text.textContent.split(""); // Split the text by characters (including spaces)
+      text.innerHTML = letters
+        .map((letter) => {
+          // Wrap spaces in a span with a specific class for styling if needed
+          if (letter === " ") {
+            return `<span class="space"></span>`;
+          }
+          return `<span>${letter}</span>`;
+        })
+        .join("");
+  
+      // Apply transition delay dynamically based on the index
+      const spans = document.querySelectorAll("#first-span span");
+      spans.forEach((span, index) => {
+        span.style.transitionDelay = `${index * 0.05}s`; // Apply staggered delay
+      });
+    </script>
+  
+    {% endblock extra_js %}
+  </div>
+  
