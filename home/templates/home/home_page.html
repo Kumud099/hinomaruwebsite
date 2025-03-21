@@ -6,6 +6,7 @@
   <!-- {% load static %} -->
   <div
     id="loading-screen"
+    class="loading-black"
     style="
       position: fixed;
       top: 0;
@@ -32,7 +33,7 @@
   </div>
   
   <!-- The content wrapper, which will be shown only after the page is fully loaded -->
-  <div id="content-wrapper">
+  <div id="content-wrapper" style="display: hidden;">
     <c-components.header />
   
     <c-components.about_us />
@@ -50,21 +51,29 @@
     <link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
     <link rel="stylesheet" href="{% static 'css/loader.css' %}" />
     <style>
+  /* Prevent horizontal scrolling on html and body */
+  html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
       section {
         overflow-x: hidden;
         width: 100%;
       }
-
-
     </style>
     {% endblock content %}
   
     <!-- Javascript -->
     {% block extra_js %}
     <script src="{% static 'js/animations.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/services.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/loader.css' %}" />
   
     <script>
-  
     // Wait for everything to load before showing the content
     window.addEventListener("load", function () {
       setTimeout(function () {
@@ -75,6 +84,9 @@
         document.getElementById("navbar").style.display = "block";
         document.getElementById("content-wrapper").style.display = "block";
   
+          // Remove horizontal scroll restriction after loading is done
+    document.documentElement.style.overflowX = "auto"; // This targets <html> element
+    document.body.style.overflowX = "auto";
         // 🔥 RESTART GSAP ANIMATION AFTER LOADING SCREEN
         startGSAPAnimation();
       }, 1000); // 1 second delay
