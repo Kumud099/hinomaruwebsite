@@ -1,16 +1,6 @@
-/* Hide scrollbars globally */
-html,
-body {
-  overflow: hidden;
-  height: 100%;
-  margin: 0;
-}
-
-
 /* Optional: Section specific style for overflow */
 section {
   overflow-x: hidden;
-  overflow-y: hidden;
   width: 100%;
 }
 

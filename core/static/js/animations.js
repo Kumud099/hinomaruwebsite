@@ -51,9 +51,6 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
   });
 }
 
-//
-
-//
 
 gsap.to("#videoContainer1", {
   width: "40%",
