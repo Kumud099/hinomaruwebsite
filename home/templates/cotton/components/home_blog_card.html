@@ -1,178 +1,214 @@
-{% load wagtailimages_tags %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Swiper CSS & JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-        .swiper-pagination-bullet {
-            background-color: #d1d5db;
-        }
-
-        .swiper-pagination-bullet-active {
-            background-color: #ef4444;
-        }
-
-        .swiper-button-prev,
-        .swiper-button-next {
-            background-color: transparent;
-            color: #ef4444;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            z-index: 1000;
-            /* Increased z-index for visibility */
-        }
-
-        .swiper-button-prev:hover,
-        .swiper-button-next:hover {
-            background-color: #ef4444;
-            width: 55px;
-            height: 55px;
-            color: white !important;
-        }
-
-        .swiper-button-prev svg,
-        .swiper-button-next svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .swiper-slide {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .swiper-slide:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .swiper-container-animation {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .swiper-container-animate-in {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .custom-shadow {
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
-        }
-
-        .custom-shadow:hover {
-            box-shadow: 0px 4px 10px rgba(153, 27, 27, 0.3);
-            border: 3px solid rgba(153, 27, 27, 0.6);
-        }
-    </style>
-</head>
-
-<body class="bg-gray-100">
-    <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 py-12">
-
-        <!-- Swiper Container with animation -->
-        <div class="relative swiper-container-animation" id="swiper-container">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    {% for blog in blogs %}
-                    <a href="{{ blog.url }}"
-                        class="swiper-slide bg-white rounded-lg custom-shadow m-3 p-3 space-y-4 max-w-[380px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px]">
-
-                        <!-- Blog card width increased -->
-                        {% image blog.blog_cover_image width-400 as blog_cover %}
-                        <img src="{{ blog_cover.url }}" alt="Blog Image" class="w-full h-48 rounded-lg object-cover">
-                        <h3 class="text-xl font-bold">{{ blog.blog_title | truncatewords:5 }}</h3>
-                        <p class="text-gray-500">{{ blog.blog_description | truncatewords:6 }}</p>
-                        {% if blog.categories.all %}
-                        <div class="flex gap-4 mt-2">
-                            {% for category in blog.categories.all %}
-                            <span class="px-2 py-1 bg-red-100 text-red-500 rounded">{{ category.name }}</span>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </a>
-                    {% endfor %}
-                </div>
-
-                <div class="mt-16"> <!-- Pagination -->
-                    <div class="swiper-pagination"></div>
-                </div>
-
-            </div>
-
-            <!-- Navigation Arrows -->
-            <div class="swiper-button-prev absolute top-1/2 left-2 sm:left-4 md:left-6 transform -translate-y-1/2 z-10">
-            </div>
-            <div
-                class="swiper-button-next absolute top-1/2 right-4 sm:right-[100px] md:right-4 transform -translate-y-1/2 z-10 block">
-            </div>
-        </div>
-
+<!-- Navbar -->
+{% load static %}
+<nav id="navbar" class="fixed top-0 left-0 z-50 w-full -mb-10">
+  <div class="flex items-center justify-between px-6">
+    <!-- Logo -->
+    <div class="flex items-center gap-3 pt-4 pb-2">
+      <img
+        src="{% static 'images/logo.png' %}"
+        alt="logo"
+        class="h-auto max-w-full w-7 sm:w-7 md:w-8 lg:w-9"
+      />
+      <span
+        id="hinomaru-text"
+        class="text-2xl font-bold text-transparent font-Play sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl bg-clip-text bg-gradient-to-r from-red-300 via-red-500 to-red-800"
+      >
+        Hinomaru Tech
+      </span>
     </div>
 
-    <script>
-        let mySwiperInstance;
+    <!-- Menu Button (Hamburger) for mobile screens -->
+    <button
+      id="hamburger"
+      class="flex items-center justify-center text-red-700 border-2 border-red-700 rounded-full lg:hidden bg-red-2 w-9 h-9"
+    >
+      <span id="hamburger-icon" class="pb-1 text-2xl">&#9776;</span>
+    </button>
 
-        // Initialize swiper once the DOM is loaded
-        window.addEventListener('load', function () {
-            if (!mySwiperInstance) {
-                console.log("Initializing Swiper..."); // Log initialization
-                mySwiperInstance = new Swiper('.mySwiper', {
-                    slidesPerView: 1, // Show 1 slide on mobile
-                    spaceBetween: 30,
-                    loop: true,
-                    simulateTouch: true,
-                    touchRatio: 1,
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    breakpoints: {
-                        1280: {
-                            slidesPerView: 4,
-                            spaceBetween: 30,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 25,
-                        },
-                        768: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        640: {
-                            slidesPerView: 1, // 1 slide, but larger than before
-                            spaceBetween: 20,
-                        },
-                    },
-                });
-                console.log("Swiper Initialized:", mySwiperInstance); // Log for debugging
-            }
+    <!-- Desktop Navigation (Visible only on 2xl and xl screens) -->
+    <div
+      class="justify-center flex-1 hidden space-x-6 text-xs text-red-700 xl:flex 2xl:flex sm:text-xs md:text-xs lg:text-sm xl:text-lg 2xl:text-xl"
+    >
+      <a
+        href="{% url 'home' %}"
+        class="px-3 py-8 text-red-700 font-extrabold tracking-wider hover:text-red-800 relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
+      >
+        HOME
+      </a>
+      <!-- Services Button (Keep Inside the Relative Wrapper) -->
+      <div class="group" id="services-btn">
+        <button
+          class="px-3 py-8 font-extrabold hover:text-red-800 relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
+        >
+          SERVICES
+        </button>
+        <!-- Dropdown Menu (Move Outside) -->
+        <div
+          class="absolute left-0 grid flex-wrap justify-center hidden w-screen grid-cols-2 gap-4 p-6 text-center transition-opacity duration-300 ease-in-out bg-white border border-gray-200 shadow-lg top-full group-hover:flex"
+        >
+          <a
+            href="#"
+            class="flex items-center justify-center block gap-2 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-400 hover:scale-105"
+          >
+            <i class="text-red-500 fa fa-laptop"></i> Web Development
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center block gap-2 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-400 hover:scale-105"
+          >
+            <i class="text-red-500 fa fa-code"></i> Software Development
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center block gap-2 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-400 hover:scale-105"
+          >
+            <i class="text-red-500 fa fa-digital-tachograph"></i> App
+            Development
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center block gap-2 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-500 hover:scale-105"
+          >
+            <i class="text-red-500 fa fa-cogs"></i> System Integration
+          </a>
+        </div>
+      </div>
 
-            // Add the animation class once Swiper has been initialized
-            const swiperContainer = document.getElementById('swiper-container');
-            swiperContainer.classList.add('swiper-container-animate-in');
-        });
-    </script>
-</body>
+      <a
+        href="{% url 'home' %}#aboutUsContainer"
+        class="px-3 py-8 hover:text-red-800 font-extrabold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
+      >
+        ABOUT US
+      </a>
+    </div>
 
-</html>
+    <!-- Contact Us Button (Right Aligned, Hidden on screens < 1200px) -->
+    <a
+      href="/contact-us"
+      class="relative inline-flex items-center justify-center hidden px-6 py-3 overflow-hidden text-sm font-medium transition-all bg-black rounded-full group sm:text-base xl:flex 2xl:flex"
+    >
+      <span
+        class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-500 group-hover:scale-x-100"
+      >
+      </span>
+      <span
+        class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
+      >
+        <i class="text-base fas fa-envelope sm:text-lg"></i>
+        Contact us
+      </span>
+    </a>
+  </div>
+
+  <!-- Mobile Menu (Improved Layout) -->
+  <div
+    id="mobile-menu"
+    class="flex flex-col items-center hidden w-full px-4 py-6 space-y-6 text-red-500 bg-white shadow-lg"
+  >
+    <hr class="w-full border-t border-gray-300" />
+
+    <!-- Home, Services, About Us - First Row -->
+    <div class="flex justify-between w-full gap-2">
+      <!-- Home -->
+      <a
+        href="{% url 'home' %}"
+        class="flex-1 min-w-[100px] px-3 py-2 flex items-center justify-center space-x-1 text-sm font-semibold rounded-lg bg-gray-100 hover:bg-orange-400 group transition-all"
+      >
+        <i
+          class="text-lg text-red-500 fas fa-home sm:text-xl group-hover:text-white"
+        ></i>
+        <span class="text-black group-hover:text-white">HOME</span>
+      </a>
+
+      <!-- Services Button -->
+      <div class="relative group flex-1 min-w-[100px]">
+        <button
+          id="mobile-services"
+          class="flex items-center justify-center w-full px-3 py-2 space-x-1 text-sm font-semibold transition-all bg-gray-100 rounded-lg hover:bg-orange-400 group"
+        >
+          <i
+            class="text-lg text-red-500 fas fa-cogs sm:text-xl group-hover:text-white"
+          ></i>
+          <span class="text-black group-hover:text-white">SERVICES</span>
+        </button>
+
+        <div
+          id="mobile-dropdown"
+          class="absolute z-10 invisible mt-2 text-black transition-all duration-300 ease-in-out transform -translate-x-1/2 bg-white rounded-lg shadow-md opacity-0 left-1/2 w-max group-hover:opacity-100 group-hover:visible"
+        >
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 space-x-2 rounded-lg hover:bg-gray-100"
+          >
+            <i class="text-sm text-red-500 fas fa-laptop sm:text-base"></i>
+            <span class="text-xs text-red-500 sm:text-sm">Web Development</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 space-x-2 rounded-lg hover:bg-gray-100"
+          >
+            <i class="text-sm text-red-500 fas fa-code sm:text-base"></i>
+            <span class="text-xs text-red-500 sm:text-sm"
+              >Software Development</span
+            >
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 space-x-2 rounded-lg hover:bg-gray-100"
+          >
+            <i
+              class="text-sm text-red-500 fas fa-digital-tachograph sm:text-base"
+            ></i>
+            <span class="text-xs text-red-500 sm:text-sm">App Development</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 space-x-2 rounded-lg hover:bg-gray-100"
+          >
+            <i class="text-sm text-red-500 fas fa-cogs sm:text-base"></i>
+            <span class="text-xs text-red-500 sm:text-sm"
+              >System Integration</span
+            >
+          </a>
+        </div>
+      </div>
+
+      <!-- About Us -->
+      <a
+        href="{% url 'home' %}#aboutUsContainer"
+        class="flex-1 min-w-[100px] px-3 py-2 flex items-center justify-center space-x-1 text-sm font-semibold rounded-lg bg-gray-100 transition-all hover:bg-orange-400 group"
+      >
+        <i
+          class="text-lg text-red-500 fas fa-info-circle sm:text-xl group-hover:text-white"
+        ></i>
+        <span class="text-black group-hover:text-white">ABOUT US</span>
+      </a>
+    </div>
+
+    <hr class="w-full border-t border-gray-300" />
+
+    <!-- Contact Us - Second Row (Centered) -->
+    <div class="flex justify-center w-full">
+      <a
+        href="/contact-us"
+        class="relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-medium transition-all bg-black rounded-full hover:bg-orange-400 group"
+      >
+        <span
+          class="w-40 h-40 rounded-full rotate-[-40deg] bg-orange-400 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-7 ml-7 group-hover:ml-0 group-hover:mb-28 group-hover:translate-x-0"
+        ></span>
+        <span
+          class="relative w-full text-xs text-center text-white transition-colors duration-300 ease-in-out sm:text-sm group-hover:text-black"
+        >
+          <i class="text-base fas fa-envelope sm:text-lg"></i>
+          Contact us
+        </span>
+      </a>
+    </div>
+  </div>
+</nav>
+<!-- End of Navbar -->
+
+<script src="{% static 'js/navbar.js' %}"></script>
+
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+<style></style>
