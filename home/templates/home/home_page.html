@@ -1,38 +1,83 @@
-{% extends 'base.html' %} {% load wagtailimages_tags %} {% load static %} {%
-  block navbar %}
-  <c-components.navbar
-    txtcolor="white"
-    :backgroundcolor="currentSection === 'hero' ? 'transparent' : 'red-800'"
-  />
-  {% endblock navbar %} {% block content %} {% load static %}
-  
-  <c-components.header />
-  
-  <c-components.about_us />
-  
-  <c-components.services />
-  
-  <c-components.why />
-  
-  <c-components.blogs_home />
-  
-  <c-components.news />
-  
+{% extends 'base.html' %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+{% block navbar %}
+  <c-components.navbar/>
+{% endblock navbar %}
+
+{% block content %}
+  <div id="loading-screen" class="loading-black" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgb(34, 34, 34); z-index: 9999; display: flex; justify-content: center; align-items: center; color: white; font-size: 24px; font-weight: bold; pointer-events: none;">
+    <span id="loading-text" style="animation: fadeIn 1s ease-in-out, pulse 1.5s infinite ease-in-out">Loading...</span>
+  </div>
+
+  <div id="content-wrapper" style="display: hidden;">
+    <c-components.header />
+
+    <!-- Add a border-bottom to each section to separate them -->
+    <c-components.about_us class="border-b border-gray-300" />
+
+    <c-components.services class="border-b border-gray-300" />
+
+    <c-components.why class="border-b border-gray-300" />
+
+    <c-components.blogs_home class="border-b border-gray-300" />
+
+    <c-components.news />
+  </div>
+
   <link rel="stylesheet" href="{% static 'css/services.css' %}" />
   <link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/loader.css' %}" />
+
   <style>
+    /* Prevent horizontal scrolling on html and body */
+    html, body {
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
     section {
       overflow-x: hidden;
       width: 100%;
     }
+
+    /* Add a grey border between sections */
+    .border-b {
+      border-bottom: 1px solid #d1d5db; /* Light grey color */
+      padding-bottom: 20px;
+    }
   </style>
-  {% endblock content %}
-  
-  <!-- Javascript -->
-  {% block extra_js %}
+{% endblock content %}
+
+{% block extra_js %}
   <script src="{% static 'js/animations.js' %}"></script>
-  
+  <link rel="stylesheet" href="{% static 'css/services.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/loader.css' %}" />
+
   <script>
+    // Wait for everything to load before showing the content
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        // Hide the loading screen
+        document.getElementById("loading-screen").style.display = "none";
+
+        // Show navbar and content
+        document.getElementById("navbar").style.display = "block";
+        document.getElementById("content-wrapper").style.display = "block";
+
+        // Remove horizontal scroll restriction after loading is done
+        document.documentElement.style.overflowX = "auto"; // This targets <html> element
+        document.body.style.overflowX = "auto";
+
+        // 🔥 RESTART GSAP ANIMATION AFTER LOADING SCREEN
+        startGSAPAnimation();
+      }, 1000); // 1 second delay
+    });
+    
     // Split text into individual letters and wrap in <span>
     const text = document.getElementById("first-span");
     const letters = text.textContent.split(""); // Split the text by characters (including spaces)
@@ -45,12 +90,12 @@
         return `<span>${letter}</span>`;
       })
       .join("");
-  
+
     // Apply transition delay dynamically based on the index
     const spans = document.querySelectorAll("#first-span span");
     spans.forEach((span, index) => {
       span.style.transitionDelay = `${index * 0.05}s`; // Apply staggered delay
     });
   </script>
-  
-  {% endblock extra_js %}
+
+{% endblock extra_js %}

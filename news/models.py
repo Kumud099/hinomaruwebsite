@@ -30,7 +30,7 @@ class NewsDetailPage(Page):
             .public()
             .order_by(
                 "-first_published_at",
-            )[0:3]
+            )[0:4]
         )
    
         context["list_of_news"] = news
