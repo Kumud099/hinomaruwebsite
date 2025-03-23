@@ -33,46 +33,54 @@
     >
       <a
         href="{% url 'home' %}"
-        class="px-3 py-8 text-red-800 font-extrabold tracking-wider hover:text-red-800 relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
+        class="px-3 py-8 hover:text-red-800 font-extrabold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
       >
         HOME
       </a>
+
       <!-- Services Button (Keep Inside the Relative Wrapper) -->
-      <div class="group" id="services-btn">
+      <div id="services-btn" class="group">
         <button
-          class="px-3 py-8 font-extrabold hover:text-red-800 relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
+          class="px-3 py-8 hover:text-red-800 font-extrabold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
         >
           SERVICES
         </button>
-        <!-- Dropdown Menu (Move Outside) -->
+
         <div
-          class="absolute left-0 grid flex-wrap justify-center hidden w-screen grid-cols-2 gap-4 p-6 text-center transition-opacity duration-300 ease-in-out bg-white border border-gray-200 shadow-lg top-full group-hover:flex"
+          id="dropdown-menu"
+          class="absolute left-0 grid flex-wrap justify-center w-screen grid-cols-4 gap-4 text-center transition-opacity duration-300 ease-in-out bg-white border-gray-200 shadow-lg opacity-0 top-full group-hover:opacity-100"
         >
-          <a
-            href="#"
-            class="flex items-center justify-center block gap-2 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-400 hover:scale-105"
+          <div
+            class="flex items-center justify-center gap-2 p-4 px-4 py-6 text-gray-700 hover:text-orange-400 hover:scale-105"
           >
-            <i class="text-red-500 fa fa-laptop"></i> Web Development
-          </a>
-          <a
-            href="#"
-            class="flex items-center justify-center block gap-2 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-400 hover:scale-105"
+            <a href="#">
+              <i class="text-red-500 fa fa-laptop"></i> Web Development
+            </a>
+          </div>
+
+          <div
+            class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 hover:text-orange-400 hover:scale-105"
           >
-            <i class="text-red-500 fa fa-code"></i> Software Development
-          </a>
-          <a
-            href="#"
-            class="flex items-center justify-center block gap-2 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-400 hover:scale-105"
+            <a href="#">
+              <i class="text-red-500 fa fa-laptop"></i> Software Development</a
+            >
+          </div>
+
+          <div
+            class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 hover:text-orange-400 hover:scale-105"
           >
-            <i class="text-red-500 fa fa-digital-tachograph"></i> App
-            Development
-          </a>
-          <a
-            href="#"
-            class="flex items-center justify-center block gap-2 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-500 hover:scale-105"
+            <a href="#">
+              <i class="text-red-500 fa fa-laptop"></i> App Development</a
+            >
+          </div>
+
+          <div
+            class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-400 hover:scale-105"
           >
-            <i class="text-red-500 fa fa-cogs"></i> System Integration
-          </a>
+            <a href="#">
+              <i class="text-red-500 fa fa-laptop"></i> System Integration</a
+            >
+          </div>
         </div>
       </div>
 
@@ -211,6 +219,29 @@
 <!-- End of Navbar -->
 
 <script src="{% static 'js/navbar.js' %}"></script>
+<style>
+  #dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s 0.2s, visibility 0.4s 0.4s;
+  }
 
-<link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
-<style></style>
+  #dropdown-menu:hover {
+    opacity: 1;
+  }
+
+  #services-btn:hover #dropdown-menu,
+  #dropdown-menu:hover {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s, visibility 0.4s;
+  }
+
+  .dropdown-item {
+    transition: background-color 0.4s;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f7f7f7;
+  }
+</style>
