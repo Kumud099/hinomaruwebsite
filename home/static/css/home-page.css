@@ -137,11 +137,6 @@ section {
   width: 100%;
 }
 
-/* Hovering Hero Letters */
-.hover-effect {
-  display: inline-block;
-}
-
 .hover-effect span {
   display: inline-block;
   transition: transform 0.4s ease, text-shadow 0.4s ease, color 0.4s ease;
