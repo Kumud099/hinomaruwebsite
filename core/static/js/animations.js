@@ -27,37 +27,29 @@ var navbarItems = document.querySelector("nav");
 var aboutUsContainer = document.querySelector("#aboutUsContainer");
 
 // our services section animation
-function startGSAPAnimation() {
-  if (window.matchMedia("(min-width: 1024px)").matches) {
-    gsap.registerPlugin(ScrollTrigger);
+if (window.matchMedia("(min-width: 1024px)").matches) {
+  // Runs only on large screens
+  gsap.registerPlugin(ScrollTrigger);
 
-    // Ensure GSAP starts fresh
-    gsap.killTweensOf(".card"); // 🔥 Remove any previous animations
-    gsap.set(".card", { clearProps: "all" }); // Reset styles
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#services",
+      start: "top top",
+      end: "+=1000",
+      scrub: true,
+      pin: true,
+    },
+  });
 
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#services",
-        start: "top top",
-        end: "+=1000",
-        scrub: true,
-        pin: true,
-      },
+  gsap.utils.toArray(".card").forEach((card, index) => {
+    timeline.from(card, {
+      x: 200,
+      opacity: 0,
+      duration: 1,
+      delay: index * 0.5,
     });
-
-    gsap.utils.toArray(".card").forEach((card, index) => {
-      timeline.from(card, {
-        x: 200,
-        opacity: 0,
-        duration: 1,
-        delay: index * 0.5,
-      });
-    });
-  }
+  });
 }
-
-
-//
 
 //
 
@@ -104,60 +96,6 @@ gsap.to(scrollingText, {
   },
 });
 
-// ScrollTrigger.create({
-//     trigger: '#services',
-//     start: "top 50%",
-//     end: "bottom 0%",
-//     markers: true,
-
-//     onEnter: () => {
-//         // Step 1: Expand the red background
-//         gsap.to('#reveal-box', {
-//             duration: 0.5,
-//             width: '100%',
-//             ease: "power2.out",
-//             onComplete: () => {
-//                 // Step 2: Fade in the text
-//                 gsap.to('#service-text', {
-//                     duration: 0.2,
-//                     opacity: 1,
-//                     ease: "power2.out",
-//                     onComplete: () => {
-//                         // Step 3: Fade out the background smoothly
-//                         gsap.to('#reveal-box', {
-//                             duration: 0.1,
-//                             opacity: 0,
-//                             ease: "power2.out"
-//                         });
-//                     }
-//                 });
-//             }
-//         });
-//     },
-
-//     onLeaveBack: () => {
-//         // Step 4: Reverse effect on scroll back up
-//         gsap.to('#reveal-box', {
-//             duration: 0.8,
-//             opacity: 1, // Bring background back before shrinking
-//             ease: "power2.out",
-//             onComplete: () => {
-//                 gsap.to('#service-text', {
-//                     duration: 0.5,
-//                     opacity: 0,
-//                     ease: "power2.out",
-//                     onComplete: () => {
-//                         gsap.to('#reveal-box', {
-//                             duration: 1.2,
-//                             width: '0%',
-//                             ease: "power2.out"
-//                         });
-//                     }
-//                 });
-//             }
-//         });
-//     },
-// });
 
 // lenis
 lenis.on("scroll", ScrollTrigger.update);
@@ -178,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Set timeout to show text after 3 seconds
   setTimeout(function () {
     // Remove opacity-0 to show text after 3 seconds
-    // textElement.classList.remove("opacity-0");
+    textElement.classList.remove("opacity-0");
     textElement.classList.add("opacity-100");
   }, 100);
 });
@@ -288,22 +226,4 @@ document.querySelectorAll("#services .card").forEach((card) => {
     cursor.style.backgroundColor = "#d32f2f";
     cursor.style.boxShadow = "none";
   });
-});
-
-// for viewing more content in ABOUTUS
-document.getElementById("viewMoreBtn").addEventListener("click", function () {
-  var extraContent = document.getElementById("extra-content");
-  var textSpan = document.getElementById("viewMoreText");
-
-  //Toggle visibility
-  if (extraContent.classList.contains("hidden")) {
-    extraContent.classList.remove("hidden");
-    textSpan.textContent = "View Less";
-    this.classList.add("mb-52");
-  } else {
-    extraContent.classList.add("hidden");
-    textSpan.textContent = "View More";
-    this.classList.remove("mb-52");
-    // this.classList.add("-mt-20");
-  }
 });
