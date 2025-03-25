@@ -30,9 +30,6 @@ if settings.DEBUG:
 
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns+=[
-            path("__reload__/", include("django_browser_reload.urls")),
-    ]
 
 urlpatterns = urlpatterns + [
     path("", include(wagtail_urls)),

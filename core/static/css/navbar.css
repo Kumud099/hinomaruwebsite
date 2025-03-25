@@ -24,22 +24,29 @@
   }
 }
 
-/* Initially hidden but ready for animation */
-/* .menu-animate {
-  animation: slideDownFade 0.5s ease-in-out forwards;
-} */
+/* dropdown */
 
-/* Reverse animation for closing */
-/* .menu-close {
-  animation: slideUpFade 0.5s ease-in-out forwards;
+#dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s 0.2s, visibility 0.4s 0.4s;
 }
 
-.dropdownMenu-animate {
-  animation: slideDownFade 0.5s ease-in-out forwards;
+#dropdown-menu:hover {
+  opacity: 1;
 }
 
-.dropdownMenu-close {
-  animation: slideUpFade 0.5s ease-in-out forwards;
-} */
+#services-btn:hover #dropdown-menu,
+#dropdown-menu:hover {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s, visibility 0.4s;
+}
 
-/* ====================== */
+.dropdown-item {
+  transition: background-color 0.4s;
+}
+
+.dropdown-item:hover {
+  background-color: #f7f7f7;
+}

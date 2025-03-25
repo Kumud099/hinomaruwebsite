@@ -51,6 +51,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
   });
 }
 
+//
 
 gsap.to("#videoContainer1", {
   width: "40%",
@@ -94,7 +95,6 @@ gsap.to(scrollingText, {
     });
   },
 });
-
 
 // lenis
 lenis.on("scroll", ScrollTrigger.update);

@@ -1,0 +1,71 @@
+ /* Synccard border animation why us  */
+ .cards-border {
+    font-size: 2rem;
+    position: relative;
+    border: 1px;
+    display: inline-block;
+    padding: 1rem;
+    border: 1px solid #d3d3d3;
+  }
+
+  .cards-border::after,
+  .cards-border::before,
+  .cards-border .left-border,
+  .cards-border .right-border {
+    content: "";
+    position: absolute;
+    background: #f44336;
+    transition: transform 0.4s ease-out;
+  }
+
+  /* Top and Bottom Borders */
+  .cards-border::after,
+  .cards-border::before {
+    width: 100%;
+    height: 2px;
+    left: 0;
+    transform: scaleX(0);
+  }
+
+  .cards-border::before {
+    top: 0;
+    transform-origin: right;
+  }
+
+  .cards-border::after {
+    bottom: 0;
+    transform-origin: left;
+  }
+
+  /* Left and Right Borders */
+  .cards-border .left-border,
+  .cards-border .right-border {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    transform: scaleY(0);
+  }
+
+  .cards-border .left-border {
+    left: 0;
+    /* transform-origin: top; */
+    transform-origin: bottom;
+  }
+
+  .cards-border .right-border {
+    right: 0;
+    /* transform-origin: bottom; */
+    transform-origin: top;
+  }
+
+  /* Hover Effect - Expand Borders */
+  .cards-border:hover::after,
+  .cards-border:hover::before {
+    transform: scaleX(1);
+  }
+
+  .cards-border:hover .left-border,
+  .cards-border:hover .right-border {
+    transform: scaleY(1);
+  }
+  /* End of why Choose Us */

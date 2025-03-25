@@ -2,31 +2,26 @@
 {% load static %}
 <section
   id="services"
-  class="flex flex-col items-center justify-start min-h-auto bg-[#20252F] w-full pb-16 pt-10"
+  class=" flex flex-col items-center justify-start min-h-auto bg-[#20252F] w-full pb-16  py-10 h-screen"
 >
-  <div class="container mx-auto max-w-[1440px] px-6">
+  <div class="container mx-auto max-w-[1440px] px-5">
     <!-- Section Title -->
-    <h1
-      class="relative flex items-center justify-center mb-8 font-bold text-center text-white md:mt-20 lg:mt-28 md:mb-10 lg:mb-12"
-    >
-      <div class="w-24 border-t border-white"></div>
-      <span
-        id="service-text"
-        class="relative mx-4 text-[#991B1B] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
-        >OUR SERVICES</span
-      >
-      <div class="w-24 border-t border-white"></div>
-    </h1>
+ <div class="flex mt-10">
+      <!-- <div class="w-24 border-t border-white"></div> -->
+
+      <span class="font-semibold text-white md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] text-center mx-auto  mt-5">OUR SERVICES</span>
+      <!-- <div class="w-24 border-t border-white"></div> -->
+    </div>
     <p
-      class="text-center text-lg text-[25px] sm:text-[30px] md:text-[35px] lg:text-[35px] text-white mt-4 mb-10"
+      class="text-center text-lg text-[18px] sm:text-[18px] md:text-[18px] lg:text-[18px] text-white mt-4 mb-10"
     >
       Outstanding Services to Accelerate Your
-      <span class="font-bold text-[#991B1B]">Business Growth</span>
+      <span class="font-bold text-[#991B1B] text-[18px] sm:text-[18px] md:text-[18px] lg:text-[18px]">Business Growth</span>
     </p>
 
     <!-- Cards Grid -->
     <div
-      class="scrollbar-hide snap-x snap-mandatory grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full mt-[90px]"
+      class="scrollbar-hide snap-x snap-mandatory grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full px-10 mt-10 mb-10"
     >
       <!-- Service Card -->
       <a
@@ -35,8 +30,8 @@
       >
         <!-- Image Container with Shadow on Hover and Rounded Corners -->
         <div
-          class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
-        >
+        class="w-full max-w-[600px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[600px] 2xl:max-w-[600px] h-full sm:h-[200px] md:h-[300px] lg:h-[300px] 2xl:h-[500px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
+      >
           <img
             class="object-cover w-full h-full transition-transform duration-500 ease-out rounded-lg group-hover:scale-110 opacity-80 group-hover:opacity-30 hover:border-2 hover:border-red-100 hover:rounded-lg"
             src="{% static '/images/1st.jpg' %}"
@@ -69,15 +64,15 @@
       <!-- Other Cards -->
       <a
         href="#"
-        class="relative flex flex-col items-center justify-center overflow-hidden transition duration-500 rounded-lg cursor-pointer card snap-center group"
+        class="relative flex flex-col items-center justify-center overflow-hidden transition duration-500 rounded-lg cursor-pointer card snap-center group hover:cursor-pointer"
       >
         <!-- Image Container with Shadow on Hover and Rounded Corners -->
         <div
-          class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
-        >
+        class="w-full max-w-[600px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[600px] 2xl:max-w-[600px] h-full sm:h-[200px] md:h-[300px] lg:h-[300px] 2xl:h-[500px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
+      >
           <img
-            class="object-cover w-full h-full transition-transform duration-500 ease-out rounded-lg group-hover:scale-110 opacity-80 group-hover:opacity-30"
-            src="{% static '/images/2nd.jpg' %}"
+            class="object-cover w-full h-full transition-transform duration-500 ease-out rounded-lg group-hover:scale-110 opacity-80 group-hover:opacity-30 hover:border-2 hover:border-red-100 hover:rounded-lg"
+            src="{% static '/images/1st.jpg' %}"
             alt="Service Image"
           />
           <!-- Centered Text Container with Radius -->
@@ -85,7 +80,7 @@
             class="absolute inset-0 z-10 flex items-center justify-center px-6 py-4 text-center rounded-lg"
           >
             <div
-              class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt[-30px]"
+              class="transform translate-y-[60%] group-hover:translate-y-0 transition-all duration-500 hover:mt-[-30px]"
             >
               <h1
                 class="text-2xl font-bold text-white group-hover:text-red-500"
@@ -103,15 +98,15 @@
           </div>
         </div>
       </a>
-
+      
       <a
         href="#"
         class="relative flex flex-col items-center justify-center overflow-hidden transition duration-500 rounded-lg cursor-pointer card snap-center group"
       >
         <!-- Image Container with Shadow on Hover and Rounded Corners -->
         <div
-          class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
-        >
+        class="w-full max-w-[600px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[600px] 2xl:max-w-[600px] h-full sm:h-[200px] md:h-[300px] lg:h-[300px] 2xl:h-[500px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
+      >
           <img
             class="object-cover w-full h-full transition-transform duration-500 ease-out rounded-lg group-hover:scale-110 opacity-90 group-hover:opacity-30"
             src="{% static '/images/3rd.jpg' %}"
@@ -147,8 +142,8 @@
       >
         <!-- Image Container with Shadow on Hover and Rounded Corners -->
         <div
-          class="w-[300px] h-[400px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
-        >
+        class="w-full max-w-[600px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[600px] 2xl:max-w-[600px] h-full sm:h-[200px] md:h-[300px] lg:h-[300px] 2xl:h-[500px] relative overflow-hidden rounded-lg group-hover:shadow-xl transition-shadow duration-500"
+      >
           <img
             class="object-cover w-full h-full transition-transform duration-500 ease-out rounded-lg group-hover:scale-110 opacity-90 group-hover:opacity-30"
             src="{% static '/images/2nd.jpg' %}"
@@ -181,7 +176,7 @@
   </div>
 
   <!-- Scrolling Text Section -->
-  <div class="w-full mt-10 mb-6 overflow-hidden whitespace-nowrap">
+  <div class="w-full    whitespace-nowrap">
     <div
       id="scrollingText"
       class="flex gap-12 text-[29px] sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[52px] pt-4 text-gray-600 parallax"

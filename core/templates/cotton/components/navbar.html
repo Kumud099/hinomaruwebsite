@@ -10,11 +10,12 @@
           alt="logo"
           class="h-auto max-w-full w-7 sm:w-7 md:w-8 lg:w-9"
         />
+
         <span
           id="hinomaru-text"
-          class="text-2xl font-bold text-transparent font-Play sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl bg-clip-text bg-gradient-to-r from-red-300 via-red-500 to-red-800"
+          class="text-xl font-bold text-transparent font-Play sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl 2xl:text-3xl bg-clip-text bg-gradient-to-r from-red-300 via-red-500 to-red-800"
         >
-          Hinomaru Tech
+          HINOMARU TECH
         </span>
       </a>
     </div>
@@ -33,7 +34,7 @@
     >
       <a
         href="{% url 'home' %}"
-        class="px-3 py-8 hover:text-red-800 font-extrabold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
+        class="px-3 py-8 hover:text-red-800 font-bold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
       >
         HOME
       </a>
@@ -41,52 +42,57 @@
       <!-- Services Button (Keep Inside the Relative Wrapper) -->
       <div id="services-btn" class="group">
         <button
-          class="px-3 py-8 hover:text-red-800 font-extrabold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
+          class="px-3 py-8 hover:text-red-800 font-bold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
         >
           SERVICES
         </button>
 
         <div
           id="dropdown-menu"
-          class="absolute left-0 grid flex-wrap justify-center w-screen grid-cols-4 gap-4 text-center transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 top-full group-hover:opacity-100"
+          class="absolute left-0 w-screen grid-cols-4 transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 top-full group-hover:opacity-100"
         >
           <div
-            class="flex items-center justify-center gap-2 p-4 px-4 py-6 text-gray-700 hover:text-orange-400 hover:scale-105"
+            class="w-[80%] ml-44 flex flex-wrap justify-center gap-10 text-center"
           >
-            <a href="#">
-              <i class="text-red-500 fa fa-laptop"></i> Web Development
-            </a>
-          </div>
-
-          <div
-            class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 hover:text-orange-400 hover:scale-105"
-          >
-            <a href="#">
-              <i class="text-red-500 fa fa-laptop"></i> Software Development</a
+            <div
+              class="flex items-center justify-center gap-2 p-4 px-4 py-6 text-gray-700 hover:text-orange-400 hover:scale-105"
             >
-          </div>
+              <a href="#">
+                <i class="text-red-500 fa fa-laptop"></i> Web Development
+              </a>
+            </div>
 
-          <div
-            class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 hover:text-orange-400 hover:scale-105"
-          >
-            <a href="#">
-              <i class="text-red-500 fa fa-laptop"></i> App Development</a
+            <div
+              class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 hover:text-orange-400 hover:scale-105"
             >
-          </div>
+              <a href="#">
+                <i class="text-red-500 fa fa-laptop"></i> Software
+                Development</a
+              >
+            </div>
 
-          <div
-            class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-400 hover:scale-105"
-          >
-            <a href="#">
-              <i class="text-red-500 fa fa-laptop"></i> System Integration</a
+            <div
+              class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 hover:text-orange-400 hover:scale-105"
             >
+              <a href="#">
+                <i class="text-red-500 fa fa-laptop"></i> App Development</a
+              >
+            </div>
+
+            <div
+              class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-400 hover:scale-105"
+            >
+              <a href="#">
+                <i class="text-red-500 fa fa-laptop"></i> System Integration</a
+              >
+            </div>
           </div>
         </div>
       </div>
 
       <a
         href="{% url 'home' %}#aboutUsContainer"
-        class="px-3 py-8 hover:text-red-800 font-extrabold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
+        class="px-3 py-8 hover:text-red-800 font-bold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
       >
         ABOUT US
       </a>
@@ -95,7 +101,7 @@
     <!-- Contact Us Button (Right Aligned, Hidden on screens < 1200px) -->
     <a
       href="/contact-us"
-      class="relative inline-flex items-center justify-center hidden px-6 py-3 overflow-hidden text-sm font-medium transition-all bg-black rounded-full group sm:text-base xl:flex 2xl:flex"
+      class="relative inline-flex items-center justify-center hidden px-4 py-2 overflow-hidden text-sm font-medium transition-all bg-black rounded-full group sm:text-base xl:flex 2xl:flex"
     >
       <span
         class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-500 group-hover:scale-x-100"
@@ -104,7 +110,6 @@
       <span
         class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
       >
-        <i class="text-base fas fa-envelope sm:text-lg"></i>
         Contact us
       </span>
     </a>
@@ -217,31 +222,6 @@
   </div>
 </nav>
 <!-- End of Navbar -->
-
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
 <script src="{% static 'js/navbar.js' %}"></script>
-<style>
-  #dropdown-menu {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s 0.2s, visibility 0.4s 0.4s;
-  }
-
-  #dropdown-menu:hover {
-    opacity: 1;
-  }
-
-  #services-btn:hover #dropdown-menu,
-  #dropdown-menu:hover {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.4s, visibility 0.4s;
-  }
-
-  .dropdown-item {
-    transition: background-color 0.4s;
-  }
-
-  .dropdown-item:hover {
-    background-color: #f7f7f7;
-  }
-</style>
+<style></style>
