@@ -23,7 +23,7 @@
           {% for blog in blogs %}
           <a
             href="{{ blog.url }}"
-            class="space-y-4 bg-white border-2 border-gray-300 rounded-md shadow-md hover:border-red-700 swiper-slide"
+            class="space-y-4 bg-white border-2 border-gray-300 rounded-md shadow-md hover:border-red-500 swiper-slide"
           >
             <!-- Blog Image with Hover Effect -->
             <div class="relative p-4">
@@ -42,7 +42,7 @@
             <div class="px-4">
               <h3 class="-mt-5 text-xl font-bold">
                 {% with blog.blog_title.split as words %}
-                <span class="text-[#991b1b]">{{ words.0 }}</span>
+                <span class="text-[#F44336]">{{ words.0 }}</span>
                 <span class="text-black"
                   >{{ words|slice:"1:"|join:" "|truncatewords:5 }}</span
                 >
@@ -68,8 +68,8 @@
           {% endfor %}
         </div>
 
+        <!-- Pagination -->
         <div class="mt-16">
-          <!-- Pagination -->
           <div class="swiper-pagination"></div>
         </div>
 
@@ -84,7 +84,93 @@
     </div>
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/home_blog_card.css' %}" />
+    <style>
+      /* Image hover effect */
+      .image-container {
+        position: relative;
+        overflow: hidden;
+        height: 250px;
+      }
+
+      .image-container img {
+        transition: transform 0.5s ease;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      .image-container:hover img {
+        transform: scale(1.1);
+      }
+
+      .image-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(107, 114, 128, 0.3);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        border-radius: 10px;
+      }
+
+      .image-container:hover .image-overlay {
+        /* opacity: 0.5; */
+        border-radius: 10px;
+      }
+
+      /* Custom Swiper Styles */
+      .swiper-pagination-bullet {
+        background-color: #d1d5db;
+      }
+
+      .swiper-pagination-bullet-active {
+        background-color: #F44336;
+      }
+
+      /* Fixed Slide Width and Space Between */
+      .swiper-slide {
+        width: 300px;
+        margin-right: 20px;
+      }
+
+      .swiper-wrapper {
+        display: flex;
+        gap: 20px;
+      }
+
+      /* Swiper Navigation Buttons */
+      .swiper-button-next,
+      .swiper-button-prev {
+        background-color: transparent;
+        color: #F44336;
+        font-size: 35px;
+        border: 2px solid #F44336;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        background-color: rgba(178, 182, 185, 0.1);
+        color: black;
+        border: 2px solid black;
+        /* background-color: rgba(197, 48, 48, 0.1); */
+      }
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 18px;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        transition: all 0.3s ease;
+      }
+    </style>
 
     <!-- Swiper Initialization -->
     <script>

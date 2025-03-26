@@ -96,7 +96,6 @@ gsap.to(scrollingText, {
   },
 });
 
-
 // lenis
 lenis.on("scroll", ScrollTrigger.update);
 

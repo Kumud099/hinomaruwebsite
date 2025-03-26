@@ -101,8 +101,10 @@
     </div>
   
     <link rel="stylesheet" href="{% static 'css/services.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
     <link rel="stylesheet" href="{% static 'css/loader.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
+  
+
     <style>
       
   /* Prevent horizontal scrolling on html and body */
@@ -117,15 +119,19 @@
         overflow-x: hidden;
         width: 100%;
       }
+
+
+      
     </style>
     {% endblock content %}
   
     <!-- Javascript -->
     {% block extra_js %}
     <script src="{% static 'js/animations.js' %}"></script>
-        <link rel="stylesheet" href="{% static 'css/services.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/loader.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/services.css' %}" />
+<link rel="stylesheet" href="{% static 'css/loader.css' %}" />
+<link rel="stylesheet" href="{% static 'css/home-page.css' %}" />
+
   
     <script>
     // Wait for everything to load before showing the content
@@ -147,25 +153,50 @@
     });
     
  
-  
-      // Split text into individual letters and wrap in <span>
-      const text = document.getElementById("first-span");
-      const letters = text.textContent.split(""); // Split the text by characters (including spaces)
-      text.innerHTML = letters
-        .map((letter) => {
-          // Wrap spaces in a span with a specific class for styling if needed
-          if (letter === " ") {
-            return `<span class="space"></span>`;
-          }
-          return `<span>${letter}</span>`;
-        })
-        .join("");
-  
-      // Apply transition delay dynamically based on the index
-      const spans = document.querySelectorAll("#first-span span");
-      spans.forEach((span, index) => {
-        span.style.transitionDelay = `${index * 0.05}s`; // Apply staggered delay
-      });
+  //===================HERO SECTION TEXT ANIMATION==============================
+//Ensuring words stay together and do not break across lines
+function wrapWords(elementId) {
+  const element = document.getElementById(elementId);
+  if(!element) return;
+
+  //Split text by words 
+  const words = element.textContent.trim().split(' ');
+
+  //Clear original content
+  element.innerHTML = '';
+
+  //wRAP each word in a span and add to the element
+ words.forEach((word) => {
+const wordSpan = document.createElement('span');
+wordSpan.className = 'word'; //Add a class for letter animation 
+wordSpan.style.whiteSpace = 'nowrap'; //ensure the whole word stays together
+
+//Wrap each letter whithin the word in a span
+word.split('').forEach((letter) => {
+  const letterSpan = document.createElement('span');
+  letterSpan.textContent = letter;
+  wordSpan.appendChild(letterSpan);
+});
+
+//Preserve spaces between words
+  element.appendChild(wordSpan);
+  element.appendChild(document.createTextNode(' '));
+
+ });
+
+  // Apply transition delay dynamically based on the index
+  const letterSpans = document.querySelectorAll(`#${elementId} .word span`);
+  letterSpans.forEach((span, index) => {
+    span.style.transitionDelay = `${index * 0.05}s`; // Apply staggered delay
+  });
+}
+
+//Call the function on the target span
+window.addEventListener('DOMContentLoaded', () => {
+  wrapWords('first-span');
+
+});
+     
     </script>
   
     {% endblock extra_js %}

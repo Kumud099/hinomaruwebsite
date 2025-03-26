@@ -1,6 +1,6 @@
 <!-- WHY CHOOSE US FROM HOME PAGE -->
 {% load static %}
-<section class="py-10 mt-10 bg-white sm:px-6 md:px-8 lg:px-10 xl:px-16 ">
+<section class="py-12 mt-2 bg-white">
   <div class="max-w-8.5xl mx-auto px-6 text-center">
     <h2
       class="font-semibold mb-9 text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
@@ -8,10 +8,10 @@
       Why Choose <span class="text-red-700">HINOMARU</span> TECH?
     </h2>
 
-    <div class="justify-center gap-5 lg:flex px-10 " id="why cards">
+    <div class="justify-center gap-5 lg:flex">
       <!-- CARD 1 -->
       <div
-        class="relative sm:mt-4 mt-4 card-border group inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px]"
+        class="relative sm:mt-4 mt-4 cards-border group inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px] border-2 border-transparent group-hover:border-red-500"
       >
         <span class="left-border"></span>
         <span class="right-border"></span>
@@ -40,10 +40,11 @@
         </div>
       </div>
       <!-- end card1 -->
+      <!-- end card1 -->
 
       <!-- CARD 2 -->
       <div
-        class="relative card-border sm:mt-4 mt-4 group inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px]"
+        class="relative cards-border sm:mt-4 mt-4 group inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px]"
       >
         <span class="left-border"></span>
         <span class="right-border"></span>
@@ -74,7 +75,7 @@
 
       <!-- CARD 3 -->
       <div
-        class="relative card-border group sm:mt-4 mt-4 inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px]"
+        class="relative cards-border group sm:mt-4 mt-4 inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px]"
       >
         <span class="left-border"></span>
         <span class="right-border"></span>
@@ -105,7 +106,7 @@
 
       <!-- CARD 4 -->
       <div
-        class="relative card-border group sm:mt-4 mt-4 inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px]"
+        class="relative cards-border group sm:mt-4 mt-4 inline-block p-6 lg:w-[600px] h-72 sm:w-[600px] md:w-[600px] xs:w-[340px] w-[300px]"
       >
         <span class="left-border"></span>
         <span class="right-border"></span>
@@ -141,3 +142,5 @@
     </div>
   </div>
 </section>
+
+<link rel="stylesheet" href="{% static 'css/why.css' %}" />
