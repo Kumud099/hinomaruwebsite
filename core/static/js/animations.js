@@ -184,46 +184,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // Create custom cursor
 const cursor = document.createElement("div");
-cursor.classList.add("custom-cursor");
+
 document.body.appendChild(cursor);
 
 const servicesSection = document.querySelector("#services");
 
-// Show cursor only inside #services
-servicesSection.addEventListener("mouseenter", () => {
-  cursor.style.display = "block";
-});
 
-servicesSection.addEventListener("mouseleave", () => {
-  cursor.style.display = "none";
-});
 
-// Update cursor position only inside #services
-servicesSection.addEventListener("mousemove", (e) => {
-  cursor.style.left = `${e.clientX}px`;
-  cursor.style.top = `${e.clientY}px`;
-});
-document.querySelectorAll("#services .card").forEach((card) => {
-  card.addEventListener("mouseenter", () => {
-    cursor.textContent = "Click";
-    cursor.style.width = "50px";
-    cursor.style.height = "50px";
-    cursor.style.backgroundColor = "#d32f2f";
-    cursor.style.fontSize = "15px";
-    cursor.style.display = "flex";
-    cursor.style.alignItems = "center";
-    cursor.style.justifyContent = "center";
-    cursor.style.color = "white";
-    cursor.style.fontWeight = "600";
-    cursor.style.borderRadius = "50%";
-    cursor.style.boxShadow = "0px 0px 5px rgba(0,0,0,0.3)";
-  });
 
-  card.addEventListener("mouseleave", () => {
-    cursor.textContent = "";
-    cursor.style.width = "15px";
-    cursor.style.height = "15px";
-    cursor.style.backgroundColor = "#d32f2f";
-    cursor.style.boxShadow = "none";
-  });
-});
+
