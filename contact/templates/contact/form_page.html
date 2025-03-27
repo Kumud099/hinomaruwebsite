@@ -1,10 +1,11 @@
 {% extends "base.html" %} {% load static %} {% load widget_tweaks %} {% load
   wagtailimages_tags %} {% block navbar%}
 
-    <c-components.navbar_fix backgroundcolor="red-800"/>    
+
 
   {% endblock navbar %} {% block content %}
-  <div class="overflow-hidden radius-20px">
+  <div class="overflow-hidden bg-gray-100 radius-20px">
+    <c-components.navbar_fix backgroundcolor="red-800"/>    
     <div class="pt-20 min-h-[100vh] m-4">
       <section
         class="p-6 mx-auto my-8 bg-red-800 rounded-lg shadow-lg sm:p-8 pb-28 sm:pb-32 sm:mb-32 max-w-7xl"
