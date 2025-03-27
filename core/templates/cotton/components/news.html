@@ -9,7 +9,7 @@
         
       </div>
       
-      <div class="flex items-center justify-center w-full">
+      <div class="flex items-center justify-center w-full px-4">
         <p class="text-center text-lg text-gray-700 mt-4 mx-auto w-max">
           Exploring the Future of IT: Innovations Shaping the Tech World
         </p>
@@ -30,8 +30,8 @@
       
     </div>
       </div>
-  
-      <div class="px-20 hover:cursor-pointer lg:px-30 mt-10 min-h-[500px] xl:min-h-[350px] 2xl:min-h-[350px]">
+  <div class="2xl:mx-24 mx-10">
+      <div class="mx-20 hover:cursor-pointer lg:px-30 mt-10 min-h-[500px] xl:min-h-[350px] 2xl:min-h-[350px]">
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
           {% for news in list_of_news %}
           <a href="{{news.url}}">
@@ -72,4 +72,5 @@
         </div>
       </div>
     </div>
+  </div>
   </section>

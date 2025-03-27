@@ -1,7 +1,9 @@
+/* Set the width to full viewport width */
 .w-screen {
   width: 100vw !important;
 }
 
+/* Slide Down Fade Animation */
 @keyframes slideDownFade {
   from {
     transform: translateY(-100%);
@@ -13,6 +15,7 @@
   }
 }
 
+/* Slide Up Fade Animation */
 @keyframes slideUpFade {
   from {
     transform: translateY(0);
@@ -24,29 +27,53 @@
   }
 }
 
-/* dropdown */
+/* Initially hidden but ready for animation */
+.menu-animate {
+  animation: slideDownFade 0.5s ease-in-out forwards;
+}
 
+/* Reverse animation for closing */
+.menu-close {
+  animation: slideUpFade 0.5s ease-in-out forwards;
+}
+
+/* Dropdown Menu Animation for Desktop */
+.dropdownMenu-animate {
+  animation: slideDownFade 0.5s ease-in-out forwards;
+}
+
+.dropdownMenu-close {
+  animation: slideUpFade 0.5s ease-in-out forwards;
+}
+
+/* Ensure the dropdown is hidden initially */
 #dropdown-menu {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s 0.2s, visibility 0.4s 0.4s;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-#dropdown-menu:hover {
-  opacity: 1;
-}
-
-#services-btn:hover #dropdown-menu,
-#dropdown-menu:hover {
+/* Make the dropdown visible when hovering over the parent (Services button) */
+#services-btn:hover #dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.4s, visibility 0.4s;
+  pointer-events: auto;
+  animation: slideDownFade 0.5s ease-in-out forwards;
 }
 
-.dropdown-item {
-  transition: background-color 0.4s;
+/* Mobile Dropdown Initial State */
+#mobile-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-.dropdown-item:hover {
-  background-color: #f7f7f7;
+/* Make the mobile dropdown visible when clicking Services on mobile */
+#mobile-services:hover #mobile-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  animation: slideDownFade 0.5s ease-in-out forwards;
 }
