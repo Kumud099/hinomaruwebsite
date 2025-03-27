@@ -32,7 +32,7 @@
 /* Adjust speed and font size for smaller screens */
 @media (max-width: 600px) {
   #scrollingText {
-    animation-duration: 25s; /* Increase speed on small screens */
+    animation-duration: 10s; /* Increase speed on small screens */
     font-size: 14px; /* Adjust text size */
   }
 }
@@ -55,5 +55,4 @@
 @media (min-width: 390px) and (max-width: 400px) {
   #services {
     margin-top: -5% !important;
-  }
-}
+  }}

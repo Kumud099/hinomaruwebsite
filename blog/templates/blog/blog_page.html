@@ -1,5 +1,4 @@
 {% extends 'base.html' %} {% load wagtailimages_tags %} {% load wagtailcore_tags
-<<<<<<< HEAD
   %} {% block navbar %}
   <c-components.navbar  />
   {% endblock navbar %} {% block content %}
@@ -85,115 +84,20 @@
                       </span>
                     </a>
                  
-=======
-%} {% block navbar %} {% endblock navbar %} {% block content %}
-
-<div class="overflow-hidden bg-gray-100 radius-20px">
-  <c-components.navbar_fix />
-  <div class="min-h-[100vh] m-4 pt-4">
-    <main class="min-h-screen bg-gradient-to-br lg:mt-0">
-      <div class="container mx-auto max-w-[1440px] px-6 py-20">
-        <!-- Page Header -->
-        <div class="mt-20 mb-10 text-center">
-          <!-- <h1 class="text-[40px] text-center mb-4 font-bold text-red-800"> -->
-          <h1
-            class="text-3xl font-bold text-center hover:text-black text-[#991b1b] transition-colors duration-700"
-          >
-            <span class="decoration-[#991b1b]">BLOGS</span>
-          </h1>
-          <p
-            class="text-gray-500 hover:text-[#991b1b] hover:underline text-lg mt-2"
-          >
-            Page {{ request.GET.page|default:1 }}
-          </p>
-        </div>
-
-        <!-- Category Section (For Both Desktop and Mobile) -->
-        <div class="mb-6">
-          <div class="p-4 bg-white rounded-lg shadow-md">
-            <h3 class="mb-3 text-xl font-bold text-red-800">Categories</h3>
-            <div class="flex gap-2 pb-2 overflow-x-auto whitespace-nowrap">
-              {% for category in categories %}
-              <a
-                href="?category={{ category.slug }}"
-                class="px-4 py-2 rounded-lg text-lg font-semibold transition-all duration-300 {% if selected_category == category.slug %} bg-orange-700 text-white shadow-md {% else %} bg-gray-100 text-gray-800 hover:bg-orange-700 hover:text-white {% endif %}"
-              >
-                {{ category.name }}
-              </a>
-              {% empty %}
-              <p>No categories found</p>
-              {% endfor %}
-              <!-- Clear Filter Button -->
-              {% if selected_category %}
-              <a
-                href="?clear"
-                class="px-4 py-2 text-lg font-semibold transition-all duration-300 bg-gray-200 rounded-lg hover:bg-orange-700 hover:text-white"
-              >
-                Clear Filter
-              </a>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-
-        <!-- Blog Content Section -->
-        <div class="flex flex-col gap-8 md:flex-row">
-          <!-- Blog Posts Section -->
-          <div class="flex-1">
-            <!-- Blog Grid (3 Columns × 2 Rows) -->
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              {% for blog in blogs|slice:":6" %} {% image blog.blog_cover_image
-              width-400 as cover %}
-              <div
-                class="overflow-hidden transition duration-300 transform bg-white shadow-lg rounded-2xl hover:-translate-y-2"
-              >
-                <img
-                  src="{{ cover.url }}"
-                  alt="{{ blog.title }}"
-                  class="w-full h-[220px] object-cover"
-                />
-                <div class="p-6">
-                  <h3 class="mb-2 text-2xl font-bold">{{ blog.title }}</h3>
-                  <p class="text-gray-600 line-clamp-3">
-                    {{ blog.specific.intro }}
-                  </p>
-
-                  <div class="flex mt-2">
-                    <p class="mt-3 text-sm text-gray-500">
-                      {{ blog.blog_publish_date }}
-                    </p>
-
-                    <a
-                      href="{{ blog.url }}"
-                      class="relative inline-block px-4 py-2 ml-auto overflow-hidden text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm"
-                    >
-                      <span
-                        class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"
-                      >
-                      </span>
-                      <span
-                        class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
-                      >
-                        Read More
-                      </span>
-                    </a>
-                  </div>
->>>>>>> frontend
                 </div>
               </div>
-              {% empty %}
-              <p>No blog posts available</p>
-              {% endfor %}
             </div>
+            {% empty %}
+            <p>No blog posts available</p>
+            {% endfor %}
           </div>
         </div>
-
-        <!-- Pagination -->
-        <div class="flex justify-center mt-12">
-          <c-components.paginator :object="blogs" />
-        </div>
       </div>
-    </main>
-  </div>
-</div>
-{% endblock content %}
+  
+      <!-- Pagination -->
+      <div class="flex justify-center mt-12">
+        <c-components.paginator :object="blogs" />
+      </div>
+    </div>
+  </main>
+  {% endblock content %}

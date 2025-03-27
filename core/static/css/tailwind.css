@@ -1838,7 +1838,6 @@ select {
   width: 100vw;
 }
 
-<<<<<<< HEAD
 
 .w-\[80\] {
   width: 80;
@@ -1852,8 +1851,6 @@ select {
   width: 60%;
 }
 
-=======
->>>>>>> frontend
 .min-w-\[100px\] {
   min-width: 100px;
 }
@@ -3692,13 +3689,7 @@ select {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-<<<<<<< HEAD
   
-=======
-  .lg\:flex-row {
-    flex-direction: row;
-  }
->>>>>>> frontend
 
   .lg\:space-y-8 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-y-reverse: 0;
@@ -3849,7 +3840,6 @@ select {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
-<<<<<<< HEAD
 
   .xl\:text-3xl {
     font-size: 1.875rem;
@@ -3873,8 +3863,6 @@ select {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-=======
->>>>>>> frontend
 }
 
 @media (min-width: 1536px) {
