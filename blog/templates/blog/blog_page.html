@@ -1,22 +1,21 @@
 {% extends 'base.html' %} {% load wagtailimages_tags %} {% load wagtailcore_tags
   %} {% block navbar %}
-  <c-components.navbar backgroundcolor="red-800" />
+  <c-components.navbar  />
   {% endblock navbar %} {% block content %}
-  <div class="overflow-hidden bg-gray-100 ">
-    <div class="pt-20 min-h-[100vh] m-4 ">
-      <hr class="w-full border-gray-500 border-t-1" />
+  <div class="overflow-hidden " style="background-color: #f7fafc;">
+   
   <main
-    class="min-h-screen -mt-10 bg-gradient-to-br lg:mt-0 from-gray-100 to-gray-200"
+    class="min-h-screen lg:mt-0"
   >
-    <div class="container mx-auto max-w-[1440px] px-6 py-20">
+    <div class="container mx-auto max-w-[1440px] px-20 py-10 ">
       <!-- Page Header -->
       <div class="mt-20 mb-10 text-center">
         <!-- <h1 class="text-[40px] text-center mb-4 font-bold text-red-800"> -->
-        <h1
-          class="text-3xl font-bold text-center hover:text-black text-[#991b1b] transition-colors duration-700"
+        <h2
+          class="text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] font-bold text-center  text-[#991b1b] transition-colors duration-700"
         >
           <span class="decoration-[#991b1b]">BLOGS</span>
-        </h1>
+        </h2>
         <p
           class="text-gray-500 hover:text-[#991b1b] hover:underline text-lg mt-2"
         >
@@ -57,7 +56,7 @@
         <!-- Blog Posts Section -->
         <div class="flex-1">
           <!-- Blog Grid (3 Columns × 2 Rows) -->
-          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 ">
             {% for blog in blogs|slice:":6" %} {% image blog.blog_cover_image
             width-400 as cover %}
             <div
@@ -69,30 +68,22 @@
                 class="w-full h-[220px] object-cover"
               />
               <div class="p-6">
-                <h3 class="mb-2 text-2xl font-bold">{{ blog.title }}</h3>
-                <p class="text-gray-600 line-clamp-3">
-                  {{ blog.specific.intro }}
-                </p>
-  
-                <div class="flex mt-2">
-                  <p class="mt-3 text-sm text-gray-500">
+                <div class="h-[5rem]"><h3 class="mb-2 text-2xl font-bold ">{{ blog.title }}</h3></div>
+                
+
+                <div class=" flex justify-between mt-4">
+                  <p class=" text-sm text-gray-500">
                     {{ blog.blog_publish_date }}
                   </p>
-  
-                  <a
-                    href="{{ blog.url }}"
-                    class="relative inline-block px-4 py-2 ml-auto overflow-hidden text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm"
-                  >
-                    <span
-                      class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"
-                    >
-                    </span>
-                    <span
-                      class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
-                    >
-                      Read More
-                    </span>
-                  </a>
+                    <a href="{{ blog.url }}" class="relative inline-flex items-center justify-center overflow-hidden text-xs font-medium transition-all group ">
+                      <!-- Underline that appears on hover -->
+                      <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"></span>
+                    
+                      <span class="relative w-full text-center text-red-700 transition-colors duration-300 ease-in-out">
+                        Read More <i class="fa fa-arrow-right"></i>
+                      </span>
+                    </a>
+                 
                 </div>
               </div>
             </div>

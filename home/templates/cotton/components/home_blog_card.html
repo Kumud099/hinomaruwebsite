@@ -17,29 +17,30 @@
   <body>
     <div class="container px-4 py-12 mx-auto sm:px-6 md:px-8 lg:px-10 xl:px-16">
       <!-- Swiper Container (Fixed Width, Single Row) -->
-      <div class="relative swiper mySwiper">
+      <div class="relative swiper mySwiper ">
         <!-- Swiper Wrapper -->
-        <div class="swiper-wrapper border-1 rounded-xl">
+        <div class="swiper-wrapper border-1 ">
           {% for blog in blogs %}
           <a
             href="{{ blog.url }}"
-            class="space-y-4 bg-white border-2 border-gray-300 rounded-md shadow-md hover:border-red-500 swiper-slide"
+            class="space-y-4 bg-white border-2 border-gray-300 shadow-md hover:border-red-500 swiper-slide rounded-2xl"
           >
             <!-- Blog Image with Hover Effect -->
-            <div class="relative p-4">
-              <div class="image-container">
+            <div class="relative ">
+              <div class="image-container rounded-t-xl">
+              
                 <!-- image -->
                 {% image blog.blog_cover_image width-400 as blog_cover %}
                 <img
                   src="{{ blog_cover.url }}"
                   alt="Blog Image"
-                  class="object-cover h-64 rounded-md"
+                  class="object-cover h-64 "
                 />
-                <div class="image-overlay"></div>
+                <div class="image-overlay  "></div>
               </div>
             </div>
 
-            <div class="px-4">
+            <div class="px-4 py-6 mt-2">
               <h3 class="-mt-5 text-xl font-bold">
                 {% with blog.blog_title.split as words %}
                 <span class="text-[#F44336]">{{ words.0 }}</span>
@@ -49,15 +50,15 @@
                 {% endwith %}
               </h3>
 
-              <p class="mb-5 text-gray-500">
+              <p class=" text-gray-500">
                 {{ blog.blog_description | truncatewords:9 }}
               </p>
 
               <!-- for tags if any nlog have -->
               {% if blog.categories.all %}
-              <div class="flex gap-2 mb-3 -mt-4">
+              <div class="flex  mt-1">
                 {% for category in blog.categories.all %}
-                <span class="px-2 py-1 text-red-500 bg-red-100 rounded"
+                <span class="px-2 mx-1 py-1 text-red-500 bg-red-100 rounded"
                   >{{ category.name }}</span
                 >
                 {% endfor %}
@@ -134,7 +135,7 @@
 
       .swiper-wrapper {
         display: flex;
-        gap: 20px;
+        
       }
 
       /* Swiper Navigation Buttons */
@@ -177,7 +178,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         new Swiper(".mySwiper", {
           slidesPerView: "auto", // Ensure slides fit their defined width
-          spaceBetween: 30, // Adjust space between slides
+          spaceBetween: 20, // Adjust space between slides
           loop: true, // Enable infinite loop
           navigation: {
             nextEl: ".swiper-button-next",

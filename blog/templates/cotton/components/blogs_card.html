@@ -143,9 +143,9 @@
 
               <!-- for tags if any nlog have -->
               {% if blog.categories.all %}
-              <div class="flex gap-2 mb-3 -mt-4">
+              <div class="flex gap-2  ">
                 {% for category in blog.categories.all %}
-                <span class="px-2 py-1 text-red-500 bg-red-100 rounded"
+                <span class="px-2  text-red-500 bg-red-100 rounded"
                   >{{ category.name }}</span
                 >
                 {% endfor %}

@@ -6,6 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+
+ 
         hyello: {
           950: "#D2A354",
         },
