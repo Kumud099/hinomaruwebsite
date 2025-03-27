@@ -74,27 +74,26 @@ gsap.from(".about-us", {
   },
 });
 
-let scrollingText = document.getElementById("scrollingText");
-let textWidth = scrollingText.offsetWidth;
+document.addEventListener("DOMContentLoaded", function () {
+  let scrollingText = document.getElementById("scrollingText");
+  
+  // Duplicate the content to make it appear seamless
+  let duplicateContent = scrollingText.innerHTML;
+  scrollingText.innerHTML += duplicateContent + duplicateContent; // Tripled for a smoother loop
 
-gsap.to(scrollingText, {
-  x: -textWidth, // Moves text to the left by its full width
-  duration: 10, // Adjust the speed of the scrolling (larger = slower)
-  ease: "linear", // Ensures constant speed
-  repeat: -1, // Infinite loop
-  onRepeat: () => {
-    // On each repeat, reset position for seamless scroll
-    scrollingText.style.transition = "none";
-    scrollingText.style.transform = "translateX(0)";
-    // Re-enable GSAP animation after reset
-    gsap.to(scrollingText, {
-      x: -textWidth, // Move again
-      duration: 10,
-      ease: "linear",
-      repeat: -1,
-    });
-  },
+  let textWidth = scrollingText.scrollWidth / 2; // Since we tripled it
+
+  gsap.to(scrollingText, {
+    x: -textWidth, // Moves left by one segment
+    duration: 30, // Adjust speed (higher = slower)
+    ease: "linear",
+    repeat: -1, // Infinite loop
+    modifiers: {
+      x: gsap.utils.wrap(-textWidth, 0), // Ensures seamless loop
+    },
+  });
 });
+
 
 // lenis
 lenis.on("scroll", ScrollTrigger.update);
@@ -183,46 +182,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // Create custom cursor
 const cursor = document.createElement("div");
-cursor.classList.add("custom-cursor");
+
 document.body.appendChild(cursor);
 
 const servicesSection = document.querySelector("#services");
 
-// Show cursor only inside #services
-servicesSection.addEventListener("mouseenter", () => {
-  cursor.style.display = "block";
-});
 
-servicesSection.addEventListener("mouseleave", () => {
-  cursor.style.display = "none";
-});
 
-// Update cursor position only inside #services
-servicesSection.addEventListener("mousemove", (e) => {
-  cursor.style.left = `${e.clientX}px`;
-  cursor.style.top = `${e.clientY}px`;
-});
-document.querySelectorAll("#services .card").forEach((card) => {
-  card.addEventListener("mouseenter", () => {
-    cursor.textContent = "Click";
-    cursor.style.width = "50px";
-    cursor.style.height = "50px";
-    cursor.style.backgroundColor = "#d32f2f";
-    cursor.style.fontSize = "15px";
-    cursor.style.display = "flex";
-    cursor.style.alignItems = "center";
-    cursor.style.justifyContent = "center";
-    cursor.style.color = "white";
-    cursor.style.fontWeight = "600";
-    cursor.style.borderRadius = "50%";
-    cursor.style.boxShadow = "0px 0px 5px rgba(0,0,0,0.3)";
-  });
 
-  card.addEventListener("mouseleave", () => {
-    cursor.textContent = "";
-    cursor.style.width = "15px";
-    cursor.style.height = "15px";
-    cursor.style.backgroundColor = "#d32f2f";
-    cursor.style.boxShadow = "none";
-  });
-});
+

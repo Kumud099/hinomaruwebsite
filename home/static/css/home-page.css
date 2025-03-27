@@ -45,18 +45,6 @@ section {
   animation: slideInCircle 1.5s ease-out forwards;
 }
 
-.custom-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background-color: #f44336;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out;
-  z-index: 9999;
-  display: none;
-}
 
 /* Synccard border animation why us  */
 .cards-border {

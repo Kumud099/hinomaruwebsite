@@ -1,25 +1,29 @@
-{% extends 'base.html' %} {% block navbar %}
-<c-components.navbar />
-{% endblock navbar %} {% block content %}
-<div class=" overflow-hidden bg-gray-100">
-  <div class="pt-20 min-h-[100vh] m-4 ">
-    <hr class="w-full border-t-1 border-gray-500" />
-<main class="min-h-[100vh]">
-  <div class="p-20">
-    <h1 class="text-[40px] text-center mt-4 mb-4 font-bold text-red-800">
-      <span class="underline decoration-red-800">NEWS</span>
-    </h1>
-    <p class="text-[18px] text-center text-gray-600">
-      Page {{ request.GET.page|default:1 }}
-    </p>
+{% extends 'base.html' %} {% load wagtailimages_tags %} {% load wagtailcore_tags
+%} {% block navbar %} {% endblock navbar %} {% block content %}
+<div class="overflow-hidden bg-gray-100 radius-20px">
+  <c-components.navbar_fix />
 
-    {% for news_item in news %}
-    <c-components.news_card :news_item="news_item" />
-    {% endfor %}
+  <div class="min-h-[100vh] m-4 pt-4">
+    <main class="min-h-[100vh]">
+      <div class="p-20">
+        <h2
+          class="font-semibold text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] text-center items-center mx-auto"
+        >
+          NEWS
+        </h2>
+        <p class="text-[18px] text-center text-gray-600">
+          Page {{ request.GET.page|default:1 }}
+        </p>
 
-    <div class="max-w-6xl px-4 py-8 mx-auto">
-      <c-components.paginator :object="news" />
-    </div>
+        {% for news_item in news %}
+        <c-components.news_card :news_item="news_item" />
+        {% endfor %}
+
+        <div class="max-w-6xl px-4 py-8 mx-auto">
+          <c-components.paginator :object="news" />
+        </div>
+      </div>
+    </main>
   </div>
-</main>
+</div>
 {% endblock content %}

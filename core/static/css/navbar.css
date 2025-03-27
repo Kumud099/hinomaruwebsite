@@ -29,7 +29,7 @@
 #dropdown-menu {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s 0.2s, visibility 0.4s 0.4s;
+  transition: opacity 0.3s 0.2s, visibility 0.2s 0.2s;
 }
 
 #dropdown-menu:hover {
@@ -40,11 +40,11 @@
 #dropdown-menu:hover {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.4s, visibility 0.4s;
+  transition: opacity 0.3s, visibility 0.2s;
 }
 
 .dropdown-item {
-  transition: background-color 0.4s;
+  transition: background-color 0.3s;
 }
 
 .dropdown-item:hover {

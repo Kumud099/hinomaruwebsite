@@ -111,7 +111,7 @@
           {% for blog in blogs %}
           <a
             href="{{ blog.url }}"
-            class="space-y-4 bg-white border-2 border-gray-300 rounded-md shadow-md hover:border-red-500 swiper-slide"
+            class="space-y-4 bg-white border-2 border-gray-300 rounded-md shadow-md hover:border-red-700 swiper-slide"
           >
             <!-- Blog Image with Hover Effect -->
             <div class="relative p-4">
@@ -130,7 +130,7 @@
             <div class="px-4">
               <h3 class="-mt-5 text-xl font-bold">
                 {% with blog.blog_title.split as words %}
-                <span class="text-red-500">{{ words.0 }}</span>
+                <span class="text-[#991b1b]">{{ words.0 }}</span>
                 <span class="text-black"
                   >{{ words|slice:"1:"|join:" "|truncatewords:5 }}</span
                 >
