@@ -1419,10 +1419,6 @@ select {
   top: 100%;
 }
 
-.top-\[95\%\] {
-  top: 95%;
-}
-
 .z-0 {
   z-index: 0;
 }
@@ -1449,10 +1445,6 @@ select {
 
 .m-4 {
   margin: 1rem;
-}
-
-.m-auto {
-  margin: auto;
 }
 
 .mx-4 {
@@ -1531,10 +1523,6 @@ select {
   margin-bottom: 1.5rem;
 }
 
-.mb-7 {
-  margin-bottom: 1.75rem;
-}
-
 .mb-8 {
   margin-bottom: 2rem;
 }
@@ -1559,8 +1547,8 @@ select {
   margin-left: 1rem;
 }
 
-.ml-7 {
-  margin-left: 1.75rem;
+.ml-44 {
+  margin-left: 11rem;
 }
 
 .ml-9 {
@@ -1623,22 +1611,6 @@ select {
   margin-top: 1.5rem;
 }
 
-.ml-5 {
-  margin-left: 1.25rem;
-}
-
-.mr-5 {
-  margin-right: 1.25rem;
-}
-
-.ml-28 {
-  margin-left: 7rem;
-}
-
-.ml-44 {
-  margin-left: 11rem;
-}
-
 .line-clamp-3 {
   overflow: hidden;
   display: -webkit-box;
@@ -1685,10 +1657,6 @@ select {
 
 .h-16 {
   height: 4rem;
-}
-
-.h-40 {
-  height: 10rem;
 }
 
 .h-48 {
@@ -1783,10 +1751,6 @@ select {
   width: 6rem;
 }
 
-.w-40 {
-  width: 10rem;
-}
-
 .w-48 {
   width: 12rem;
 }
@@ -1819,6 +1783,10 @@ select {
   width: 30px;
 }
 
+.w-\[80\%\] {
+  width: 80%;
+}
+
 .w-auto {
   width: auto;
 }
@@ -1836,32 +1804,12 @@ select {
   width: 100vw;
 }
 
-.w-\[\] {
-  width: ;
-}
-
-.w-\[80\] {
-  width: 80;
-}
-
-.w-\[80\%\] {
-  width: 80%;
-}
-
-.w-\[60\%\] {
-  width: 60%;
-}
-
 .min-w-\[100px\] {
   min-width: 100px;
 }
 
 .min-w-full {
   min-width: 100%;
-}
-
-.min-w-\[80\%\] {
-  min-width: 80%;
 }
 
 .max-w-2xl {
@@ -1878,6 +1826,10 @@ select {
 
 .max-w-8\.5xl {
   max-width: 96rem;
+}
+
+.max-w-\[100\%\] {
+  max-width: 100%;
 }
 
 .max-w-\[1400px\] {
@@ -1919,18 +1871,6 @@ select {
 
 .max-w-none {
   max-width: none;
-}
-
-.max-w-\[92\%\] {
-  max-width: 92%;
-}
-
-.max-w-\[100\] {
-  max-width: 100;
-}
-
-.max-w-\[100\%\] {
-  max-width: 100%;
 }
 
 .flex-1 {
@@ -2036,6 +1976,10 @@ select {
   justify-content: space-between;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
 .gap-12 {
   gap: 3rem;
 }
@@ -2062,14 +2006,6 @@ select {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-9 {
-  gap: 2.25rem;
-}
-
-.gap-10 {
-  gap: 2.5rem;
 }
 
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
@@ -2307,11 +2243,6 @@ select {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-slate-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
-}
-
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
@@ -2478,11 +2409,6 @@ select {
   padding-bottom: 2rem;
 }
 
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -2638,10 +2564,6 @@ select {
 
 .font-bold {
   font-weight: 700;
-}
-
-.font-extrabold {
-  font-weight: 800;
 }
 
 .font-medium {
@@ -3012,10 +2934,6 @@ select {
   visibility: visible;
 }
 
-.group:hover .group-hover\:mb-28 {
-  margin-bottom: 7rem;
-}
-
 .group:hover .group-hover\:mb-32 {
   margin-bottom: 8rem;
 }
@@ -3268,11 +3186,6 @@ select {
     line-height: 2rem;
   }
 
-  .sm\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -3301,11 +3214,6 @@ select {
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .sm\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 
   .sm\:text-sm {
@@ -3588,10 +3496,6 @@ select {
     display: flex;
   }
 
-  .lg\:hidden {
-    display: none;
-  }
-
   .lg\:h-20 {
     height: 5rem;
   }
@@ -3736,6 +3640,10 @@ select {
     display: flex;
   }
 
+  .xl\:hidden {
+    display: none;
+  }
+
   .xl\:max-w-\[85\%\] {
     max-width: 85%;
   }
@@ -3745,14 +3653,9 @@ select {
     padding-right: 4rem;
   }
 
-  .xl\:px-1 {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
-
-  .xl\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+  .xl\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .xl\:text-7xl {
@@ -3770,16 +3673,6 @@ select {
 
   .xl\:text-lg {
     font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
-  .xl\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
-  .xl\:text-xl {
-    font-size: 1.25rem;
     line-height: 1.75rem;
   }
 }
@@ -3811,18 +3704,13 @@ select {
     padding-right: 6rem;
   }
 
-  .\32xl\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+  .\32xl\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .\32xl\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .\32xl\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 }
