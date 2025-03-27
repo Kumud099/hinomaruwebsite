@@ -1,167 +1,169 @@
 {% extends "base.html" %} {% load static %} {% load wagtailimages_tags %} {%
-block navbar %}
-<c-components.navbar_fix backgroundcolor="white" />
-{% endblock navbar %} {% block content %}
-
-<main
-  class="container mx-auto px-8 py-12 min-h-[100vh] flex flex-col justify-center items-center pt-20 mb-10"
->
-  <div class="w-full max-w-2xl">
-    <div class="mb-6">
-      {% if page.categories %}
-      <div class="flex justify-center">
-        <div
-          id="categories-links"
-          class="flex flex-wrap items-center gap-2 mt-4"
-        >
-          <p class="mt-6 text-gray-600">| {{ page.blog_publish_date }} |</p>
-          {% for category in page.categories.all %}
-          <span
-            class="px-4 py-2 mt-6 text-sm text-white bg-red-800 rounded-md shadow-md"
+block navbar %} {% endblock navbar %} {% block content %}
+<div class="overflow-hidden bg-gray-100">
+  <c-components.navbar_fix backgroundcolor="white" />
+  <main
+    class="container px-8 py-12 mx-auto min-h-[100vh] flex flex-col justify-center items-center"
+  >
+    <!-- class="container mx-auto px-8 py-12 min-h-[100vh] flex bg-gray-100 flex-col justify-center items-center pt-20 mb-10" -->
+    <div class="w-full max-w-2xl">
+      <div class="mb-6">
+        {% if page.categories %}
+        <div class="flex justify-center">
+          <div
+            id="categories-links"
+            class="flex flex-wrap items-center gap-2 mt-4"
           >
-            {{ category.name }}
+            <p class="mt-6 text-gray-600">| {{ page.blog_publish_date }} |</p>
+            {% for category in page.categories.all %}
+            <span
+              class="px-4 py-2 mt-6 text-sm text-white bg-red-800 rounded-md shadow-md"
+            >
+              {{ category.name }}
+            </span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+        <h2
+          class="mt-4 text-3xl font-bold text-center hover:text-[#991b1b] transition-colors duration-700"
+        >
+          {{ page.blog_title }}
+        </h2>
+        <p
+          class="mt-3 text-gray-600 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px]"
+        >
+          {{ page.blog_description }}
+        </p>
+      </div>
+
+      <div class="pb-5 mt-3 rounded">
+        {% image page.blog_cover_image fill-841x473 %}
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="w-full p-4 bg-gray-100 rounded-md">
+        <div class="flex items-center mb-2 space-x-2">
+          <span class="flex gap-2 text-lg font-semibold">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+              />
+            </svg>
+            Table of Contents
           </span>
-          {% endfor %}
+        </div>
+        <div id="toc-links" class="flex flex-wrap gap-2">
+          <!-- Links will be dynamically inserted here -->
         </div>
       </div>
-      {% endif %}
 
-      <h2
-        class="mt-4 text-3xl font-bold text-center hover:text-[#991b1b] transition-colors duration-700"
+      <div
+        class="pt-5 lg:space-y-8 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px] prose prose-slate"
       >
-        {{ page.blog_title }}
-      </h2>
-      <p
-        class="mt-3 text-gray-600 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px]"
+        {{ page.blog_body | safe }}
+      </div>
+    </div>
+  </main>
+  <!-- Circular Elements on Mobile (Horizontal) -->
+  <div class="flex items-center justify-center -mt-12 space-x-6 sm:hidden">
+    <div
+      class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
+    >
+      <img src="{% static 'images/facebook.svg' %}" alt="Facebook Icon" />
+    </div>
+    <div
+      class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
+    >
+      <img src="{% static 'images/x.svg' %}" alt="X Icon" />
+    </div>
+    <div
+      class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
+    >
+      <img src="{% static 'images/insta.svg' %}" alt="Instagram Icon" />
+    </div>
+  </div>
+
+  <!-- Blogs Section -->
+  <section class="mt-10 mb-20 overflow-hidden lg:-mt-6">
+    <div
+      class="flex flex-wrap items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
+    >
+      <h1
+        class="ml-20 text-3xl font-bold text-center text-red-700 transition-colors duration-700 hover:text-black"
       >
-        {{ page.blog_description }}
-      </p>
-    </div>
+        <span class="decoration-[#991b1b]">MORE BLOGS</span>
+      </h1>
 
-    <div class="pb-5 mt-3 rounded">
-      {% image page.blog_cover_image fill-841x473 %}
-    </div>
+      <a
+        href="/blogs"
+        class="relative inline-flex items-center justify-center mr-8 -mt-4 overflow-hidden text-xs font-medium transition-all group sm:text-sm xl:flex 2xl:flex"
+      >
+        <!-- Underline that appears on hover -->
+        <span
+          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"
+        ></span>
 
-    <!-- Table of Contents -->
-    <div class="w-full p-4 bg-gray-100 rounded-md">
-      <div class="flex items-center mb-2 space-x-2">
-        <span class="flex gap-2 text-lg font-semibold">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-            />
-          </svg>
-          Table of Contents
+        <span
+          class="relative w-full text-center text-red-700 transition-colors duration-300 ease-in-out"
+        >
+          View All Blogs <i class="fa fa-arrow-right"></i>
         </span>
-      </div>
-      <div id="toc-links" class="flex flex-wrap gap-2">
-        <!-- Links will be dynamically inserted here -->
-      </div>
+      </a>
     </div>
 
     <div
-      class="pt-5 lg:space-y-8 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px] prose prose-slate"
+      class="flex justify-center flex-wrap h-[540px] w-full"
+      id="blog-container"
     >
-      {{ page.blog_body | safe }}
+      {% if blogs %} {% for blog in blogs %}
+      <c-components.home-blog-card :blog="blog" class="border" />
+      {% endfor %} {% else %}
+      <p>No blogs available</p>
+      {% endif %}
     </div>
-  </div>
-</main>
-<!-- Circular Elements on Mobile (Horizontal) -->
-<div class="flex items-center justify-center -mt-12 space-x-6 sm:hidden">
-  <div
-    class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
-  >
-    <img src="{% static 'images/facebook.svg' %}" alt="Facebook Icon" />
-  </div>
-  <div
-    class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
-  >
-    <img src="{% static 'images/x.svg' %}" alt="X Icon" />
-  </div>
-  <div
-    class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
-  >
-    <img src="{% static 'images/insta.svg' %}" alt="Instagram Icon" />
-  </div>
-</div>
+  </section>
 
-<!-- Blogs Section -->
-<section class="mt-10 mb-20 overflow-hidden lg:-mt-6">
+  <!-- Fixed Circular Elements on Larger Screens -->
   <div
-    class="flex flex-wrap items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
+    class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
   >
-    <h2
-      class="font-semibold text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
-    >
-      MORE BLOGS
-    </h2>
-
-    <a
-      href="/blogs"
-      class="relative inline-flex items-center justify-center px-4 py-2 mr-6 overflow-hidden text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm xl:flex 2xl:flex"
-    >
-      <span
-        class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"
-      >
-      </span>
-      <span
-        class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
-      >
-        View All Blogs <i class="fa fa-angle-right"></i>
-      </span>
-    </a>
+    <img
+      src="{% static 'images/facebook.svg' %}"
+      alt="Facebook Icon"
+      class="object-contain w-full h-full"
+    />
   </div>
 
   <div
-    class="flex justify-center flex-wrap h-[540px] w-full"
-    id="blog-container"
+    class="fixed right-6 top-[400px] sm:top-[450px] md:top-[500px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
   >
-    {% if blogs %} {% for blog in blogs %}
-    <c-components.home-blog-card :blog="blog" class="border" />
-    {% endfor %} {% else %}
-    <p>No blogs available</p>
-    {% endif %}
+    <img
+      src="{% static 'images/x.svg' %}"
+      alt="X Icon"
+      class="object-contain w-full h-full"
+    />
   </div>
-</section>
 
-<!-- Fixed Circular Elements on Larger Screens -->
-<div
-  class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
->
-  <img
-    src="{% static 'images/facebook.svg' %}"
-    alt="Facebook Icon"
-    class="object-contain w-full h-full"
-  />
-</div>
-
-<div
-  class="fixed right-6 top-[400px] sm:top-[450px] md:top-[500px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
->
-  <img
-    src="{% static 'images/x.svg' %}"
-    alt="X Icon"
-    class="object-contain w-full h-full"
-  />
-</div>
-
-<div
-  class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
->
-  <img
-    src="{% static 'images/insta.svg' %}"
-    alt="Instagram Icon"
-    class="object-contain w-full h-full"
-  />
+  <div
+    class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
+  >
+    <img
+      src="{% static 'images/insta.svg' %}"
+      alt="Instagram Icon"
+      class="object-contain w-full h-full"
+    />
+  </div>
 </div>
 
 {% endblock content %} {% block extra_js %}
