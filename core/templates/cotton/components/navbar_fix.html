@@ -1,6 +1,6 @@
 <!-- Navbar -->
 {% load static %}
-<nav id="navbar" class="fixed top-0 left-0 z-50 w-full -mb-10">
+<nav id="navbar" class="top-0 left-0 w-full -mb-10 shadow-md">
   <div class="flex items-center justify-between px-6">
     <!-- Logo -->
     <div class="flex items-center">
@@ -46,9 +46,13 @@
           SERVICES
         </button>
 
-        <div
+        <!-- <div
           id="dropdown-menu"
           class="absolute left-0 w-screen grid-cols-4 transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 top-full group-hover:opacity-100"
+        > -->
+        <div
+          id="dropdown-menu"
+          class="absolute left-0 w-screen grid-cols-4 transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 group-hover:opacity-100"
         >
           <div
             class="w-[80%] ml-44 flex flex-wrap justify-center gap-10 text-center"
@@ -221,5 +225,5 @@
 </nav>
 
 <!-- End of Navbar -->
-<link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
 <script src="{% static 'js/navbar.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
