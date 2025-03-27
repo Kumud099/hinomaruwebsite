@@ -26,7 +26,7 @@ hamburgerButton.addEventListener("click", function () {
     setTimeout(() => {
       menu.classList.add("hidden");
       navbar.classList.remove("bg-white");
-    }, 1000); // Wait for animation duration
+    }, 30); // Wait for animation duration
   }
 });
 
@@ -37,4 +37,3 @@ servicesBtn.addEventListener("mouseover", function () {
 servicesBtn.addEventListener("mouseout", function () {
   document.getElementById("navbar").classList.remove("bg-white", "shadow-lg");
 });
-

@@ -23,7 +23,7 @@
     <!-- Menu Button (Hamburger) for mobile screens -->
     <button
       id="hamburger"
-      class="flex items-center justify-center text-red-700 border-2 border-red-700 rounded-full lg:hidden bg-red-2 w-9 h-9"
+      class="flex items-center justify-center text-red-700 border-2 border-red-700 rounded-full xl:hidden bg-red-2 w-9 h-9"
     >
       <span id="hamburger-icon" class="pb-1 text-2xl">&#9776;</span>
     </button>
@@ -32,12 +32,11 @@
     <div
       class="justify-center flex-1 hidden space-x-6 text-xs text-red-700 xl:flex 2xl:flex sm:text-xs md:text-xs lg:text-sm xl:text-lg 2xl:text-xl"
     >
-      <a
-        href="{% url 'home' %}"
+      <div
         class="px-3 py-8 hover:text-red-800 font-bold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
       >
-        HOME
-      </a>
+        <a href="{% url 'home' %}" class=""> HOME </a>
+      </div>
 
       <!-- Services Button (Keep Inside the Relative Wrapper) -->
       <div id="services-btn" class="group">
@@ -90,12 +89,11 @@
         </div>
       </div>
 
-      <a
-        href="{% url 'home' %}#aboutUsContainer"
+      <div
         class="px-3 py-8 hover:text-red-800 font-bold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
       >
-        ABOUT US
-      </a>
+        <a href="{% url 'home' %}#aboutUsContainer"> ABOUT US </a>
+      </div>
     </div>
 
     <!-- Contact Us Button (Right Aligned, Hidden on screens < 1200px) -->
@@ -206,22 +204,22 @@
     <div class="flex justify-center w-full">
       <a
         href="/contact-us"
-        class="relative inline-flex items-center justify-center px-4 py-2 overflow-hidden font-medium transition-all bg-black rounded-full hover:bg-orange-400 group"
+        class="relative inline-flex items-center justify-center px-4 py-2 overflow-hidden text-sm font-medium transition-all bg-black rounded-full group sm:text-base xl:flex 2xl:flex"
       >
         <span
-          class="w-40 h-40 rounded-full rotate-[-40deg] bg-orange-400 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-7 ml-7 group-hover:ml-0 group-hover:mb-28 group-hover:translate-x-0"
-        ></span>
-        <span
-          class="relative w-full text-xs text-center text-white transition-colors duration-300 ease-in-out sm:text-sm group-hover:text-black"
+          class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-500 group-hover:scale-x-100"
         >
-          <i class="text-base fas fa-envelope sm:text-lg"></i>
+        </span>
+        <span
+          class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
+        >
           Contact us
         </span>
       </a>
     </div>
   </div>
 </nav>
+
 <!-- End of Navbar -->
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
 <script src="{% static 'js/navbar.js' %}"></script>
-<style></style>
