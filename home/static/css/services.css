@@ -1,10 +1,10 @@
 /* Home-page Services */
 @keyframes scrollText {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
@@ -13,36 +13,45 @@
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
+  position: relative;
 }
 
-/* Style for scrolling text */
+/* Scrolling text (duplicated for seamless effect) */
 #scrollingText {
   display: inline-block;
-  animation: scrollText 15s linear infinite;
+  animation: scrollText 30s linear infinite;
+  white-space: nowrap;
+}
+
+/* Ensure duplication for a continuous effect */
+#scrollingText::after {
+  content: attr(data-text) " " attr(data-text);
+  display: inline-block;
 }
 
 /* Adjust speed and font size for smaller screens */
 @media (max-width: 600px) {
   #scrollingText {
-    animation-duration: 15s; /* Increase speed on small screens */
+    animation-duration: 25s; /* Increase speed on small screens */
     font-size: 14px; /* Adjust text size */
   }
 }
 
-/* Media query for screen sizes Surface Pro 7 */
+/* Media query for Surface Pro 7 */
 @media (min-width: 912px) and (max-width: 915px) {
   #services {
     margin-top: -70% !important;
   }
 }
 
-/* Media query for 414  */
+/* Media query for 414px width */
 @media (min-width: 414px) and (max-width: 416px) {
   #services {
     margin-top: -15% !important;
   }
 }
 
+/* Media query for 390px - 400px width */
 @media (min-width: 390px) and (max-width: 400px) {
   #services {
     margin-top: -5% !important;

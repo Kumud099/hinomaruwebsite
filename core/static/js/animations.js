@@ -74,27 +74,26 @@ gsap.from(".about-us", {
   },
 });
 
-let scrollingText = document.getElementById("scrollingText");
-let textWidth = scrollingText.offsetWidth;
+document.addEventListener("DOMContentLoaded", function () {
+  let scrollingText = document.getElementById("scrollingText");
+  
+  // Duplicate the content to make it appear seamless
+  let duplicateContent = scrollingText.innerHTML;
+  scrollingText.innerHTML += duplicateContent + duplicateContent; // Tripled for a smoother loop
 
-gsap.to(scrollingText, {
-  x: -textWidth, // Moves text to the left by its full width
-  duration: 10, // Adjust the speed of the scrolling (larger = slower)
-  ease: "linear", // Ensures constant speed
-  repeat: -1, // Infinite loop
-  onRepeat: () => {
-    // On each repeat, reset position for seamless scroll
-    scrollingText.style.transition = "none";
-    scrollingText.style.transform = "translateX(0)";
-    // Re-enable GSAP animation after reset
-    gsap.to(scrollingText, {
-      x: -textWidth, // Move again
-      duration: 10,
-      ease: "linear",
-      repeat: -1,
-    });
-  },
+  let textWidth = scrollingText.scrollWidth / 2; // Since we tripled it
+
+  gsap.to(scrollingText, {
+    x: -textWidth, // Moves left by one segment
+    duration: 30, // Adjust speed (higher = slower)
+    ease: "linear",
+    repeat: -1, // Infinite loop
+    modifiers: {
+      x: gsap.utils.wrap(-textWidth, 0), // Ensures seamless loop
+    },
+  });
 });
+
 
 // lenis
 lenis.on("scroll", ScrollTrigger.update);
