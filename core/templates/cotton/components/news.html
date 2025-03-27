@@ -32,7 +32,7 @@ id="news">
     </div>
       </div>
   <div class="2xl:mx-24 mx-10 lg:mx-24 sm:mx-10">
-      <div class="  sm:mx-0 hover:cursor-pointer lg:px-30 mt-10 min-h-[500px] xl:min-h-[350px] 2xl:min-h-[350px]">
+      <div class="   hover:cursor-pointer lg:px-30 mt-10 min-h-[500px]  xl:min-h-[350px] 2xl:min-h-[350px]" id="news_container">
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
           {% for news in list_of_news %}
           <a href="{{news.url}}">
@@ -76,9 +76,9 @@ id="news">
   </div>
   </section>
   <style>
-    @media (min-width: 640px) and (max-width: 1023px) {
-  #news {
-    margin-left: 20px;
-    margin-right: 20px;
-  }}
+    @media (min-width: 640px) and (max-width: 1279px) {
+      #news_container {
+        min-height: 350px !important;
+      }
+    }
   </style>
