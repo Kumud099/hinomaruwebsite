@@ -23,12 +23,14 @@
     <!-- Menu Button (Hamburger) for mobile screens -->
     <button
   id="hamburger"
-  class="flex flex-col items-start justify-center gap-2 text-red-700 xl:hidden w-20 h-20"
+  class="flex flex-col items-start justify-center gap-1 md:gap-1.5 text-red-700 xl:hidden w-8 h-20"
 >
-  <span class="block bg-red-700" style="width: 30px; height: 3.5px;"></span>
-  <span class="block bg-red-700" style="width: 24px; height: 3.5px;"></span>
-  <span class="block bg-red-700" style="width: 18px; height: 3.5px;"></span>
+  <span class=" bg-red-700  w-8 h-[2px] sm:h-[2.5px] md:h-[3.5px]"></span>
+   <span class=" bg-red-700  w-7 mt-1 h-[2px] sm:h-[2.5px] md:h-[3.5px]"></span>
+   <span class=" bg-red-700  w-6 mt-1 h-[2px] sm:h-[2.5px] md:h-[3.5px]"></span>
+   
 </button>
+
 
     <!-- Desktop Navigation (Visible only on 2xl and xl screens) -->
     <div
@@ -227,5 +229,5 @@
 </nav>
 
 <!-- End of Navbar -->
-<script src="{% static 'js/navbar.js' %}"></script>
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+<script src="{% static 'js/navbar.js' %}"></script>
