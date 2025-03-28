@@ -1,147 +1,165 @@
 {% extends 'base.html' %} {% load wagtailimages_tags %} {% load static %} {%
-block navbar %}
-<c-components.navbar_fix backgroundcolor="white" />
-{% endblock navbar %} {% block content %}
-<main class="container flex flex-col items-center px-8 py-12 pt-20 mx-auto">
-  <div class="w-full max-w-2xl">
-    <div class="mb-6">
-      <p class="mt-6 text-center text-gray-600">{{page.news_publish_date}}</p>
-      <h2
-        class="mt-4 text-3xl font-bold text-center hover:text-[#991b1b] transition-colors duration-700"
-      >
-        {{page.news_title}}
-      </h2>
-    </div>
-
-    <div
-      class="mt-4 lg:space-y-8 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px] prose prose-slate"
-    >
-      {{page.news_body | safe}}
-    </div>
-  </div>
-</main>
-<!-- Circular Elements on Mobile (Horizontal) -->
-<div class="flex items-center justify-center -mt-5 space-x-6 sm:hidden">
-  <div
-    class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
+block navbar %} {% endblock navbar %} {% block content %}
+<div class="overflow-hidden bg-gray-100">
+  <c-components.navbar_fix backgroundcolor="white" />
+  <main
+    class="container flex flex-col -mt-4 items-center px-8 py-12 pt-20 mx-auto"
   >
-    <img src="{% static 'images/facebook.svg' %}" alt="Facebook Icon" />
-  </div>
-  <div
-    class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
-  >
-    <img src="{% static 'images/x.svg' %}" alt="X Icon" />
-  </div>
-  <div
-    class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
-  >
-    <img src="{% static 'images/insta.svg' %}" alt="Instagram Icon" />
-  </div>
-</div>
-
-<!-- News Section -->
-<section class="relative mt-10 mb-20 overflow-hidden lg:-mt-6">
-  <div class="pb-16">
-    <div class="flex items-center justify-between">
-      <h2
-        class="font-semibold mb-6 text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
-      >
-        MORE NEWS
-      </h2>
-
-      <!-- news -->
-      <a
-        href="/announcements"
-        class="relative inline-flex items-center justify-center px-4 py-2 mr-4 overflow-hidden text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm xl:flex 2xl:flex"
-      >
-        <span
-          class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"
+    <div class="w-full max-w-2xl">
+      <div class="mb-6">
+        <p class="mt-6 text-center text-gray-600">{{page.news_publish_date}}</p>
+        <h2
+          class="mt-4 text-3xl font-bold text-center hover:text-[#991b1b] transition-colors duration-700"
         >
-        </span>
-        <span
-          class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
-        >
-          View All News <i class="fa fa-angle-right"></i>
-        </span>
-      </a>
-    </div>
+          {{page.news_title}}
+        </h2>
+      </div>
 
-    <div class="px-4 hover:cursor-pointer lg:px-12">
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-        {% for news in list_of_news %}
-        <a href="{{news.url}}">
-          <div
-            class="overflow-hidden transition-all duration-300 transform bg-white rounded-lg shadow-md hover:scale-105 group"
-          >
-            <hr
-              class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500"
-            />
-
-            <div class="p-4 space-y-3">
-              <div class="text-xs font-semibold text-red-500">
-                {{news.news_publish_date}}
-              </div>
-              <div
-                class="text-lg font-bold leading-tight text-gray-800 truncate"
-              >
-                {{news.news_title}}
-              </div>
-            </div>
-
-            <div
-              class="absolute transition-transform duration-300 transform -translate-y-1/2 group-hover:translate-x-2 top-1/2 right-4"
-            >
-              <img
-                src="/static/images/arrow.svg"
-                alt="Arrow"
-                class="w-6 h-6 group-hover:hidden"
-              />
-              <span
-                class="hidden w-8 h-8 text-xl text-gray-800 group-hover:text-red-500 group-hover:block"
-                >→</span
-              >
-            </div>
-
-            <hr
-              class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500"
-            />
-          </div>
-        </a>
-        {% endfor %}
+      <div
+        class="mt-4 lg:space-y-8 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px] prose prose-slate"
+      >
+        {{page.news_body | safe}}
       </div>
     </div>
+  </main>
+  <!-- Circular Elements on Mobile (Horizontal) -->
+  <div class="flex items-center justify-center -mt-5 space-x-6 sm:hidden">
+    <div
+      class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
+    >
+      <img src="{% static 'images/facebook.svg' %}" alt="Facebook Icon" />
+    </div>
+    <div
+      class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
+    >
+      <img src="{% static 'images/x.svg' %}" alt="X Icon" />
+    </div>
+    <div
+      class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
+    >
+      <img src="{% static 'images/insta.svg' %}" alt="Instagram Icon" />
+    </div>
   </div>
-</section>
 
-<!-- Fixed Circular Elements on Larger Screens -->
-<div
-  class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
->
-  <img
-    src="{% static 'images/facebook.svg' %}"
-    alt="Facebook Icon"
-    class="object-contain w-full h-full"
-  />
-</div>
+  <!-- News Section -->
+  <section class="relative mt-10 mb-20 overflow-hidden lg:-mt-6">
+    <div class="pb-16">
+      <div class="flex items-center justify-between">
+        <h1
+          class="text-3xl ml-12 mb-12 font-bold text-center text-red-700 transition-colors duration-700 hover:text-black"
+        >
+          <span class="decoration-[#991b1b]">MORE NEWS</span>
+        </h1>
 
-<div
-  class="fixed right-6 top-[400px] sm:top-[450px] md:top-[500px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
->
-  <img
-    src="{% static 'images/x.svg' %}"
-    alt="X Icon"
-    class="object-contain w-full h-full"
-  />
-</div>
+        <!-- news -->
+        <!-- <a
+          href="/announcements"
+          class="relative inline-flex items-center justify-center px-4 py-2 mr-4 overflow-hidden text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm xl:flex 2xl:flex"
+        >
+          <span
+            class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"
+          >
+          </span>
+          <span
+            class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
+          >
+            View All News <i class="fa fa-angle-right"></i>
+          </span>
+        </a> -->
+        <a
+          href="/announcements"
+          class="relative inline-flex items-center justify-center mr-14 -mt-4 overflow-hidden text-xs font-medium transition-all group sm:text-sm xl:flex 2xl:flex"
+        >
+          <!-- Underline that appears on hover -->
+          <span
+            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"
+          ></span>
 
-<div
-  class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
->
-  <img
-    src="{% static 'images/insta.svg' %}"
-    alt="Instagram Icon"
-    class="object-contain w-full h-full"
-  />
+          <span
+            class="relative w-full text-center text-red-700 transition-colors duration-300 ease-in-out"
+          >
+            View All News <i class="fa fa-arrow-right"></i>
+          </span>
+        </a>
+      </div>
+
+      <div class="px-4 hover:cursor-pointer lg:px-12">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+          {% for news in list_of_news %}
+          <a href="{{news.url}}">
+            <div
+              class="overflow-hidden transition-all duration-300 transform bg-white rounded-lg shadow-md hover:scale-105 group"
+            >
+              <hr
+                class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500"
+              />
+
+              <div class="p-4 space-y-3">
+                <div class="text-xs font-semibold text-red-500">
+                  {{news.news_publish_date}}
+                </div>
+                <div
+                  class="text-lg font-bold leading-tight text-gray-800 truncate"
+                >
+                  {{news.news_title}}
+                </div>
+              </div>
+
+              <div
+                class="absolute transition-transform duration-300 transform -translate-y-1/2 group-hover:translate-x-2 top-1/2 right-4"
+              >
+                <img
+                  src="/static/images/arrow.svg"
+                  alt="Arrow"
+                  class="w-6 h-6 group-hover:hidden"
+                />
+                <span
+                  class="hidden w-8 h-8 text-xl text-gray-800 group-hover:text-red-500 group-hover:block"
+                  >→</span
+                >
+              </div>
+
+              <hr
+                class="border-t-2 border-gray-200 group-hover:border-t-2 group-hover:border-red-500"
+              />
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fixed Circular Elements on Larger Screens -->
+  <div
+    class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
+  >
+    <img
+      src="{% static 'images/facebook.svg' %}"
+      alt="Facebook Icon"
+      class="object-contain w-full h-full"
+    />
+  </div>
+
+  <div
+    class="fixed right-6 top-[400px] sm:top-[450px] md:top-[500px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
+  >
+    <img
+      src="{% static 'images/x.svg' %}"
+      alt="X Icon"
+      class="object-contain w-full h-full"
+    />
+  </div>
+
+  <div
+    class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
+  >
+    <img
+      src="{% static 'images/insta.svg' %}"
+      alt="Instagram Icon"
+      class="object-contain w-full h-full"
+    />
+  </div>
 </div>
 
 {% endblock content %}
