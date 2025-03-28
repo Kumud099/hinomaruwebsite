@@ -128,7 +128,7 @@ block navbar %} {% endblock navbar %} {% block content %}
       id="blog-container"
     >
       {% if blogs %} {% for blog in blogs %}
-      <c-components.home-blog-card :blog="blog" class="border" />
+      <c-components.blogs-card :blog="blog" class="border" />
       {% endfor %} {% else %}
       <p>No blogs available</p>
       {% endif %}

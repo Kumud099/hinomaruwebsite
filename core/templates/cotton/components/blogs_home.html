@@ -1,14 +1,15 @@
 <!-- BLOG SECTION IN HOME -->
 {% load static %}
-<section class="pt-5 pb-10 bg-white sm:px-2  lg:px-0 xl:px-8">
+<section class="pt-5 pb-10 bg-white sm:px-2 lg:px-0 xl:px-8">
   <div class="pb-5 sm:pb-4 md:pb-5 lg:pb-5">
     <div class="flex items-center justify-between">
-      <h2 class="font-semibold text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] text-center items-center mx-auto">
+      <h2
+        class="font-semibold text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] text-center items-center mx-auto"
+      >
         BLOGS
       </h2>
-      
     </div>
-      
+
     <div class="flex items-center justify-center w-full px-4">
       <p class="text-center text-lg text-gray-700 mt-4 mx-auto w-max">
         Exploring the Future of IT: Innovations Shaping the Tech World
@@ -16,25 +17,31 @@
     </div>
 
     <div class="flex justify-end w-full">
-      <a href="/blogs" class="relative inline-flex items-center justify-center overflow-hidden text-xs font-medium transition-all group sm:text-sm xl:flex 2xl:flex -mt-4 mr-8">
+      <a
+        href="/blogs"
+        class="relative inline-flex items-center justify-center overflow-hidden text-xs font-medium transition-all group sm:text-sm xl:flex 2xl:flex -mt-4 mr-8"
+      >
         <!-- Underline that appears on hover -->
-        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"></span>
-      
-        <span class="relative w-full text-center text-red-700 transition-colors duration-300 ease-in-out">
+        <span
+          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"
+        ></span>
+
+        <span
+          class="relative w-full sm:mt-8 xl:mt-0 mt-6 text-center text-red-700 transition-colors duration-300 ease-in-out"
+        >
           View All Blogs <i class="fa fa-arrow-right"></i>
         </span>
       </a>
     </div>
   </div>
-  <div class="flex justify-center flex-wrap h-[540px] w-full max-w-screen-5xl " id="blog-container">
-
-
+  <div
+    class="flex justify-center flex-wrap h-[540px] w-full max-w-screen-5xl"
+    id="blog-container"
+  >
     {% if blogs %}
-      <c-components.home-blog-card :blog="blog" class="border" />
+    <c-components.blogs_card :blog="blog" class="border" />
     {% else %}
-      <p>No blogs available</p>
+    <p>No blogs available</p>
     {% endif %}
   </div>
-  
-  
 </section>

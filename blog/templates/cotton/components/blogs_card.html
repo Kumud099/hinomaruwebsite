@@ -5,18 +5,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Swiper CSS & JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Ensure Swiper JS and CSS are linked correctly -->
     <link
-      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
+      /* Swiper Navigation Buttons */
+      .swiper-button-next,
+      .swiper-button-prev {
+        background-color: transparent;
+        color: #f44336;
+        font-size: 35px;
+        border: 2px solid #f44336;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        background-color: rgba(178, 182, 185, 0.1);
+        color: black;
+        border: 2px solid black;
+        /* background-color: rgba(197, 48, 48, 0.1); */
+      }
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 18px;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        transition: all 0.3s ease;
+      }
+
       /* Image hover effect */
       .image-container {
-        /* position: relative; */
+        position: relative;
         overflow: hidden;
         height: 250px;
       }
@@ -63,41 +98,6 @@
 
       .swiper-wrapper {
         display: flex;
-        gap: 20px;
-      }
-
-      /* Swiper Navigation Buttons */
-      .swiper-button-next,
-      .swiper-button-prev {
-        background-color: transparent;
-        color: #f44336;
-        font-size: 35px;
-        border: 2px solid #f44336;
-        border-radius: 50%;
-        width: 48px;
-        height: 48px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-
-      .swiper-button-next:hover,
-      .swiper-button-prev:hover {
-        background-color: rgba(178, 182, 185, 0.1);
-        color: black;
-        border: 2px solid black;
-        /* background-color: rgba(197, 48, 48, 0.1); */
-      }
-
-      .swiper-button-next::after,
-      .swiper-button-prev::after {
-        font-size: 18px;
-      }
-
-      .swiper-button-next,
-      .swiper-button-prev {
-        transition: all 0.3s ease;
       }
     </style>
   </head>
@@ -105,47 +105,54 @@
   <body>
     <div class="container px-4 py-12 mx-auto sm:px-6 md:px-8 lg:px-10 xl:px-16">
       <!-- Swiper Container (Fixed Width, Single Row) -->
-      <div class="relative swiper">
+      <div class="relative swiper mySwiper">
         <!-- Swiper Wrapper -->
-        <div class="swiper-wrapper border-1 rounded-xl">
+        <div class="swiper-wrapper border-1">
           {% for blog in blogs %}
           <a
             href="{{ blog.url }}"
-            class="space-y-4 bg-white border-2 border-gray-300 rounded-md shadow-md hover:border-red-700 swiper-slide"
+            class="space-y-4 bg-white border-2 border-gray-300 shadow-md hover:border-red-500 swiper-slide rounded-2xl"
           >
             <!-- Blog Image with Hover Effect -->
-            <div class="relative p-4">
-              <div class="image-container">
+            <div class="relative">
+              <div class="image-container rounded-t-xl">
                 <!-- image -->
                 {% image blog.blog_cover_image width-400 as blog_cover %}
                 <img
                   src="{{ blog_cover.url }}"
                   alt="Blog Image"
-                  class="object-cover h-64 rounded-md"
+                  class="object-cover h-64"
                 />
                 <div class="image-overlay"></div>
               </div>
             </div>
 
-            <div class="px-4">
+            <div class="px-4 py-6 mt-2">
               <h3 class="-mt-5 text-xl font-bold">
                 {% with blog.blog_title.split as words %}
-                <span class="text-[#991b1b]">{{ words.0 }}</span>
+                <span class="text-[#F44336]">{{ words.0 }}</span>
                 <span class="text-black"
-                  >{{ words|slice:"1:"|join:" "|truncatewords:5 }}</span
+                  >{{ words|slice:"1:"|join:" "|truncatewords:3 }}</span
                 >
                 {% endwith %}
               </h3>
 
-              <p class="mb-5 text-gray-500">
-                {{ blog.blog_description | truncatewords:9 }}
+              <!-- <p class="text-gray-500">
+                {{ blog.blog_description | truncatewords:15 }}
+              </p> -->
+              <p class="text-gray-500">
+                {% if blog.categories.all %}
+                <!-- If the blog contains tags, truncate to 9 words -->
+                {{ blog.blog_description | truncatewords:9 }} {% else %}
+                <!-- If no tags, truncate to 15 words -->
+                {{ blog.blog_description | truncatewords:15 }} {% endif %}
               </p>
 
               <!-- for tags if any nlog have -->
               {% if blog.categories.all %}
-              <div class="flex gap-2  ">
+              <div class="flex mt-1 -mb-2">
                 {% for category in blog.categories.all %}
-                <span class="px-2  text-red-500 bg-red-100 rounded"
+                <span class="px-2 mx-1 py-1 text-red-500 bg-red-100 rounded"
                   >{{ category.name }}</span
                 >
                 {% endfor %}
@@ -156,8 +163,8 @@
           {% endfor %}
         </div>
 
+        <!-- Pagination -->
         <div class="mt-16">
-          <!-- Pagination -->
           <div class="swiper-pagination"></div>
         </div>
 
@@ -171,23 +178,56 @@
       </div>
     </div>
 
-    <!-- Swiper Initialization -->
-    <!-- <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        new Swiper(".mySwiper", {
-          slidesPerView: "auto", // Ensure slides fit their defined width
-          spaceBetween: 5, // Adjust space between slides
-          loop: true, // Enable infinite loop
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-        });
+    <script>
+      let mySwiperInstance;
+
+      // Initialize swiper once the DOM is loaded
+      window.addEventListener("load", function () {
+        if (!mySwiperInstance) {
+          console.log("Initializing Swiper..."); // Log initialization
+          mySwiperInstance = new Swiper(".mySwiper", {
+            slidesPerView: 1, // Show 1 slide on mobile
+            spaceBetween: 30,
+            loop: true,
+            simulateTouch: true,
+            touchRatio: 1,
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+              1920: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+              },
+              1280: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 25,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              640: {
+                slidesPerView: 2, // 1 slide, but larger than before
+                spaceBetween: 20,
+              },
+            },
+          });
+          console.log("Swiper Initialized:", mySwiperInstance);
+        }
+
+        const swiperContainer = document.getElementById("swiper-container");
+        swiperContainer.classList.add("swiper-container-animate-in");
       });
-    </script> -->
+    </script>
   </body>
 </html>
