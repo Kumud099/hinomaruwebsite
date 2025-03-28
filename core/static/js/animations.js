@@ -50,9 +50,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     });
   });
 }
-
 //
-
 gsap.to("#videoContainer1", {
   width: "40%",
   height: "50%",
@@ -85,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   gsap.to(scrollingText, {
     x: -textWidth, // Moves left by one segment
-    duration: 30, // Adjust speed (higher = slower)
+    duration: 10, // Adjust speed (higher = slower)
     ease: "linear",
     repeat: -1, // Infinite loop
     modifiers: {
