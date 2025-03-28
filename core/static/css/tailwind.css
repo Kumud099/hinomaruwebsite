@@ -1835,6 +1835,14 @@ select {
   width: 100vw;
 }
 
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-32 {
+  width: 8rem;
+}
+
 .min-w-\[100px\] {
   min-width: 100px;
 }
