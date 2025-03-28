@@ -37,22 +37,4 @@
   }
 }
 
-/* Media query for Surface Pro 7 */
-@media (min-width: 912px) and (max-width: 915px) {
-  #services {
-    margin-top: -70% !important;
-  }
-}
 
-/* Media query for 414px width */
-@media (min-width: 414px) and (max-width: 416px) {
-  #services {
-    margin-top: -15% !important;
-  }
-}
-
-/* Media query for 390px - 400px width */
-@media (min-width: 390px) and (max-width: 400px) {
-  #services {
-    margin-top: -5% !important;
-  }}
