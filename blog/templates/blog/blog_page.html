@@ -1,28 +1,24 @@
 {% extends 'base.html' %} {% load wagtailimages_tags %} {% load wagtailcore_tags
-  %} {% block navbar %}
-  
-  {% endblock navbar %} {% block content %}
-  <div class="overflow-hidden " style="background-color: #f7fafc;">
-    <c-components.navbar_fix  />
-  <main
-    class="min-h-screen lg:mt-0 mx-10"
-  >
-    <div class="container mx-auto max-w-[1440px] px-20 py-10 ">
+%} {% block navbar %} {% endblock navbar %} {% block content %}
+<div class="overflow-hidden" style="background-color: #f7fafc">
+  <c-components.navbar_fix />
+  <main class="min-h-screen lg:mt-0 mx-10">
+    <div class="container mx-auto max-w-[1440px] px-20 py-10">
       <!-- Page Header -->
-      <div class="mt-20 mb-10 text-center">
-        <!-- <h1 class="text-[40px] text-center mb-4 font-bold text-red-800"> -->
+      <div class="mt-10 mb-10 text-center">
         <h2
-          class="text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] font-bold text-center  text-[#991b1b] transition-colors duration-700"
+          class="font-semibold text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] text-center items-center mx-auto"
         >
-          <span class="decoration-[#991b1b]">BLOGS</span>
+          BLOGS
+          <!-- <span class="decoration-[#991b1b]">BLOGS</span> -->
         </h2>
         <p
-          class="text-gray-500 hover:text-[#991b1b] hover:underline text-lg mt-2"
+          class="text-gray-500 ml-10 hover:text-[#991b1b] hover:underline text-lg mt-2"
         >
           Page {{ request.GET.page|default:1 }}
         </p>
       </div>
-  
+
       <!-- Category Section (For Both Desktop and Mobile) -->
       <div class="mb-6">
         <div class="p-4 bg-white rounded-lg shadow-md">
@@ -50,13 +46,13 @@
           </div>
         </div>
       </div>
-  
+
       <!-- Blog Content Section -->
       <div class="flex flex-col gap-8 md:flex-row">
         <!-- Blog Posts Section -->
         <div class="flex-1">
           <!-- Blog Grid (3 Columns × 2 Rows) -->
-          <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 ">
+          <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {% for blog in blogs|slice:":6" %} {% image blog.blog_cover_image
             width-400 as cover %}
             <div
@@ -68,22 +64,29 @@
                 class="w-full h-[220px] object-cover"
               />
               <div class="p-6">
-                <div class="h-[5rem]"><h3 class="mb-2 text-2xl font-bold ">{{ blog.title }}</h3></div>
-                
+                <div class="h-[5rem]">
+                  <h3 class="mb-2 text-2xl font-bold">{{ blog.title }}</h3>
+                </div>
 
-                <div class=" flex justify-between mt-4">
-                  <p class=" text-sm text-gray-500">
+                <div class="flex justify-between mt-4">
+                  <p class="text-sm text-gray-500">
                     {{ blog.blog_publish_date }}
                   </p>
-                    <a href="{{ blog.url }}" class="relative inline-flex items-center justify-center overflow-hidden text-xs font-medium transition-all group ">
-                      <!-- Underline that appears on hover -->
-                      <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"></span>
-                    
-                      <span class="relative w-full text-center text-red-700 transition-colors duration-300 ease-in-out">
-                        Read More <i class="fa fa-arrow-right"></i>
-                      </span>
-                    </a>
-                 
+                  <a
+                    href="{{ blog.url }}"
+                    class="relative inline-flex items-center justify-center overflow-hidden text-xs font-medium transition-all group"
+                  >
+                    <!-- Underline that appears on hover -->
+                    <span
+                      class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"
+                    ></span>
+
+                    <span
+                      class="relative w-full text-center text-red-700 transition-colors duration-300 ease-in-out"
+                    >
+                      Read More <i class="fa fa-arrow-right"></i>
+                    </span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -93,11 +96,12 @@
           </div>
         </div>
       </div>
-  
+
       <!-- Pagination -->
-      <div class="flex justify-center mt-12">
+      <div class="flex justify-center mt-16 mb-20">
         <c-components.paginator :object="blogs" />
       </div>
     </div>
   </main>
   {% endblock content %}
+</div>
