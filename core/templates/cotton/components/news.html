@@ -1,6 +1,7 @@
 <!-- NEWS FROM HEADER --> 
 {% load static %}
-<section class=" lg:pb-15 bg-white sm:px-6  md:px-8 lg:px-10 xl:px-16">
+<!-- <section class="lg:pb-15 bg-white sm:px-6  md:px-8 lg:px-10 xl:px-16"> -->
+  <section class="pt-5 pb-10 bg-white sm:px-2 lg:px-0 xl:px-8 ">
   <div class="pb-5 sm:pb-4 md:pb-5 lg:pb-6">
     <div class="flex items-center justify-between">
       <h2 class="font-semibold text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] text-center items-center mx-auto">
@@ -14,26 +15,32 @@
           Exploring the Future of IT: Innovations Shaping the Tech World
         </p>
       </div>
-  
-      <div class="flex justify-end w-full ">
-        <a href="/announcements" class="relative inline-flex items-center justify-center overflow-hidden text-xs font-medium transition-all group sm:text-sm xl:flex 2xl:flex mt-2 mr-4">
+
+      <div class="flex justify-end w-full">
+        <a
+          href="/announcements"
+          class="relative inline-flex items-center justify-center overflow-hidden text-xs font-medium transition-all group sm:text-sm xl:flex 2xl:flex -mt-4 mr-8"
+        >
           <!-- Underline that appears on hover -->
-          <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"></span>
-        
-          <span class="relative w-full text-center text-red-700 transition-colors duration-300 ease-in-out">
+          <span
+            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"
+          ></span>
+  
+          <span
+            class="relative w-full sm:mt-8 xl:mt-0 mt-6 text-center text-red-700 transition-colors duration-300 ease-in-out"
+          >
             View All News <i class="fa fa-arrow-right"></i>
           </span>
         </a>
       </div>
       
       
-      
     </div>
       </div>
       
       <!-- Changes here for margin bottom responsive for all devices -->
-    <div class="2xl:mx-24 mx-10 lg:mx-24 sm:mx-0 md:-mb-48 2xl:mb-0 lg:-mb-48 xl:mb-0 sm:-mb-48">
-      <div class="  sm:mx-0 hover:cursor-pointer lg:px-30 mt-10 min-h-[500px] xl:min-h-[350px] 2xl:min-h-[350px]">
+        <div class="2xl:mx-[10%] -mt-10 mx-10 lg:mx-24 sm:mx-10 md:-mb-48 2xl:mb-0 lg:-mb-48 xl:mb-0 sm:-mb-48">
+      <div class="sm:mx-0 hover:cursor-pointer lg:px-30 mt-10 min-h-[500px] xl:min-h-[350px] 2xl:min-h-[350px]">
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
           {% for news in list_of_news %}
           <a href="{{news.url}}">
