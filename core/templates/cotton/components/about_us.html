@@ -1,8 +1,7 @@
 <!-- ABOUT US SECTION IN HOME PAGE -->
 {% load static %}
-<!-- About yo ma view halni -->
 <section
-  class=" overflow-hidden flex flex-col items-center h-auto min-h-screen min-h-screen   px-10 2xl:px-20    about-us   font-Grotesk mb-10"
+  class=" overflow-hidden flex flex-col items-center h-auto min-h-screen min-h-screen   px-10 2xl:px-20    about-us   font-Grotesk mb-20"
   id="aboutUsContainer"
 >
   <h2
@@ -36,15 +35,15 @@
     <!-- mt-10 -->
     <div
       id="image_holder"
-      class="relative flex items-center justify-center w-full px-10 mx-auto  md:w-1/2 ml-2 2xl:-ml-28 xl:-ml-20 lg:-ml-10"
+      class="relative flex items-center justify-center w-full px-10 mx-auto  md:w-1/2  2xl:-ml-28 xl:-ml-20 lg:-ml-10"
     >
       <!-- Animated Red Circle Background -->
       <div class="absolute rounded-full bg-red-900 w-[250px] h-[250px]  md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[450px] xl:w-[450px] xl:h-[450px] 2xl:w-[600px] 2xl:h-[600px] -top-[50px] sm:-top-[40px] md:-top-[30px] lg:-top-[50px] xl:-top-[50px] 2xl:-top-[120px] right-0  2xl:-right-[10px] xl:-right[30px] lg:-right-[30px] md:-right-[20px] opacity-0 animate-circle mx-auto" id="animation-circle">
     </div>
       <!-- Main Image -->
       <img src="{% static 'images/aboutus.webp' %}" alt="About Us Visual"
-                class="relative max-w-[80%] sm:max-w-[400px] h-auto sm:h-[300px] md:h-[300px] md:max-w-[350px] lg:max-w-[350px] lg:h-[350px] xl:max-w-[350px] xl:h-[350px] 2xl:max-w-[500px] 2xl:h-[500px] object-cover transition-transform duration-300 hover:scale-105 mx-auto " id="about_img">
-    </div>
+    class="relative max-w-[120%] sm:max-w-[500px] h-auto sm:h-[300px] md:h-[300px] md:max-w-[350px] lg:max-w-[350px] lg:h-[350px] xl:max-w-[350px] xl:h-[350px] 2xl:max-w-[500px] 2xl:h-[500px] object-cover transition-transform duration-300 hover:scale-105 mx-auto" id="about_img">
+
   </div>
 </section>
 
@@ -92,9 +91,9 @@
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center content */
     justify-content: center; /* Ensure proper alignment */
-    gap: 40px !important; /* Ensure enough spacing */
+    gap: 20px !important; /* Ensure enough spacing */
   }
-
+}
   
   @media (min-width: 977px) and (max-width: 1023px) {
   #aboutus-textandimage {
@@ -115,12 +114,9 @@
       justify-content: center; /* Ensure proper alignment */
       gap: 40px !important; /* Ensure enough spacing */
     }
-
+  }
     #aboutus-textandimage > div {
       width: 90% !important; /* Give enough space */
       text-align: center; /* Center text */
     }
-
-
-
 </style>
