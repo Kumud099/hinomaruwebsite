@@ -37,7 +37,9 @@
 
 
 
-<body class="{% block body_class %}{% endblock body_class %} transition-fade font-Inter">
+<body class="{% block body_class %}{% endblock body_class %} {% if '/contact-us/' in request.path %} bg-gray-100 {% endif %} transition-fade font-Inter">
+
+
     <main id="swup" class="transition-fade">
         {% block content %}{% endblock content %}
         <script type="text/javascript" src="{% static 'js/core.js' %}"></script>
