@@ -2,7 +2,6 @@
 block navbar %} {% endblock navbar %} {% block content %}
 <div class="overflow-hidden" style="background-color: #f7fafc">
   <c-components.navbar_fix backgroundcolor="white" />
-
   <main
     class="container px-8 py-12 mx-auto min-h-[100vh] flex flex-col justify-center items-center"
   >
@@ -96,19 +95,19 @@ block navbar %} {% endblock navbar %} {% block content %}
   </div>
 
   <!-- Blogs Section -->
-  <section class="mt-10 mb-20 overflow-hidden lg:-mt-6">
+  <section class="relative mb-20 overflow-hidden lg:-mt-6">
     <div
       class="flex flex-wrap items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
     >
       <h1
-        class="text-3xl -ml-4 font-bold text-center text-red-700 transition-colors duration-700 hover:text-black"
+        class="-ml-4 text-3xl font-bold text-center text-red-700 transition-colors duration-700 hover:text-black"
       >
         <span class="decoration-[#991b1b]">MORE BLOGS</span>
       </h1>
 
       <a
         href="/blogs"
-        class="relative inline-flex items-center justify-center -mr-4 -mt-4 overflow-hidden text-xs font-medium transition-all group sm:text-sm xl:flex 2xl:flex"
+        class="relative inline-flex items-center justify-center -mt-4 -mr-4 overflow-hidden text-xs font-medium transition-all group sm:text-sm xl:flex 2xl:flex"
       >
         <!-- Underline that appears on hover -->
         <span
@@ -128,7 +127,7 @@ block navbar %} {% endblock navbar %} {% block content %}
       id="blog-container"
     >
       {% if blogs %} {% for blog in blogs %}
-      <c-components.blogs-card :blog="blog" class="border" />
+      <c-components.blogs-card :blog="blog" class="z-10 border" />
       {% endfor %} {% else %}
       <p>No blogs available</p>
       {% endif %}
@@ -136,8 +135,11 @@ block navbar %} {% endblock navbar %} {% block content %}
   </section>
 
   <!-- Fixed Circular Elements on Larger Screens -->
-  <div
+  <!-- <div
     class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
+  > -->
+  <div
+    class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
   >
     <img
       src="{% static 'images/facebook.svg' %}"
@@ -147,7 +149,7 @@ block navbar %} {% endblock navbar %} {% block content %}
   </div>
 
   <div
-    class="fixed right-6 top-[400px] sm:top-[450px] md:top-[500px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
+    class="fixed right-6 top-[400px] sm:top-[450px] md:top-[500px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
   >
     <img
       src="{% static 'images/x.svg' %}"
@@ -157,7 +159,7 @@ block navbar %} {% endblock navbar %} {% block content %}
   </div>
 
   <div
-    class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
+    class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
   >
     <img
       src="{% static 'images/insta.svg' %}"

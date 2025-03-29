@@ -4,19 +4,19 @@ content %}
 <section class="overflow-hidden">
   <c-components.navbar_fix />
 
-  <div class="mt-20 flex justify-center px-4">
+  <div class="flex justify-center px-4 mt-20">
     <div
-      class="mt-10 max-w-2xl p-8 text-center bg-red-800 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+      class="max-w-2xl p-8 mt-10 text-center transition-transform transform bg-red-800 rounded-lg shadow-lg hover:scale-105"
     >
-      <h1 class="mb-6 text-4xl md:text-5xl font-bold text-white">Thank You!</h1>
-      <div class="pt-4 mb-8 text-lg md:text-xl text-white">
+      <h1 class="mb-6 text-4xl font-bold text-white md:text-5xl">Thank You!</h1>
+      <div class="pt-4 mb-8 text-lg text-white md:text-xl">
         {{ page.thank_you_text|safe }}
       </div>
 
       <div>
         <a
           href="/"
-          class="relative inline-flex items-center justify-start rounded-full px-3 py-2 overflow-hidden font-medium transition-all bg-black rounded hover:bg-orange-400 group"
+          class="relative inline-flex items-center justify-start px-3 py-2 overflow-hidden font-medium transition-all bg-black rounded rounded-full hover:bg-orange-400 group"
         >
           <span
             class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"

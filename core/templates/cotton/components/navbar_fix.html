@@ -1,6 +1,6 @@
 <!-- Navbar -->
 {% load static %}
-<nav id="navbar" class="top-0 left-0 w-full -mb-10 shadow-md">
+<nav id="navbar" class="top-0 left-0 z-50 w-full shadow-md">
   <div class="flex items-center justify-between px-6">
     <!-- Logo -->
     <div class="flex items-center">
@@ -21,16 +21,15 @@
     </div>
 
     <!-- Menu Button (Hamburger) for mobile screens -->
-    <button
-  id="hamburger"
-  class="flex flex-col items-start justify-center gap-1 md:gap-1.5 text-red-700 xl:hidden w-8 h-20"
->
-  <span class=" bg-red-700  w-8 h-[2px] sm:h-[2.5px] md:h-[3.5px]"></span>
-   <span class=" bg-red-700  w-7 mt-1 h-[2px] sm:h-[2.5px] md:h-[3.5px]"></span>
-   <span class=" bg-red-700  w-6 mt-1 h-[2px] sm:h-[2.5px] md:h-[3.5px]"></span>
-   
-</button>
 
+    <button
+      id="hamburger"
+      class="flex flex-col items-start justify-center w-8 h-20 gap-2 text-red-700 md:gap-2 xl:hidden"
+    >
+    <span class=" bg-red-700  w-8 h-[2px] sm:h-[2px] md:h-[3.5px]"></span>
+    <span class=" bg-red-700  w-7  h-[2px] sm:h-[2px] md:h-[3.5px]"></span>
+    <span class=" bg-red-700  w-6 h-[2px] sm:h-[2px] md:h-[3.5px]"></span>
+    </button>
 
     <!-- Desktop Navigation (Visible only on 2xl and xl screens) -->
     <div
@@ -44,54 +43,57 @@
 
       <!-- Services Button (Keep Inside the Relative Wrapper) -->
       <div id="services-btn" class="group">
-        <button
-          class="px-3 py-8 hover:text-red-800 font-bold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
-        >
-          SERVICES
-        </button>
-
-        <!-- <div
-          id="dropdown-menu"
-          class="absolute left-0 w-screen grid-cols-4 transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 top-full group-hover:opacity-100"
-        > -->
-        <div
-          id="dropdown-menu"
-          class="absolute left-0 w-screen grid-cols-4 transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 group-hover:opacity-100"
-        >
-          <div
-            class="w-[80%] ml-44 flex flex-wrap justify-center gap-10 text-center"
+        <div class="relative">
+          <button
+            class="px-3 py-8 hover:text-red-800 font-bold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
           >
-            <div
-              class="flex items-center justify-center gap-2 p-4 px-4 py-6 text-gray-700 hover:text-orange-400 hover:scale-105"
-            >
-              <a href="#">
-                <i class="text-red-500 fa fa-laptop"></i> Web Development
-              </a>
-            </div>
+            SERVICES
+          </button>
 
+          <div
+            id="dropdown-menu"
+            class="absolute ml-[-620%] lg:ml-[-630%] xl:ml-[-620%] 2xl[-780%] left-0 w-screen grid-cols-4 transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 top-full group-hover:opacity-100"
+          >
+            <!-- <div
+            id="dropdown-menu"
+            class="absolute ml-[-620%] 2xl:ml-[-780%] w-screen grid-cols-4 transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 group-hover:opacity-100"
+          > -->
             <div
-              class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 hover:text-orange-400 hover:scale-105"
+              class="w-[80%] ml-44 flex flex-wrap justify-center gap-10 text-center"
             >
-              <a href="#">
-                <i class="text-red-500 fa fa-laptop"></i> Software
-                Development</a
+              <div
+                class="flex items-center justify-center gap-2 p-4 px-4 py-6 text-gray-700 hover:text-orange-400 hover:scale-105"
               >
-            </div>
+                <a href="#">
+                  <i class="text-red-500 fa fa-laptop"></i> Web Development
+                </a>
+              </div>
 
-            <div
-              class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 hover:text-orange-400 hover:scale-105"
-            >
-              <a href="#">
-                <i class="text-red-500 fa fa-laptop"></i> App Development</a
+              <div
+                class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 hover:text-orange-400 hover:scale-105"
               >
-            </div>
+                <a href="#">
+                  <i class="text-red-500 fa fa-laptop"></i> Software
+                  Development</a
+                >
+              </div>
 
-            <div
-              class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-400 hover:scale-105"
-            >
-              <a href="#">
-                <i class="text-red-500 fa fa-laptop"></i> System Integration</a
+              <div
+                class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 hover:text-orange-400 hover:scale-105"
               >
+                <a href="#">
+                  <i class="text-red-500 fa fa-laptop"></i> App Development</a
+                >
+              </div>
+
+              <div
+                class="flex items-center justify-center gap-2 p-6 px-4 py-2 text-gray-700 transition-transform duration-300 transform hover:text-orange-400 hover:scale-105"
+              >
+                <a href="#">
+                  <i class="text-red-500 fa fa-laptop"></i> System
+                  Integration</a
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -116,6 +118,7 @@
       <span
         class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
       >
+        <i class="text-sm fas fa-envelope sm:text-base"></i>
         Contact us
       </span>
     </a>
@@ -126,6 +129,10 @@
     id="mobile-menu"
     class="flex flex-col items-center hidden w-full px-4 py-6 space-y-6 text-red-500 bg-white shadow-lg"
   >
+    <!-- <div
+    id="mobile-menu"
+    class="fixed top-0 left-0 invisible w-full px-4 py-6 space-y-6 text-red-500 transition-all duration-300 ease-in-out bg-white shadow-lg opacity-0"
+  > -->
     <hr class="w-full border-t border-gray-300" />
 
     <!-- Home, Services, About Us - First Row -->
@@ -221,6 +228,7 @@
         <span
           class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
         >
+          <i class="text-sm fas fa-envelope sm:text-base"></i>
           Contact us
         </span>
       </a>
@@ -231,3 +239,36 @@
 <!-- End of Navbar -->
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
 <script src="{% static 'js/navbar.js' %}"></script>
+
+<script>
+  // Close the menu when the screen size becomes larger than a specific breakpoint (e.g., 1024px)
+  window.addEventListener("resize", function () {
+    if (window.innerWidth >= 1024) {
+      if (!menu.classList.contains("hidden")) {
+        menu.classList.add("hidden");
+        navbar.classList.remove("bg-white");
+      }
+    }
+  });
+
+  // Close the menu when clicking outside of it
+  document.addEventListener("click", function (event) {
+    const isClickInsideMenu = menu.contains(event.target);
+    const isClickInsideButton = hamburgerButton.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickInsideButton) {
+      // Close the menu smoothly
+      if (!menu.classList.contains("hidden")) {
+        menu.classList.remove("menu-animate");
+        menu.classList.add("menu-close");
+        navbar.classList.remove("bg-white");
+
+        // Delay hiding the menu until animation completes
+        setTimeout(() => {
+          menu.classList.add("hidden");
+          navbar.classList.remove("bg-white");
+        }, 30);
+      }
+    }
+  });
+</script>
