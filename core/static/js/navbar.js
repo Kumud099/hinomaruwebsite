@@ -30,6 +30,16 @@ hamburgerButton.addEventListener("click", function () {
   }
 });
 
+// Close the menu when the screen size becomes larger than a specific breakpoint (e.g., 1024px)
+window.addEventListener("resize", function () {
+  if (window.innerWidth >= 1024) {
+    if (!menu.classList.contains("hidden")) {
+      menu.classList.add("hidden");
+      navbar.classList.remove("bg-white");
+    }
+  }
+});
+
 // Smooth hover effects for desktop navigation
 servicesBtn.addEventListener("mouseover", function () {
   document.getElementById("navbar").classList.add("bg-white", "shadow-lg");
