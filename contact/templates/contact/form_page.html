@@ -21,7 +21,7 @@ wagtailimages_tags %} {% block navbar%} {% endblock navbar %} {% block content
                 <span class="text-red-800">*</span> {% endif %}
               </label>
               {% render_field field class="w-full p-2 border-gray-300 rounded
-              shadow-sm" placeholder=field.name %}
+              shadow-sm" placeholder=field.help_text %}
               <span class="hidden text-sm text-red-600 error-message"></span>
             </div>
             {% endfor %}

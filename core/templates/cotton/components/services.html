@@ -3,7 +3,7 @@
 
 <section
   id="services"
-  class="overflow-hidden flex flex-col items-center justify-start min-h-auto bg-[#20252F] w-full pb-16 py-10 2xl:h-screen xl:h-screen"
+  class="overflow-hidden flex flex-col items-center justify-start min-h-auto bg-[#20252F] w-full pb-10 2xl:h-screen xl:min-h-screen"
 >
   <div class="container mx-auto max-w-[1440px] px-5">
     <!-- Section Title -->
@@ -11,7 +11,7 @@
       <!-- <div class="w-24 border-t border-white"></div> -->
 
       <span
-        class="font-semibold text-white md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] text-center mx-auto mt-5"
+        class="font-semibold text-white md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] text-center mx-auto mt-12"
         >OUR SERVICES</span
       >
       <!-- <div class="w-24 border-t border-white"></div> -->
@@ -28,7 +28,7 @@
 
     <!-- Cards Grid -->
     <div
-      class="grid w-full grid-cols-1 gap-6 px-12 mt-10 mb-3 scrollbar-hide snap-x snap-mandatory lg:grid-cols-2 xl:grid-cols-4 sm:items-center sm:justify-center sm:place-items-center"
+      class="grid w-full grid-cols-1 gap-6 px-12 mt-10 mb-10 scrollbar-hide snap-x snap-mandatory lg:grid-cols-2 xl:grid-cols-4 sm:items-center sm:justify-center sm:place-items-center"
     >
       <div class="transition-all duration-500 hover:scale-105">
         <div
@@ -166,24 +166,26 @@
   </div>
 
   <!-- Scrolling Text Section -->
-  <div class="w-full whitespace-nowrap">
-    <div
-      id="scrollingText"
-      class="flex gap-12 text-[29px] sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[52px] pt-4 2xl:pt-20 text-gray-600"
+  <div
+    id="scrollingText"
+    class="flex gap-12 text-gray-600 sm:pt-5 md:py-10 lg:py-10 xl:py-5"
+  >
+    <span
+      class="p-4 ml-4 text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] 2xl:text-[55px] font-play"
+      >WEB APPLICATION DEVELOPMENT</span
     >
-      <span class="p-4 ml-4 text-[30px] sm:text-[40px] md:text-[50px] font-play"
-        >WEB APPLICATION DEVELOPMENT</span
-      >
-      <span class="p-4 ml-4 text-[30px] sm:text-[40px] md:text-[50px] font-play"
-        >UI UX</span
-      >
-      <span class="p-4 ml-4 text-[30px] sm:text-[40px] md:text-[50px] font-play"
-        >SEO</span
-      >
-      <span class="p-4 ml-4 text-[30px] sm:text-[40px] md:text-[50px] font-play"
-        >SOFTWARE DEVELOPMENT</span
-      >
-    </div>
+    <span
+      class="p-4 ml-4 text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] 2xl:text-[55px] font-play"
+      >UI UX</span
+    >
+    <span
+      class="p-4 ml-4 text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] 2xl:text-[55px] font-play"
+      >SEO</span
+    >
+    <span
+      class="p-4 ml-4 text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] 2xl:text-[55px] font-play"
+      >SOFTWARE DEVELOPMENT</span
+    >
   </div>
 </section>
 
@@ -206,6 +208,12 @@
   @media (min-width: 1281px) and (max-width: 1535px) {
     #scrollingText {
       margin-top: 50px;
+    }
+  }
+
+  @media (min-width: 640px) {
+    #scrollingText {
+      padding-top: 10px;
     }
   }
 </style>
