@@ -109,7 +109,7 @@ class BlogDetailPage(Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
-        blogs = BlogDetailPage.objects.live().public().order_by("-first_published_at")[:5]
+        blogs = BlogDetailPage.objects.live().public().exclude(id = self.id).order_by("-first_published_at")[:5]
    
         context["blogs"] = blogs
         context["categories"] = BlogCategory.objects.all()
