@@ -4,7 +4,7 @@ block navbar %} {% endblock navbar %} {% block content %}
 <div class="overflow-hidden bg-gray-100 radius-20px">
   <c-components.navbar_fix backgroundcolor="white" />
   <main
-    class="container px-8 py-12 mx-auto min-h-[100vh] flex flex-col justify-center items-center"
+    class="container px-8 py-12 2xl:mt-0 -mt-12 mx-auto min-h-[100vh] flex flex-col justify-center items-center"
   >
     <!-- class="container mx-auto px-8 py-12 min-h-[100vh] flex bg-gray-100 flex-col justify-center items-center pt-20 mb-10" -->
     <div class="w-full max-w-2xl">
@@ -98,7 +98,7 @@ block navbar %} {% endblock navbar %} {% block content %}
     </div>
 
     <div
-      class="flex justify-center flex-wrap h-[600px] w-full"
+      class="flex justify-center flex-wrap h-[550px] w-full"
       id="blog-container"
     >
       {% if blogs %} {% for blog in blogs %}

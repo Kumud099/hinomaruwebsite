@@ -242,30 +242,67 @@
     transform: scaleY(1);
   }
 
+  /* Adjust for larger screens */
+  @media (min-width: 1280px) {
+    #dropdown-menu.show {
+      transform: translateX(-54.5%) scaleY(1);
+    }
+  }
+
+  @media (min-width: 1669px) {
+    #dropdown-menu.show {
+      transform: translateX(-53.5%) scaleY(1);
+    }
+  }
+  @media (min-width: 1600px) {
+    #dropdown-menu.show {
+      transform: translateX(-53.5%) scaleY(1);
+    }
+  }
+  /* for all the devices since child 2 is not in cross */
+  .cross span:nth-child(2) {
+    opacity: 0;
+  }
+
+  /* Cross Icon Animation */
+  @media (min-width: 360px) {
+    .cross span:nth-child(1) {
+      transform: rotate(45deg) translate(3px, 8px);
+      height: 3px;
+      width: 24px;
+    }
+
+    .cross span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -12px);
+      height: 3px;
+      width: 24px;
+    }
+  }
+
+  @media (min-width: 700px),
+    (min-width: 800px),
+    (min-width: 1000px),
+    (min-width: 1270px) {
+    /* Cross Icon Animation */
+    .cross span:nth-child(1) {
+      transform: rotate(44deg) translate(2px, 8px);
+      height: 4px;
+      width: 27px;
+    }
+
+    .cross span:nth-child(3) {
+      transform: rotate(-45deg) translate(9px, -14px);
+      height: 4px;
+      width: 27px;
+    }
+  }
+
   /* Navbar background change on hover */
   #navbar.white-bg {
     background-color: white;
     transition: background-color 0.3s ease;
   }
 
-  /* Cross Icon Animation */
-  .cross span:nth-child(1) {
-    transform: rotate(45deg) translate(2px, 7px);
-    height: 4px;
-    width: 27px;
-  }
-
-  .cross span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .cross span:nth-child(3) {
-    transform: rotate(-45deg) translate(9px, -14px);
-    height: 4px;
-    width: 27px;
-  }
-
-  /* Smooth Transition */
   #hamburger span {
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
