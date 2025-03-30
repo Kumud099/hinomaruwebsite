@@ -150,7 +150,7 @@
                 // Check if the field is required and empty
                 if (field.hasAttribute("required") && field.value.trim() === "") {
                     formValid = false;
-                    errorSpan.innerHTML = `<i class="fa-solid fa-exclamation-circle"></i> Please select a valid ${field.name.replace("_", " ")}.`;
+                    errorSpan.innerHTML = `<i class="fa-solid fa-exclamation-circle"></i> Please enter your ${field.name.replace("_", " ")}.`;
                     errorSpan.classList.remove("hidden");
                     errorSpan.style.color = "red";
                     field.classList.add("error-border");
@@ -207,41 +207,6 @@
     }
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   let form = document.getElementById("contactForm");
-
-//   if (form) {
-//     form.onsubmit = function (event) {
-//       let dropdown = document.querySelector("select[name='Services']"); // Corrected name attribute
-//       let errorSpan = dropdown.parentElefment.querySelector(".error-message");
-
-//       // Check if the dropdown has a valid selection
-//       if (dropdown && dropdown.value === "") { // Ensure dropdown value is not empty
-//         event.preventDefault(); // Prevent form submission
-//         errorSpan.innerHTML = `<i class="fa-solid fa-exclamation-circle"></i> Please select a valid service.`;
-//         errorSpan.classList.remove("hidden");
-//         errorSpan.style.color = "red";
-//         dropdown.classList.add("error-border");
-//       } else {
-//         errorSpan.classList.add("hidden");
-//         dropdown.classList.remove("error-border");
-//       }
-//     };
-
-//     // Add event listener to remove error when a valid option is selected
-//     let dropdown = document.querySelector("select[name='services']"); // Corrected name attribute
-//     if (dropdown) {
-//       dropdown.addEventListener("change", function () {
-//         let errorSpan = this.parentElement.querySelector(".error-message");
-
-//         if (this.value !== "") {
-//           errorSpan.classList.add("hidden");
-//           this.classList.remove("error-border");
-//         }
-//       });
-//     }
-//   }
-// });
 
 
 

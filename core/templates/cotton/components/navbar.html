@@ -23,7 +23,7 @@
     <!-- Menu Button (Hamburger) for mobile screens -->
     <button
       id="hamburger"
-      class="flex flex-col items-start justify-center gap-2 md:gap-2 text-red-700 xl:hidden w-8 h-20"
+      class="flex flex-col items-start justify-center w-8 h-20 gap-2 text-red-700 md:gap-2 xl:hidden"
     >
       <span
         class="block bg-red-700 w-7 sm:w-7 md:w-10 lg:w-12 h-[2px] sm:h-[2.5px] md:h-[3.5px]"
@@ -56,7 +56,7 @@
 
         <div
           id="dropdown-menu"
-          class="absolute left-0 w-screen grid-cols-4 transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 top-full group-hover:opacity-100"
+          class="absolute left-0 w-screen grid-cols-4 transition-opacity ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 duration-50 top-full group-hover:opacity-50"
         >
           <div
             class="w-[80%] ml-44 flex flex-wrap justify-center gap-10 text-center"
@@ -228,40 +228,67 @@
     </div>
   </div>
 </nav>
+<style>
+  /* Dropdown Menu Styling */
+  #dropdown-menu {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
 
-<!-- End of Navbar -->
-<link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+  #dropdown-menu.show {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  /* for all the devices since child 2 is not in cross */
+  .cross span:nth-child(2) {
+    opacity: 0;
+  }
+
+  /* Cross Icon Animation */
+  @media (min-width: 360px) {
+    .cross span:nth-child(1) {
+      transform: rotate(45deg) translate(3px, 8px);
+      height: 3px;
+      width: 24px;
+    }
+
+    .cross span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -12px);
+      height: 3px;
+      width: 24px;
+    }
+  }
+
+  @media (min-width: 700px),
+    (min-width: 800px),
+    (min-width: 1000px),
+    (min-width: 1270px) {
+    /* Cross Icon Animation */
+    .cross span:nth-child(1) {
+      transform: rotate(44deg) translate(2px, 8px);
+      height: 4px;
+      width: 27px;
+    }
+
+    .cross span:nth-child(3) {
+      transform: rotate(-45deg) translate(9px, -14px);
+      height: 4px;
+      width: 27px;
+    }
+  }
+
+  /* Navbar background change on hover */
+  #navbar.white-bg {
+    background-color: white;
+    transition: background-color 0.3s ease;
+  }
+
+  #hamburger span {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+</style>
+
 <script src="{% static 'js/navbar.js' %}"></script>
-
-<script>
-  // Close the menu when the screen size becomes larger than a specific breakpoint (e.g., 1024px)
-  window.addEventListener("resize", function () {
-    if (window.innerWidth >= 1024) {
-      if (!menu.classList.contains("hidden")) {
-        menu.classList.add("hidden");
-        navbar.classList.remove("bg-white");
-      }
-    }
-  });
-
-  // Close the menu when clicking outside of it
-  document.addEventListener("click", function (event) {
-    const isClickInsideMenu = menu.contains(event.target);
-    const isClickInsideButton = hamburgerButton.contains(event.target);
-
-    if (!isClickInsideMenu && !isClickInsideButton) {
-      // Close the menu smoothly
-      if (!menu.classList.contains("hidden")) {
-        menu.classList.remove("menu-animate");
-        menu.classList.add("menu-close");
-        navbar.classList.remove("bg-white");
-
-        // Delay hiding the menu until animation completes
-        setTimeout(() => {
-          menu.classList.add("hidden");
-          navbar.classList.remove("bg-white");
-        }, 30); // Wait for animation duration
-      }
-    }
-  });
-</script>

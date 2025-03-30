@@ -56,16 +56,12 @@
             SERVICES
           </button>
 
-          <!-- <div
-            id="dropdown-menu"
-            class="absolute ml-[-620%] lg:ml-[-600%] xl:ml-[-600%] 2xl[-600%] left-0 w-screen grid-cols-4 transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 top-full group-hover:opacity-100"
-          > -->
           <div
             id="dropdown-menu"
-            class="absolute lg:ml-[-680%] ml-[-620%] 2xl:ml-[-780%] w-screen grid-cols-4 transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 group-hover:opacity-100"
+            class="absolute w-screen grid-cols-4 ml-auto transition-opacity ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 duration-50 top-full group-hover:opacity-50"
           >
             <div
-              class="w-[80%] ml-44 flex flex-wrap justify-center gap-10 text-center"
+              class="w-[100%] flex flex-wrap justify-center gap-10 text-center"
             >
               <div
                 class="flex items-center justify-center gap-2 p-4 px-4 py-6 text-gray-700 hover:text-orange-400 hover:scale-105"
@@ -135,10 +131,6 @@
     id="mobile-menu"
     class="flex flex-col items-center hidden w-full px-4 py-6 space-y-6 text-red-500 bg-white shadow-lg"
   >
-    <!-- <div
-    id="mobile-menu"
-    class="fixed top-0 left-0 invisible w-full px-4 py-6 space-y-6 text-red-500 transition-all duration-300 ease-in-out bg-white shadow-lg opacity-0"
-  > -->
     <hr class="w-full border-t border-gray-300" />
 
     <!-- Home, Services, About Us - First Row -->
@@ -242,39 +234,109 @@
   </div>
 </nav>
 
-<!-- End of Navbar -->
-<link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+<style>
+  #mobile-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 50; /* Make sure the navbar stays above other content */
+    width: 100%;
+  }
+
+  /* Dropdown Menu Styling */
+  #dropdown-menu {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* left: 68%;  */
+    left: 50%; /* Start from center */
+    transform: translateX(-50%) scaleY(0); /* Center the dropdown */
+  }
+
+  #dropdown-menu.show {
+    opacity: 1;
+    transform: scaleY(1);
+    transform: translateX(-53%) scaleY(1);
+  }
+
+  /* Adjust for larger screens */
+  @media (min-width: 1280px) {
+    #dropdown-menu.show {
+      transform: translateX(-54%) scaleY(1);
+    }
+  }
+
+  @media (min-width: 1669px) {
+    #dropdown-menu.show {
+      transform: translateX(-53.5%) scaleY(1);
+    }
+  }
+  @media (min-width: 1600px) {
+    #dropdown-menu.show {
+      transform: translateX(-53.5%) scaleY(1);
+    }
+  }
+
+  /* for all the devices sizes  */
+  .cross span:nth-child(2) {
+    opacity: 0;
+  }
+
+  /* Cross Icon Animation */
+  @media (min-width: 360px) {
+    .cross span:nth-child(1) {
+      transform: rotate(45deg) translate(3px, 8px);
+      height: 3px;
+      width: 24px;
+    }
+
+    .cross span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -12px);
+      height: 3px;
+      width: 24px;
+    }
+  }
+
+  @media (min-width: 700px),
+    (min-width: 800px),
+    (min-width: 1000px),
+    (min-width: 1270px) {
+    /* Cross Icon Animation */
+    .cross span:nth-child(1) {
+      transform: rotate(44deg) translate(2px, 8px);
+      height: 4px;
+      width: 27px;
+    }
+
+    .cross span:nth-child(3) {
+      transform: rotate(-45deg) translate(9px, -14px);
+      height: 4px;
+      width: 27px;
+    }
+  }
+
+  /* Navbar background change on hover */
+  #navbar.white-bg {
+    background-color: white;
+    transition: background-color 0.3s ease;
+  }
+
+  #hamburger span {
+    display: block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  /* Hide the cross icon until the button is clicked */
+  .cross span:nth-child(1),
+  .cross span:nth-child(3) {
+    opacity: 0;
+  }
+
+  /* Show hamburger icon initially */
+  #hamburger span:nth-child(1),
+  #hamburger span:nth-child(3) {
+    opacity: 1;
+  }
+</style>
+
 <script src="{% static 'js/navbar.js' %}"></script>
-
-<script>
-  // Close the menu when the screen size becomes larger than a specific breakpoint (e.g., 1024px)
-  window.addEventListener("resize", function () {
-    if (window.innerWidth >= 1024) {
-      if (!menu.classList.contains("hidden")) {
-        menu.classList.add("hidden");
-        navbar.classList.remove("bg-white");
-      }
-    }
-  });
-
-  // Close the menu when clicking outside of it
-  document.addEventListener("click", function (event) {
-    const isClickInsideMenu = menu.contains(event.target);
-    const isClickInsideButton = hamburgerButton.contains(event.target);
-
-    if (!isClickInsideMenu && !isClickInsideButton) {
-      // Close the menu smoothly
-      if (!menu.classList.contains("hidden")) {
-        menu.classList.remove("menu-animate");
-        menu.classList.add("menu-close");
-        navbar.classList.remove("bg-white");
-
-        // Delay hiding the menu until animation completes
-        setTimeout(() => {
-          menu.classList.add("hidden");
-          navbar.classList.remove("bg-white");
-        }, 30);
-      }
-    }
-  });
-</script>

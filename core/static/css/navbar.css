@@ -1,52 +1,62 @@
-.w-screen {
-  width: 100vw !important;
-}
-
-@keyframes slideDownFade {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideUpFade {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-}
-
-/* dropdown of navbar in big screen*/
-
+/* Dropdown Menu Styling */
 #dropdown-menu {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s 0.2s, visibility 0.2s 0.2s;
-}
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* left: 68%;  */
+    left: 50%; /* Start from center */
+    transform: translateX(-50%) scaleY(0); /* Center the dropdown */
+  }
 
-#dropdown-menu:hover {
-  opacity: 1;
-}
+  #dropdown-menu.show {
+    opacity: 1;
+    transform: scaleY(1);
+    transform: translateX(-53%) scaleY(1);
+  }
 
-#services-btn:hover #dropdown-menu,
-#dropdown-menu:hover {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.3s, visibility 0.2s;
-}
+  /* Adjust for larger screens */
+  @media (min-width: 1280px) {
+    #dropdown-menu.show {
+      transform: translateX(-54.5%) scaleY(1);
+    }
+  }
 
-.dropdown-item {
-  transition: background-color 0.3s;
-}
+  @media (min-width: 1669px) {
+    #dropdown-menu.show {
+      transform: translateX(-53.5%) scaleY(1);
+    }
+  }
+  @media (min-width: 1600px) {
+    #dropdown-menu.show {
+      transform: translateX(-53.5%) scaleY(1);
+    }
+  }
 
-.dropdown-item:hover {
-  background-color: #f7f7f7;
-}
+  /* Navbar background change on hover */
+  #navbar.white-bg {
+    background-color: white;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Cross Icon Animation */
+  .cross span:nth-child(1) {
+    transform: rotate(45deg) translate(2px, 7px);
+    height: 4px;
+    width: 27px;
+  }
+
+  .cross span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .cross span:nth-child(3) {
+    transform: rotate(-45deg) translate(9px, -14px);
+    height: 4px;
+    width: 27px;
+  }
+
+  /* Smooth Transition */
+  #hamburger span {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }

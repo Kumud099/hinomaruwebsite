@@ -4,7 +4,7 @@ block navbar %} {% endblock navbar %} {% block content %}
 <div class="overflow-hidden bg-gray-100 radius-20px">
   <c-components.navbar_fix backgroundcolor="white" />
   <main
-    class="container px-8 py-12 mx-auto min-h-[100vh] flex flex-col justify-center items-center"
+    class="container px-8 py-12 2xl:mt-0 -mt-12 mx-auto min-h-[100vh] flex flex-col justify-center items-center"
   >
     <!-- class="container mx-auto px-8 py-12 min-h-[100vh] flex bg-gray-100 flex-col justify-center items-center pt-20 mb-10" -->
     <div class="w-full max-w-2xl">
@@ -28,7 +28,7 @@ block navbar %} {% endblock navbar %} {% block content %}
         {% endif %}
 
         <h2
-          class="mt-4 text-3xl font-bold text-center hover:text-[#991b1b] transition-colors duration-700"
+          class="mt-4 text-3xl font-bold text-center text-red-700 transition-colors duration-700"
         >
           {{ page.blog_title }}
         </h2>
@@ -41,32 +41,6 @@ block navbar %} {% endblock navbar %} {% block content %}
 
       <div class="pb-5 mt-3 rounded">
         {% image page.blog_cover_image fill-841x473 %}
-      </div>
-
-      <!-- Table of Contents -->
-      <div class="w-full p-4 bg-gray-100 rounded-md">
-        <div class="flex items-center mb-2 space-x-2">
-          <span class="flex gap-2 text-lg font-semibold">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-              />
-            </svg>
-            Table of Contents
-          </span>
-        </div>
-        <div id="toc-links" class="flex flex-wrap gap-2">
-          <!-- Links will be dynamically inserted here -->
-        </div>
       </div>
 
       <div
@@ -96,7 +70,7 @@ block navbar %} {% endblock navbar %} {% block content %}
   </div>
 
   <!-- Blogs Section -->
-  <section class="relative mt-6 mb-20 overflow-hidden lg:-mt-6">
+  <section class="relative mt-6 mb-20 overflow-hidden 2xl:mt-8 lg:-mt-6">
     <div
       class="flex flex-wrap items-center justify-between px-8 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
     >
@@ -124,7 +98,7 @@ block navbar %} {% endblock navbar %} {% block content %}
     </div>
 
     <div
-      class="flex justify-center flex-wrap h-[540px] w-full"
+      class="flex justify-center flex-wrap h-[550px] w-full"
       id="blog-container"
     >
       {% if blogs %} {% for blog in blogs %}
@@ -135,10 +109,6 @@ block navbar %} {% endblock navbar %} {% block content %}
     </div>
   </section>
 
-  <!-- Fixed Circular Elements on Larger Screens -->
-  <!-- <div
-    class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block"
-  > -->
   <div
     class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
   >
