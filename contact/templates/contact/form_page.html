@@ -16,7 +16,7 @@ wagtailimages_tags %} {% block navbar%} {% endblock navbar %} {% block content
           <form method="post" class="" id="contactForm" novalidate>
             {% csrf_token %} {% for field in form.visible_fields %}
             <div class="p-2">
-              <label class="block font-bold text-maroon"
+              <label class="block mb-2 font-bold text-maroon"
                 >{{ field.label_tag }} {% if field.field.required %}
                 <span class="text-red-800">*</span> {% endif %}
               </label>
