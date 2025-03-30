@@ -23,7 +23,7 @@
     <!-- Menu Button (Hamburger) for mobile screens -->
     <button
       id="hamburger"
-      class="flex flex-col items-start justify-center gap-2 md:gap-2 text-red-700 xl:hidden w-8 h-20"
+      class="flex flex-col items-start justify-center w-8 h-20 gap-2 text-red-700 md:gap-2 xl:hidden"
     >
       <span
         class="block bg-red-700 w-7 sm:w-7 md:w-10 lg:w-12 h-[2px] sm:h-[2.5px] md:h-[3.5px]"
@@ -56,7 +56,7 @@
 
         <div
           id="dropdown-menu"
-          class="absolute left-0 w-screen grid-cols-4 transition-opacity duration-300 ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 top-full group-hover:opacity-100"
+          class="absolute left-0 w-screen grid-cols-4 transition-opacity ease-in-out bg-white border-t-2 border-gray-200 shadow-lg opacity-0 duration-50 top-full group-hover:opacity-50"
         >
           <div
             class="w-[80%] ml-44 flex flex-wrap justify-center gap-10 text-center"
@@ -228,12 +228,44 @@
     </div>
   </div>
 </nav>
+<style>
+  /* Dropdown Menu Styling */
+  #dropdown-menu {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
 
-<!-- End of Navbar -->
-<link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
-<script src="{% static 'js/navbar.js' %}"></script>
+  #dropdown-menu.show {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  /* Navbar background change on hover */
+  #navbar.white-bg {
+    background-color: white;
+    transition: background-color 0.3s ease;
+  }
+</style>
 
 <script>
+  const servicesBtn = document.getElementById("services-btn");
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  const navbar = document.getElementById("navbar");
+
+  // Show the dropdown and change navbar background on hover
+  servicesBtn.addEventListener("mouseenter", () => {
+    dropdownMenu.classList.add("show");
+    navbar.classList.add("white-bg");
+  });
+
+  // Hide the dropdown and revert navbar background when mouse leaves
+  servicesBtn.addEventListener("mouseleave", () => {
+    dropdownMenu.classList.remove("show");
+    navbar.classList.remove("white-bg");
+  });
+
   // Close the menu when the screen size becomes larger than a specific breakpoint (e.g., 1024px)
   window.addEventListener("resize", function () {
     if (window.innerWidth >= 1024) {
@@ -262,6 +294,31 @@
           navbar.classList.remove("bg-white");
         }, 30); // Wait for animation duration
       }
+    }
+  });
+
+  // menu
+  const hamburgerButton = document.getElementById("hamburger");
+  const hamburgerIcon = document.getElementById("hamburger-icon");
+  const menu = document.getElementById("mobile-menu");
+  // Hamburger menu toggle with smooth transition for navbar background
+  hamburgerButton.addEventListener("click", function () {
+    if (menu.classList.contains("hidden")) {
+      // Open the menu smoothly
+      navbar.classList.add("bg-white");
+      menu.classList.remove("hidden", "menu-close");
+      menu.classList.add("menu-animate");
+    } else {
+      // Close the menu smoothly
+      menu.classList.remove("menu-animate");
+      menu.classList.add("menu-close");
+      navbar.classList.remove("bg-white");
+
+      // Delay hiding the menu until animation completes
+      setTimeout(() => {
+        menu.classList.add("hidden");
+        navbar.classList.remove("bg-white");
+      }, 0); // Wait for animation duration
     }
   });
 </script>
