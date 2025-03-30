@@ -259,7 +259,7 @@
   /* Adjust for larger screens */
   @media (min-width: 1280px) {
     #dropdown-menu.show {
-      transform: translateX(-54.5%) scaleY(1);
+      transform: translateX(-54%) scaleY(1);
     }
   }
 
@@ -319,7 +319,19 @@
   }
 
   #hamburger span {
+    display: block;
     transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  /* Hide the cross icon until the button is clicked */
+  .cross span:nth-child(1),
+  .cross span:nth-child(3) {
+    opacity: 0;
+  }
+
+  /* Show hamburger icon initially */
+  #hamburger span:nth-child(1),
+  #hamburger span:nth-child(3) {
+    opacity: 1;
   }
 </style>
 

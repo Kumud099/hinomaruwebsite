@@ -17,6 +17,8 @@ servicesBtn.addEventListener("mouseleave", () => {
 // Close the menu when the screen size becomes larger than a specific breakpoint (e.g., 1024px)
 window.addEventListener("resize", function () {
   if (window.innerWidth >= 1024) {
+    // Ensure hamburger button is reset to the hamburger icon on larger screens
+    hamburgerButton.classList.remove("cross");
     if (!menu.classList.contains("hidden")) {
       menu.classList.add("hidden");
       navbar.classList.remove("bg-white");
