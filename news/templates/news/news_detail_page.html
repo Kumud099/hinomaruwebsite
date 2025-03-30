@@ -1,9 +1,10 @@
 {% extends 'base.html' %} {% load wagtailimages_tags %} {% load static %} {%
 block navbar %} {% endblock navbar %} {% block content %}
-<div class="overflow-hidden" style="background-color: #f7fafc">
+<!-- <div class="overflow-hidden" style="background-color: #f7fafc"> -->
+<div class="overflow-hidden bg-gray-100 radius-20px">
   <c-components.navbar_fix backgroundcolor="white" />
   <main
-    class="container flex flex-col -mt-4 items-center px-8 py-12 pt-20 mx-auto"
+    class="container flex flex-col items-center px-8 py-12 pt-20 mx-auto -mt-4"
   >
     <div class="w-full max-w-2xl">
       <div class="mb-6">
@@ -44,31 +45,18 @@ block navbar %} {% endblock navbar %} {% block content %}
   <!-- News Section -->
   <section class="relative mt-10 mb-20 overflow-hidden lg:-mt-6">
     <div class="pb-16">
-      <div class="flex items-center justify-between">
+      <div
+        class="flex items-center justify-between gap-1 mb-6 lg:mb-10 2xl:mb-10"
+      >
         <h1
-          class="text-3xl ml-12 mb-12 font-bold text-center text-red-700 transition-colors duration-700 hover:text-black"
+          class="ml-12 text-3xl font-bold text-center text-red-700 transition-colors duration-700 hover:text-black"
         >
           <span class="decoration-[#991b1b]">MORE NEWS</span>
         </h1>
 
-        <!-- news -->
-        <!-- <a
-          href="/announcements"
-          class="relative inline-flex items-center justify-center px-4 py-2 mr-4 overflow-hidden text-xs font-medium transition-all bg-orange-700 rounded-full group sm:text-sm xl:flex 2xl:flex"
-        >
-          <span
-            class="absolute top-0 left-0 w-full h-full transition-all duration-500 ease-out origin-left transform scale-x-0 bg-orange-400 group-hover:scale-x-100"
-          >
-          </span>
-          <span
-            class="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-white"
-          >
-            View All News <i class="fa fa-angle-right"></i>
-          </span>
-        </a> -->
         <a
           href="/announcements"
-          class="relative inline-flex items-center justify-center mr-14 -mt-4 overflow-hidden text-xs font-medium transition-all group sm:text-sm xl:flex 2xl:flex"
+          class="relative inline-flex items-center justify-center overflow-hidden text-xs font-medium transition-all mr-14 group sm:text-sm xl:flex 2xl:flex"
         >
           <!-- Underline that appears on hover -->
           <span

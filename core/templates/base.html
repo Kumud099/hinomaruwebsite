@@ -1,55 +1,43 @@
-{% load static wagtailcore_tags wagtailuserbar %}
-{% load tailwind_cli %}
+{% load static wagtailcore_tags wagtailuserbar %} {% load tailwind_cli %}
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <title>
-        {% block title %}
-        {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
-        {% endblock %}
-        {% block title_suffix %}
-        {% wagtail_site as current_site %}
-        {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
-        {% endblock %}
+      {% block title %} {% if page.seo_title %}{{ page.seo_title }}{% else %}{{
+      page.title }}{% endif %} {% endblock %} {% block title_suffix %} {%
+      wagtail_site as current_site %} {% if current_site and
+      current_site.site_name %}- {{ current_site.site_name }}{% endif %} {%
+      endblock %}
     </title>
     <script src="https://unpkg.com/htmx.org@2.0.4"></script>
     <c-scripts />
 
-    <link rel="stylesheet" href="{% static 'css/core.css' %}">
-    {% tailwind_css %}
-
-    {% if page.search_description %}
+    <link rel="stylesheet" href="{% static 'css/core.css' %}" />
+    {% tailwind_css %} {% if page.search_description %}
     <meta name="description" content="{{ page.search_description }}" />
     {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {% if request.in_preview_panel %}
-    <base target="_blank">{% endif %}
+    <base target="_blank" />
+    {% endif %} {% block extra_css %}{% endblock extra_css %}
+  </head>
 
-    {% block extra_css %}{% endblock extra_css %}
-</head>
-
-{% block navbar %}
+  {% block navbar %}
   <c-components.navbar txtcolor="red-900" :backgroundcolor="navbarBackground" />
-{% endblock navbar %}
+  {% endblock navbar %}
 
-
-
-<body class="{% block body_class %}{% endblock body_class %} {% if '/contact-us/' in request.path %} bg-gray-100 {% endif %} transition-fade font-Inter">
-
-
+  <body
+    class="{% block body_class %}{% endblock body_class %} {% if '/contact-us/' in request.path %} bg-gray-100 {% endif %} {% if '/blogs/' in request.path %} bg-gray-100 {% endif %} {% if '/blogs/blogs_detail_page/' in request.path %} bg-gray-100 {% endif %} {% if '/announcements/' in request.path %} bg-gray-100 {% endif %} {% if '/announcements/news_detail_page/' in request.path %} bg-gray-100 {% endif %} transition-fade font-Inter"
+  >
     <main id="swup" class="transition-fade">
-        {% block content %}{% endblock content %}
-        <script type="text/javascript" src="{% static 'js/core.js' %}"></script>
+      {% block content %}{% endblock content %}
+      <script type="text/javascript" src="{% static 'js/core.js' %}"></script>
 
-        {% block extra_js %}
-        {% endblock extra_js %}
+      {% block extra_js %} {% endblock extra_js %}
     </main>
-</body>
+  </body>
 
-<c-components.footer />
-
-
+  <c-components.footer />
 </html>
