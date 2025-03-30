@@ -1,7 +1,8 @@
 {% extends "base.html" %} {% load static %} {% load widget_tweaks %} {% load
 wagtailimages_tags %} {% block navbar%} {% endblock navbar %} {% block content
 %}
-<div class="overflow-hidden radius-20px" style="background-color: #f7fafc">
+<!-- <div class="overflow-hidden radius-20px" style="background-color: #f7fafc"> -->
+<div class="overflow-hidden bg-gray-100 radius-20px">
   <c-components.navbar_fix backgroundcolor="red-800" />
   <div class="min-h-[100vh] m-4 flex items-center justify-center">
     <section
@@ -12,40 +13,29 @@ wagtailimages_tags %} {% block navbar%} {% endblock navbar %} {% block content
       <div class="flex flex-col-reverse gap-8 lg:grid lg:grid-cols-2">
         <!-- Contact Form (First on Mobile, Right on Desktop) -->
         <div class="order-2 bg-white rounded-lg lg:order-2">
-          <form method="post" class="space-y-4">
-            {% csrf_token %} {{ form.non_field_errors }} {% for hidden_field in
-            form.hidden_fields %} {{ hidden_field.errors }} {{ hidden_field }}
+          <form method="post" class="" id="contactForm" novalidate>
+            {% csrf_token %} {% for field in form.visible_fields %}
+            <div class="p-2">
+              <label class="block font-bold text-maroon"
+                >{{ field.label_tag }} {% if field.field.required %}
+                <span class="text-red-800">*</span> {% endif %}
+              </label>
+              {% render_field field class="w-full p-2 border-gray-300 rounded
+              shadow-sm" placeholder=field.name %}
+              <span class="hidden text-sm text-red-600 error-message"></span>
+            </div>
             {% endfor %}
 
-            <div class="mt-10">
-              {% for field in form.visible_fields %}
-              <div class="p-4">
-                <label
-                  for="{{ field.id_for_label }}"
-                  class="block font-bold text-maroon"
-                >
-                  {{ field.label_tag }} {% if field.field.required %}
-                  <span class="text-red-800">*</span>
-                  {% endif %}
-                </label>
-                {% render_field field class+="w-full p-2 border-gray-300 rounded
-                shadow-sm" placeholder=field.name %} {% if field.errors %}
-                <div class="mt-1 text-sm text-red-600">
-                  {% for error in field.errors %} {{ error }} {% endfor %}
-                </div>
-                {% endif %}
-              </div>
-              {% endfor %}
-
-              <!-- Submit Button -->
-              <div class="flex items-center justify-center px-6 mx-4 my-4 mb-8">
-                <button
-                  type="submit"
-                  class="bg-red-700 text-white w-full py-2 rounded-lg sm:w-auto lg:w-[450px] md:w-[400px] sm:min-w-[300px] hover:bg-red-800 transition duration-300"
-                >
-                  Send
-                </button>
-              </div>
+            <!-- Submit Button -->
+            <div
+              class="flex items-center justify-center px-6 mx-4 my-4 mb-8 lg:px-8 md:px-8 lg:mx-8"
+            >
+              <button
+                type="submit"
+                class="bg-red-700 text-white py-2 px-10 w-full lg:w-[450px] md:w-[400px] sm:w-full rounded-lg"
+              >
+                Send
+              </button>
             </div>
           </form>
         </div>
@@ -116,6 +106,78 @@ wagtailimages_tags %} {% block navbar%} {% endblock navbar %} {% block content
   .text-maroon {
     color: #902d43;
   }
+  .error-border {
+    border: 2px solid red !important; /* Adds a red border */
+  }
 </style>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+
+<script>
+  document.getElementById("contactForm").onsubmit = function (event) {
+    let formValid = true;
+    let fields = document.querySelectorAll("#contactForm [name]");
+
+    fields.forEach((field) => {
+      let errorSpan = field.parentElement.querySelector(".error-message");
+
+      // Check if the field is required and empty OR if it's a dropdown with an invalid selection
+      if (
+        field.hasAttribute("required") &&
+        (field.value.trim() === "" ||
+          (field.tagName === "SELECT" && field.value === "Choose a service")) // Validate dropdown
+      ) {
+        formValid = false;
+        errorSpan.innerHTML = `<i class="fa-solid fa-exclamation-circle"></i> Please enter your ${field
+          .getAttribute("placeholder")
+          .replace("Please enter your ", "")}.`;
+        errorSpan.classList.remove("hidden");
+        errorSpan.style.color = "red";
+        field.classList.add("error-border");
+
+        // Check for valid email format using a regular expression
+      } else if (field.type === "email" && !validateEmail(field.value)) {
+        formValid = false;
+        errorSpan.innerHTML = `<i class="fa-solid fa-exclamation-circle"></i> Please enter a valid email address.`;
+        errorSpan.classList.remove("hidden");
+        errorSpan.style.color = "red";
+        field.classList.add("error-border");
+      } else {
+        errorSpan.classList.add("hidden");
+        field.classList.remove("error-border");
+      }
+    });
+
+    // If any field is invalid, prevent form submission
+    if (!formValid) {
+      event.preventDefault();
+    }
+  };
+
+  // Validate email using a regular expression
+  function validateEmail(email) {
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email);
+  }
+
+  // Add event listeners for input/change to remove the error when user starts typing or selecting
+  document.querySelectorAll("#contactForm [name]").forEach((field) => {
+    field.addEventListener("input", function () {
+      let errorSpan = field.parentElement.querySelector(".error-message");
+
+      // Remove error message and border when user starts typing or changing value
+      if (
+        field.value.trim() !== "" &&
+        !(field.tagName === "SELECT" && field.value === "Choose a service")
+      ) {
+        errorSpan.classList.add("hidden");
+        field.classList.remove("error-border");
+      }
+    });
+  });
+</script>
 
 {% endblock content %}
