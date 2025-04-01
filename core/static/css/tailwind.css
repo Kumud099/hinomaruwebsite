@@ -1638,6 +1638,10 @@ select {
   margin-top: 1.5rem;
 }
 
+.-ml-10 {
+  margin-left: -2.5rem;
+}
+
 .block {
   display: block;
 }
@@ -1680,6 +1684,10 @@ select {
 
 .h-64 {
   height: 16rem;
+}
+
+.h-7 {
+  height: 1.75rem;
 }
 
 .h-72 {
@@ -1732,14 +1740,6 @@ select {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-5 {
-  height: 1.25rem;
-}
-
-.h-7 {
-  height: 1.75rem;
 }
 
 .min-h-\[100vh\] {
@@ -2992,20 +2992,16 @@ select {
     height: 3rem;
   }
 
+  .sm\:h-8 {
+    height: 2rem;
+  }
+
   .sm\:h-\[2\.5px\] {
     height: 2.5px;
   }
 
   .sm\:h-\[300px\] {
     height: 300px;
-  }
-
-  .sm\:h-7 {
-    height: 1.75rem;
-  }
-
-  .sm\:h-8 {
-    height: 2rem;
   }
 
   .sm\:min-h-\[200px\] {
@@ -3028,20 +3024,16 @@ select {
     width: 1.75rem;
   }
 
+  .sm\:w-8 {
+    width: 2rem;
+  }
+
   .sm\:w-\[600px\] {
     width: 600px;
   }
 
   .sm\:w-full {
     width: 100%;
-  }
-
-  .sm\:w-6 {
-    width: 1.5rem;
-  }
-
-  .sm\:w-8 {
-    width: 2rem;
   }
 
   .sm\:max-w-\[300px\] {
@@ -3195,6 +3187,10 @@ select {
     height: 3rem;
   }
 
+  .md\:h-8 {
+    height: 2rem;
+  }
+
   .md\:h-\[3\.5px\] {
     height: 3.5px;
   }
@@ -3205,10 +3201,6 @@ select {
 
   .md\:h-\[350px\] {
     height: 350px;
-  }
-
-  .md\:h-8 {
-    height: 2rem;
   }
 
   .md\:w-1\/2 {
@@ -3425,6 +3417,10 @@ select {
     height: 5rem;
   }
 
+  .lg\:h-9 {
+    height: 2.25rem;
+  }
+
   .lg\:h-\[300px\] {
     height: 300px;
   }
@@ -3435,10 +3431,6 @@ select {
 
   .lg\:h-\[450px\] {
     height: 450px;
-  }
-
-  .lg\:h-9 {
-    height: 2.25rem;
   }
 
   .lg\:w-12 {
@@ -3610,20 +3602,16 @@ select {
     display: none;
   }
 
+  .xl\:h-9 {
+    height: 2.25rem;
+  }
+
   .xl\:h-\[350px\] {
     height: 350px;
   }
 
   .xl\:h-\[450px\] {
     height: 450px;
-  }
-
-  .xl\:h-8 {
-    height: 2rem;
-  }
-
-  .xl\:h-9 {
-    height: 2.25rem;
   }
 
   .xl\:min-h-\[350px\] {
@@ -3634,16 +3622,12 @@ select {
     min-height: 100vh;
   }
 
-  .xl\:w-\[450px\] {
-    width: 450px;
-  }
-
-  .xl\:w-8 {
-    width: 2rem;
-  }
-
   .xl\:w-9 {
     width: 2.25rem;
+  }
+
+  .xl\:w-\[450px\] {
+    width: 450px;
   }
 
   .xl\:max-w-\[350px\] {
