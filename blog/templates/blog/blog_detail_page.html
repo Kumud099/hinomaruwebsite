@@ -4,15 +4,15 @@ block navbar %} {% endblock navbar %} {% block content %}
 <div class="overflow-hidden bg-gray-100 radius-20px">
   <c-components.navbar_fix backgroundcolor="white" />
   <main
-    class="container px-8 py-12 2xl:mt-0 mx-auto min-h-[100vh] flex flex-col justify-center items-center"
+    class="container py-12 2xl:mt-0 mx-auto min-h-[100vh] flex flex-col justify-center items-center"
   >
     <!-- class="container mx-auto px-8 py-12 min-h-[100vh] flex bg-gray-100 flex-col justify-center items-center pt-20 mb-10" -->
     <div class="w-full max-w-2xl">
-      <div class="mb-6">
+      <div class=" mb-6">
         {% if page.categories %}
-        <div class="flex justify-center">
+        <div class="flex justify-center -mt-16">
           <div id="categories-links" class="flex flex-wrap items-center gap-2">
-            <p class="text-gray-600">| {{ page.blog_publish_date }} |</p>
+            <p class="text-gray-600 ">| {{ page.blog_publish_date }} |</p>
             {% for category in page.categories.all %}
             <span
               class="px-4 py-2 mt-6 text-sm text-white bg-red-800 rounded-md shadow-md"
@@ -41,14 +41,14 @@ block navbar %} {% endblock navbar %} {% block content %}
       </div>
 
       <div
-        class="pt-5 lg:space-y-8 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px] prose prose-slate"
+        class="pt-5 lg:space-y-8 mb-12 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px] prose prose-slate"
       >
         {{ page.blog_body | safe }}
       </div>
     </div>
   </main>
   <!-- Circular Elements on Mobile (Horizontal) -->
-  <div class="flex items-center justify-center -mt-12 space-x-6 sm:hidden">
+  <div class="flex items-center justify-center -mt-32 space-x-6 sm:hidden">
     <div
       class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
     >
@@ -66,121 +66,122 @@ block navbar %} {% endblock navbar %} {% block content %}
     </div>
   </div>
 
-  <!-- Blogs Section -->
-  <section class="relative mt-6 mb-20 overflow-hidden 2xl:mt-8 lg:-mt-6">
-    <div
-      class="flex flex-wrap items-center justify-between px-8 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
-    >
-      <h1
-        class="text-3xl font-bold text-center 2xl:ml-[11rem] text-red-700 transition-colors duration-700 hover:text-black"
+    <!-- Blogs Section -->
+    <section class="relative mb-20 mt-6 2xl:-mt-16 overflow-hidden">
+      <div
+        class="flex flex-wrap items-center justify-between px-8 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
       >
-        <!-- <h1
+        <h1
+          class="text-3xl font-bold text-center 2xl:ml-[11rem] text-red-700 transition-colors duration-700 hover:text-black"
+        >
+          <!-- <h1
         class="text-3xl font-bold text-center text-red-700 transition-colors duration-700 hover:text-black"
       > -->
-        <span class="decoration-[#991b1b]">MORE BLOGS</span>
-      </h1>
+          <span class="decoration-[#991b1b]">MORE BLOGS</span>
+        </h1>
 
-      <a
-        href="/blogs"
-        class="relative inline-flex items-center justify-center 2xl:mr-[11rem] mt-2 overflow-hidden text-xs font-medium transition-all lg:ml-0 xl:ml-0 group sm:text-sm xl:flex 2xl:flex"
-      >
-        <!-- <a
+        <a
+          href="/blogs"
+          class="relative inline-flex items-center justify-center 2xl:mr-[11rem] mt-2 overflow-hidden text-xs font-medium transition-all lg:ml-0 xl:ml-0 group sm:text-sm xl:flex 2xl:flex"
+        >
+          <!-- <a
         href="/blogs"
         class="relative inline-flex items-center justify-center mt-2 overflow-hidden text-xs font-medium transition-all lg:ml-0 xl:ml-0 group sm:text-sm xl:flex 2xl:flex"
       > -->
-        <!-- Underline that appears on hover -->
-        <span
-          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"
-        ></span>
+          <!-- Underline that appears on hover -->
+          <span
+            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"
+          ></span>
 
-        <span
-          class="relative w-full text-center text-red-700 transition-colors duration-300 ease-in-out"
-        >
-          View All Blogs <i class="fa fa-arrow-right"></i>
-        </span>
-      </a>
+          <span
+            class="relative w-full text-center text-red-700 transition-colors duration-300 ease-in-out"
+          >
+            View All Blogs <i class="fa fa-arrow-right"></i>
+          </span>
+        </a>
+      </div>
+
+      <div
+        class="flex justify-center flex-wrap h-[550px] w-full"
+        id="blog-container"
+      >
+        {% if blogs %} {% for blog in blogs %}
+        <c-components.blogs-card :blog="blog" class="z-10 border" />
+        {% endfor %} {% else %}
+        <p>No blogs available</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <div
+      class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
+    >
+      <img
+        src="{% static 'images/facebook.svg' %}"
+        alt="Facebook Icon"
+        class="object-contain w-full h-full"
+      />
     </div>
 
     <div
-      class="flex justify-center flex-wrap h-[550px] w-full"
-      id="blog-container"
+      class="fixed right-6 top-[400px] sm:top-[450px] md:top-[500px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
     >
-      {% if blogs %} {% for blog in blogs %}
-      <c-components.blogs-card :blog="blog" class="z-10 border" />
-      {% endfor %} {% else %}
-      <p>No blogs available</p>
-      {% endif %}
+      <img
+        src="{% static 'images/x.svg' %}"
+        alt="X Icon"
+        class="object-contain w-full h-full"
+      />
     </div>
-  </section>
 
-  <div
-    class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
-  >
-    <img
-      src="{% static 'images/facebook.svg' %}"
-      alt="Facebook Icon"
-      class="object-contain w-full h-full"
-    />
+    <div
+      class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
+    >
+      <img
+        src="{% static 'images/insta.svg' %}"
+        alt="Instagram Icon"
+        class="object-contain w-full h-full"
+      />
+    </div>
   </div>
 
-  <div
-    class="fixed right-6 top-[400px] sm:top-[450px] md:top-[500px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
-  >
-    <img
-      src="{% static 'images/x.svg' %}"
-      alt="X Icon"
-      class="object-contain w-full h-full"
-    />
-  </div>
+  {% endblock content %} {% block extra_js %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const blogContainer = document.getElementById("blog-container");
+      const scrollLeftButton = document.getElementById("scroll-left");
+      const scrollRightButton = document.getElementById("scroll-right");
 
-  <div
-    class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
-  >
-    <img
-      src="{% static 'images/insta.svg' %}"
-      alt="Instagram Icon"
-      class="object-contain w-full h-full"
-    />
-  </div>
+      // Scroll left
+      scrollLeftButton.addEventListener("click", () => {
+        blogContainer.scrollBy({
+          left: -525,
+          behavior: "smooth",
+        });
+      });
+
+      // Scroll right
+      scrollRightButton.addEventListener("click", () => {
+        blogContainer.scrollBy({
+          left: 525,
+          behavior: "smooth",
+        });
+      });
+    });
+
+    const h2Elements = document.querySelectorAll("h2");
+    const tocLinksContainer = document.getElementById("toc-links");
+
+    h2Elements.forEach((h2, index) => {
+      const link = document.createElement("a");
+      link.href = `#section-${index + 1}`;
+      link.className =
+        "bg-white px-4 py-2 rounded-md shadow text-sm hover:bg-black hover:text-white";
+      link.textContent = `${index + 1}. ${h2.textContent}`;
+
+      tocLinksContainer.appendChild(link);
+
+      h2.id = `section-${index + 1}`;
+    });
+  </script>
+  {% endblock extra_js %}
 </div>
-
-{% endblock content %} {% block extra_js %}
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const blogContainer = document.getElementById("blog-container");
-    const scrollLeftButton = document.getElementById("scroll-left");
-    const scrollRightButton = document.getElementById("scroll-right");
-
-    // Scroll left
-    scrollLeftButton.addEventListener("click", () => {
-      blogContainer.scrollBy({
-        left: -525,
-        behavior: "smooth",
-      });
-    });
-
-    // Scroll right
-    scrollRightButton.addEventListener("click", () => {
-      blogContainer.scrollBy({
-        left: 525,
-        behavior: "smooth",
-      });
-    });
-  });
-
-  const h2Elements = document.querySelectorAll("h2");
-  const tocLinksContainer = document.getElementById("toc-links");
-
-  h2Elements.forEach((h2, index) => {
-    const link = document.createElement("a");
-    link.href = `#section-${index + 1}`;
-    link.className =
-      "bg-white px-4 py-2 rounded-md shadow text-sm hover:bg-black hover:text-white";
-    link.textContent = `${index + 1}. ${h2.textContent}`;
-
-    tocLinksContainer.appendChild(link);
-
-    h2.id = `section-${index + 1}`;
-  });
-</script>
-{% endblock extra_js %}

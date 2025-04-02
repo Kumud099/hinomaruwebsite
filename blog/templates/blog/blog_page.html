@@ -4,17 +4,19 @@
 <div class="overflow-hidden bg-gray-100 radius-20px">
   <c-components.navbar_fix />
   <main class="min-h-screen mx-10 lg:mt-0">
-    <div class="container mx-auto max-w-[1440px] px-20 py-10">
+    <div
+      class="container mx-auto max-w-[1200px] py-10 2xl:px-20 xl:px-20 lg:px-10 md:px-10"
+    >
       <!-- Page Header -->
-      <div class="mt-10 mb-10 -ml-10 text-center">
+      <div class="mb-10 -mt-2 text-center">
         <h2
-          class="font-semibold text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] text-center items-center mx-auto"
+          class="font-semibold text-red-700 text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] text-center items-center"
         >
           BLOGS
           <!-- <span class="decoration-[#991b1b]">BLOGS</span> -->
         </h2>
         <p
-          class="text-gray-500 ml-10 hover:text-[#991b1b] hover:underline text-lg mt-2"
+          class="text-gray-500 -mb-4 hover:text-[#991b1b] hover:underline text-lg mt-2"
         >
           Page {{ request.GET.page|default:1 }}
         </p>
@@ -24,11 +26,13 @@
       <div class="mb-6">
         <div class="p-4 bg-white rounded-lg shadow-md">
           <h3 class="mb-3 text-xl font-bold text-red-800">Categories</h3>
-          <div class="flex gap-2 pb-2 overflow-x-auto whitespace-nowrap">
+          <div
+            class="flex flex-col gap-2 pb-2 overflow-x-auto whitespace-nowrap sm:flex-row"
+          >
             {% for category in categories %}
             <a
               href="?category={{ category.slug }}"
-              class="px-4 py-2 rounded-lg text-lg font-semibold transition-all duration-300 {% if selected_category == category.slug %} bg-orange-700 text-white shadow-md {% else %} bg-gray-100 text-gray-800 hover:bg-orange-700 hover:text-white {% endif %}"
+              class="px-4 py-1 rounded-lg text-lg font-semibold transition-all duration-300 {% if selected_category == category.slug %} bg-orange-700 text-white shadow-md {% else %} bg-gray-100 text-gray-800 hover:bg-orange-700 hover:text-white {% endif %}"
             >
               {{ category.name }}
             </a>
@@ -49,30 +53,34 @@
       </div>
 
       <!-- Blog Content Section -->
-      <div class="flex flex-col gap-8 md:flex-row">
+      <div class="flex flex-col gap-5 md:flex-row">
         <!-- Blog Posts Section -->
         <div class="flex-1">
           <!-- Blog Grid (3 Columns × 2 Rows) -->
-          <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {% for blog in blogs|slice:":6" %} {% image blog.blog_cover_image
-            width-400 as cover %}
+            width-200 as cover %}
             <div
               class="overflow-hidden transition duration-300 transform bg-white shadow-lg rounded-2xl hover:-translate-y-2"
             >
               <img
                 src="{{ cover.url }}"
                 alt="{{ blog.title }}"
-                class="w-full h-[220px] object-cover"
+                class="w-full h-[120px] object-cover"
               />
-              <div class="p-6">
-                <div class="h-[5rem]">
-                  <h3 class="mb-2 text-2xl font-bold">{{ blog.title }}</h3>
+              <div class="p-4 -mt-2">
+                <div
+                  class="2xl:h-[55px] xl:h-[55px] lg:h-[55px] md:h-[55px] sm:h-[55px]"
+                  id="blog-title"
+                >
+                  <h3 class="text-xl font-bold">{{ blog.title }}</h3>
                 </div>
 
-                <div class="flex justify-between mt-4">
+                <div class="flex justify-between -py-2">
                   <p class="text-sm text-gray-500">
                     {{ blog.blog_publish_date }}
                   </p>
+
                   <a
                     href="{{ blog.url }}"
                     class="relative inline-flex items-center justify-center overflow-hidden text-xs font-medium transition-all group"
@@ -99,7 +107,7 @@
       </div>
 
       <!-- Pagination -->
-      <div class="flex justify-center mt-16 mb-20">
+      <div class="flex justify-center mt-7 mb-20">
         <c-components.paginator :object="blogs" />
       </div>
     </div>
