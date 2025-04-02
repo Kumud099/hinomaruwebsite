@@ -4,18 +4,15 @@ block navbar %} {% endblock navbar %} {% block content %}
 <div class="overflow-hidden bg-gray-100 radius-20px">
   <c-components.navbar_fix backgroundcolor="white" />
   <main
-    class="container px-8 py-12 2xl:mt-0 -mt-12 mx-auto min-h-[100vh] flex flex-col justify-center items-center"
+    class="container px-8 py-12 2xl:mt-0 mx-auto min-h-[100vh] flex flex-col justify-center items-center"
   >
     <!-- class="container mx-auto px-8 py-12 min-h-[100vh] flex bg-gray-100 flex-col justify-center items-center pt-20 mb-10" -->
     <div class="w-full max-w-2xl">
       <div class="mb-6">
         {% if page.categories %}
         <div class="flex justify-center">
-          <div
-            id="categories-links"
-            class="flex flex-wrap items-center gap-2 mt-4"
-          >
-            <p class="mt-6 text-gray-600">| {{ page.blog_publish_date }} |</p>
+          <div id="categories-links" class="flex flex-wrap items-center gap-2">
+            <p class="text-gray-600">| {{ page.blog_publish_date }} |</p>
             {% for category in page.categories.all %}
             <span
               class="px-4 py-2 mt-6 text-sm text-white bg-red-800 rounded-md shadow-md"
@@ -77,7 +74,7 @@ block navbar %} {% endblock navbar %} {% block content %}
       <h1
         class="text-3xl font-bold text-center 2xl:ml-[11rem] text-red-700 transition-colors duration-700 hover:text-black"
       >
-      <!-- <h1
+        <!-- <h1
         class="text-3xl font-bold text-center text-red-700 transition-colors duration-700 hover:text-black"
       > -->
         <span class="decoration-[#991b1b]">MORE BLOGS</span>
@@ -87,7 +84,7 @@ block navbar %} {% endblock navbar %} {% block content %}
         href="/blogs"
         class="relative inline-flex items-center justify-center 2xl:mr-[11rem] mt-2 overflow-hidden text-xs font-medium transition-all lg:ml-0 xl:ml-0 group sm:text-sm xl:flex 2xl:flex"
       >
-      <!-- <a
+        <!-- <a
         href="/blogs"
         class="relative inline-flex items-center justify-center mt-2 overflow-hidden text-xs font-medium transition-all lg:ml-0 xl:ml-0 group sm:text-sm xl:flex 2xl:flex"
       > -->
