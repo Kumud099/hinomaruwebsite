@@ -32,7 +32,7 @@
             {% for category in categories %}
             <a
               href="?category={{ category.slug }}"
-              class="px-4 py-2 rounded-lg text-lg font-semibold transition-all duration-300 {% if selected_category == category.slug %} bg-orange-700 text-white shadow-md {% else %} bg-gray-100 text-gray-800 hover:bg-orange-700 hover:text-white {% endif %}"
+              class="px-4 py-1 rounded-lg text-lg font-semibold transition-all duration-300 {% if selected_category == category.slug %} bg-orange-700 text-white shadow-md {% else %} bg-gray-100 text-gray-800 hover:bg-orange-700 hover:text-white {% endif %}"
             >
               {{ category.name }}
             </a>
@@ -68,7 +68,7 @@
                 alt="{{ blog.title }}"
                 class="w-full h-[120px] object-cover "
               />  
-              <div class="p-4">
+              <div class="p-4 -mt-2">
                 <div class="2xl:h-[55px] xl:h-[55px] lg:h-[55px] md:h-[55px] sm:h-[55px]" id="blog-title">
                   <h3 class=" text-xl font-bold">{{ blog.title }}</h3>
                 </div>
