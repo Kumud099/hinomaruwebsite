@@ -1646,6 +1646,18 @@ select {
   margin-left: -6rem;
 }
 
+.-ml-4 {
+  margin-left: -1rem;
+}
+
+.-ml-10 {
+  margin-left: -2.5rem;
+}
+
+.-ml-2 {
+  margin-left: -0.5rem;
+}
+
 .-ml-28 {
   margin-left: -7rem;
 }
@@ -1654,40 +1666,8 @@ select {
   margin-left: -8rem;
 }
 
-.-ml-\[5vh\] {
-  margin-left: -5vh;
-}
-
-.-ml-\[4vh\] {
-  margin-left: -4vh;
-}
-
-.-ml-2 {
-  margin-left: -0.5rem;
-}
-
-.-ml-16 {
-  margin-left: -4rem;
-}
-
-.ml-16 {
-  margin-left: 4rem;
-}
-
-.ml-1 {
-  margin-left: 0.25rem;
-}
-
-.mt-32 {
-  margin-top: 8rem;
-}
-
-.mt-36 {
-  margin-top: 9rem;
-}
-
-.mt-40 {
-  margin-top: 10rem;
+.-ml-12 {
+  margin-left: -3rem;
 }
 
 .block {
@@ -2092,12 +2072,6 @@ select {
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-x-8 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(2rem * var(--tw-space-x-reverse));
-  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -2126,6 +2100,24 @@ select {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(2rem * var(--tw-space-x-reverse));
+  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-9 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(2.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(2.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-10 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(2.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .overflow-hidden {
