@@ -43,7 +43,7 @@ class NewsPage(Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
         news = NewsDetailPage.objects.live().public().order_by("-first_published_at")
-        paginator = Paginator(news, 6)
+        paginator = Paginator(news, 5)
         page = request.GET.get("page")
         try:
             news_paginated = paginator.page(page)

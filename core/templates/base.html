@@ -27,7 +27,9 @@
     {% endif %} {% block extra_css %}{% endblock extra_css %}
   </head>
 
-  {% block navbar %}
+  {% if DEBUG %}
+  <script src="http://localhost:8000/__reload__/reload.js"></script>
+  {% endif %} {% block navbar %}
   <c-components.navbar txtcolor="red-900" :backgroundcolor="navbarBackground" />
   {% endblock navbar %}
 
