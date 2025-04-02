@@ -8,14 +8,14 @@ wagtailcore_tags%} {% block navbar %} {% endblock navbar %} {% block content %}
     <main class="min-h-[100vh]">
       <div class="p-15">
         <!-- Page Header -->
-        <div class="mb-5 -ml-12 text-center">
+        <div class="mb-5 -ml-10 text-center">
           <h2
             class="font-semibold text-red-700 md:pl-[50px] pl-[20px] text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px] text-center items-center mx-auto"
           >
             NEWS
           </h2>
           <p
-            class="text-gray-500 2xl:ml-10 ml-4 hover:text-[#991b1b] hover:underline text-lg mt-2"
+            class="text-gray-500 2xl:ml-12 ml-6 hover:text-[#991b1b] hover:underline text-lg mt-2"
           >
             Page {{ request.GET.page|default:1 }}
           </p>
