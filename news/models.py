@@ -27,7 +27,7 @@ class NewsDetailPage(Page):
     
         news = (
             NewsDetailPage.objects.live()
-            .public()
+            .public().exclude(id=self.id)
             .order_by(
                 "-first_published_at",
             )[0:4]
