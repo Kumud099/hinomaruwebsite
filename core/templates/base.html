@@ -10,12 +10,15 @@
       wagtail_site as current_site %} {% if current_site and
       current_site.site_name %}- {{ current_site.site_name }}{% endif %} {%
       endblock %}
-    </title>
+    </title>  
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <script src="https://unpkg.com/htmx.org@2.0.4"></script>
     <c-scripts />
 
     <link rel="stylesheet" href="{% static 'css/core.css' %}" />
-    {% tailwind_css %} {% if page.search_description %}
+    <!-- {% tailwind_css %} -->
+     {% if page.search_description %}
     <meta name="description" content="{{ page.search_description }}" />
     {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
