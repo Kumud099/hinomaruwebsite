@@ -1,73 +1,64 @@
-{% extends "base.html" %} {% load static %} {% load wagtailimages_tags %} {%
-  block navbar %} {% endblock navbar %} {% block content %}
-  <!-- <div class="overflow-hidden" style="background-color: #f7fafc"> -->
-  <div class="overflow-hidden bg-gray-100 radius-20px">
-    <c-components.navbar_fix backgroundcolor="white" />
-    <main
-      class="container px-8 py-12 2xl:mt-0 sm:-mt-12 lg:mt-0 md:mt-0 xl:mt-0 -mt-20 mx-auto min-h-[100vh] flex flex-col justify-center items-center"
-    >
-      <div class="w-full max-w-2xl">
-        <div class=" mb-6">
-          {% if page.categories %}
-          <div class="flex justify-center -mt-16 ml-4">
-            <div id="categories-links" class="flex flex-wrap items-center gap-2">
-              <p class="text-gray-600">| {{ page.blog_publish_date }} |</p>
-              {% for category in page.categories.all %}
-              <span
-                class="px-4 py-2 mt-6 text-sm text-white bg-red-800  rounded-md shadow-md"
-              >
-                {{ category.name }}
-              </span>
-              {% endfor %}
-            </div>
-          </div>
-          {% endif %}
-  
-          <h2
-            class="mt-4 ml-6 text-3xl font-bold text-center text-red-700 transition-colors duration-700"
-          >
-            {{ page.blog_title }}
-          </h2>
-          <p
-            class="mt-3 text-gray-600 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px]"
-          >
-            {{ page.blog_description }}
-          </p>
-        </div>
-  
-        <div class="pb-5 mt-3 rounded">
-          {% image page.blog_cover_image fill-841x473 %}
-        </div>
-  
-        <div
-          class="pt-5 lg:space-y-8 2xl:mb-8 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px] prose prose-slate"
+{% extends 'base.html' %} {% load wagtailimages_tags %} {% load static %} {%
+block navbar %} {% endblock navbar %} {% block content %}
+<div class="overflow-hidden bg-gray-100 radius-20px">
+  <c-components.navbar_fix backgroundcolor="white" />
+
+  <main
+    class="container flex flex-col items-center px-8 py-12 mx-auto 2xl:mt-0"
+  >
+    <div class="w-full max-w-2xl">
+      <div class="mb-6 2xl:ml-4">
+        <p class="text-gray-600 text-center">| {{ page.blog_publish_date }} |</p>
+
+        <h2
+          class="mt-4 ml-6 text-3xl font-bold text-center text-red-700 transition-colors duration-700"
         >
-          {{ page.blog_body | safe }}
-        </div>
-      </div>
-    </main>
-    <!-- Circular Elements on Mobile (Horizontal) -->
-    <div class="flex items-center justify-center -mt-32 space-x-6 sm:hidden">
-      <div
-        class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
+          {{ page.blog_title }}
+        </h2>
+
+        <p
+        class="mt-3 text-gray-600 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px]"
       >
-        <img src="{% static 'images/facebook.svg' %}" alt="Facebook Icon" />
-      </div>
-      <div
-        class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
-      >
-        <img src="{% static 'images/x.svg' %}" alt="X Icon" />
-      </div>
-      <div
-        class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
-      >
-        <img src="{% static 'images/insta.svg' %}" alt="Instagram Icon" />
-      </div>
+        {{ page.blog_description }}
+      </p>
     </div>
-  
-      <!-- Blogs Section -->
-      <section class="relative 2xl:mb-20 xl:mb-20 lg:mb-20 md:mb-10 sm:mb-10 mb-10 mt-6 2xl:-mt-16 xl:-mt-16 lg:-mt-16 md:-mt-12 overflow-hidden">
-        <div
+
+    <div class="pb-5 mt-3 rounded">
+      {% image page.blog_cover_image fill-841x473 %}
+    </div>
+    <div 
+    class="mt-4 lg:space-y-8 text-justify text-[14px] sm:text-[14px] md:text-[17px] lg:text-[17px] prose prose-slate"
+   >
+   {{ page.blog_body | safe }}
+   </div>
+      </div >
+    </div>
+  </main>
+
+{% comment %} Circular Elemets on Mobile (Horizontal) {% endcomment %}
+<div class="flex items-center justify-center -mt-5 space-x-6 sm:hidden">
+  <div
+    class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
+  >
+    <img src="{% static 'images/facebook.svg' %}" alt="Facebook Icon" />
+  </div>
+  <div
+    class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
+  >
+    <img src="{% static 'images/x.svg' %}" alt="X Icon" />
+  </div>
+  <div
+    class="flex items-center justify-center w-16 h-16 text-lg font-bold text-white rounded-full shadow-lg"
+  >
+    <img src="{% static 'images/insta.svg' %}" alt="Instagram Icon" />
+  </div>
+</div>
+
+{% comment %} Blogs Section {% endcomment %}
+<section
+class="relative mt-6 2xl:mb-20 xl:mb-20 lg:mb-20 md:mb-10 sm:mb-10 mb-10 overflow-hidden 2xl:mt-12">
+<div class="pb-16"> 
+  <div
           class="flex flex-wrap items-center justify-between px-8 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20"
         >
           <h1
@@ -95,52 +86,52 @@
             </span>
           </a>
         </div>
-  
-        <div
-          class="flex justify-center flex-wrap h-[550px] w-full"
-          id="blog-container"
-        >
+
+        <div class="flex justify-center flex-wrap h-[550px] w-full"
+          id="blog-container">
           {% if blogs %} {% for blog in blogs %}
           <c-components.blogs-card :blog="blog" class="z-10 border" />
           {% endfor %} {% else %}
           <p>No blogs available</p>
           {% endif %}
         </div>
-      </section>
-  
-      <div
-        class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
-      >
-        <img
-          src="{% static 'images/facebook.svg' %}"
-          alt="Facebook Icon"
-          class="object-contain w-full h-full"
-        />
-      </div>
-  
-      <div
-        class="fixed right-6 top-[400px] sm:top-[450px] md:top-[500px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
-      >
-        <img
-          src="{% static 'images/x.svg' %}"
-          alt="X Icon"
-          class="object-contain w-full h-full"
-        />
-      </div>
-  
-      <div
-        class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
-      >
-        <img
-          src="{% static 'images/insta.svg' %}"
-          alt="Instagram Icon"
-          class="object-contain w-full h-full"
-        />
-      </div>
-    </div>
-  
-    {% endblock content %} {% block extra_js %}
-    <script>
+
+
+</div>
+</section>
+
+  <!-- Fixed Circular Elements on Larger Screens -->
+  <div
+    class="fixed right-6 top-[300px] sm:top-[350px] md:top-[400px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
+  >
+    <img
+      src="{% static 'images/facebook.svg' %}"
+      alt="Facebook Icon"
+      class="object-contain w-full h-full"
+    />
+  </div>
+
+  <div
+    class="fixed right-6 top-[400px] sm:top-[450px] md:top-[500px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
+  >
+    <img
+      src="{% static 'images/x.svg' %}"
+      alt="X Icon"
+      class="object-contain w-full h-full"
+    />
+  </div>
+
+  <div
+    class="fixed right-6 top-[500px] sm:top-[550px] md:top-[600px] w-16 h-16 rounded-full items-center justify-center text-white text-lg font-bold shadow-lg hidden sm:block z-50"
+  >
+    <img
+      src="{% static 'images/insta.svg' %}"
+      alt="Instagram Icon"
+      class="object-contain w-full h-full"
+    />
+  </div>
+
+  <script>
       document.addEventListener("DOMContentLoaded", function () {
         const blogContainer = document.getElementById("blog-container");
         const scrollLeftButton = document.getElementById("scroll-left");
@@ -178,6 +169,9 @@
         h2.id = `section-${index + 1}`;
       });
     </script>
-    {% endblock extra_js %}
-  </div>
-  
+
+
+</div>
+{% endblock content %} {% block extra_js %}
+<!-- Add your extra JS here if needed -->
+{% endblock extra_js %}
