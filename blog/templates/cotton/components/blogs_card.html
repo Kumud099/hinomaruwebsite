@@ -112,10 +112,10 @@
             {% for blog in blogs %}
             <a
               href="{{ blog.url }}"
-              class="space-y-4 bg-white border-2 border-gray-300 shadow-md hover:border-red-500 swiper-slide rounded-2xl"
+              class="space-y-4 bg-white border-2 border-gray-300 shadow-md hover:border-red-500 swiper-slide rounded-2xl xl:min-h-[450px] 2xl:min-h-[400px]" 
             >
               <!-- Blog Image with Hover Effect -->
-              <div class="relative">
+              <div class="relative" >
                 <div class="image-container rounded-t-xl">
                   <!-- image -->
                   {% image blog.blog_cover_image width-400 as blog_cover %}
@@ -210,3 +210,4 @@
     </body>
     
 </html>
+</style>
