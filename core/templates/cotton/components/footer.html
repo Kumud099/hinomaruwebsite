@@ -107,16 +107,16 @@
       </h3>
       <ul class="space-y-2">
         <li>
-          <a href="#" class="transition-colors hover:text-maroon">About Us</a>
+          <a href="{% url 'home' %}#aboutUsContainer" class="transition-colors hover:text-maroon">About Us</a>
         </li>
         <li>
-          <a href="#" class="transition-colors hover:text-maroon">Careers</a>
+          <a href="/contact-us" class="transition-colors hover:text-maroon">Contact Us</a>
         </li>
         <li>
-          <a href="#" class="transition-colors hover:text-maroon">Blog</a>
+          <a href="{% url 'home' %}#home-blogs" class="transition-colors hover:text-maroon">Blogs</a>
         </li>
         <li>
-          <a href="#" class="transition-colors hover:text-maroon">Contact Us</a>
+          <a href="{% url 'home' %}#home-news" class="transition-colors hover:text-maroon">News</a>
         </li>
       </ul>
       <ul class="flex justify-center space-x-4 md:justify-start">
