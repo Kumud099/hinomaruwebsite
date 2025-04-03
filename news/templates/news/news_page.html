@@ -2,7 +2,7 @@
   %} {% block navbar %} {% endblock navbar %} {% block content %}
   <div class="overflow-hidden bg-gray-100 radius-20px">
     <c-components.navbar_fix />
-    <main class="min-h-screen mx-10 lg:mt-0">
+    <main class="2xl:h-[900px] lg:h-[900px] xl:h-[900px] md:h-[900px] sm:h-[900px] mx-10 lg:mt-0" id="news-section">
       <div
         class="container mx-auto max-w-[1200px] py-10 2xl:px-20 xl:px-20 lg:px-10 md:px-10"
       >
@@ -23,7 +23,7 @@
         <div class="p-2 -mt-10">
           {% comment %} News card section {% endcomment %}
           <div
-            class="h-[50vh] lg:h-[60vh] 2xl:h-[50vh] 2xl:mb-32 mb-20 sm:mb-20 md:mb-32 lg:mb-32 xl:mb-32 mt-10 xs:mt-20"
+            class=" xs:h-[340px] md:h-[430px] sm:h-[300px] lg:h-[450px] xl:h-[428px] 2xl:h-[430px] 2xl:mb-32 mb-20 sm:mb-20 md:mb-32 lg:mb-32 xl:mb-32 mt-10 xs:mt-20" id="newscard-section"
           >
             {% for news_item in news %}
             <c-components.news_card :news_item="news_item" />
@@ -41,6 +41,20 @@
         </div>
       </div>
     </main>
+
+    <style>
+      @media (max-width: 639px) {
+        #news-section {
+          height: 900px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #newscard-section {
+          height: 390px;
+        }
+      }
+    </style>
   
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -56,5 +70,7 @@
         });
       });
     </script>
+    
   </div>
   {% endblock content %}
+
