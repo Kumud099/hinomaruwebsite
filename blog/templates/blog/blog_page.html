@@ -1,12 +1,13 @@
 {% extends 'base.html' %} {% load wagtailimages_tags %} {% load wagtailcore_tags
-%} {% block navbar %} {% endblock navbar %} {% block content %}
+%} {% block navbar %} {% endblock navbar %} {% load custom_filters %} {% block content %}
 <!-- <div class="overflow-hidden" style="background-color: #f7fafc"> -->
 <div class="overflow-hidden bg-gray-100 radius-20px">
   <c-components.navbar_fix />
-  <main class="min-h-screen mx-10 lg:mt-0">
+  <main class="min-h-screen sm:mx-20  md:mx-10 mx-5 lg:mt-0">
     <div
-      class="container mx-auto max-w-[1200px] py-10 2xl:px-20 xl:px-20 lg:px-10 md:px-10"
+      class="container mx-auto max-w-[1550px] py-10 2xl:px-20 xl:px-20 lg:px-10 md:px-10 sm:px-5"
     >
+    <div class="pb-5">
       <!-- Page Header -->
       <div class="mb-10 -mt-2 ml-4 text-center">
         <h2
@@ -21,7 +22,7 @@
           Page {{ request.GET.page|default:1 }}
         </p>
       </div>
-
+      
       <!-- Category Section (For Both Desktop and Mobile) -->
       <div class="mb-6">
         <div class="p-4 bg-white rounded-lg shadow-md">
@@ -53,59 +54,82 @@
       </div>
 
       <!-- Blog Content Section -->
+       
       <div class="flex flex-col gap-5 md:flex-row">
         <!-- Blog Posts Section -->
         <div class="flex-1">
           <!-- Blog Grid (3 Columns × 2 Rows) -->
-          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {% for blog in blogs|slice:":6" %} {% image blog.blog_cover_image
-            width-200 as cover %}
-            <div
-              class="overflow-hidden transition duration-300 transform bg-white shadow-lg rounded-2xl hover:-translate-y-2"
-            >
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3">
+            {% for blog in blogs|slice:":6" %}
+            {% image blog.blog_cover_image width-300 as cover %}
+      
+            <!-- Blog Card Wrapped with an Anchor Tag -->
+            <a href="{{ blog.url }}" class="block overflow-hidden transition duration-300 transform bg-[#ffffff] shadow-lg rounded-2xl hover:-translate-y-2">
               <img
                 src="{{ cover.url }}"
                 alt="{{ blog.title }}"
-                class="w-full h-[120px] object-cover"
+                class="w-full 2xl:h-[250px] xl:h-[200px] lg:h-[170px] md:h-[250px] sm:h-[250px] h-[220px] object-cover"
               />
-              <div class="p-4 -mt-2">
-                <div
-                  class="2xl:h-[55px] xl:h-[55px] lg:h-[55px] md:h-[55px] sm:h-[55px]"
-                  id="blog-title"
-                >
-                  <h3 class="text-xl font-bold">{{ blog.title }}</h3>
-                </div>
-
-                <div class="flex justify-between -py-2">
-                  <p class="text-sm text-gray-500">
-                    {{ blog.blog_publish_date }}
+              <div class="2xl:p-8 p-6">
+                <p class="text-sm uppercase">
+                  {{ blog.blog_publish_date|date:"F j, Y" }}
+                </p>
+      
+                <h3 class="text-2xl font-bold mt-2 2xl:block hidden">
+                  {% with blog.blog_title.split as words %}
+                  <span class="text-[#F44336]">{{ words.0 }}</span>
+                  <span class="text-black">{{ words|slice:"1:"|join:" " }}</span>
+                  {% endwith %}
+                </h3>
+      
+                <h3 class="text-xl font-bold mt-2 2xl:hidden block">
+                  {% with blog.blog_title.split as words %}
+                  <span class="text-[#F44336]">{{ words.0 }}</span>
+                  <span class="text-black">{{ words|slice:"1:"|join:" " }}</span>
+                  {% endwith %}
+                </h3>
+      
+                <div class="py-2">
+                  {% with blog.blog_title|lettercount as title_letters %}
+                  {% if title_letters <= 32 %}
+                  <p class="text-lg 2xl:block hidden">
+                    {{ blog.blog_description | truncatewords:12 }}
                   </p>
-
-                  <a
-                    href="{{ blog.url }}"
-                    class="relative inline-flex items-center justify-center overflow-hidden text-xs font-medium transition-all group"
+                  {% else %}
+                  <p class="text-lg 2xl:block hidden">
+                    {{ blog.blog_description | truncatewords:5 }}
+                  </p>
+                  {% endif %}
+      
+                  {% if title_letters <= 32 %}
+                  <p class="text-lg 2xl:hidden block">
+                    {{ blog.blog_description | truncatewords:8 }}
+                  </p>
+                  {% else %}
+                  <p class="text-lg 2xl:hidden block">
+                    {{ blog.blog_description | truncatewords:4 }}
+                  </p>
+                  {% endif %}
+                  {% endwith %}
+                </div>
+      
+                <div>
+                  <span
+                    class="relative inline-flex items-center justify-center overflow-hidden text-md font-medium transition-all group text-red-700"
                   >
-                    <!-- Underline that appears on hover -->
-                    <span
-                      class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-red-500 transition-all duration-500 group-hover:w-[100px]"
-                    ></span>
-
-                    <span
-                      class="relative w-full text-center text-red-700 transition-colors duration-300 ease-in-out"
-                    >
-                      Read More <i class="fa fa-arrow-right"></i>
-                    </span>
-                  </a>
+                    Read More <i class="fa fa-arrow-right"></i>
+                  </span>
                 </div>
               </div>
-            </div>
+            </a>
             {% empty %}
             <p>No blog posts available</p>
             {% endfor %}
           </div>
         </div>
       </div>
-
+      
+    </div>
       <!-- Pagination -->
       <div class="flex justify-center mt-7 mb-20">
         <c-components.paginator :object="blogs" />
