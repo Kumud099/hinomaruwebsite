@@ -1,216 +1,213 @@
 {% extends "base.html" %} {% load static %} {% load widget_tweaks %} {% load
-  wagtailimages_tags %} {% block navbar%} {% endblock navbar %} {% block content
-  %}
-  <!-- <div class="overflow-hidden radius-20px" style="background-color: #f7fafc"> -->
-  <div class="overflow-hidden bg-gray-100 radius-20px">
-    <c-components.navbar_fix backgroundcolor="red-800" />
-    <div class="min-h-[100vh] m-4 flex items-center justify-center">
-      <section
-        class="p-8 pb-10 my-8 mt-12 mb-20 bg-red-800 rounded-lg shadow-lg max-w-7xl"
-      >
+wagtailimages_tags %} {% block navbar%} {% endblock navbar %} {% block content
+%}
+<!-- <div class="overflow-hidden radius-20px" style="background-color: #f7fafc"> -->
+<div class="overflow-hidden bg-gray-100 radius-20px">
+  <c-components.navbar_fix backgroundcolor="red-800" />
+  <div class="min-h-[100vh] m-4 flex items-center justify-center">
+    <section
+      class="p-8 pb-10 my-8 mb-20 mt-5 2xl:-mt-1 bg-red-800 rounded-lg shadow-lg max-w-7xl"
+    >
       <h2 class="text-4xl font-bold text-white pb-5">Get in Touch!</h2>
 
-        <!-- Changed order using flex-col-reverse and lg:grid-cols-2 -->
-        <div class="flex flex-col-reverse gap-8 lg:grid lg:grid-cols-2">
-          <!-- Contact Form (First on Mobile, Right on Desktop) -->
-          <div class="order-2 bg-white rounded-lg lg:order-2">
-            <form method="post" class="" id="contactForm" novalidate>
-              {% csrf_token %}
-              {% for field in form.visible_fields %}
-              <div class="px-4 pt-4">
-                <label class="block mb-2 font-bold text-maroon"
-                  >{{ field.label_tag }} {% if field.field.required %}
-                  <span class="text-red-800">*</span> 
-                  {% endif %}
-                </label>
-                {% if field.label == "Services" %}
-
-                   <!-- For the Services dropdown -->
-                   <select class="w-full p-2 border-gray-300 rounded shadow-sm" name="{{ field.name }}">
-                       <option value="" disabled selected>Choose services</option> 
-                     <!-- Placeholder for dropdown -->
-                       {% for option in field.field.choices %}
-                           <option value="{{ option.0 }}">{{ option.1 }}</option>
-                           
-                       {% endfor %}
-                   </select>
-                {% else %}
-              <!-- For other fields (text, long text) -->
-                   {% render_field field class="w-full p-2 border-gray-300 rounded shadow-sm" placeholder=field.help_text %}
-                   
+      <!-- Changed order using flex-col-reverse and lg:grid-cols-2 -->
+      <div class="flex flex-col-reverse gap-8 lg:grid lg:grid-cols-2">
+        <!-- Contact Form (First on Mobile, Right on Desktop) -->
+        <div class="order-2 bg-white rounded-lg lg:order-2">
+          <form method="post" class="" id="contactForm" novalidate>
+            {% csrf_token %} {% for field in form.visible_fields %}
+            <div class="px-4 pt-4">
+              <label class="block mb-2 font-bold text-maroon"
+                >{{ field.label_tag }} {% if field.field.required %}
+                <span class="text-red-800">*</span>
                 {% endif %}
-                <span class="hidden text-sm text-red-600 error-message"></span>
-              </div>
-              {% endfor %}
-  
-              <!-- Submit Button -->
-              <div
-                class="flex items-center justify-center px-6 mx-4 my-4 mb-8 lg:px-8 md:px-8 lg:mx-8"
+              </label>
+              {% if field.label == "Services" %}
+
+              <!-- For the Services dropdown -->
+              <select
+                class="w-full p-2 border-gray-300 rounded shadow-sm"
+                name="{{ field.name }}"
               >
-                <button
-                  type="submit"
-                  class="bg-red-700 text-white py-2 px-10 w-full lg:w-[450px] md:w-[400px] sm:w-full rounded-lg"
-                >
-                  Send
-                </button>
-              </div>
-            </form>
-          </div>
-  
-          <!-- Get in Touch (Second on Mobile, Left on Desktop) -->
-          <div class="order-1 space-y-6 lg:order-1">
-            
-  
-            <!-- Map -->
-            <div class="w-full mb-8 h-96">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3530.2535068623965!2d85.36674099999999!3d27.77116199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDQ2JzE2LjIiTiA4NcKwMjInMDAuMyJF!5e0!3m2!1sen!2snp!4v1737870677140!5m2!1sen!2snp"
-                class="w-full h-full rounded-lg"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+                <option value="" disabled selected>Choose services</option>
+                <!-- Placeholder for dropdown -->
+                {% for option in field.field.choices %}
+                <option value="{{ option.0 }}">{{ option.1 }}</option>
+
+                {% endfor %}
+              </select>
+              {% else %}
+              <!-- For other fields (text, long text) -->
+              {% render_field field class="w-full p-2 border-gray-300 rounded
+              shadow-sm" placeholder=field.help_text %} {% endif %}
+              <span class="hidden text-sm text-red-600 error-message"></span>
             </div>
-  
-            <!-- Contact Info -->
-            <div>
-              <div class="flex items-center p-4 space-x-4">
-                <img
-                  src="{% static 'images/contact/location.svg' %}"
-                  alt="Location Icon"
-                  class="w-6 h-6"
-                />
-                <div class="text-white">
-                  Budhanilkantha, Kathmandu, Nepal <br />
-                  <span class="text-gray-400"
-                    >Visit us at the location above.</span
-                  >
-                </div>
+            {% endfor %}
+
+            <!-- Submit Button -->
+            <div
+              class="flex items-center justify-center px-6 mx-4 my-4 mb-8 lg:px-8 md:px-8 lg:mx-8"
+            >
+              <button
+                type="submit"
+                class="bg-red-700 text-white py-2 px-10 w-full lg:w-[450px] md:w-[400px] sm:w-full rounded-lg"
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Get in Touch (Second on Mobile, Left on Desktop) -->
+        <div class="order-1 space-y-6 lg:order-1">
+          <!-- Map -->
+          <div class="w-full mb-8 h-96">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3530.2535068623965!2d85.36674099999999!3d27.77116199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDQ2JzE2LjIiTiA4NcKwMjInMDAuMyJF!5e0!3m2!1sen!2snp!4v1737870677140!5m2!1sen!2snp"
+              class="w-full h-full rounded-lg"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <div class="flex items-center p-4 space-x-4">
+              <img
+                src="{% static 'images/contact/location.svg' %}"
+                alt="Location Icon"
+                class="w-6 h-6"
+              />
+              <div class="text-white">
+                Budhanilkantha, Kathmandu, Nepal <br />
+                <span class="text-gray-400"
+                  >Visit us at the location above.</span
+                >
               </div>
-              <div class="flex items-center p-4 space-x-4">
-                <img
-                  src="{% static 'images/contact/phone.svg' %}"
-                  alt="Phone Icon"
-                  class="w-6 h-6"
-                />
-                <div class="text-white">
-                  9866073358, 9851026285 <br />
-                  <p class="text-gray-400">Contact us at the numbers above.</p>
-                </div>
+            </div>
+            <div class="flex items-center p-4 space-x-4">
+              <img
+                src="{% static 'images/contact/phone.svg' %}"
+                alt="Phone Icon"
+                class="w-6 h-6"
+              />
+              <div class="text-white">
+                9866073358, 9851026285 <br />
+                <p class="text-gray-400">Contact us at the numbers above.</p>
               </div>
-              <div class="flex items-center p-4 space-x-4">
-                <img
-                  src="{% static 'images/contact/email.svg' %}"
-                  alt="Email Icon"
-                  class="w-6 h-6"
-                />
-                <div class="text-white">
-                  example@gmail.com <br />
-                  <p class="text-gray-400">Email us at the address above.</p>
-                </div>
+            </div>
+            <div class="flex items-center p-4 space-x-4">
+              <img
+                src="{% static 'images/contact/email.svg' %}"
+                alt="Email Icon"
+                class="w-6 h-6"
+              />
+              <div class="text-white">
+                example@gmail.com <br />
+                <p class="text-gray-400">Email us at the address above.</p>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </div>
-  
-  <style>
-    .bg-maroon {
-      background-color: #902d43;
-    }
-    .text-maroon {
-      color: #902d43;
-    }
-    .error-border {
-      border: 2px solid red !important; /* Adds a red border */
-    }
-  </style>
-  
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
-  <script>
- document.addEventListener("DOMContentLoaded", function () {
+</div>
+
+<style>
+  .bg-maroon {
+    background-color: #902d43;
+  }
+  .text-maroon {
+    color: #902d43;
+  }
+  .error-border {
+    border: 2px solid red !important; /* Adds a red border */
+  }
+</style>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
     let form = document.getElementById("contactForm");
 
     if (form) {
-        form.onsubmit = function (event) {
-            let formValid = true;
-            let fields = document.querySelectorAll("#contactForm [name]");
-            let dropdown = document.querySelector("select[name='services']"); // Get dropdown once
-            
-            fields.forEach((field) => {
-                let errorSpan = field.closest("div").querySelector(".error-message"); // Ensure correct errorSpan
+      form.onsubmit = function (event) {
+        let formValid = true;
+        let fields = document.querySelectorAll("#contactForm [name]");
+        let dropdown = document.querySelector("select[name='services']"); // Get dropdown once
 
-                if (!errorSpan) return; // If errorSpan is not found, skip
+        fields.forEach((field) => {
+          let errorSpan = field.closest("div").querySelector(".error-message"); // Ensure correct errorSpan
 
-                // Check if the field is required and empty
-                if (field.hasAttribute("required") && field.value.trim() === "") {
-                    formValid = false;
-                    errorSpan.innerHTML = `<i class="fa-solid fa-exclamation-circle"></i> Please enter your ${field.name.replace("_", " ")}.`;
-                    errorSpan.classList.remove("hidden");
-                    errorSpan.style.color = "red";
-                    field.classList.add("error-border");
+          if (!errorSpan) return; // If errorSpan is not found, skip
 
-                } else if (field.type === "email" && !validateEmail(field.value)) {
-                    // Validate email format
-                    formValid = false;
-                    errorSpan.innerHTML = `<i class="fa-solid fa-exclamation-circle"></i> Please enter a valid email address.`;
-                    errorSpan.classList.remove("hidden");
-                    errorSpan.style.color = "red";
-                    field.classList.add("error-border");
-
-                } else {
-                    // Remove error if valid
-                    errorSpan.classList.add("hidden");
-                    field.classList.remove("error-border");
-                }
-            });
-
-            // Separate dropdown validation to ensure it works correctly
-            if (dropdown && dropdown.value === "") {
-                formValid = false;
-                let dropdownErrorSpan = dropdown.closest("div").querySelector(".error-message");
-                if (dropdownErrorSpan) {
-                    dropdownErrorSpan.innerHTML = `<i class="fa-solid fa-exclamation-circle"></i> Please select a service.`;
-                    dropdownErrorSpan.classList.remove("hidden");
-                    dropdownErrorSpan.style.color = "red";
-                    dropdown.classList.add("error-border");
-                }
-            }
-
-            if (!formValid) {
-                event.preventDefault(); // Prevent form submission
-            }
-        };
-
-        // Remove error when the user starts typing or selecting
-        document.querySelectorAll("#contactForm [name]").forEach((field) => {
-            field.addEventListener("input", function () {
-                let errorSpan = field.closest("div").querySelector(".error-message");
-
-                if (errorSpan && field.value.trim() !== "") {
-                    errorSpan.classList.add("hidden");
-                    field.classList.remove("error-border");
-                }
-            });
+          // Check if the field is required and empty
+          if (field.hasAttribute("required") && field.value.trim() === "") {
+            formValid = false;
+            errorSpan.innerHTML = `<i class="fa-solid fa-exclamation-circle"></i> Please enter your ${field.name.replace(
+              "_",
+              " "
+            )}.`;
+            errorSpan.classList.remove("hidden");
+            errorSpan.style.color = "red";
+            field.classList.add("error-border");
+          } else if (field.type === "email" && !validateEmail(field.value)) {
+            // Validate email format
+            formValid = false;
+            errorSpan.innerHTML = `<i class="fa-solid fa-exclamation-circle"></i> Please enter a valid email address.`;
+            errorSpan.classList.remove("hidden");
+            errorSpan.style.color = "red";
+            field.classList.add("error-border");
+          } else {
+            // Remove error if valid
+            errorSpan.classList.add("hidden");
+            field.classList.remove("error-border");
+          }
         });
+
+        // Separate dropdown validation to ensure it works correctly
+        if (dropdown && dropdown.value === "") {
+          formValid = false;
+          let dropdownErrorSpan = dropdown
+            .closest("div")
+            .querySelector(".error-message");
+          if (dropdownErrorSpan) {
+            dropdownErrorSpan.innerHTML = `<i class="fa-solid fa-exclamation-circle"></i> Please select a service.`;
+            dropdownErrorSpan.classList.remove("hidden");
+            dropdownErrorSpan.style.color = "red";
+            dropdown.classList.add("error-border");
+          }
+        }
+
+        if (!formValid) {
+          event.preventDefault(); // Prevent form submission
+        }
+      };
+
+      // Remove error when the user starts typing or selecting
+      document.querySelectorAll("#contactForm [name]").forEach((field) => {
+        field.addEventListener("input", function () {
+          let errorSpan = field.closest("div").querySelector(".error-message");
+
+          if (errorSpan && field.value.trim() !== "") {
+            errorSpan.classList.add("hidden");
+            field.classList.remove("error-border");
+          }
+        });
+      });
     }
 
     // Validate email using regex
     function validateEmail(email) {
-        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return emailPattern.test(email);
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return emailPattern.test(email);
     }
-});
+  });
+</script>
 
-
-
-
-  </script>
-  
-  
-  {% endblock content %}
+{% endblock content %}
