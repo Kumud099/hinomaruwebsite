@@ -1646,6 +1646,14 @@ select {
   margin-top: 1.75rem;
 }
 
+.-mt-12 {
+  margin-top: -3rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
 .block {
   display: block;
 }
@@ -2447,6 +2455,10 @@ select {
   padding-top: 2rem;
 }
 
+.pl-\[20px\] {
+  padding-left: 20px;
+}
+
 .text-left {
   text-align: left;
 }
@@ -3073,6 +3085,10 @@ select {
     max-width: 24rem;
   }
 
+  .sm\:max-w-\[300px\] {
+    max-width: 300px;
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3118,6 +3134,10 @@ select {
 
   .sm\:text-left {
     text-align: left;
+  }
+
+  .sm\:text-justify {
+    text-align: justify;
   }
 
   .sm\:text-2xl {
@@ -3348,6 +3368,10 @@ select {
     padding-bottom: 1.25rem;
   }
 
+  .md\:pl-\[50px\] {
+    padding-left: 50px;
+  }
+
   .md\:text-left {
     text-align: left;
   }
@@ -3548,6 +3572,10 @@ select {
     max-width: 32rem;
   }
 
+  .lg\:max-w-\[600px\] {
+    max-width: 600px;
+  }
+
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3589,6 +3617,11 @@ select {
   .lg\:py-10 {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
+  }
+
+  .lg\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .lg\:pb-5 {
@@ -3739,6 +3772,11 @@ select {
     padding-bottom: 1.25rem;
   }
 
+  .xl\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   .xl\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -3827,6 +3865,10 @@ select {
 
   .\32xl\:mt-20 {
     margin-top: 5rem;
+  }
+
+  .\32xl\:mt-8 {
+    margin-top: 2rem;
   }
 
   .\32xl\:flex {
