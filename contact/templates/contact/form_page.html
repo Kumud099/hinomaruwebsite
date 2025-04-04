@@ -5,9 +5,12 @@ wagtailimages_tags %} {% block navbar%} {% endblock navbar %} {% block content
 <div class="overflow-hidden bg-gray-100 radius-20px">
   <c-components.navbar_fix backgroundcolor="red-800" />
   <div class="min-h-[100vh] m-4 flex items-center justify-center">
+    {% comment %} <section
+    class="p-8 pb-10 my-8 mb-20 bg-red-800 rounded-lg shadow-lg max-w-7xl"
+  > {% endcomment %}
     <section
-      class="p-8 pb-10 my-8 mb-20 mt-5 2xl:-mt-1 bg-red-800 rounded-lg shadow-lg max-w-7xl"
-    >
+      class="p-8 pb-10 my-8 mb-20 mt-5 2xl:mt-0 bg-red-800 rounded-lg shadow-lg max-w-7xl"
+    > 
       <h2 class="text-4xl font-bold text-white pb-5">Get in Touch!</h2>
 
       <!-- Changed order using flex-col-reverse and lg:grid-cols-2 -->
