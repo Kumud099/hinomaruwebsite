@@ -50,7 +50,9 @@
       <div id="services-btn" class="group">
         <button
           class="px-3 py-8 hover:text-red-800 font-bold relative before:absolute before:top-0 before:left-0 before:w-full before:h-[4px] before:bg-red-800 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 hover:scale-105 transition-transform duration-300 ease-in-out"
-        >SERVICES</button>
+        >
+          SERVICES
+        </button>
 
         <div
           id="dropdown-menu"
@@ -122,7 +124,7 @@
   <!-- Mobile Menu (Improved Layout) -->
   <div
     id="mobile-menu"
-    class="flex flex-col items-center hidden w-full px-4 py-6 space-y-6 text-red-500 bg-white shadow-lg"
+    class="flex fixed flex-col items-center hidden w-full px-4 py-6 space-y-6 text-red-500 bg-white shadow-lg"
   >
     <hr class="w-full border-t border-gray-300" />
 
@@ -225,68 +227,98 @@
       </a>
     </div>
   </div>
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
 </nav>
-<style>
-  /* Dropdown Menu Styling */
-  #dropdown-menu {
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+
+<script>
+  // Get all elements
+  const servicesBtn = document.getElementById("services-btn");
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  const navbar = document.getElementById("navbar");
+  const hamburgerButton = document.getElementById("hamburger");
+  const menu = document.getElementById("mobile-menu");
+
+  // Desktop services dropdown
+  if (servicesBtn && dropdownMenu) {
+    servicesBtn.addEventListener("mouseenter", () => {
+      dropdownMenu.classList.add("show");
+      navbar.classList.add("white-bg");
+    });
+
+    servicesBtn.addEventListener("mouseleave", () => {
+      dropdownMenu.classList.remove("show");
+      navbar.classList.remove("white-bg");
+    });
   }
 
-  #dropdown-menu.show {
-    opacity: 1;
-    transform: scaleY(1);
+  // Mobile menu toggle
+  if (hamburgerButton && menu) {
+    hamburgerButton.addEventListener("click", function () {
+      const isOpening = menu.classList.contains("hidden");
+
+      // Toggle icon state
+      hamburgerButton.classList.toggle("cross");
+
+      if (isOpening) {
+        // Open menu
+        navbar.classList.add("white-bg");
+        menu.classList.remove("hidden");
+        // Force reflow before animation
+        void menu.offsetWidth;
+        menu.classList.add("menu-animate");
+      } else {
+        // Close menu
+        menu.classList.remove("menu-animate");
+        menu.classList.add("menu-close");
+
+        // After animation completes
+        setTimeout(() => {
+          menu.classList.add("hidden");
+          menu.classList.remove("menu-close");
+          navbar.classList.remove("white-bg");
+        }, 300);
+      }
+    });
   }
 
-  /* for all the devices since child 2 is not in cross */
-  .cross span:nth-child(2) {
-    opacity: 0;
-  }
-
-  /* Cross Icon Animation */
-  @media (min-width: 360px) {
-    .cross span:nth-child(1) {
-      transform: rotate(45deg) translate(3px, 8px);
-      height: 3px;
-      width: 24px;
+  // Close menu when clicking outside
+  document.addEventListener("click", function (event) {
+    if (
+      !menu.contains(event.target) &&
+      !hamburgerButton.contains(event.target) &&
+      !menu.classList.contains("hidden")
+    ) {
+      closeMenu();
     }
+  });
 
-    .cross span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -12px);
-      height: 3px;
-      width: 24px;
+  // Close on escape key
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !menu.classList.contains("hidden")) {
+      closeMenu();
+    }
+  });
+
+  // Responsive cleanup
+  window.addEventListener("resize", function () {
+    if (window.innerWidth >= 1280) {
+      closeMenu();
+      if (dropdownMenu) dropdownMenu.classList.remove("show");
+      navbar.classList.remove("white-bg");
+    }
+  });
+
+  function closeMenu() {
+    if (!menu.classList.contains("hidden")) {
+      hamburgerButton.classList.remove("cross");
+      menu.classList.remove("menu-animate");
+      menu.classList.add("menu-close");
+      navbar.classList.remove("white-bg");
+
+      setTimeout(() => {
+        menu.classList.add("hidden");
+        menu.classList.remove("menu-close");
+      }, 300);
     }
   }
-
-  @media (min-width: 700px),
-    (min-width: 800px),
-    (min-width: 1000px),
-    (min-width: 1270px) {
-    /* Cross Icon Animation */
-    .cross span:nth-child(1) {
-      transform: rotate(44deg) translate(2px, 8px);
-      height: 4px;
-      width: 27px;
-    }
-
-    .cross span:nth-child(3) {
-      transform: rotate(-45deg) translate(9px, -14px);
-      height: 4px;
-      width: 27px;
-    }
-  }
-
-  /* Navbar background change on hover */
-  #navbar.white-bg {
-    background-color: white;
-    transition: background-color 0.3s ease;
-  }
-
-  #hamburger span {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-</style>
-
-<script src="{% static 'js/navbar.js' %}"></script>
+</script>
