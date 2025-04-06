@@ -13,11 +13,13 @@ id="aboutUsContainer"
   </h2>
 
   <div class="2xl:px-44 lg:px-10 xl:p-10 md:px-10 px-0">
+{% comment %} <div> {% endcomment %}
   <div
     class="flex flex-col  mx-auto  2xl:gap-10 md:flex-row max-w-[2000px] min-w-[100px] about-us 2xl:mt-20 "
     id="aboutus-textandimage"
   >
     <!-- Content Section -->
+    {% comment %} <div class="w-full px-4 mt-0 text-left md:w-1/2 about-us 2xl:mt-20 lg:mt-10 md:mt-10 sm:mx-auto "> {% endcomment %}
       <div class="w-full px-4 mt-0 text-left md:w-1/2 sm:mt-0 mt-0 about-us sm:mx-auto ">
       <p class="mb-6 md:text-[20px] lg:text-[20px] xl:text-[25px] 2xl:text-[30px] text-justify font-bold  text-gray-900 md:text-4xl">
         As a Web Development Services We are Committed to Building Custom <span class="text-red-500">Web
@@ -70,14 +72,11 @@ id="aboutUsContainer"
   }
   */
 
-  /* Converted Django comment to CSS comment to fix the error */
-  /*
-  @media (min-width: 912px) and (max-width: 914px) {
+  {% comment %} @media (min-width: 912px) and (max-width: 914px) {
     #aboutUsContainer {
       margin-bottom: 80%;
     }
-  }
-  */
+  } {% endcomment %}
 
   @media (min-width: 390px) and (max-width: 400px) {
     #services {
@@ -126,10 +125,9 @@ id="aboutUsContainer"
       gap: 40px !important;
     }
   }
-
-  #aboutus-textandimage > div {
-    width: 90% !important;
-    text-align: center;
-  }
-
+    #aboutus-textandimage > div {
+      width: 90% !important; /* Give enough space */
+      text-align: center; /* Center text */
+    }
+    
 </style>

@@ -1,4 +1,4 @@
-<!-- Navbar -->
+<!-- Navbar-fix -->
 {% load static %}
 <nav id="navbar" class="top-0 left-0 z-50 w-full shadow-md">
   <div class="flex items-center justify-between px-6">
@@ -129,7 +129,7 @@
   <!-- Mobile Menu (Improved Layout) -->
   <div
     id="mobile-menu"
-    class="flex flex-col items-center hidden w-full px-4 py-6 space-y-6 text-red-500 bg-white shadow-lg"
+    class="flex flex-col absolute items-center hidden w-full px-4 py-6 space-y-6 text-red-500 bg-white shadow-lg"
   >
     <hr class="w-full border-t border-gray-300" />
 
@@ -232,111 +232,98 @@
       </a>
     </div>
   </div>
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
 </nav>
 
-<style>
-  #mobile-menu {
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 50; /* Make sure the navbar stays above other content */
-    width: 100%;
+<script>
+  // Get all elements
+  const servicesBtn = document.getElementById("services-btn");
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  const navbar = document.getElementById("navbar");
+  const hamburgerButton = document.getElementById("hamburger");
+  const menu = document.getElementById("mobile-menu");
+
+  // Desktop services dropdown
+  if (servicesBtn && dropdownMenu) {
+    servicesBtn.addEventListener("mouseenter", () => {
+      dropdownMenu.classList.add("show");
+      navbar.classList.add("white-bg");
+    });
+
+    servicesBtn.addEventListener("mouseleave", () => {
+      dropdownMenu.classList.remove("show");
+      navbar.classList.remove("white-bg");
+    });
   }
 
-  /* Dropdown Menu Styling */
-  #dropdown-menu {
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    /* left: 68%;  */
-    left: 50%; /* Start from center */
-    transform: translateX(-50%) scaleY(0); /* Center the dropdown */
+  // Mobile menu toggle
+  if (hamburgerButton && menu) {
+    hamburgerButton.addEventListener("click", function () {
+      const isOpening = menu.classList.contains("hidden");
+
+      // Toggle icon state
+      hamburgerButton.classList.toggle("cross");
+
+      if (isOpening) {
+        // Open menu
+        navbar.classList.add("white-bg");
+        menu.classList.remove("hidden");
+        // Force reflow before animation
+        void menu.offsetWidth;
+        menu.classList.add("menu-animate");
+      } else {
+        // Close menu
+        menu.classList.remove("menu-animate");
+        menu.classList.add("menu-close");
+
+        // After animation completes
+        setTimeout(() => {
+          menu.classList.add("hidden");
+          menu.classList.remove("menu-close");
+          navbar.classList.remove("white-bg");
+        }, 300);
+      }
+    });
   }
 
-  #dropdown-menu.show {
-    opacity: 1;
-    transform: scaleY(1);
-    transform: translateX(-53%) scaleY(1);
-  }
+  // Close menu when clicking outside
+  document.addEventListener("click", function (event) {
+    if (
+      !menu.contains(event.target) &&
+      !hamburgerButton.contains(event.target) &&
+      !menu.classList.contains("hidden")
+    ) {
+      closeMenu();
+    }
+  });
 
-  /* Adjust for larger screens */
-  @media (min-width: 1280px) {
-    #dropdown-menu.show {
-      transform: translateX(-50%) scaleY(1);
+  // Close on escape key
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !menu.classList.contains("hidden")) {
+      closeMenu();
+    }
+  });
+
+  // Responsive cleanup
+  window.addEventListener("resize", function () {
+    if (window.innerWidth >= 1280) {
+      closeMenu();
+      if (dropdownMenu) dropdownMenu.classList.remove("show");
+      navbar.classList.remove("white-bg");
+    }
+  });
+
+  function closeMenu() {
+    if (!menu.classList.contains("hidden")) {
+      hamburgerButton.classList.remove("cross");
+      menu.classList.remove("menu-animate");
+      menu.classList.add("menu-close");
+      navbar.classList.remove("white-bg");
+
+      setTimeout(() => {
+        menu.classList.add("hidden");
+        menu.classList.remove("menu-close");
+      }, 300);
     }
   }
-
-  @media (min-width: 1669px) {
-    #dropdown-menu.show {
-      transform: translateX(-50%) scaleY(1);
-    }
-  }
-  @media (min-width: 1600px) {
-    #dropdown-menu.show {
-      transform: translateX(-50%) scaleY(1);
-    }
-  }
-
-  /* for all the devices sizes  */
-  .cross span:nth-child(2) {
-    opacity: 0;
-  }
-
-  /* Cross Icon Animation */
-  @media (min-width: 360px) {
-    .cross span:nth-child(1) {
-      transform: rotate(45deg) translate(3px, 8px);
-      height: 3px;
-      width: 24px;
-    }
-
-    .cross span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -12px);
-      height: 3px;
-      width: 24px;
-    }
-  }
-
-  @media (min-width: 700px),
-    (min-width: 800px),
-    (min-width: 1000px),
-    (min-width: 1270px) {
-    /* Cross Icon Animation */
-    .cross span:nth-child(1) {
-      transform: rotate(44deg) translate(2px, 8px);
-      height: 4px;
-      width: 27px;
-    }
-
-    .cross span:nth-child(3) {
-      transform: rotate(-45deg) translate(9px, -14px);
-      height: 4px;
-      width: 27px;
-    }
-  }
-
-  /* Navbar background change on hover */
-  #navbar.white-bg {
-    background-color: white;
-    transition: background-color 0.3s ease;
-  }
-
-  #hamburger span {
-    display: block;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  /* Hide the cross icon until the button is clicked */
-  .cross span:nth-child(1),
-  .cross span:nth-child(3) {
-    opacity: 0;
-  }
-
-  /* Show hamburger icon initially */
-  #hamburger span:nth-child(1),
-  #hamburger span:nth-child(3) {
-    opacity: 1;
-  }
-</style>
-
-<script src="{% static 'js/navbar.js' %}"></script>
+</script>
