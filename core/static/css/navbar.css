@@ -55,6 +55,33 @@
     top: 72px;
   }
 }
+
+/* Initial navbar style */
+#navbar {
+
+  z-index: 50; /* Make sure it's above other elements */
+}
+
+/* Add a pseudo-element for the white drop effect */
+#navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+  z-index: -1; /* Behind the actual navbar content */
+}
+
+/* Trigger the drop effect */
+#navbar.white-bg::before {
+  transform: scaleY(1);
+}
+
 /* Dropdown Menu Styling */
 #dropdown-menu {
   opacity: 0;
@@ -129,10 +156,7 @@
 }
 
 /* Navbar background change on hover */
-#navbar.white-bg {
-  background-color: white;
-  transition: background-color 0.3s ease;
-}
+
 
 #hamburger span {
   display: block;

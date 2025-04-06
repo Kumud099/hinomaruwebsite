@@ -247,16 +247,63 @@
 
   // Desktop services dropdown
   if (servicesBtn && dropdownMenu) {
-    servicesBtn.addEventListener("mouseenter", () => {
-      dropdownMenu.classList.add("show");
-      navbar.classList.add("white-bg");
-    });
+  let showTimeout, hideTimeout;
+  let isHoveringServices = false;
 
-    servicesBtn.addEventListener("mouseleave", () => {
-      dropdownMenu.classList.remove("show");
-      navbar.classList.remove("white-bg");
-    });
-  }
+  // Show navbar background and dropdown when hovering over the services button
+  servicesBtn.addEventListener("mouseenter", () => {
+    clearTimeout(hideTimeout); // Clear any pending hide timeout
+
+    // Mark that the services button is being hovered
+    isHoveringServices = true;
+
+    // Show navbar background
+    showTimeout = setTimeout(() => {
+      navbar.classList.add("white-bg");
+    }, 10);
+
+    // Show dropdown after some delay
+    setTimeout(() => {
+      dropdownMenu.classList.add("show");
+    }, 230);
+  });
+
+  // Hide navbar background and dropdown when leaving services button (only when not hovering on the dropdown)
+  servicesBtn.addEventListener("mouseleave", () => {
+    isHoveringServices = false; // Mark that the services button is no longer hovered
+
+    // Wait a bit before hiding, but only if the dropdown is not being hovered
+    hideTimeout = setTimeout(() => {
+      if (!isHoveringDropdown) {
+        dropdownMenu.classList.remove("show");
+        navbar.classList.remove("white-bg");
+      }
+    }, 90);
+    
+    
+  });
+
+  let isHoveringDropdown = false;
+
+  // Prevent hiding when hovering over the dropdown menu
+  dropdownMenu.addEventListener("mouseenter", () => {
+    isHoveringDropdown = true;
+    clearTimeout(hideTimeout); // Clear any pending hide timeout
+  });
+
+  // Hide navbar background and dropdown when leaving dropdown menu (only when not hovering over services button)
+  dropdownMenu.addEventListener("mouseleave", () => {
+    isHoveringDropdown = false; // Mark that the dropdown menu is no longer hovered
+
+    // Wait a bit before hiding, but only if the services button is not being hovered
+    hideTimeout = setTimeout(() => {
+      if (!isHoveringServices) {
+        dropdownMenu.classList.remove("show");
+        navbar.classList.remove("white-bg");
+      }
+    }, 200);
+  });
+}
 
   
 
@@ -338,3 +385,66 @@
     }
   }
 </script>
+
+<style>
+ 
+ #navbar {
+  position: relative;
+  z-index: 50; /* Make sure it's above other elements */
+}
+
+/* Add a pseudo-element for the white drop effect */
+#navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+  z-index: -1; /* Behind the actual navbar content */
+}
+
+/* Trigger the drop effect */
+#navbar.white-bg::before {
+  transform: scaleY(1);
+}
+
+/* Dropdown Menu Styling */
+#dropdown-menu {
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* left: 68%;  */
+  left: 50%; /* Start from center */
+  transform: translateX(-50%) scaleY(0); /* Center the dropdown */
+}
+
+#dropdown-menu.show {
+  opacity: 1;
+  transform: scaleY(1);
+  transform: translateX(-53%) scaleY(1);
+}
+
+/* Adjust for larger screens */
+@media (min-width: 1280px) {
+  #dropdown-menu.show {
+    transform: translateX(-50%) scaleY(1);
+  }
+}
+
+@media (min-width: 1669px) {
+  #dropdown-menu.show {
+    transform: translateX(-50%) scaleY(1);
+  }
+}
+@media (min-width: 1600px) {
+  #dropdown-menu.show {
+    transform: translateX(-50%) scaleY(1);
+  }
+}
+</style>
