@@ -1,22 +1,25 @@
 <!-- ABOUT US SECTION IN HOME PAGE -->
 {% load static %}
 <section
-  class="flex flex-col items-center h-auto min-h-screen px-10 mb-20 overflow-hidden 2xl:px-20 about-us"
-  id="aboutUsContainer"
+class="flex flex-col items-center h-auto mb-32 md:mb-20 lg:mb-20 xl:mb-20 2xl:mb-32 overflow-hidden about-us"
+id="aboutUsContainer"
 >
+
   <h2
-    class="font-bold mt-12 pt-8 lg:mb-8 md:mb-10 mb-4 about-us text-red-700 text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
+    class="font-bold mt-12 pt-7 lg:mb-8 md:mb-10 mb-4 about-us text-red-700 text-[29px] sm:text-[40px] md:text-[42px] lg:text-[42px] xl:text-[42px]"
     id="our-vision"
   >
     ABOUT US
   </h2>
+
+  <div class="2xl:px-44 lg:px-10 xl:p-10 md:px-10 px-0">
   <div
-    class="flex flex-col  mx-auto md:flex-row max-w-[2000px] min-w-[100px] about-us 2xl:mt-20 "
+    class="flex flex-col  mx-auto  2xl:gap-10 md:flex-row max-w-[2000px] min-w-[100px] about-us 2xl:mt-20 "
     id="aboutus-textandimage"
   >
     <!-- Content Section -->
-    <div class="w-full px-4 mt-0 text-left md:w-1/2 about-us 2xl:mt-20 sm:mx-auto ">
-      <p class="mb-6 md:text-[20px] lg:text-[20px] tracking-wide xl:text-[25px] 2xl:text-[30px] text-justify font-bold  text-gray-900 md:text-4xl">
+      <div class="w-full px-4 mt-0 text-left md:w-1/2 sm:mt-0 mt-0 about-us sm:mx-auto ">
+      <p class="mb-6 md:text-[20px] lg:text-[20px] xl:text-[25px] 2xl:text-[30px] text-justify font-bold  text-gray-900 md:text-4xl">
         As a Web Development Services We are Committed to Building Custom <span class="text-red-500">Web
             Solutions that Drive Business Success.</span>
     </p>
@@ -39,33 +42,42 @@
     >
       <!-- Animated Red Circle Background -->
       <div class="absolute rounded-full bg-red-900 w-[250px] h-[250px]  md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[450px] xl:w-[450px] xl:h-[450px] 2xl:w-[600px] 2xl:h-[600px] -top-[50px] sm:-top-[40px] md:-top-[30px] lg:-top-[50px] xl:-top-[50px] 2xl:-top-[120px] right-0  2xl:-right-[10px] xl:-right[30px] lg:-right-[30px] md:-right-[20px] opacity-0 animate-circle mx-auto" id="animation-circle">
-    </div>
+      </div>
       <!-- Main Image -->
       <img src="{% static 'images/aboutus.webp' %}" alt="About Us Visual"
     class="relative max-w-[120%] sm:max-w-[500px] h-auto sm:h-[300px] md:h-[300px] md:max-w-[350px] lg:max-w-[350px] lg:h-[350px] xl:max-w-[350px] xl:h-[350px] 2xl:max-w-[500px] 2xl:h-[500px] object-cover transition-transform duration-300 hover:scale-105 mx-auto" id="about_img">
+  </div>
+</div>
 
   </div>
 </section>
 
 <style>
   /* Media query for 414 */
-  /* @media (min-width: 414px) and (max-width: 416px) {
+  /*
+  @media (min-width: 414px) and (max-width: 416px) {
     #image_holder {
-      margin-top: 6%;
+      margin-top: 5%;
     }
-  } */
+  }
+  */
 
-  /* @media (min-width: 390px) and (max-width: 400px) {
+  /*
+  @media (min-width: 390px) and (max-width: 400px) {
     #image_holder {
-      margin-top: 6%;
+      margin-top: 5%;
     }
-  } */
+  }
+  */
 
+  /* Converted Django comment to CSS comment to fix the error */
+  /*
   @media (min-width: 912px) and (max-width: 914px) {
     #aboutUsContainer {
       margin-bottom: 80%;
     }
   }
+  */
 
   @media (min-width: 390px) and (max-width: 400px) {
     #services {
@@ -74,32 +86,31 @@
   }
 
   #animation-circle {
-  display: block; /* Keep it visible by default */
-}
-
-/* Hide the animation-circle within the section when screen width is between 639px and 976px */
-@media (min-width: 200px) and (max-width: 975px) {
-   #animation-circle {
-    display: none; /* Hide only within the 'about-us' section */
+    display: block; /* Keep it visible by default */
   }
-}
 
-
-@media (min-width: 300px) and (max-width: 974px) {
-  #aboutus-textandimage {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center content */
-    justify-content: center; /* Ensure proper alignment */
-    gap: 20px !important; /* Ensure enough spacing */
+  /* Hide the animation-circle within the section when screen width is between 639px and 976px */
+  @media (min-width: 200px) and (max-width: 975px) {
+    #animation-circle {
+      display: none; /* Hide only within the 'about-us' section */
+    }
   }
-}
-  
+
+  @media (min-width: 300px) and (max-width: 974px) {
+    #aboutus-textandimage {
+      display: flex;
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center content */
+      justify-content: center; /* Ensure proper alignment */
+      gap: 20px !important; /* Ensure enough spacing */
+    }
+  }
+
   @media (min-width: 977px) and (max-width: 1023px) {
-  #aboutus-textandimage {
-    margin-top: 50px;
+    #aboutus-textandimage {
+      margin-top: 50px;
+    }
   }
-}
 
   #aboutus-textandimage > div {
     width: 90% !important; /* Give enough space */
@@ -109,14 +120,16 @@
   @media (min-width: 768px) and (max-width: 974px) {
     #aboutus-textandimage {
       display: flex;
-      flex-direction: column; /* Stack elements vertically */
-      align-items: center; /* Center content */
-      justify-content: center; /* Ensure proper alignment */
-      gap: 40px !important; /* Ensure enough spacing */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px !important;
     }
   }
-    #aboutus-textandimage > div {
-      width: 90% !important; /* Give enough space */
-      text-align: center; /* Center text */
-    }
+
+  #aboutus-textandimage > div {
+    width: 90% !important;
+    text-align: center;
+  }
+
 </style>
