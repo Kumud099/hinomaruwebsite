@@ -3,8 +3,8 @@
 <nav id="navbar" class="top-0 left-0 z-50 w-full shadow-md">
   <div class="flex items-center justify-between px-6">
     <!-- Logo -->
-    <div class="flex items-center">
-      <a href="{% url 'home' %}" class="flex gap-3 pt-4 pb-2">
+    <div class="flex items-center"> 
+      <a href="{% url 'home' %}" class="flex gap-3 pt-4 pb-2" id="hino-text-icon-group">
         <img
           src="{% static 'images/logo.png' %}"
           alt="logo"
@@ -242,6 +242,8 @@
   const navbar = document.getElementById("navbar");
   const hamburgerButton = document.getElementById("hamburger");
   const menu = document.getElementById("mobile-menu");
+  const mobile_services = document.getElementById("mobile-services");
+  const mobile_dropdown = document.getElementById("mobile-dropdown");
 
   // Desktop services dropdown
   if (servicesBtn && dropdownMenu) {
@@ -255,6 +257,8 @@
       navbar.classList.remove("white-bg");
     });
   }
+
+  
 
   // Mobile menu toggle
   if (hamburgerButton && menu) {
@@ -277,14 +281,21 @@
         menu.classList.add("menu-close");
 
         // After animation completes
-        setTimeout(() => {
-          menu.classList.add("hidden");
-          menu.classList.remove("menu-close");
-          navbar.classList.remove("white-bg");
-        }, 300);
+        // First timeout: For menu
+  setTimeout(() => {
+    menu.classList.add("hidden");
+    menu.classList.remove("menu-close");
+  }, 300); // You can adjust the delay as needed
+
+  // Second timeout: For navbar
+  setTimeout(() => {
+    navbar.classList.remove("white-bg");
+  }, 100); // Different delay for navbar (e.g. 250ms)
       }
     });
   }
+
+
 
   // Close menu when clicking outside
   document.addEventListener("click", function (event) {
