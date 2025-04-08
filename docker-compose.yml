@@ -1,0 +1,14 @@
+services:
+  wagtail:
+    image: my-wagtail-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=False
+      - DJANGO_SECRET_KEY=django-insecure-s%$66rpw5_)tmrc2a$)$m&79v81f2%chu29+xht=o@r5%rmx81
+    volumes:
+      - .:/app
+    command: ["sh", "-c", "python manage.py tailwind runserver & gunicorn core.wsgi:application --bind 0.0.0.0:8000"]
